@@ -1333,7 +1333,10 @@ function ocultarMensaje4() {
     .</li>
     </ul>
 
-
+    <button onmousedown="mostrarMensaje4()" onmouseup="ocultarMensaje4()">aclaracion</button>
+    <div id="mensaje4" style="display: none; margin-top: 10px; padding: 10px; background-color: #f0f0f0;">
+     <img src="../../../../img/guia_471.png" alt="">
+    </div>
     <button type="submit">Enviar</button>
 <?php echo $verificar_40 ?>
 <?php echo $verificar_41 ?>

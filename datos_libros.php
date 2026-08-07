@@ -58,7 +58,7 @@ $libros = [
         'nombre' => 'Música',
         'imagen' => 'fondo.jpg',
         'categoria' => 'principal',
-        'link' => 'musica/index.php'
+        'link' => 'musica/Menu.php'
     ],
     [
         'nombre' => 'Scala',
@@ -73,10 +73,22 @@ $libros = [
         'link' => 'SistemaDatos/Menu.php'
     ],
     [
+        'nombre' => 'Sistemas Operativos',
+        'imagen' => 'fondo.jpg',
+        'categoria' => 'principal',
+        'link' => 'sistemas_operativos/Menu.php'
+    ],
+    [
         'nombre' => 'Trading',
         'imagen' => 'fondo.jpg',
         'categoria' => 'principal',
         'link' => 'Trading/Menu.php'
+    ],
+    [
+        'nombre' => 'APO',
+        'imagen' => 'fondo.jpg',
+        'categoria' => 'principal',
+        'link' => 'APO/Menu.php'
     ],
     [
         'nombre' => 'Física',

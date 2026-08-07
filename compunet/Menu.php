@@ -1,103 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Índice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuNet</title>
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
 
-    .container {
-        display: flex;
-        height: 100vh;
-    }
+        .container {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
-    /* 📖 cada mitad de la pantalla */
-    .col {
-        flex: 1;
-        padding: 30px;
-        overflow-y: auto;
-    }
+        .col {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
 
-    .left {
-        background: #ffffff;
-        border-right: 2px solid #ddd;
-    }
+        h1 {
+            text-align: center;
+            font-size: 26px;
+        }
 
-    .right {
-        background: #f9fafb;
-    }
+        h2 {
+            margin-top: 25px;
+            font-size: 20px;
+        }
 
-    h1 {
-        text-align: center;
-        margin-top: 0;
-    }
+        .btn {
+            display: block;
+            text-decoration: none;
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
 
-    h2 {
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 5px;
-    }
+        .btn:hover {
+            background: #217dbb;
+        }
 
-    .btn {
-        display: block;
-        margin: 10px 0;
-        padding: 10px;
-        background: #2563eb;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        text-align: center;
-    }
+        @media(max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 
-    .btn:hover {
-        background: #1e40af;
-    }
-</style>
 </head>
 
 <body>
 
 <div class="container">
 
-    <!-- 📚 LADO IZQUIERDO -->
+
+    <!-- 📚 COMPUNET 1 -->
     <div class="col left">
-        <h1>📚 Semanas</h1>
+
+        <h1>📚 CompuNet 1</h1>
 
         <h2>Contenido</h2>
         <a class="btn" href="./semana_1/Menu.php">Semana 1</a>
         <a class="btn" href="./semana_2/Menu.php">Semana 2</a>
         <a class="btn" href="./semana_3/Menu.php">Semana 3</a>
 
+
         <h2>Evaluaciones</h2>
         <a class="btn" href="./parcial_2/Menu.php">Parcial 2</a>
 
+
         <h2>Otros</h2>
         <a class="btn" href="./multihilos/Menu.php">Multihilos</a>
+
     </div>
 
-    <!-- 📖 LADO DERECHO -->
+
+
+    <!-- ⚙️ COMPUNET 2 -->
     <div class="col right">
-        <h1>⚙️ Tecnologías</h1>
+
+        <h1>⚙️ CompuNet 2</h1>
+
 
         <h2>Backend</h2>
+
         <a class="btn" href="./Spring/Menu.php">Spring</a>
         <a class="btn" href="./SpringJPA/index.php">Spring JPA</a>
         <a class="btn" href="./REST/index.php">REST</a>
         <a class="btn" href="./MVC/index.php">MVC</a>
         <a class="btn" href="./Thymeleaf/index.php">Thymeleaf</a>
 
-        Frontend
+
+        <h2>Frontend</h2>
+
         <a class="btn" href="./JAVASCRIPT/index.php">JavaScript</a>
         <a class="btn" href="./REACT/index.php">REACT</a>
         <a class="btn" href="./AXIOS/index.php">AXIOS</a>
         <a class="btn" href="./CRUD/index.php">CRUD</a>
 
     </div>
+
+
+
+    <!-- 🚀 COMPUNET 3 -->
+    <div class="col">
+
+        <h1>🚀 CompuNet 3</h1>
+
+
+        <h2>Contenido</h2>
+
+        <a class="btn" href="./virtualizacion/index.php">virtualizacion</a>
+        <a class="btn" href=".\docker\index.php">docker</a>
+        <a class="btn" href=".\NodeJs\index.php">NodeJs</a>
+
+    </div>
+
 
 </div>
 

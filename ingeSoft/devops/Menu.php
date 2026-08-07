@@ -29,19 +29,10 @@
 </head>
 <body>
     <div class="centered-container">
-        <a class="btn" href=".\ingesoft_3\Menu.php">Ingesoft_3</a>
-        <br><br>
-        <a class="btn" href=".\SWEBOK\Menu.php">SWEBOK  </a>
-        <a class="btn" href=".\Sommerville\Menu.php">Ian Sommerville - Software Engineering (9ª edición)</a>
-        <a class="btn" href=".\Scrum\Menu.php">Scrum</a>
+        <a class="btn" href=".\Lectura_1\index.php">Lectura_1</a>
+        <a class="btn" href=".\dummies\index.php">Lectura_1 (parte 2)</a>
 
-        <br><br><br>
-        <a class="btn" href=".\Pressman\Menu.php">  Roger Pressman - Software Engineering: A Practitioner’s Approach (7ª edición) </a>
-        <a class="btn" href=".\ErichGamma\index.php">Erich Gamma et al. - Design Patterns </a>
-        <a class="btn" href=".\ArthurLanger\index.php">Arthur M. Langer - Guide to Software Development </a>
-        <br><br><br>
-        <a class="btn" href=".\devops\Menu.php">devops</a>
-         
+        
     </div>
 </body>
 </html>

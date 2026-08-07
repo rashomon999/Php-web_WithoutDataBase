@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="katex.min.css">
+<script src="katex.min.js"></script>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  body {
+    display: flex;
+    align-items: center;   /* centrado vertical */
+    min-height: 100vh;
+  }
+  /*
+   * width: max-content  -> el contenido define el ancho real
+   * margin: 0 auto      -> centrado si cabe; si NO cabe, arranca pegado
+   *                        a la IZQUIERDA y se puede deslizar a la derecha
+   */
+  #math {
+    width: max-content;
+    margin: 0 auto;
+    padding: 6px 10px;
+    font-size: 30px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div id="math"></div>
+<script>
+function setLatex(tex) {
+  var el = document.getElementById('math');
+  el.style.zoom = '';
+  if (!tex || tex.trim() === '') {
+    el.innerHTML = '';
+    return;
+  }
+  try {
+    katex.render(tex, el, { throwOnError: false, displayMode: true });
+  } catch (e) {
+    el.textContent = tex;
+  }
+  // 1) Si la fórmula no cabe, se reduce para intentar mostrarla completa,
+  //    pero nunca por debajo del 65% (para que siga siendo legible).
+  // 2) Si aun reducida no cabe, queda alineada a la izquierda y el usuario
+  //    puede deslizarla horizontalmente para ver el resto.
+  var disponible = window.innerWidth;
+  var ancho = el.scrollWidth;
+  if (ancho > disponible && ancho > 0) {
+    var escala = disponible / ancho;
+    if (escala < 0.65) escala = 0.65;
+    el.style.zoom = escala;   // zoom sí re-acomoda el layout (no recorta)
+  }
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>

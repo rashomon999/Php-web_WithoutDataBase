@@ -30,7 +30,9 @@
 <body>
     <div class="centered-container">
         <a class="btn" href=".\CM.php">circulo de quintas</a>
-         
+        <br><br>
+        <a class="btn" href=".\Interestellar\index.php">Interestellar</a>
+
         <br><br>
         <a class="btn" href=".\escalas\index.php">pruebas</a>
     </div>

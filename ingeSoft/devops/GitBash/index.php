@@ -18,21 +18,146 @@ if ($_POST) {
     
     if ($mostrar_solucion === 'mostrar_solucion') {        
  
-    $respuesta_1 = 'sincrono';
-    $respuesta_2 = 'asincrona';
-    $respuesta_3 = 'asincrono';
-    $respuesta_4 = 'sincrono';
-    $respuesta_5 = 'JavaScript';
-    $respuesta_6 = 'Call Stack';
-    $respuesta_7 = 'Call Stack';
-    $respuesta_8 = 'Web APIs';
-    $respuesta_9 = 'Task Queue';
-    $respuesta_10 = 'Microtask Queue';
-    $respuesta_11 = 'Event Loop';
-    $respuesta_12 = 'Call Stack';
-    $respuesta_13 = 'Event Loop';
-    $respuesta_14 = 'Call Stack';
-    $respuesta_15 = 'Call Stack';
+        $respuesta_111 = '24'; 
+        $respuesta_112 = '36';
+        $respuesta_113 = '48';
+        $respuesta_114 = '60';
+        $respuesta_115 = '72';
+        $respuesta_116 = '84';
+        $respuesta_117 = '96';
+        $respuesta_118 = '108';
+        $respuesta_119 = '120';
+        $respuesta_120 = '132';
+        $respuesta_121 = '144';
+        
+ 
+        $respuesta_1 = '26';
+        $respuesta_2 = '39';
+        $respuesta_3 = '52';
+        $respuesta_4 = '65';
+        $respuesta_5 = '78';
+        $respuesta_6 = '91';
+        $respuesta_7 = '104';
+        $respuesta_8 = '117';
+        $respuesta_9 = '130';
+        $respuesta_10 = '143';
+        $respuesta_11 = '156';
+        
+ 
+        $respuesta_12 = '28';
+        $respuesta_13 = '42';
+        $respuesta_14 = '56';
+        $respuesta_15 = '70';
+        $respuesta_16 = '84';
+        $respuesta_17 = '98';
+        $respuesta_18 = '112';
+        $respuesta_19 = '126';
+        $respuesta_20 = '140';
+        $respuesta_21 = '154';
+        $respuesta_22 = '168';
+        
+ 
+        $respuesta_23 = '30';
+        $respuesta_24 = '45';
+        $respuesta_25 = '60';
+        $respuesta_26 = '75';
+        $respuesta_27 = '90';
+        $respuesta_28 = '105';
+        $respuesta_29 = '120';
+        $respuesta_30 = '135';
+        $respuesta_31 = '150';
+        $respuesta_32 = '165';
+        $respuesta_33 = '180';
+        
+ 
+        $respuesta_34 = '32';
+        $respuesta_35 = '48';
+        $respuesta_36 = '64';
+        $respuesta_37 = '80';
+        $respuesta_38 = '96';
+        $respuesta_39 = '112';
+        $respuesta_40 = '128';
+        $respuesta_41 = '144';
+        $respuesta_42 = '160';
+        $respuesta_43 = '176';
+        $respuesta_44 = '192';
+        
+ 
+        $respuesta_45 = '34';
+        $respuesta_46 = '51';
+        $respuesta_47 = '68';
+        $respuesta_48 = '85';
+        $respuesta_49 = '102';
+        $respuesta_50 = '119';
+        $respuesta_51 = '136';
+        $respuesta_52 = '153';
+        $respuesta_53 = '170';
+        $respuesta_54 = '187';
+        $respuesta_55 = '204';
+        
+ 
+        $respuesta_56 = '36';
+        $respuesta_57 = '54';
+        $respuesta_58 = '72';
+        $respuesta_59 = '90';
+        $respuesta_60 = '108';
+        $respuesta_61 = '126';
+        $respuesta_62 = '144';
+        $respuesta_63 = '162';
+        $respuesta_64 = '180';
+        $respuesta_65 = '198';
+        $respuesta_66 = '216';
+        
+ 
+        $respuesta_67 = '38';
+        $respuesta_68 = '57';
+        $respuesta_69 = '76';
+        $respuesta_70 = '95';
+        $respuesta_71 = '114';
+        $respuesta_72 = '133';
+        $respuesta_73 = '152';
+        $respuesta_74 = '171';
+        $respuesta_75 = '190';
+        $respuesta_76 = '209';
+        $respuesta_77 = '228';
+        
+ 
+        $respuesta_78 = '40';
+        $respuesta_79 = '60';
+        $respuesta_80 = '80';
+        $respuesta_81 = '100';
+        $respuesta_82 = '120';
+        $respuesta_83 = '140';
+        $respuesta_84 = '160';
+        $respuesta_85 = '180';
+        $respuesta_86 = '200';
+        $respuesta_87 = '220';
+        $respuesta_88 = '240';
+        
+ 
+        $respuesta_89 = '42';
+        $respuesta_90 = '63';
+        $respuesta_91 = '84';
+        $respuesta_92 = '105';
+        $respuesta_93 = '126';
+        $respuesta_94 = '147';
+        $respuesta_95 = '168';
+        $respuesta_96 = '189';
+        $respuesta_97 = '210';
+        $respuesta_98 = '231';
+        $respuesta_99 = '252';
+        
+         $respuesta_100 = '44';
+        $respuesta_101 = '66';
+        $respuesta_102 = '88';
+        $respuesta_103 = '110';
+        $respuesta_104 = '132'; 
+        $respuesta_105 = '154';
+        $respuesta_106 = '176';
+        $respuesta_107 = '198';
+        $respuesta_108 = '220';
+        $respuesta_109 = '242';
+        $respuesta_110 = '264';
         
         // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
@@ -41,7 +166,7 @@ if ($_POST) {
 
     } else {
     $respuesta_1 = isset($_POST['respuesta_1']) ? $_POST['respuesta_1'] : '';
-   if ($respuesta_1 === 'sincrono') {  
+   if ($respuesta_1 === '26') {  
        $verificar_1 = "correcto";
    } elseif ($respuesta_1 === '') {
        $verificar_1 = '';
@@ -51,7 +176,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la segunda pregunta
    $respuesta_2 = isset($_POST['respuesta_2']) ? $_POST['respuesta_2'] : '';
-   if ($respuesta_2 === 'asincrona') {  
+   if ($respuesta_2 === '39') {  
        $verificar_2 = "correcto";
    } elseif ($respuesta_2 === '') {
        $verificar_2 = '';
@@ -61,7 +186,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la tercera pregunta
    $respuesta_3 = isset($_POST['respuesta_3']) ? $_POST['respuesta_3'] : '';
-   if ($respuesta_3 === 'asincrono') {  
+   if ($respuesta_3 === '52') {  
        $verificar_3 = "correcto";
    } elseif ($respuesta_3 === '') {
        $verificar_3 = '';
@@ -71,7 +196,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la cuarta pregunta
    $respuesta_4 = isset($_POST['respuesta_4']) ? $_POST['respuesta_4'] : '';
-   if ($respuesta_4 === 'sincrono') {  
+   if ($respuesta_4 === '65') {  
        $verificar_4 = "correcto";
    } elseif ($respuesta_4 === '') {
        $verificar_4 = '';
@@ -81,7 +206,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la quinta pregunta
    $respuesta_5 = isset($_POST['respuesta_5']) ? $_POST['respuesta_5'] : '';
-   if ($respuesta_5 === 'JavaScript') {  
+   if ($respuesta_5 === '78') {  
        $verificar_5 = "correcto";
    } elseif ($respuesta_5 === '') {
        $verificar_5 = '';
@@ -91,7 +216,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la sexta pregunta
    $respuesta_6 = isset($_POST['respuesta_6']) ? $_POST['respuesta_6'] : '';
-   if ($respuesta_6 === 'Call Stack') {  
+   if ($respuesta_6 === '91') {  
        $verificar_6 = "correcto";
    } elseif ($respuesta_6 === '') {
        $verificar_6 = '';
@@ -101,7 +226,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la séptima pregunta
    $respuesta_7 = isset($_POST['respuesta_7']) ? $_POST['respuesta_7'] : '';
-   if ($respuesta_7 === 'Call Stack') {  
+   if ($respuesta_7 === '104') {  
        $verificar_7 = "correcto";
    } elseif ($respuesta_7 === '') {
        $verificar_7 = '';
@@ -111,7 +236,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la octava pregunta
    $respuesta_8 = isset($_POST['respuesta_8']) ? $_POST['respuesta_8'] : '';
-   if ($respuesta_8 === 'Web APIs') {  
+   if ($respuesta_8 === '117') {  
        $verificar_8 = "correcto";
    } elseif ($respuesta_8 === '') {
        $verificar_8 = '';
@@ -121,7 +246,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la novena pregunta
    $respuesta_9 = isset($_POST['respuesta_9']) ? $_POST['respuesta_9'] : '';
-   if ($respuesta_9 === 'Task Queue') {  
+   if ($respuesta_9 === '130') {  
        $verificar_9 = "correcto";
    } elseif ($respuesta_9 === '') {
        $verificar_9 = '';
@@ -131,7 +256,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la décima pregunta
    $respuesta_10 = isset($_POST['respuesta_10']) ? $_POST['respuesta_10'] : '';
-   if ($respuesta_10 === 'Microtask Queue') {  
+   if ($respuesta_10 === '143') {  
        $verificar_10 = "correcto";
    } elseif ($respuesta_10 === '') {
        $verificar_10 = '';
@@ -141,7 +266,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la undécima pregunta
    $respuesta_11 = isset($_POST['respuesta_11']) ? $_POST['respuesta_11'] : '';
-   if ($respuesta_11 === 'Event Loop') {  
+   if ($respuesta_11 === '156') {  
        $verificar_11 = "correcto";
    } elseif ($respuesta_11 === '') {
        $verificar_11 = '';
@@ -152,7 +277,7 @@ if ($_POST) {
 
     // Verificar la respuesta de la primera pregunta
     $respuesta_12 = isset($_POST['respuesta_12']) ? $_POST['respuesta_12'] : '';
-    if ($respuesta_12 === 'Call Stack') {  
+    if ($respuesta_12 === '28') {  
         $verificar_12 = "correcto";
     } elseif ($respuesta_12 === '') {
         $verificar_12 = '';
@@ -162,7 +287,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la segunda pregunta
     $respuesta_13 = isset($_POST['respuesta_13']) ? $_POST['respuesta_13'] : '';
-    if ($respuesta_13 === 'Event Loop') { 
+    if ($respuesta_13 === '42') { 
         $verificar_13 = "correcto";
     } elseif ($respuesta_13 === '') {
         $verificar_13 = '';
@@ -172,7 +297,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la tercera pregunta
     $respuesta_14 = isset($_POST['respuesta_14']) ? $_POST['respuesta_14'] : '';
-    if ($respuesta_14 === 'Call Stack') {  
+    if ($respuesta_14 === '56') {  
         $verificar_14 = "correcto";
     } elseif ($respuesta_14 === '') {
         $verificar_14 = '';
@@ -182,7 +307,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la cuarta pregunta
     $respuesta_15 = isset($_POST['respuesta_15']) ? $_POST['respuesta_15'] : '';
-    if ($respuesta_15 === 'Call Stack') { 
+    if ($respuesta_15 === '70') { 
         $verificar_15 = "correcto";
     } elseif ($respuesta_15 === '') {
         $verificar_15 = '';
@@ -1173,8 +1298,8 @@ if ($respuesta_121 === '144') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas sobre simplificación de expresiones matemáticas</title>
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../style_2_0.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../style_2_0.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
@@ -1184,7 +1309,7 @@ if ($respuesta_121 === '144') {
     width: calc(50% - 7.5px);
     padding: 20px;
     box-sizing: border-box;
-    height: 300vh;
+    height: 370vh;
     }
 
 </style>
@@ -1464,423 +1589,541 @@ function ocultarMensaje4() {
 </head>
 <body>  
 
-<form action="./segundo.php" method="POST" onsubmit="handleSubmit(event)" autocomplete="off"> 
+<form action="./index.php" method="POST" onsubmit="handleSubmit(event)" autocomplete="off"> 
 <div class="form-container">
 
     
 <div class="seccion izquierda"> 
 
- <p><strong>Todo código 
-  <input type="text" name="respuesta_1" value="<?php echo $respuesta_1; ?>" size="8">   
-   se ejecuta primero antes que cualquier tarea 
-  <input type="text" name="respuesta_2" value="<?php echo $respuesta_2; ?>" size="8">
-  .</strong></p>
+     <h1>🐧 Common Bash Commands</h1>
 
-<h4>Ejemplo:</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Comando</th>
+                <th>¿Para qué sirve?</th>
+            </tr>
+        </thead>
 
-<pre><code>console.log("1. Inicio");
+        <tbody>
+            <tr>
+                <td><code>cd</code></td>
+                <td>Cambiar de carpeta</td>
+            </tr>
 
-setTimeout(() =&gt; {
-    console.log("3. setTimeout");
-}, 0);
+            <tr>
+                <td><code>ls</code></td>
+                <td>Ver archivos y carpetas</td>
+            </tr>
 
-console.log("2. Fin");</code></pre>
+            <tr>
+                <td><code>mkdir</code></td>
+                <td>Crear carpetas</td>
+            </tr>
 
-<h4>Salida:</h4>
+            <tr>
+                <td><code>touch</code></td>
+                <td>Crear archivos</td>
+            </tr>
 
-<pre><code>1. Inicio
-2. Fin
-3. setTimeout</code></pre>
+            <tr>
+                <td><code>rm</code></td>
+                <td>Eliminar archivos o carpetas</td>
+            </tr>
 
-<p>
-    Aunque <code>setTimeout</code> tenga <code>0 ms</code>, sigue siendo 
-     <input type="text" name="respuesta_3" value="<?php echo $respuesta_3; ?>" size="8">
-     ,
-    por lo que espera a que termine el código 
-     <input type="text" name="respuesta_4" value="<?php echo $respuesta_4; ?>" size="8">
-     .
-</p>
+            <tr>
+                <td><code>cp</code></td>
+                <td>Copiar archivos o carpetas</td>
+            </tr>
+
+            <tr>
+                <td><code>mv</code></td>
+                <td>Mover o renombrar archivos</td>
+            </tr>
+
+            <tr>
+                <td><code>echo</code></td>
+                <td>Mostrar texto</td>
+            </tr>
+
+            <tr>
+                <td><code>read</code></td>
+                <td>Leer entrada del usuario</td>
+            </tr>
+
+            <tr>
+                <td><code>cat</code></td>
+                <td>Mostrar contenido de archivos</td>
+            </tr>
+
+            <tr>
+                <td><code>grep</code></td>
+                <td>Buscar texto</td>
+            </tr>
+
+            <tr>
+                <td><code>chmod</code></td>
+                <td>Cambiar permisos</td>
+            </tr>
+
+            <tr>
+                <td><code>sudo</code></td>
+                <td>Ejecutar como administrador</td>
+            </tr>
+
+            <tr>
+                <td><code>df</code></td>
+                <td>Ver espacio disponible en el disco</td>
+            </tr>
+
+            <tr>
+                <td><code>history</code></td>
+                <td>Ver comandos anteriores</td>
+            </tr>
+
+            <tr>
+                <td><code>ps</code></td>
+                <td>Ver procesos en ejecución</td>
+            </tr>
+        </tbody>
+    </table>
    
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_1 ?>
-    <?php echo $verificar_2 ?>
-    <?php echo $verificar_3 ?>
-    <?php echo $verificar_4 ?>
+    <p>¿Qué comando puedo utilizar para buscar entre todos los 
+    contenedores de Docker aquellos cuyo nombre o información contenga la palabra supermarket?</p>
+
+    <p>docker ps -a | grep supermarket</p>
+
+    <strong>descomposicion:</strong>
+    <p>"Ejecuta docker ps -a y pásale su resultado a grep supermarket para filtrar las líneas que contengan supermarket."</p>
     <hr>
+    <p>¿Qué comando permite mostrar los permisos, propietario, tamaño y fecha de modificación del 
+        archivo deploy-frontend.ps1 en formato detallado?</p>
 
-    <h4>Funcionamiento del Event Loop</h4>
+        <p>ls -l deploy-frontend.ps1</p>
 
-<p>Una forma sencilla de verlo:</p>
+    <strong>descomposicion: </strong>
+    <li>ls → lista archivos/directorios.</li>
+    <li>-l → listado largo (long format).</li>
+    <pre>
+- rw- r-- r--
+│ │   │   │
+│ │   │   └── Otros usuarios
+│ │   └────── Grupo
+│ └────────── Propietario
+└──────────── Tipo
 
-<pre>
-Código <input type="text" name="respuesta_5" value="<?php echo $respuesta_5; ?>" size="11"> 
-       ↓
-  <input type="text" name="respuesta_6" value="<?php echo $respuesta_6; ?>" size="11">  
-       ↓
-¿Llama a una operación asíncrona?
-       │
-       ├── NO ──→ continúa en <input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="11">
-       │
-       └── SÍ
-            ↓
-        <input type="text" name="respuesta_8" value="<?php echo $respuesta_8; ?>" size="11"> 
-            ↓
-   ┌────────┴─────────┐
-   ↓                  ↓
-<input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="11">    <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="14">    
-   │                  │
-   └────────┬─────────┘
-            ↓
-        <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="11">
-            ↓
-       <input type="text" name="respuesta_12" value="<?php echo $respuesta_12; ?>" size="11"> 
-</pre>
+    </pre>
+    <hr>
+    <p>¿Qué comando permite mostrar el contenido del archivo deploy-frontend.ps1 en la terminal?</p>
+    <p>cat deploy-frontend.ps1</p>
+
+    <hr>
+<h3>Configuración y ejecución de scripts en PowerShell</h3>
+<br>
+    <h3>1. Set-ExecutionPolicy Bypass -Scope Process -Force</h3>
+
+<pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force</code></pre>
 
 <p>
-    El <strong>
-    <input type="text" name="respuesta_13" value="<?php echo $respuesta_13; ?>" size="11">    
-     </strong> está constantemente revisando las colas y,
-    cuando el <strong>
-    <input type="text" name="respuesta_14" value="<?php echo $respuesta_14; ?>" size="11">    
-     </strong> está vacío, mueve las tareas pendientes
-    al <strong>
-    <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="11">    
-     </strong> para ejecutarlas.
+    Significa:
+    <strong>"Permite ejecutar scripts de PowerShell durante esta sesión,
+    sin cambiar permanentemente la configuración."</strong>
 </p>
 
-<button type="submit">Enviar</button>
-    <?php echo $verificar_5 ?>
-    <?php echo $verificar_6 ?>
-    <?php echo $verificar_7 ?>  
-    <?php echo $verificar_8 ?>
-    <?php echo $verificar_9 ?>
-    <?php echo $verificar_10 ?>
-    <?php echo $verificar_11 ?> 
-    <?php echo $verificar_12 ?>
-    <?php echo $verificar_13 ?>
-    <?php echo $verificar_14 ?>
-    <?php echo $verificar_15 ?>
-<hr>
-<h4>Ejemplo:</h4>
-
-<pre><code>console.log("1");
-
-setTimeout(() =&gt; {
-    console.log("2");
-}, 0);
-
-console.log("3");</code></pre>
-
-<h4>Proceso simplificado:</h4>
-
-<pre>
-1. console.log("1")
-        ↓
-   Call Stack
-        ↓
-   imprime 1
-
-
-2. setTimeout()
-        ↓
-     Web APIs
-        ↓
-   espera 0 ms
-        ↓
-   Task Queue
-
-
-3. console.log("3")
-        ↓
-   Call Stack
-        ↓
-   imprime 3
-
-
-4. Event Loop
-        ↓
-   Call Stack está vacío
-        ↓
-   toma el callback
-        ↓
-   Call Stack
-        ↓
-   imprime 2
-</pre>
-
-<h4>Idea clave</h4>
+<h4>Por partes:</h4>
 
 <ul>
     <li>
-        <strong>Call Stack:</strong>
-        ejecuta el código JavaScript.
+        <code>Set-ExecutionPolicy</code> →
+        configura la política que controla la ejecución de scripts.
     </li>
-
     <li>
-        <strong>Web APIs:</strong>
-        manejan operaciones asíncronas como 
-        <code>setTimeout</code>, <code>fetch</code> y eventos 
-        (principalmente en navegadores).
+        <code>Bypass</code> →
+        no bloquea el script por esa política.
     </li>
-
     <li>
-        <strong>Task Queue:</strong>
-        almacena callbacks de tareas como <code>setTimeout</code>.
+        <code>-Scope Process</code> →
+        el cambio dura solo mientras esta sesión/proceso de PowerShell
+        esté activo.
     </li>
-
     <li>
-        <strong>Microtask Queue:</strong>
-        almacena tareas de mayor prioridad como Promesas.
-    </li>
-
-    <li>
-        <strong>Event Loop:</strong>
-        coordina cuándo las tareas pasan de las colas al <code>Call Stack</code>.
-    </li>
-</ul>
-
-<hr>
-<h2>1. ¿Qué es Express?</h2>
-
-<p>
-    <strong>Express</strong> es un framework para el entorno de ejecución
-    <strong>Node.js</strong> que facilita la creación de aplicaciones web y APIs.
-    Este proporciona una serie de características y herramientas que simplifican
-    el desarrollo de aplicaciones del lado del servidor, sobre todo para el
-    desarrollo de <strong>microservicios</strong> y <strong>APIs RESTful</strong>.
-</p>
-
-<p>Algunas de las características clave de Express incluyen:</p>
-
-<ul>
-    <li>
-        <strong>Rutas:</strong>
-        Permite definir rutas para manejar diferentes solicitudes HTTP
-        (GET, POST, PUT, DELETE, etc.) y asociarlas con funciones específicas.
-    </li>
-
-    <li>
-        <strong>Middleware:</strong>
-        Soporta el uso de middleware, que son funciones que se ejecutan durante
-        el ciclo de vida de una solicitud. Esto permite agregar funcionalidades
-        como autenticación, manejo de errores, análisis de cuerpos de solicitudes,
-        etc.
-    </li>
-
-    <li>
-        <strong>Plantillas:</strong>
-        Facilita la integración con motores de plantillas para generar contenido
-        HTML dinámico.
-    </li>
-
-    <li>
-        <strong>Manejo de errores:</strong>
-        Proporciona un sistema para manejar errores de manera eficiente.
-    </li>
-
-    <li>
-        <strong>Extensibilidad:</strong>
-        Permite la integración con una amplia variedad de módulos y paquetes de
-        Node.js para ampliar sus funcionalidades.
+        <code>-Force</code> →
+        no pregunta si estás seguro; lo ejecuta directamente.
     </li>
 </ul>
 
 <p>
-    Proveniendo de antiguos desarrollos y aprendizajes del curso de
-    <strong>Computación en Internet 2</strong>, encontrarás bastantes similitudes
-    entre Express y el framework de Backend <strong>Spring</strong>, por lo que,
-    para ayudarte en tu proceso de entender el funcionamiento de Express,
-    realizaré algunas semejanzas con lo que ya conoces.
+    <strong>Importante:</strong> no está cambiando permanentemente la
+    política de Windows porque utiliza <code>-Scope Process</code>.
 </p>
 
+
+<h3>2. $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition</h3>
+
+<pre><code>$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition</code></pre>
+
+<p>
+    Esta línea obtiene <strong>la carpeta donde está guardado el script</strong>
+    y la guarda en una variable llamada <code>$scriptDir</code>.
+</p>
+
+<p>Por ejemplo, si el script está en:</p>
+
+<pre><code>C:\proyecto\backend\deploy-backend.ps1</code></pre>
+
+<p>Entonces:</p>
+
+<pre><code>$scriptDir</code></pre>
+
+<p>contendrá:</p>
+
+<pre><code>C:\proyecto\backend</code></pre>
+
+<h4>Por partes:</h4>
+
+<ul>
+    <li>
+        <code>$MyInvocation.MyCommand.Definition</code> →
+        obtiene la ubicación del script que se está ejecutando.
+    </li>
+    <li>
+        <code>Split-Path -Parent</code> →
+        obtiene la carpeta padre, quitando el nombre del archivo.
+    </li>
+    <li>
+        <code>$scriptDir =</code> →
+        guarda ese resultado en la variable <code>$scriptDir</code>.
+    </li>
+</ul>
+
+<p>
+    En otras palabras:
+    <strong>"Averigua dónde está este script y guarda esa carpeta
+    en <code>$scriptDir</code>."</strong>
+</p>
+
+
+<h3>3. Set-Location $scriptDir</h3>
+
+<pre><code>Set-Location $scriptDir</code></pre>
+
+<p>
+    Esto hace que PowerShell <strong>se mueva a esa carpeta</strong>.
+</p>
+
+<p>
+    Es prácticamente equivalente al comando <code>cd</code> de Bash:
+</p>
+
+<pre><code>cd C:\proyecto\backend</code></pre>
+
+<p>
+    Si <code>$scriptDir</code> contiene:
+</p>
+
+<pre><code>C:\proyecto\backend</code></pre>
+
+<p>Entonces:</p>
+
+<pre><code>Set-Location $scriptDir</code></pre>
+
+<p>
+    hace que el directorio actual pase a ser:
+</p>
+
+<pre><code>C:\proyecto\backend</code></pre>
+
+
+<h3>Las tres juntas</h3>
+
+<p>
+    Puedes entenderlas como una secuencia:
+</p>
+
+<pre><code>
+1. Permitir temporalmente ejecutar scripts
+                    ↓
+2. Averiguar dónde está este script
+                    ↓
+3. Moverse a esa carpeta
+</code></pre>
+
+<h4>En palabras sencillas:</h4>
+
+<pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force</code></pre>
+
+<p>
+    <strong>"Déjame ejecutar este script."</strong>
+</p>
+
+<pre><code>$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition</code></pre>
+
+<p>
+    <strong>"Averigua dónde está el script."</strong>
+</p>
+
+<pre><code>Set-Location $scriptDir</code></pre>
+
+<p>
+    <strong>"Ahora trabaja desde esa carpeta."</strong>
+</p>
+
+<h3>¿Por qué es útil?</h3>
+
+<p>
+    Supongamos que ejecutas:
+</p>
+
+<pre><code>C:\proyecto\backend\deploy-backend.ps1</code></pre>
+
+<p>
+    pero actualmente estás ubicado en:
+</p>
+
+<pre><code>C:\Users\Luis</code></pre>
+
+<p>
+    El script se mueve automáticamente a:
+</p>
+
+<pre><code>C:\proyecto\backend</code></pre>
+
+<p>
+    Así, los comandos que vienen después pueden encontrar correctamente
+    archivos como:
+</p>
+
+<ul>
+    <li><code>Dockerfile</code></li>
+    <li><code>docker-compose.yml</code></li>
+    <li><code>.env</code></li>
+    <li><code>src\</code></li>
+</ul>
+
+<p>
+    sin importar desde qué carpeta hayas ejecutado el archivo
+    <code>.ps1</code>.
+</p>
 </div>
 
 
 
 
 <div class="seccion derecha">
-     
-  
-    <h3>1. ¿Qué significa <code>default</code>?</h3>
+    
+   <h3>Reto 1 — Validar archivo de configuración de Nginx</h3>
 
-    <p>
-        Un módulo puede declarar una exportación principal utilizando:
-    </p>
+<p><strong>Objetivo:</strong> comprobar si existe el archivo de configuración de Nginx. Si no existe, terminar con código <code>1</code>.</p>
 
-    <pre><code>export default algo;</code></pre>
+<pre><code>#!/bin/bash
 
-    <p>
-        Esto significa que ese elemento es la exportación principal del módulo.
-    </p>
+FILE="/etc/nginx/nginx.conf"
 
-    <p>Por ejemplo, en un archivo <code>saludar.ts</code>:</p>
+if [[ -f "$FILE" ]]; then
+    echo "El archivo de configuración de nginx existe."
+    exit 0
+else
+    echo "El archivo de configuración de nginx no existe."
+    exit 1
+fi</code></pre>
 
-    <pre><code>function saludar() {
-    console.log("Hola");
-}
+<h4>¿Qué estás practicando?</h4>
 
-export default saludar;</code></pre>
+<pre><code>[[ -f "$FILE" ]]</code></pre>
 
-    <p>
-        Luego, desde otro archivo podemos importar esa función:
-    </p>
+<p><code>-f</code> → verdadero si existe y es un archivo regular.</p>
 
-    <pre><code>import saludar from './saludar';</code></pre>
+<pre><code>exit 1</code></pre>
 
-    <p>
-        Fíjate en que <strong>no utilizamos <code>{}</code></strong>.
-    </p>
-
-    <pre><code>import saludar from './saludar';
-//      ↑
-//    default</code></pre>
+<p><code>exit 1</code> → termina el script indicando que ocurrió un error.</p>
 
 
-    <h3>2. ¿Por qué no lleva <code>{}</code>?</h3>
+<h3>Reto 2 — Validar si el usuario actual es root</h3>
 
-    <p>
-        Los <code>{}</code> se utilizan para realizar
-        <strong>named imports</strong> o importaciones nombradas.
-    </p>
+<p><strong>Objetivo:</strong> determinar si el usuario que ejecuta el script es <code>root</code>.</p>
 
-    <p>Por ejemplo:</p>
+<pre><code>#!/bin/bash
 
-    <pre><code>export function saludar() {
-    console.log("Hola");
-}
+if [[ "$USER" == "root" ]]; then
+    echo "El usuario actual es root."
+else
+    echo "El usuario actual NO es root."
+fi</code></pre>
 
-export function despedir() {
-    console.log("Adiós");
-}</code></pre>
+<h4>Concepto</h4>
 
-    <p>
-        Ahora existen dos exports nombrados:
-    </p>
+<p>Aquí utilizamos una operación con strings:</p>
 
-    <pre><code>import { saludar, despedir } from './saludar';</code></pre>
+<pre><code>[[ "$USER" == "root" ]]</code></pre>
 
-    <p>
-        En este caso, los nombres deben coincidir con los nombres de los exports.
-    </p>
+<p><code>==</code> → compara si dos strings son iguales.</p>
 
-    <p>
-        En cambio, con <code>default</code>:
-    </p>
+<h4>Alternativa con comparación numérica</h4>
 
-    <pre><code>export default saludar;</code></pre>
+<pre><code>if [[ "$EUID" -eq 0 ]]; then
+    echo "El usuario es root."
+else
+    echo "El usuario NO es root."
+fi</code></pre>
 
-    <p>
-        Podemos importar la función utilizando el nombre que queramos:
-    </p>
-
-    <pre><code>import saludar from './saludar';</code></pre>
-
-    <p>También podríamos escribir:</p>
-
-    <pre><code>import hola from './saludar';</code></pre>
-
-    <p>O:</p>
-
-    <pre><code>import miFuncion from './saludar';</code></pre>
-
-    <p>
-        Todos hacen referencia al mismo <code>default</code>.
-    </p>
+<p><code>-eq</code> → significa "igual a" en comparaciones numéricas.</p>
 
 
-    <h3>3. Volvamos a Express</h3>
+<h3>Reto 3 — Validar si una variable de entorno está definida</h3>
 
-    <p>
-        Cuando hacemos:
-    </p>
+<pre><code>#!/bin/bash
 
-    <pre><code>import express, { Express, Request, Response } from 'express';</code></pre>
+if [[ -n "$MI_VARIABLE" ]]; then
+    echo "La variable está definida."
+else
+    echo "La variable no está definida o está vacía."
+fi</code></pre>
 
-    <p>
-        Conceptualmente tenemos:
-    </p>
+<h4>Concepto</h4>
 
-    <pre><code>'express'
-    │
-    ├── default export
-    │       ↓
-    │    express
-    │
-    └── named exports
-            ├── Express
-            ├── Request
-            └── Response</code></pre>
+<pre><code>[[ -n "$STR" ]]</code></pre>
 
-    <p>
-        Por eso:
-    </p>
+<p><code>-n</code> → verdadero si el string no está vacío.</p>
 
-    <pre><code>import express from 'express';</code></pre>
+<h4>Ejemplo</h4>
 
-    <p>
-        Es un <strong>default import</strong>.
-    </p>
-
-    <p>
-        Mientras que:
-    </p>
-
-    <pre><code>import { Request, Response } from 'express';</code></pre>
-
-    <p>
-        Son <strong>named imports</strong>.
-    </p>
+<pre><code>export MI_VARIABLE="hola"
+./script.sh</code></pre>
 
 
-    <h3>4. Diferencia entre Default Import y Named Import</h3>
+<h3>Reto 4 — Ejecutar df -h sobre varios servidores</h3>
 
-    <table border="1">
-        <tr>
-            <th>Tipo</th>
-            <th>Sintaxis</th>
-            <th>Significado</th>
-        </tr>
-        <tr>
-            <td>Default import</td>
-            <td><code>import express from 'express';</code></td>
-            <td>Importa la exportación principal.</td>
-        </tr>
-        <tr>
-            <td>Named import</td>
-            <td><code>import { Request } from 'express';</code></td>
-            <td>Importa un export específico por su nombre.</td>
-        </tr>
-    </table>
+<p>Para este reto podemos guardar las direcciones de los servidores en una lista.</p>
+
+<pre><code>#!/bin/bash
+
+SERVIDORES=("192.168.1.10" "192.168.1.20" "192.168.1.30")
+
+for SERVER in "${SERVIDORES[@]}"; do
+    echo "===== Servidor: $SERVER ====="
+    ssh "$SERVER" "df -h"
+done</code></pre>
+
+<h4>Concepto principal</h4>
+
+<pre><code>for SERVER in "${SERVIDORES[@]}"</code></pre>
+
+<p>
+    Utilizamos <code>for</code> para recorrer una lista de servidores.
+</p>
+
+<pre><code>ssh "$SERVER" "df -h"</code></pre>
+
+<p>
+    <code>ssh</code> permite conectarse al servidor y ejecutar
+    <code>df -h</code> remotamente.
+</p>
 
 
-    <h3>5. Idea principal</h3>
+<h3>Reto 5 — Ping a IPs almacenadas en un archivo</h3>
 
-    <p>
-        Puedes recordar la diferencia de esta manera:
-    </p>
+<p>
+    Supongamos que tenemos un archivo llamado <code>ips.txt</code>
+    con una dirección IP por línea:
+</p>
 
-    <pre><code>import cosa from 'modulo';</code></pre>
+<pre><code>8.8.8.8
+1.1.1.1
+192.168.1.1</code></pre>
 
-    <p>
-        Significa: <strong>"Dame la exportación principal del módulo".</strong>
-    </p>
+<h4>Script</h4>
 
-    <pre><code>import { cosa } from 'modulo';</code></pre>
+<pre><code>#!/bin/bash
 
-    <p>
-        Significa: <strong>"Dame específicamente el export llamado cosa".</strong>
-    </p>
+while read -r IP; do
+    echo "Probando $IP..."
 
-    <p>
-        Además, <code>default</code> no es exclusivo de Node.js.
-        Es una característica de los módulos de JavaScript (ES Modules)
-        que también utiliza TypeScript.
-    </p>
-          <hr>
-    <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
-    <br>
-    <input type="text" id="mostrar_solucion" name="mostrar_solucion"  value="<?php echo $mostrar_solucion?>">
-    <button type="submit"   >Mostrar Solución</button>   
+    if ping -c 1 -W 2 "$IP" &gt; /dev/null 2&gt;&amp;1; then
+        echo "$IP está disponible."
+    else
+        echo "$IP NO está disponible."
+    fi
+
+done &lt; ips.txt</code></pre>
+
+<h4>Concepto importante</h4>
+
+<pre><code>while read -r IP</code></pre>
+
+<p>
+    Lee el archivo línea por línea y guarda cada línea en la variable
+    <code>IP</code>.
+</p>
+
+<pre><code>done &lt; ips.txt</code></pre>
+
+<p>
+    Hace que el contenido de <code>ips.txt</code> sea la entrada del
+    ciclo <code>while</code>.
+</p>
+
+<h3>Reto 6 — Eliminar contenedores <code>exited</code></h3>
+
+<pre><code>#!/bin/bash
+
+docker ps -aq -f status=exited | xargs -r docker rm</code></pre>
+
+<h4>¿Qué hace?</h4>
+
+<pre><code>docker ps -aq -f status=exited</code></pre>
+
+<p>
+    Obtiene los IDs de los contenedores cuyo estado es
+    <code>exited</code>.
+</p>
+
+<p>
+    El símbolo <code>|</code> pasa la salida del comando anterior
+    al siguiente comando.
+</p>
+
+<pre><code>xargs -r docker rm</code></pre>
+
+<p>
+    Utiliza los IDs recibidos para eliminar los contenedores.
+</p>
+
+<p>
+    <strong>Nota:</strong> este comando es destructivo porque elimina
+    contenedores detenidos.
+</p>
+
+<h3>Reto 7 — Verificar que HTTP devuelve 200</h3>
+
+<pre><code>#!/bin/bash
+
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://httpbin.org/status/200)
+
+if [[ "$STATUS" -eq 200 ]]; then
+    echo "Servicio arriba"
+else
+    echo "Servicio abajo. Status code: $STATUS"
+fi</code></pre>
+
+<h4>Obtener el código HTTP</h4>
+
+<pre><code>curl -s -o /dev/null -w "%{http_code}" URL</code></pre>
+
+<p>
+    Obtiene solamente el código de respuesta HTTP, por ejemplo:
+</p>
+
+<pre><code>200</code></pre>
+
+<h4>Comparar el código</h4>
+
+<pre><code>[[ "$STATUS" -eq 200 ]]</code></pre>
+
+<p>
+    Comprueba si el código almacenado en <code>STATUS</code> es igual a
+    <code>200</code>.
+</p>
+         
 </div>
 </div>
  </form>

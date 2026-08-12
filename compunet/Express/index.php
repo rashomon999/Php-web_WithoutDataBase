@@ -18,21 +18,146 @@ if ($_POST) {
     
     if ($mostrar_solucion === 'mostrar_solucion') {        
  
-    $respuesta_1 = 'sincrono';
-    $respuesta_2 = 'asincrona';
-    $respuesta_3 = 'asincrono';
-    $respuesta_4 = 'sincrono';
-    $respuesta_5 = 'JavaScript';
-    $respuesta_6 = 'Call Stack';
-    $respuesta_7 = 'Call Stack';
-    $respuesta_8 = 'Web APIs';
-    $respuesta_9 = 'Task Queue';
-    $respuesta_10 = 'Microtask Queue';
-    $respuesta_11 = 'Event Loop';
-    $respuesta_12 = 'Call Stack';
-    $respuesta_13 = 'Event Loop';
-    $respuesta_14 = 'Call Stack';
-    $respuesta_15 = 'Call Stack';
+        $respuesta_111 = '24'; 
+        $respuesta_112 = '36';
+        $respuesta_113 = '48';
+        $respuesta_114 = '60';
+        $respuesta_115 = '72';
+        $respuesta_116 = '84';
+        $respuesta_117 = '96';
+        $respuesta_118 = '108';
+        $respuesta_119 = '120';
+        $respuesta_120 = '132';
+        $respuesta_121 = '144';
+        
+ 
+        $respuesta_1 = '26';
+        $respuesta_2 = '39';
+        $respuesta_3 = '52';
+        $respuesta_4 = '65';
+        $respuesta_5 = '78';
+        $respuesta_6 = '91';
+        $respuesta_7 = '104';
+        $respuesta_8 = '117';
+        $respuesta_9 = '130';
+        $respuesta_10 = '143';
+        $respuesta_11 = '156';
+        
+ 
+        $respuesta_12 = '28';
+        $respuesta_13 = '42';
+        $respuesta_14 = '56';
+        $respuesta_15 = '70';
+        $respuesta_16 = '84';
+        $respuesta_17 = '98';
+        $respuesta_18 = '112';
+        $respuesta_19 = '126';
+        $respuesta_20 = '140';
+        $respuesta_21 = '154';
+        $respuesta_22 = '168';
+        
+ 
+        $respuesta_23 = '30';
+        $respuesta_24 = '45';
+        $respuesta_25 = '60';
+        $respuesta_26 = '75';
+        $respuesta_27 = '90';
+        $respuesta_28 = '105';
+        $respuesta_29 = '120';
+        $respuesta_30 = '135';
+        $respuesta_31 = '150';
+        $respuesta_32 = '165';
+        $respuesta_33 = '180';
+        
+ 
+        $respuesta_34 = '32';
+        $respuesta_35 = '48';
+        $respuesta_36 = '64';
+        $respuesta_37 = '80';
+        $respuesta_38 = '96';
+        $respuesta_39 = '112';
+        $respuesta_40 = '128';
+        $respuesta_41 = '144';
+        $respuesta_42 = '160';
+        $respuesta_43 = '176';
+        $respuesta_44 = '192';
+        
+ 
+        $respuesta_45 = '34';
+        $respuesta_46 = '51';
+        $respuesta_47 = '68';
+        $respuesta_48 = '85';
+        $respuesta_49 = '102';
+        $respuesta_50 = '119';
+        $respuesta_51 = '136';
+        $respuesta_52 = '153';
+        $respuesta_53 = '170';
+        $respuesta_54 = '187';
+        $respuesta_55 = '204';
+        
+ 
+        $respuesta_56 = '36';
+        $respuesta_57 = '54';
+        $respuesta_58 = '72';
+        $respuesta_59 = '90';
+        $respuesta_60 = '108';
+        $respuesta_61 = '126';
+        $respuesta_62 = '144';
+        $respuesta_63 = '162';
+        $respuesta_64 = '180';
+        $respuesta_65 = '198';
+        $respuesta_66 = '216';
+        
+ 
+        $respuesta_67 = '38';
+        $respuesta_68 = '57';
+        $respuesta_69 = '76';
+        $respuesta_70 = '95';
+        $respuesta_71 = '114';
+        $respuesta_72 = '133';
+        $respuesta_73 = '152';
+        $respuesta_74 = '171';
+        $respuesta_75 = '190';
+        $respuesta_76 = '209';
+        $respuesta_77 = '228';
+        
+ 
+        $respuesta_78 = '40';
+        $respuesta_79 = '60';
+        $respuesta_80 = '80';
+        $respuesta_81 = '100';
+        $respuesta_82 = '120';
+        $respuesta_83 = '140';
+        $respuesta_84 = '160';
+        $respuesta_85 = '180';
+        $respuesta_86 = '200';
+        $respuesta_87 = '220';
+        $respuesta_88 = '240';
+        
+ 
+        $respuesta_89 = '42';
+        $respuesta_90 = '63';
+        $respuesta_91 = '84';
+        $respuesta_92 = '105';
+        $respuesta_93 = '126';
+        $respuesta_94 = '147';
+        $respuesta_95 = '168';
+        $respuesta_96 = '189';
+        $respuesta_97 = '210';
+        $respuesta_98 = '231';
+        $respuesta_99 = '252';
+        
+         $respuesta_100 = '44';
+        $respuesta_101 = '66';
+        $respuesta_102 = '88';
+        $respuesta_103 = '110';
+        $respuesta_104 = '132'; 
+        $respuesta_105 = '154';
+        $respuesta_106 = '176';
+        $respuesta_107 = '198';
+        $respuesta_108 = '220';
+        $respuesta_109 = '242';
+        $respuesta_110 = '264';
         
         // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
@@ -41,7 +166,7 @@ if ($_POST) {
 
     } else {
     $respuesta_1 = isset($_POST['respuesta_1']) ? $_POST['respuesta_1'] : '';
-   if ($respuesta_1 === 'sincrono') {  
+   if ($respuesta_1 === '26') {  
        $verificar_1 = "correcto";
    } elseif ($respuesta_1 === '') {
        $verificar_1 = '';
@@ -51,7 +176,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la segunda pregunta
    $respuesta_2 = isset($_POST['respuesta_2']) ? $_POST['respuesta_2'] : '';
-   if ($respuesta_2 === 'asincrona') {  
+   if ($respuesta_2 === '39') {  
        $verificar_2 = "correcto";
    } elseif ($respuesta_2 === '') {
        $verificar_2 = '';
@@ -61,7 +186,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la tercera pregunta
    $respuesta_3 = isset($_POST['respuesta_3']) ? $_POST['respuesta_3'] : '';
-   if ($respuesta_3 === 'asincrono') {  
+   if ($respuesta_3 === '52') {  
        $verificar_3 = "correcto";
    } elseif ($respuesta_3 === '') {
        $verificar_3 = '';
@@ -71,7 +196,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la cuarta pregunta
    $respuesta_4 = isset($_POST['respuesta_4']) ? $_POST['respuesta_4'] : '';
-   if ($respuesta_4 === 'sincrono') {  
+   if ($respuesta_4 === '65') {  
        $verificar_4 = "correcto";
    } elseif ($respuesta_4 === '') {
        $verificar_4 = '';
@@ -81,7 +206,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la quinta pregunta
    $respuesta_5 = isset($_POST['respuesta_5']) ? $_POST['respuesta_5'] : '';
-   if ($respuesta_5 === 'JavaScript') {  
+   if ($respuesta_5 === '78') {  
        $verificar_5 = "correcto";
    } elseif ($respuesta_5 === '') {
        $verificar_5 = '';
@@ -91,7 +216,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la sexta pregunta
    $respuesta_6 = isset($_POST['respuesta_6']) ? $_POST['respuesta_6'] : '';
-   if ($respuesta_6 === 'Call Stack') {  
+   if ($respuesta_6 === '91') {  
        $verificar_6 = "correcto";
    } elseif ($respuesta_6 === '') {
        $verificar_6 = '';
@@ -101,7 +226,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la séptima pregunta
    $respuesta_7 = isset($_POST['respuesta_7']) ? $_POST['respuesta_7'] : '';
-   if ($respuesta_7 === 'Call Stack') {  
+   if ($respuesta_7 === '104') {  
        $verificar_7 = "correcto";
    } elseif ($respuesta_7 === '') {
        $verificar_7 = '';
@@ -111,7 +236,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la octava pregunta
    $respuesta_8 = isset($_POST['respuesta_8']) ? $_POST['respuesta_8'] : '';
-   if ($respuesta_8 === 'Web APIs') {  
+   if ($respuesta_8 === '117') {  
        $verificar_8 = "correcto";
    } elseif ($respuesta_8 === '') {
        $verificar_8 = '';
@@ -121,7 +246,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la novena pregunta
    $respuesta_9 = isset($_POST['respuesta_9']) ? $_POST['respuesta_9'] : '';
-   if ($respuesta_9 === 'Task Queue') {  
+   if ($respuesta_9 === '130') {  
        $verificar_9 = "correcto";
    } elseif ($respuesta_9 === '') {
        $verificar_9 = '';
@@ -131,7 +256,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la décima pregunta
    $respuesta_10 = isset($_POST['respuesta_10']) ? $_POST['respuesta_10'] : '';
-   if ($respuesta_10 === 'Microtask Queue') {  
+   if ($respuesta_10 === '143') {  
        $verificar_10 = "correcto";
    } elseif ($respuesta_10 === '') {
        $verificar_10 = '';
@@ -141,7 +266,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la undécima pregunta
    $respuesta_11 = isset($_POST['respuesta_11']) ? $_POST['respuesta_11'] : '';
-   if ($respuesta_11 === 'Event Loop') {  
+   if ($respuesta_11 === '156') {  
        $verificar_11 = "correcto";
    } elseif ($respuesta_11 === '') {
        $verificar_11 = '';
@@ -152,7 +277,7 @@ if ($_POST) {
 
     // Verificar la respuesta de la primera pregunta
     $respuesta_12 = isset($_POST['respuesta_12']) ? $_POST['respuesta_12'] : '';
-    if ($respuesta_12 === 'Call Stack') {  
+    if ($respuesta_12 === '28') {  
         $verificar_12 = "correcto";
     } elseif ($respuesta_12 === '') {
         $verificar_12 = '';
@@ -162,7 +287,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la segunda pregunta
     $respuesta_13 = isset($_POST['respuesta_13']) ? $_POST['respuesta_13'] : '';
-    if ($respuesta_13 === 'Event Loop') { 
+    if ($respuesta_13 === '42') { 
         $verificar_13 = "correcto";
     } elseif ($respuesta_13 === '') {
         $verificar_13 = '';
@@ -172,7 +297,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la tercera pregunta
     $respuesta_14 = isset($_POST['respuesta_14']) ? $_POST['respuesta_14'] : '';
-    if ($respuesta_14 === 'Call Stack') {  
+    if ($respuesta_14 === '56') {  
         $verificar_14 = "correcto";
     } elseif ($respuesta_14 === '') {
         $verificar_14 = '';
@@ -182,7 +307,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la cuarta pregunta
     $respuesta_15 = isset($_POST['respuesta_15']) ? $_POST['respuesta_15'] : '';
-    if ($respuesta_15 === 'Call Stack') { 
+    if ($respuesta_15 === '70') { 
         $verificar_15 = "correcto";
     } elseif ($respuesta_15 === '') {
         $verificar_15 = '';
@@ -1184,7 +1309,7 @@ if ($respuesta_121 === '144') {
     width: calc(50% - 7.5px);
     padding: 20px;
     box-sizing: border-box;
-    height: 300vh;
+    height: 370vh;
     }
 
 </style>
@@ -1464,183 +1589,13 @@ function ocultarMensaje4() {
 </head>
 <body>  
 
-<form action="./segundo.php" method="POST" onsubmit="handleSubmit(event)" autocomplete="off"> 
+<form action="./index.php" method="POST" onsubmit="handleSubmit(event)" autocomplete="off"> 
 <div class="form-container">
 
     
 <div class="seccion izquierda"> 
 
- <p><strong>Todo código 
-  <input type="text" name="respuesta_1" value="<?php echo $respuesta_1; ?>" size="8">   
-   se ejecuta primero antes que cualquier tarea 
-  <input type="text" name="respuesta_2" value="<?php echo $respuesta_2; ?>" size="8">
-  .</strong></p>
-
-<h4>Ejemplo:</h4>
-
-<pre><code>console.log("1. Inicio");
-
-setTimeout(() =&gt; {
-    console.log("3. setTimeout");
-}, 0);
-
-console.log("2. Fin");</code></pre>
-
-<h4>Salida:</h4>
-
-<pre><code>1. Inicio
-2. Fin
-3. setTimeout</code></pre>
-
-<p>
-    Aunque <code>setTimeout</code> tenga <code>0 ms</code>, sigue siendo 
-     <input type="text" name="respuesta_3" value="<?php echo $respuesta_3; ?>" size="8">
-     ,
-    por lo que espera a que termine el código 
-     <input type="text" name="respuesta_4" value="<?php echo $respuesta_4; ?>" size="8">
-     .
-</p>
-   
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_1 ?>
-    <?php echo $verificar_2 ?>
-    <?php echo $verificar_3 ?>
-    <?php echo $verificar_4 ?>
-    <hr>
-
-    <h4>Funcionamiento del Event Loop</h4>
-
-<p>Una forma sencilla de verlo:</p>
-
-<pre>
-Código <input type="text" name="respuesta_5" value="<?php echo $respuesta_5; ?>" size="11"> 
-       ↓
-  <input type="text" name="respuesta_6" value="<?php echo $respuesta_6; ?>" size="11">  
-       ↓
-¿Llama a una operación asíncrona?
-       │
-       ├── NO ──→ continúa en <input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="11">
-       │
-       └── SÍ
-            ↓
-        <input type="text" name="respuesta_8" value="<?php echo $respuesta_8; ?>" size="11"> 
-            ↓
-   ┌────────┴─────────┐
-   ↓                  ↓
-<input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="11">    <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="14">    
-   │                  │
-   └────────┬─────────┘
-            ↓
-        <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="11">
-            ↓
-       <input type="text" name="respuesta_12" value="<?php echo $respuesta_12; ?>" size="11"> 
-</pre>
-
-<p>
-    El <strong>
-    <input type="text" name="respuesta_13" value="<?php echo $respuesta_13; ?>" size="11">    
-     </strong> está constantemente revisando las colas y,
-    cuando el <strong>
-    <input type="text" name="respuesta_14" value="<?php echo $respuesta_14; ?>" size="11">    
-     </strong> está vacío, mueve las tareas pendientes
-    al <strong>
-    <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="11">    
-     </strong> para ejecutarlas.
-</p>
-
-<button type="submit">Enviar</button>
-    <?php echo $verificar_5 ?>
-    <?php echo $verificar_6 ?>
-    <?php echo $verificar_7 ?>  
-    <?php echo $verificar_8 ?>
-    <?php echo $verificar_9 ?>
-    <?php echo $verificar_10 ?>
-    <?php echo $verificar_11 ?> 
-    <?php echo $verificar_12 ?>
-    <?php echo $verificar_13 ?>
-    <?php echo $verificar_14 ?>
-    <?php echo $verificar_15 ?>
-<hr>
-<h4>Ejemplo:</h4>
-
-<pre><code>console.log("1");
-
-setTimeout(() =&gt; {
-    console.log("2");
-}, 0);
-
-console.log("3");</code></pre>
-
-<h4>Proceso simplificado:</h4>
-
-<pre>
-1. console.log("1")
-        ↓
-   Call Stack
-        ↓
-   imprime 1
-
-
-2. setTimeout()
-        ↓
-     Web APIs
-        ↓
-   espera 0 ms
-        ↓
-   Task Queue
-
-
-3. console.log("3")
-        ↓
-   Call Stack
-        ↓
-   imprime 3
-
-
-4. Event Loop
-        ↓
-   Call Stack está vacío
-        ↓
-   toma el callback
-        ↓
-   Call Stack
-        ↓
-   imprime 2
-</pre>
-
-<h4>Idea clave</h4>
-
-<ul>
-    <li>
-        <strong>Call Stack:</strong>
-        ejecuta el código JavaScript.
-    </li>
-
-    <li>
-        <strong>Web APIs:</strong>
-        manejan operaciones asíncronas como 
-        <code>setTimeout</code>, <code>fetch</code> y eventos 
-        (principalmente en navegadores).
-    </li>
-
-    <li>
-        <strong>Task Queue:</strong>
-        almacena callbacks de tareas como <code>setTimeout</code>.
-    </li>
-
-    <li>
-        <strong>Microtask Queue:</strong>
-        almacena tareas de mayor prioridad como Promesas.
-    </li>
-
-    <li>
-        <strong>Event Loop:</strong>
-        coordina cuándo las tareas pasan de las colas al <code>Call Stack</code>.
-    </li>
-</ul>
-
-<hr>
-<h2>1. ¿Qué es Express?</h2>
+ <h2>1. ¿Qué es Express?</h2>
 
 <p>
     <strong>Express</strong> es un framework para el entorno de ejecución
@@ -1692,195 +1647,446 @@ console.log("3");</code></pre>
     para ayudarte en tu proceso de entender el funcionamiento de Express,
     realizaré algunas semejanzas con lo que ya conoces.
 </p>
+   <hr>
+   <h2>¿Para qué sirven Yarn, npm y estos archivos?</h2>
 
+<ul>
+    <li>
+        <strong>package.json:</strong>
+        Define las dependencias y los scripts del proyecto.
+    </li>
+
+    <li>
+        <strong>package-lock.json:</strong>
+        Es el archivo de bloqueo generado por <strong>npm</strong>.
+    </li>
+
+    <li>
+        <strong>yarn.lock:</strong>
+        Es el archivo de bloqueo generado por <strong>Yarn</strong>.
+    </li>
+
+    <li>
+        <strong>node_modules/:</strong>
+        Es la carpeta donde se instalan las dependencias del proyecto.
+    </li>
+</ul>
+
+<h3>¿Entonces qué es Yarn?</h3>
+
+<p>
+    <strong>Yarn</strong> y <strong>npm</strong> hacen prácticamente la misma función:
+    ambos son gestores de paquetes para proyectos de Node.js.
+</p>
+
+<pre><code>package.json
+     │
+     ├── npm install ──→ node_modules
+     │                  └── package-lock.json
+     │
+     └── yarn install ─→ node_modules
+                        └── yarn.lock</code></pre>
+
+<p>Por ejemplo, podemos instalar Express utilizando npm:</p>
+
+<pre><code>npm install express</code></pre>
+
+<p>O utilizando Yarn:</p>
+
+<pre><code>yarn add express</code></pre>
+
+<p>
+    <strong>Ambos comandos instalan Express</strong> como dependencia del proyecto.
+</p>
+
+<h3>¿Cuál debería utilizar?</h3>
+
+<p>
+    Lo recomendable es utilizar <strong>un solo gestor de paquetes</strong>
+    dentro del proyecto y no mezclar npm y Yarn.
+</p>
+
+<p>
+    Si el proyecto utiliza <strong>package-lock.json</strong>, lo más sencillo
+    es trabajar con <strong>npm</strong>.
+</p>
+
+<p>
+    En ese caso, puedes utilizar:
+</p>
+
+<pre><code>npm install</code></pre>
+
+<p>
+    para instalar las dependencias, y:
+</p>
+
+<pre><code>npm run dev</code></pre>
+
+<p>
+    para ejecutar el proyecto en modo desarrollo.
+</p>
+
+<h3>¿Y qué pasa con <code>yarn dev</code>?</h3>
+
+<p>
+    Si en tu <code>package.json</code> tienes definido un script como:
+</p>
+
+<pre><code>{
+    "scripts": {
+        "dev": "tsx watch ./src/index.ts"
+    }
+}</code></pre>
+
+<p>
+    puedes ejecutarlo de las dos formas:
+</p>
+
+<pre><code>npm run dev</code></pre>
+
+<p>o:</p>
+
+<pre><code>yarn dev</code></pre>
+
+<p>
+    Ambos terminarán ejecutando el mismo script definido en
+    <code>package.json</code>:
+</p>
+
+<pre><code>tsx watch ./src/index.ts</code></pre>
+
+<p>
+    Por lo tanto, en tu proyecto, si estás trabajando con
+    <strong>package-lock.json</strong>, puedes utilizar:
+</p>
+
+<pre><code>npm run dev</code></pre>
+<hr>
+
+     
+  <h3>1. El archivo completo</h3>
+
+    <pre><code>import express, {Express, Request, Response} from 'express';
+
+import {userRouter} from './users/';
+
+import {db} from './config/connectionDB';
+
+const app: Express = express();
+
+process.loadEnvFile();
+
+const port: number = parseInt(process.env.PORT || "3000");
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use("/user", userRouter);
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("Hola mundo");
+});
+
+db.then(() =>
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    })
+);</code></pre>
+
+
+    <h3>2. ¿Qué hace este archivo?</h3>
+
+    <p>
+        Este archivo es el punto de entrada de nuestra aplicación Node + Express.
+        Su función principal es <strong>crear y configurar el servidor</strong>.
+    </p>
+
+    <p>En términos generales hace esto:</p>
+
+    <pre><code>Importar cosas
+      ↓
+Crear aplicación Express
+      ↓
+Cargar variables .env
+      ↓
+Configurar puerto
+      ↓
+Configurar middlewares
+      ↓
+Conectar las rutas de usuarios
+      ↓
+Crear ruta GET /
+      ↓
+Esperar conexión con MongoDB
+      ↓
+Empezar a escuchar peticiones</code></pre>
+
+
+    <h3>3. Primer import: Express</h3>
+
+    <pre><code>import express, {Express, Request, Response} from 'express';</code></pre>
+
+    <p>
+        Estamos importando cosas desde la librería <strong>Express</strong>.
+    </p>
+
+    <p>Estamos obteniendo cuatro cosas:</p>
+
+    <pre><code>express
+Express
+Request
+Response</code></pre>
+
+    <h4>express</h4>
+
+    <p>
+        Es la función principal de Express.
+        Después la utilizamos para crear nuestra aplicación:
+    </p>
+
+    <pre><code>const app = express();</code></pre>
+
+    <h4>Express</h4>
+
+    <p>
+        Es un tipo de TypeScript.
+        Lo utilizamos para indicar que <code>app</code> es una aplicación Express.
+    </p>
+
+    <pre><code>const app: Express = express();</code></pre>
+
+    <h4>Request</h4>
+
+    <p>
+        Es un tipo que representa una petición HTTP.
+    </p>
+
+    <pre><code>req: Request</code></pre>
+
+    <h4>Response</h4>
+
+    <p>
+        Es un tipo que representa la respuesta HTTP.
+    </p>
+
+    <pre><code>res: Response</code></pre>
+
+
+     
+
+
+ 
 </div>
 
 
 
 
 <div class="seccion derecha">
-     
-  
-    <h3>1. ¿Qué significa <code>default</code>?</h3>
+ 
+   <h3>4. Import de userRouter</h3>
+
+    <pre><code>import {userRouter} from './users/';</code></pre>
 
     <p>
-        Un módulo puede declarar una exportación principal utilizando:
-    </p>
-
-    <pre><code>export default algo;</code></pre>
-
-    <p>
-        Esto significa que ese elemento es la exportación principal del módulo.
-    </p>
-
-    <p>Por ejemplo, en un archivo <code>saludar.ts</code>:</p>
-
-    <pre><code>function saludar() {
-    console.log("Hola");
-}
-
-export default saludar;</code></pre>
-
-    <p>
-        Luego, desde otro archivo podemos importar esa función:
-    </p>
-
-    <pre><code>import saludar from './saludar';</code></pre>
-
-    <p>
-        Fíjate en que <strong>no utilizamos <code>{}</code></strong>.
-    </p>
-
-    <pre><code>import saludar from './saludar';
-//      ↑
-//    default</code></pre>
-
-
-    <h3>2. ¿Por qué no lleva <code>{}</code>?</h3>
-
-    <p>
-        Los <code>{}</code> se utilizan para realizar
-        <strong>named imports</strong> o importaciones nombradas.
-    </p>
-
-    <p>Por ejemplo:</p>
-
-    <pre><code>export function saludar() {
-    console.log("Hola");
-}
-
-export function despedir() {
-    console.log("Adiós");
-}</code></pre>
-
-    <p>
-        Ahora existen dos exports nombrados:
-    </p>
-
-    <pre><code>import { saludar, despedir } from './saludar';</code></pre>
-
-    <p>
-        En este caso, los nombres deben coincidir con los nombres de los exports.
+        Esta línea es muy importante porque aquí estamos importando
+        el <code>userRouter</code> que fue creado en otro archivo.
     </p>
 
     <p>
-        En cambio, con <code>default</code>:
+        Estamos actualmente en:
     </p>
 
-    <pre><code>export default saludar;</code></pre>
+    <pre><code>src/index.ts</code></pre>
 
     <p>
-        Podemos importar la función utilizando el nombre que queramos:
+        Por lo tanto:
     </p>
 
-    <pre><code>import saludar from './saludar';</code></pre>
-
-    <p>También podríamos escribir:</p>
-
-    <pre><code>import hola from './saludar';</code></pre>
-
-    <p>O:</p>
-
-    <pre><code>import miFuncion from './saludar';</code></pre>
+    <pre><code>./users/</code></pre>
 
     <p>
-        Todos hacen referencia al mismo <code>default</code>.
+        significa:
     </p>
 
+    <pre><code>src/users/</code></pre>
 
-    <h3>3. Volvamos a Express</h3>
+    <h4>¿Qué archivo se busca?</h4>
 
     <p>
-        Cuando hacemos:
+        Como estamos importando desde una carpeta, se busca el archivo índice:
     </p>
 
-    <pre><code>import express, { Express, Request, Response } from 'express';</code></pre>
+    <pre><code>src/users/index.ts</code></pre>
+
+    <p>Ese archivo contiene:</p>
+
+    <pre><code>export * from './user.controller';
+
+export * from './user.interface';
+
+export * from './user.route';
+
+export * from './user.service';
+
+export * from './user.schema';</code></pre>
 
     <p>
-        Conceptualmente tenemos:
+        Nos interesa específicamente:
     </p>
 
-    <pre><code>'express'
+    <pre><code>export * from './user.route';</code></pre>
+
+    <p>
+        Esto hace que se cargue:
+    </p>
+
+    <pre><code>src/users/user.route.ts</code></pre>
+
+    <p>
+        Y dentro de ese archivo tenemos:
+    </p>
+
+    <pre><code>export const userRouter = express.Router();</code></pre>
+
+    <p>
+        <strong>Aquí es donde realmente se crea el userRouter.</strong>
+    </p>
+
+    <h4>Recorrido completo del import</h4>
+
+    <pre><code>src/index.ts
+      ↓
+import {userRouter} from './users/'
+      ↓
+src/users/index.ts
+      ↓
+export * from './user.route'
+      ↓
+src/users/user.route.ts
+      ↓
+export const userRouter = express.Router()
+      ↓
+Se crea userRouter
+      ↓
+userRouter vuelve a estar disponible
+      ↓
+src/index.ts recibe userRouter</code></pre>
+
+
+    <h3>5. ¿Qué contiene userRouter?</h3>
+
+    <p>
+        En <code>user.route.ts</code> se configura el router:
+    </p>
+
+    <pre><code>export const userRouter = express.Router();
+
+userRouter.get("/", userController.getAll);
+
+userRouter.get("/profile", auth, userController.getOne);
+
+userRouter.get("/:id", userController.getOne);
+
+userRouter.post(
+    "/",
+    validateSchema(userSchema),
+    userController.create
+);
+
+userRouter.put("/:id", userController.update);
+
+userRouter.delete("/:id", userController.delete);
+
+userRouter.post("/login", userController.login);</code></pre>
+
+    <p>
+        Por lo tanto, <code>userRouter</code> contiene las rutas relacionadas
+        con los usuarios.
+    </p>
+
+    <pre><code>userRouter
     │
-    ├── default export
-    │       ↓
-    │    express
-    │
-    └── named exports
-            ├── Express
-            ├── Request
-            └── Response</code></pre>
+    ├── GET /
+    ├── GET /profile
+    ├── GET /:id
+    ├── POST /
+    ├── PUT /:id
+    ├── DELETE /:id
+    └── POST /login</code></pre>
+
+
+       <h3>6. Import de la base de datos</h3>
+
+    <pre><code>import {db} from './config/connectionDB';</code></pre>
 
     <p>
-        Por eso:
+        Estamos importando <code>db</code> desde:
     </p>
 
-    <pre><code>import express from 'express';</code></pre>
+    <pre><code>src/config/connectionDB.ts</code></pre>
 
     <p>
-        Es un <strong>default import</strong>.
+        Allí tenemos algo parecido a:
     </p>
+
+    <pre><code>export const db = mongoose.connect(connectionString)
+    .then(() =>
+        console.log("Connected to MongoDB")
+    )
+    .catch(
+        (error) => console.error(error)
+    );</code></pre>
 
     <p>
-        Mientras que:
+        Por lo tanto, <code>db</code> representa una
+        <strong>Promise relacionada con la conexión a MongoDB</strong>.
     </p>
 
-    <pre><code>import { Request, Response } from 'express';</code></pre>
+    <pre><code>index.ts
+   ↓
+connectionDB.ts
+   ↓
+mongoose.connect(...)
+   ↓
+db = Promise</code></pre>
+
+
+    <h3>7. Crear la aplicación Express</h3>
+
+    <pre><code>const app: Express = express();</code></pre>
 
     <p>
-        Son <strong>named imports</strong>.
+        Aquí se ejecuta:
     </p>
 
-
-    <h3>4. Diferencia entre Default Import y Named Import</h3>
-
-    <table border="1">
-        <tr>
-            <th>Tipo</th>
-            <th>Sintaxis</th>
-            <th>Significado</th>
-        </tr>
-        <tr>
-            <td>Default import</td>
-            <td><code>import express from 'express';</code></td>
-            <td>Importa la exportación principal.</td>
-        </tr>
-        <tr>
-            <td>Named import</td>
-            <td><code>import { Request } from 'express';</code></td>
-            <td>Importa un export específico por su nombre.</td>
-        </tr>
-    </table>
-
-
-    <h3>5. Idea principal</h3>
+    <pre><code>express()</code></pre>
 
     <p>
-        Puedes recordar la diferencia de esta manera:
+        Express crea una aplicación y nosotros la guardamos en:
     </p>
 
-    <pre><code>import cosa from 'modulo';</code></pre>
+    <pre><code>app</code></pre>
 
     <p>
-        Significa: <strong>"Dame la exportación principal del módulo".</strong>
+        Podemos imaginar <code>app</code> como el objeto que administra
+        las peticiones de nuestro servidor.
     </p>
 
-    <pre><code>import { cosa } from 'modulo';</code></pre>
+    <pre><code>express()
+    ↓
+crea aplicación
+    ↓
+app</code></pre>
 
     <p>
-        Significa: <strong>"Dame específicamente el export llamado cosa".</strong>
+        Todavía no estamos escuchando peticiones.
+        Eso ocurrirá posteriormente con <code>app.listen()</code>.
     </p>
 
-    <p>
-        Además, <code>default</code> no es exclusivo de Node.js.
-        Es una característica de los módulos de JavaScript (ES Modules)
-        que también utiliza TypeScript.
-    </p>
-          <hr>
-    <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
-    <br>
-    <input type="text" id="mostrar_solucion" name="mostrar_solucion"  value="<?php echo $mostrar_solucion?>">
-    <button type="submit"   >Mostrar Solución</button>   
+
+    
+   
 </div>
 </div>
  </form>

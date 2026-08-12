@@ -41,9 +41,105 @@ if ($_POST) {
     $respuesta_21 = 'Sistemas moviles';
     $respuesta_22 = 'Cliente-servidor';
     $respuesta_23 = 'Peer-to-peer';
+    $respuesta_24 = 'Linux';   
+    $respuesta_25 = 'Interrupciones';
+    $respuesta_26 = 'DMA';
+    $respuesta_27 = 'Acceso Directo a Memoria';
+    // Respuestas correctas para todas las preguntas
+    $respuesta_1 = 'evita';
+    $respuesta_2 = 'procesos interfieran';
+    $respuesta_3 = 'no puede modificar';
+    $respuesta_4 = 'controla';
+    $respuesta_5 = 'acceder';
+    $respuesta_6 = 'contraseñas';
+    $respuesta_7 = 'virtuales';
+    $respuesta_8 = 'computador fisico';
+    $respuesta_9 = 'hipervisor';
+    $respuesta_10 = 'VirtualBox';
+    $respuesta_11 = 'computadores independientes conectados';
+    $respuesta_12 = 'una red';
+    $respuesta_13 = 'juntos';
+    $respuesta_14 = 'solo sistema';
+    $respuesta_15 = 'la nube';
+    $respuesta_16 = 'Listas enlazadas';
+    $respuesta_17 = 'Colas';
+    $respuesta_18 = 'Pilas';
+    $respuesta_19 = 'Falso';
+    $respuesta_20 = 'N items';
+    $respuesta_21 = 'Sistemas moviles';
+    $respuesta_22 = 'Cliente-servidor';
+    $respuesta_23 = 'Peer-to-peer';
     $respuesta_24 = 'Linux';
-        
-        // Marcar todas como correctas
+    $respuesta_25 = 'Interrupciones';
+    $respuesta_26 = 'DMA';
+    $respuesta_27 = 'Acceso Directo a Memoria';
+    $respuesta_28 = 'puede ignorar temporalmente';
+    $respuesta_29 = 'teclado';
+    $respuesta_30 = 'no puede ignorar';
+    $respuesta_31 = 'crítico';
+    $respuesta_32 = 'fallo grave';
+    $respuesta_33 = 'hardware';
+    $respuesta_34 = 'tres servicios';
+    $respuesta_35 = 'Program execution'; // Prioridad inglés
+    $respuesta_36 = 'I/O operations'; // Prioridad inglés
+    $respuesta_37 = 'File system'; // Prioridad inglés
+    $respuesta_38 = 'Communication'; // Prioridad inglés
+    $respuesta_39 = 'Error detection'; // Prioridad inglés
+    $respuesta_40 = 'tres funciones';
+    $respuesta_41 = 'opere eficientemente';
+    $respuesta_42 = 'Resource allocation'; // Prioridad inglés
+    $respuesta_43 = 'Protection and security'; // Prioridad inglés
+    $respuesta_44 = 'Accounting'; // Prioridad inglés
+    $respuesta_45 = 'CLI';
+    $respuesta_46 = 'Command Line Interface';
+    $respuesta_47 = 'GUI';
+    $respuesta_48 = 'Graphical User Interface';
+    $respuesta_49 = 'funcionalidades';
+    $respuesta_50 = 'sistema operativo';
+    $respuesta_51 = 'interfaz';
+    $respuesta_52 = 'servicios';
+    $respuesta_53 = 'operaciones';
+    $respuesta_54 = 'kernel';
+    $respuesta_55 = 'Application Programming Interface';
+    $respuesta_56 = 'interfaz';
+    $respuesta_57 = 'programas';
+    $respuesta_58 = 'system calls';
+    $respuesta_59 = 'sistema operativo';
+    $respuesta_60 = 'definidas';
+    $respuesta_61 = 'servicios';
+    $respuesta_62 = 'Registros';
+    $respuesta_63 = 'Tabla de parametros';
+    $respuesta_64 = 'puntero';
+    $respuesta_65 = 'registro';
+    $respuesta_66 = 'Pila';
+    $respuesta_67 = 'Control de procesos';
+    $respuesta_68 = 'Gestion de archivos';
+    $respuesta_69 = 'Gestion de dispositivos';
+    $respuesta_70 = 'Mantenimiento de informacion';
+    $respuesta_71 = 'Comunicacion';
+    $respuesta_72 = 'Proteccion';
+    $respuesta_73 = 'servicios';
+    $respuesta_74 = 'usuario';
+    $respuesta_75 = 'servicios';
+    $respuesta_76 = 'implementar';
+    $respuesta_77 = 'que';
+    $respuesta_78 = 'como';
+    $respuesta_79 = 'Estructura monolitica';
+    $respuesta_80 = 'Sistema operativo por capas';
+    $respuesta_81 = 'Microkernel';
+    $respuesta_82 = 'Kernel modular';
+    $respuesta_83 = 'macOS';
+    $respuesta_84 = 'iOS / iPadOS';
+    $respuesta_85 = 'comunicacion';
+    $respuesta_86 = 'procesos';
+    $respuesta_87 = 'IPC';
+    $respuesta_88 = 'Inter Process Communication';
+    $respuesta_89 = 'servicios';
+    $respuesta_90 = 'comunicarse';
+        $respuesta_91 = 'Computacion en la nube';
+
+     
+    // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
     ${"verificar_$i"} = "correcto";
     }
@@ -299,7 +395,7 @@ if ($_POST) {
        $verificar_25 = "incorrecto";
    }
 
-   // Verificar la respuesta de la cuarta pregunta
+   // Verificar la respuesta de la cuarta pregunta InterrupcionesDMAAcceso Directo a Memoria
    $respuesta_26 = isset($_POST['respuesta_26']) ? $_POST['respuesta_26'] : '';
    if ($respuesta_26 === 'DMA') {  
        $verificar_26 = "correcto";
@@ -321,7 +417,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la sexta pregunta
    $respuesta_28 = isset($_POST['respuesta_28']) ? $_POST['respuesta_28'] : '';
-   if ($respuesta_28 === '105') {  
+   if ($respuesta_28 === 'puede ignorar temporalmente') {  
        $verificar_28 = "correcto";
    } elseif ($respuesta_28 === '') {
        $verificar_28 = '';
@@ -331,7 +427,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la séptima pregunta
    $respuesta_29 = isset($_POST['respuesta_29']) ? $_POST['respuesta_29'] : '';
-   if ($respuesta_29 === '120') {  
+   if ($respuesta_29 === 'teclado') {  
        $verificar_29 = "correcto";
    } elseif ($respuesta_29 === '') {
        $verificar_29 = '';
@@ -341,7 +437,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la octava pregunta
    $respuesta_30 = isset($_POST['respuesta_30']) ? $_POST['respuesta_30'] : '';
-   if ($respuesta_30 === '135') {  
+   if ($respuesta_30 === 'no puede ignorar') {  
        $verificar_30 = "correcto";
    } elseif ($respuesta_30 === '') {
        $verificar_30 = '';
@@ -351,7 +447,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la novena pregunta
    $respuesta_31 = isset($_POST['respuesta_31']) ? $_POST['respuesta_31'] : '';
-   if ($respuesta_31 === '150') {  
+   if ($respuesta_31 === 'crítico') {  
        $verificar_31 = "correcto";
    } elseif ($respuesta_31 === '') {
        $verificar_31 = '';
@@ -361,7 +457,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la décima pregunta
    $respuesta_32 = isset($_POST['respuesta_32']) ? $_POST['respuesta_32'] : '';
-   if ($respuesta_32 === '165') {  
+   if ($respuesta_32 === 'fallo grave') {  
        $verificar_32 = "correcto";
    } elseif ($respuesta_32 === '') {
        $verificar_32 = '';
@@ -371,7 +467,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la undécima pregunta
    $respuesta_33 = isset($_POST['respuesta_33']) ? $_POST['respuesta_33'] : '';
-   if ($respuesta_33 === '180') {  
+   if ($respuesta_33 === 'hardware') {  
        $verificar_33 = "correcto";
    } elseif ($respuesta_33 === '') {
        $verificar_33 = '';
@@ -380,7 +476,7 @@ if ($_POST) {
    }
 
     $respuesta_34 = isset($_POST['respuesta_34']) ? $_POST['respuesta_34'] : '';
-    if ($respuesta_34 === '32') { 
+    if ($respuesta_34 === 'tres servicios') { 
         $verificar_34 = "correcto";
     } elseif ($respuesta_34 === '') {
         $verificar_34 = '';
@@ -389,7 +485,11 @@ if ($_POST) {
     }
 
     $respuesta_35 = isset($_POST['respuesta_35']) ? $_POST['respuesta_35'] : '';
-    if ($respuesta_35 === '48') { 
+    if ($respuesta_35 === 'Ejecucion de programas'
+    || $respuesta_35 === 'Program execution'
+        || $respuesta_35 === 'program execution'
+    || $respuesta_35 === 'ejecucion de programas'
+        ) { 
         $verificar_35 = "correcto";
     } elseif ($respuesta_35 === '') {
         $verificar_35 = '';
@@ -398,7 +498,10 @@ if ($_POST) {
     }
 
     $respuesta_36 = isset($_POST['respuesta_36']) ? $_POST['respuesta_36'] : '';
-    if ($respuesta_36 === '64') { 
+    if ($respuesta_36 === 'Operaciones de entrada y salida (I/O)'
+    || $respuesta_36 === 'operaciones de entrada y salida (I/O)'
+    || $respuesta_36 === 'I/O operations'
+    ) { 
         $verificar_36 = "correcto";
     } elseif ($respuesta_36 === '') {
     $verificar_36 = '';
@@ -407,7 +510,11 @@ if ($_POST) {
     }
 
     $respuesta_37 = isset($_POST['respuesta_37']) ? $_POST['respuesta_37'] : '';
-    if ($respuesta_37 === '80') { 
+    if ($respuesta_37 === 'Gestion de archivos'
+    || $respuesta_37 === 'gestion de archivos'
+    || $respuesta_37 === 'File system'
+    || $respuesta_37 === 'file system'
+    ) { 
         $verificar_37 = "correcto";
     } elseif ($respuesta_37 === '') {
         $verificar_37 = '';
@@ -416,7 +523,12 @@ if ($_POST) {
     }
 
     $respuesta_38 = isset($_POST['respuesta_38']) ? $_POST['respuesta_38'] : '';
-    if ($respuesta_38 === '96') { 
+    if ($respuesta_38 === 'Comunicaciones'
+    || $respuesta_38 === 'comunicaciones'
+    || $respuesta_38 === 'Communication'
+    ||  $respuesta_38 === 'communication'
+
+    ) { 
         $verificar_38 = "correcto";
     } elseif ($respuesta_38 === '') {
         $verificar_38 = '';
@@ -425,7 +537,11 @@ if ($_POST) {
     }
 
     $respuesta_39 = isset($_POST['respuesta_39']) ? $_POST['respuesta_39'] : '';
-    if ($respuesta_39 === '112') { 
+    if ($respuesta_39 === 'Deteccion de errores'
+    || $respuesta_39 === 'deteccion de errores'
+    || $respuesta_39 === 'Error detection'
+    || $respuesta_39 === 'error detection'
+    ) { 
         $verificar_39 = "correcto";
     } elseif ($respuesta_39 === '') {
         $verificar_39 = '';
@@ -434,7 +550,7 @@ if ($_POST) {
     }
 
     $respuesta_40 = isset($_POST['respuesta_40']) ? $_POST['respuesta_40'] : '';
-    if ($respuesta_40 === '128') { 
+    if ($respuesta_40 === 'tres funciones') { 
         $verificar_40 = "correcto";
     } elseif ($respuesta_40 === '') {
         $verificar_40 = '';
@@ -443,7 +559,7 @@ if ($_POST) {
     }
 
     $respuesta_41 = isset($_POST['respuesta_41']) ? $_POST['respuesta_41'] : '';
-    if ($respuesta_41 === '144') { 
+    if ($respuesta_41 === 'opere eficientemente') { 
         $verificar_41 = "correcto";
     } elseif ($respuesta_41 === '') {
         $verificar_41 = '';
@@ -452,7 +568,13 @@ if ($_POST) {
     }
 
     $respuesta_42 = isset($_POST['respuesta_42']) ? $_POST['respuesta_42'] : '';
-    if ($respuesta_42 === '160') { 
+    if ($respuesta_42 === 'Asignacion de recursos'
+    || $respuesta_42 === 'asignacion de recursos'
+
+    || $respuesta_42 === 'Resource allocation'
+    || $respuesta_42 === 'resource allocation'
+
+    ) { 
         $verificar_42 = "correcto";
     } elseif ($respuesta_42 === '') {
         $verificar_42 = '';
@@ -461,7 +583,11 @@ if ($_POST) {
     }
 
     $respuesta_43 = isset($_POST['respuesta_43']) ? $_POST['respuesta_43'] : '';
-    if ($respuesta_43 === '176') { 
+    if ($respuesta_43 === 'Proteccion y seguridad'
+    || $respuesta_43 === 'Proteccion y seguridad'
+    || $respuesta_43 === 'protection and security'
+    || $respuesta_43 === 'Protection and security'
+    ) { 
         $verificar_43 = "correcto";
     } elseif ($respuesta_43 === '') {
         $verificar_43 = '';
@@ -470,7 +596,12 @@ if ($_POST) {
     }
 
     $respuesta_44 = isset($_POST['respuesta_44']) ? $_POST['respuesta_44'] : '';
-    if ($respuesta_44 === '192') { 
+    if ($respuesta_44 === 'Servicios de logging (bitacoras)'||
+    $respuesta_44 === 'servicios de logging (bitacoras)'
+    || $respuesta_44 === 'accounting'
+    || $respuesta_44 === 'Accounting'
+
+    ) { 
         $verificar_44 = "correcto";
     } elseif ($respuesta_44 === '') {
     $verificar_44 = '';
@@ -479,7 +610,7 @@ if ($_POST) {
     }
 
     $respuesta_45 = isset($_POST['respuesta_45']) ? $_POST['respuesta_45'] : '';
-    if ($respuesta_45 === '34') { 
+    if ($respuesta_45 === 'CLI') { 
         $verificar_45 = "correcto";
     } elseif ($respuesta_45 === '') {
     $verificar_45 = '';
@@ -488,7 +619,7 @@ if ($_POST) {
     }
 
     $respuesta_46 = isset($_POST['respuesta_46']) ? $_POST['respuesta_46'] : '';
-    if ($respuesta_46 === '51') { 
+    if ($respuesta_46 === 'Command Line Interface') { 
         $verificar_46 = "correcto";
     } elseif ($respuesta_46 === '') {
     $verificar_46 = '';
@@ -497,7 +628,7 @@ if ($_POST) {
     }
 
     $respuesta_47 = isset($_POST['respuesta_47']) ? $_POST['respuesta_47'] : '';
-    if ($respuesta_47 === '68') { 
+    if ($respuesta_47 === 'GUI') { 
         $verificar_47 = "correcto";
     } elseif ($respuesta_47 === '') {
         $verificar_47 = '';
@@ -506,7 +637,7 @@ if ($_POST) {
     }
 
     $respuesta_48 = isset($_POST['respuesta_48']) ? $_POST['respuesta_48'] : '';
-    if ($respuesta_48 === '85') { 
+    if ($respuesta_48 === 'Graphical User Interface') { 
         $verificar_48 = "correcto";
     } elseif ($respuesta_48 === '') {
     $verificar_48 = '';
@@ -515,7 +646,7 @@ if ($_POST) {
     }
 
     $respuesta_49 = isset($_POST['respuesta_49']) ? $_POST['respuesta_49'] : '';
-    if ($respuesta_49 === '102') { 
+    if ($respuesta_49 === 'funcionalidades') { 
         $verificar_49 = "correcto";
     } elseif ($respuesta_49 === '') {
     $verificar_49 = '';
@@ -524,7 +655,7 @@ if ($_POST) {
     }
 
     $respuesta_50 = isset($_POST['respuesta_50']) ? $_POST['respuesta_50'] : '';
-    if ($respuesta_50 === '119') { 
+    if ($respuesta_50 === 'sistema operativo') { 
         $verificar_50 = "correcto";
     } elseif ($respuesta_50 === '') {
     $verificar_50 = '';
@@ -533,7 +664,7 @@ if ($_POST) {
     }
 
  $respuesta_51 = isset($_POST['respuesta_51']) ? $_POST['respuesta_51'] : '';
-if ($respuesta_51 === '136') { 
+if ($respuesta_51 === 'interfaz') { 
     $verificar_51 = "correcto";
 } elseif ($respuesta_51 === '') {
     $verificar_51 = '';
@@ -542,7 +673,7 @@ if ($respuesta_51 === '136') {
 }
 
  $respuesta_52 = isset($_POST['respuesta_52']) ? $_POST['respuesta_52'] : '';
-if ($respuesta_52 === '153') { 
+if ($respuesta_52 === 'servicios') { 
     $verificar_52 = "correcto";
 } elseif ($respuesta_52 === '') {
     $verificar_52 = '';
@@ -551,7 +682,7 @@ if ($respuesta_52 === '153') {
 }
 
  $respuesta_53 = isset($_POST['respuesta_53']) ? $_POST['respuesta_53'] : '';
-if ($respuesta_53 === '170') { 
+if ($respuesta_53 === 'operaciones') { 
     $verificar_53 = "correcto";
 } elseif ($respuesta_53 === '') {
     $verificar_53 = '';
@@ -560,7 +691,7 @@ if ($respuesta_53 === '170') {
 }
 
  $respuesta_54 = isset($_POST['respuesta_54']) ? $_POST['respuesta_54'] : '';
-if ($respuesta_54 === '187') { 
+if ($respuesta_54 === 'kernel') { 
     $verificar_54 = "correcto";
 } elseif ($respuesta_54 === '') {
     $verificar_54 = '';
@@ -569,7 +700,7 @@ if ($respuesta_54 === '187') {
 }
 
  $respuesta_55 = isset($_POST['respuesta_55']) ? $_POST['respuesta_55'] : '';
-if ($respuesta_55 === '204') { 
+if ($respuesta_55 === 'Application Programming Interface') { 
     $verificar_55 = "correcto";
 } elseif ($respuesta_55 === '') {
     $verificar_55 = '';
@@ -579,7 +710,7 @@ if ($respuesta_55 === '204') {
 
 
  $respuesta_56 = isset($_POST['respuesta_56']) ? $_POST['respuesta_56'] : '';
-if ($respuesta_56 === '36') { 
+if ($respuesta_56 === 'interfaz') { 
     $verificar_56 = "correcto";
 } elseif ($respuesta_56 === '') {
     $verificar_56 = '';
@@ -588,7 +719,7 @@ if ($respuesta_56 === '36') {
 }
 
  $respuesta_57 = isset($_POST['respuesta_57']) ? $_POST['respuesta_57'] : '';
-if ($respuesta_57 === '54') { 
+if ($respuesta_57 === 'programas') { 
     $verificar_57 = "correcto";
 } elseif ($respuesta_57 === '') {
     $verificar_57 = '';
@@ -597,7 +728,7 @@ if ($respuesta_57 === '54') {
 }
 
  $respuesta_58 = isset($_POST['respuesta_58']) ? $_POST['respuesta_58'] : '';
-if ($respuesta_58 === '72') { 
+if ($respuesta_58 === 'system calls') { 
     $verificar_58 = "correcto";
 } elseif ($respuesta_58 === '') {
     $verificar_58 = '';
@@ -606,7 +737,7 @@ if ($respuesta_58 === '72') {
 }
 
  $respuesta_59 = isset($_POST['respuesta_59']) ? $_POST['respuesta_59'] : '';
-if ($respuesta_59 === '90') { 
+if ($respuesta_59 === 'sistema operativo') { 
     $verificar_59 = "correcto";
 } elseif ($respuesta_59 === '') {
     $verificar_59 = '';
@@ -615,7 +746,7 @@ if ($respuesta_59 === '90') {
 }
 
  $respuesta_60 = isset($_POST['respuesta_60']) ? $_POST['respuesta_60'] : '';
-if ($respuesta_60 === '108') { 
+if ($respuesta_60 === 'definidas') { 
     $verificar_60 = "correcto";
 } elseif ($respuesta_60 === '') {
     $verificar_60 = '';
@@ -624,7 +755,7 @@ if ($respuesta_60 === '108') {
 }
 
  $respuesta_61 = isset($_POST['respuesta_61']) ? $_POST['respuesta_61'] : '';
-if ($respuesta_61 === '126') { 
+if ($respuesta_61 === 'servicios') { 
     $verificar_61 = "correcto";
 } elseif ($respuesta_61 === '') {
     $verificar_61 = '';
@@ -633,7 +764,7 @@ if ($respuesta_61 === '126') {
 }
 
  $respuesta_62 = isset($_POST['respuesta_62']) ? $_POST['respuesta_62'] : '';
-if ($respuesta_62 === '144') { 
+if ($respuesta_62 === 'Registros') { 
     $verificar_62 = "correcto";
 } elseif ($respuesta_62 === '') {
     $verificar_62 = '';
@@ -642,7 +773,7 @@ if ($respuesta_62 === '144') {
 }
 
  $respuesta_63 = isset($_POST['respuesta_63']) ? $_POST['respuesta_63'] : '';
-if ($respuesta_63 === '162') { 
+if ($respuesta_63 === 'Tabla de parametros') { 
     $verificar_63 = "correcto";
 } elseif ($respuesta_63 === '') {
     $verificar_63 = '';
@@ -651,7 +782,7 @@ if ($respuesta_63 === '162') {
 }
 
  $respuesta_64 = isset($_POST['respuesta_64']) ? $_POST['respuesta_64'] : '';
-if ($respuesta_64 === '180') { 
+if ($respuesta_64 === 'puntero') { 
     $verificar_64 = "correcto";
 } elseif ($respuesta_64 === '') {
     $verificar_64 = '';
@@ -660,7 +791,7 @@ if ($respuesta_64 === '180') {
 }
 
  $respuesta_65 = isset($_POST['respuesta_65']) ? $_POST['respuesta_65'] : '';
-if ($respuesta_65 === '198') { 
+if ($respuesta_65 === 'registro') { 
     $verificar_65 = "correcto";
 } elseif ($respuesta_65 === '') {
     $verificar_65 = '';
@@ -669,7 +800,7 @@ if ($respuesta_65 === '198') {
 }
 
  $respuesta_66 = isset($_POST['respuesta_66']) ? $_POST['respuesta_66'] : '';
-if ($respuesta_66 === '216') { 
+if ($respuesta_66 === 'Pila') { 
     $verificar_66 = "correcto";
 } elseif ($respuesta_66 === '') {
     $verificar_66 = '';
@@ -678,7 +809,9 @@ if ($respuesta_66 === '216') {
 }
 
  $respuesta_67 = isset($_POST['respuesta_67']) ? $_POST['respuesta_67'] : '';
-if ($respuesta_67 === '38') { 
+if ($respuesta_67 === 'Control de procesos'
+|| $respuesta_67 === 'control de procesos'
+) { 
     $verificar_67 = "correcto";
 } elseif ($respuesta_67 === '') {
     $verificar_67 = '';
@@ -687,7 +820,9 @@ if ($respuesta_67 === '38') {
 }
 
  $respuesta_68 = isset($_POST['respuesta_68']) ? $_POST['respuesta_68'] : '';
-if ($respuesta_68 === '57') { 
+if ($respuesta_68 === 'Gestion de archivos'
+|| $respuesta_68 === 'gestion de archivos'
+) { 
     $verificar_68 = "correcto";
 } elseif ($respuesta_68 === '') {
     $verificar_68 = '';
@@ -696,7 +831,9 @@ if ($respuesta_68 === '57') {
 }
 
  $respuesta_69 = isset($_POST['respuesta_69']) ? $_POST['respuesta_69'] : '';
-if ($respuesta_69 === '76') { 
+if ($respuesta_69 === 'Gestion de dispositivos'
+|| $respuesta_69 === 'gestion de dispositivos'
+) { 
     $verificar_69 = "correcto";
 } elseif ($respuesta_69 === '') {
     $verificar_69 = '';
@@ -705,7 +842,7 @@ if ($respuesta_69 === '76') {
 }
 
  $respuesta_70 = isset($_POST['respuesta_70']) ? $_POST['respuesta_70'] : '';
-if ($respuesta_70 === '95') { 
+if ($respuesta_70 === 'Mantenimiento de informacion') { 
     $verificar_70 = "correcto";
 } elseif ($respuesta_70 === '') {
     $verificar_70 = '';
@@ -714,7 +851,7 @@ if ($respuesta_70 === '95') {
 }
 
  $respuesta_71 = isset($_POST['respuesta_71']) ? $_POST['respuesta_71'] : '';
-if ($respuesta_71 === '114') { 
+if ($respuesta_71 === 'Comunicacion') { 
     $verificar_71 = "correcto";
 } elseif ($respuesta_71 === '') {
     $verificar_71 = '';
@@ -723,7 +860,7 @@ if ($respuesta_71 === '114') {
 }
 
  $respuesta_72 = isset($_POST['respuesta_72']) ? $_POST['respuesta_72'] : '';
-if ($respuesta_72 === '133') { 
+if ($respuesta_72 === 'Proteccion') { 
     $verificar_72 = "correcto";
 } elseif ($respuesta_72 === '') {
     $verificar_72 = '';
@@ -732,7 +869,7 @@ if ($respuesta_72 === '133') {
 }
 
  $respuesta_73 = isset($_POST['respuesta_73']) ? $_POST['respuesta_73'] : '';
-if ($respuesta_73 === '152') { 
+if ($respuesta_73 === 'servicios') { 
     $verificar_73 = "correcto";
 } elseif ($respuesta_73 === '') {
     $verificar_73 = '';
@@ -741,7 +878,7 @@ if ($respuesta_73 === '152') {
 }
 
  $respuesta_74 = isset($_POST['respuesta_74']) ? $_POST['respuesta_74'] : '';
-if ($respuesta_74 === '171') { 
+if ($respuesta_74 === 'usuario') { 
     $verificar_74 = "correcto";
 } elseif ($respuesta_74 === '') {
     $verificar_74 = '';
@@ -750,7 +887,7 @@ if ($respuesta_74 === '171') {
 }
 
  $respuesta_75 = isset($_POST['respuesta_75']) ? $_POST['respuesta_75'] : '';
-if ($respuesta_75 === '190') { 
+if ($respuesta_75 === 'servicios') { 
     $verificar_75 = "correcto";
 } elseif ($respuesta_75 === '') {
     $verificar_75 = '';
@@ -759,7 +896,7 @@ if ($respuesta_75 === '190') {
 }
 
  $respuesta_76 = isset($_POST['respuesta_76']) ? $_POST['respuesta_76'] : '';
-if ($respuesta_76 === '209') { 
+if ($respuesta_76 === 'implementar') { 
     $verificar_76 = "correcto";
 } elseif ($respuesta_76 === '') {
     $verificar_76 = '';
@@ -768,7 +905,9 @@ if ($respuesta_76 === '209') {
 }
 
  $respuesta_77 = isset($_POST['respuesta_77']) ? $_POST['respuesta_77'] : '';
-if ($respuesta_77 === '228') { 
+if ($respuesta_77 === 'que'
+|| $respuesta_77 === 'qué'
+) { 
     $verificar_77 = "correcto";
 } elseif ($respuesta_77 === '') {
     $verificar_77 = '';
@@ -777,7 +916,9 @@ if ($respuesta_77 === '228') {
 }
 
  $respuesta_78 = isset($_POST['respuesta_78']) ? $_POST['respuesta_78'] : '';
-if ($respuesta_78 === '40') { 
+if ($respuesta_78 === 'como'
+|| $respuesta_78 === 'cómo'
+) { 
     $verificar_78 = "correcto";
 } elseif ($respuesta_78 === '') {
     $verificar_78 = '';
@@ -786,7 +927,7 @@ if ($respuesta_78 === '40') {
 }
 
  $respuesta_79 = isset($_POST['respuesta_79']) ? $_POST['respuesta_79'] : '';
-if ($respuesta_79 === '60') { 
+if ($respuesta_79 === 'Estructura monolitica') { 
     $verificar_79 = "correcto";
 } elseif ($respuesta_79 === '') {
     $verificar_79 = '';
@@ -795,7 +936,7 @@ if ($respuesta_79 === '60') {
 }
 
  $respuesta_80 = isset($_POST['respuesta_80']) ? $_POST['respuesta_80'] : '';
-if ($respuesta_80 === '80') { 
+if ($respuesta_80 === 'Sistema operativo por capas') { 
     $verificar_80 = "correcto";
 } elseif ($respuesta_80 === '') {
     $verificar_80 = '';
@@ -804,7 +945,7 @@ if ($respuesta_80 === '80') {
 }
 
  $respuesta_81 = isset($_POST['respuesta_81']) ? $_POST['respuesta_81'] : '';
-if ($respuesta_81 === '100') { 
+if ($respuesta_81 === 'Microkernel') { 
     $verificar_81 = "correcto";
 } elseif ($respuesta_81 === '') {
     $verificar_81 = '';
@@ -813,7 +954,7 @@ if ($respuesta_81 === '100') {
 }
 
     $respuesta_82 = isset($_POST['respuesta_82']) ? $_POST['respuesta_82'] : '';
-    if ($respuesta_82 === '120') { 
+    if ($respuesta_82 === 'Kernel modular') { 
         $verificar_82 = "correcto";
     } elseif ($respuesta_82 === '') {
         $verificar_82 = '';
@@ -822,7 +963,7 @@ if ($respuesta_81 === '100') {
     }
 
     $respuesta_83 = isset($_POST['respuesta_83']) ? $_POST['respuesta_83'] : '';
-    if ($respuesta_83 === '140') { 
+    if ($respuesta_83 === 'macOS') { 
        $verificar_83 = "correcto";
     } elseif ($respuesta_83 === '') {
         $verificar_83 = '';
@@ -831,7 +972,9 @@ if ($respuesta_81 === '100') {
     }
 
     $respuesta_84 = isset($_POST['respuesta_84']) ? $_POST['respuesta_84'] : '';
-    if ($respuesta_84 === '160') { 
+    if ($respuesta_84 === 'iOS / iPadOS'
+    || $respuesta_84 === 'iOS/iPadOS'
+    ) { 
         $verificar_84 = "correcto";
     } elseif ($respuesta_84 === '') {
         $verificar_84 = '';
@@ -840,7 +983,7 @@ if ($respuesta_81 === '100') {
     }
 
     $respuesta_85 = isset($_POST['respuesta_85']) ? $_POST['respuesta_85'] : '';
-    if ($respuesta_85 === '180') { 
+    if ($respuesta_85 === 'comunicacion') { 
         $verificar_85 = "correcto";
     } elseif ($respuesta_85 === '') {
         $verificar_85 = '';
@@ -849,7 +992,7 @@ if ($respuesta_81 === '100') {
     }
 
     $respuesta_86 = isset($_POST['respuesta_86']) ? $_POST['respuesta_86'] : '';
-    if ($respuesta_86 === '200') { 
+    if ($respuesta_86 === 'procesos') { 
         $verificar_86 = "correcto";
     } elseif ($respuesta_86 === '') {
         $verificar_86 = '';
@@ -858,7 +1001,7 @@ if ($respuesta_81 === '100') {
     }
 
     $respuesta_87 = isset($_POST['respuesta_87']) ? $_POST['respuesta_87'] : '';
-    if ($respuesta_87 === '220') { 
+    if ($respuesta_87 === 'IPC') { 
         $verificar_87 = "correcto";
     } elseif ($respuesta_87 === '') {
         $verificar_87 = '';
@@ -867,7 +1010,7 @@ if ($respuesta_81 === '100') {
     }
 
     $respuesta_88 = isset($_POST['respuesta_88']) ? $_POST['respuesta_88'] : '';
-    if ($respuesta_88 === '240') { 
+    if ($respuesta_88 === 'Inter Process Communication') { 
         $verificar_88 = "correcto";
     } elseif ($respuesta_88 === '') {
         $verificar_88 = '';
@@ -876,7 +1019,7 @@ if ($respuesta_81 === '100') {
     }
 
  $respuesta_89 = isset($_POST['respuesta_89']) ? $_POST['respuesta_89'] : '';
-if ($respuesta_89 === '42') { 
+if ($respuesta_89 === 'servicios') { 
     $verificar_89 = "correcto";
 } elseif ($respuesta_89 === '') {
     $verificar_89 = '';
@@ -885,7 +1028,7 @@ if ($respuesta_89 === '42') {
 }
 
  $respuesta_90 = isset($_POST['respuesta_90']) ? $_POST['respuesta_90'] : '';
-if ($respuesta_90 === '63') { 
+if ($respuesta_90 === 'comunicarse') { 
     $verificar_90 = "correcto";
 } elseif ($respuesta_90 === '') {
     $verificar_90 = '';
@@ -894,7 +1037,7 @@ if ($respuesta_90 === '63') {
 }
 
  $respuesta_91 = isset($_POST['respuesta_91']) ? $_POST['respuesta_91'] : '';
-if ($respuesta_91 === '84') { 
+if ($respuesta_91 === 'Computacion en la nube') { 
     $verificar_91 = "correcto";
 } elseif ($respuesta_91 === '') {
     $verificar_91 = '';
@@ -1525,7 +1668,7 @@ function ocultarMensaje4() {
   Es una tecnología que permite ejecutar varios sistemas operativos 
   <input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="8">
     sobre un mismo 
-  <input type="text" name="respuesta_8" value="<?php echo $respuesta_8; ?>" size="8">
+  <input type="text" name="respuesta_8" value="<?php echo $respuesta_8; ?>" size="14">
     mediante un 
   <input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="8">
    .
@@ -1543,7 +1686,7 @@ function ocultarMensaje4() {
 
 <p>
   Es un conjunto de 
-  <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="26">
+  <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="38">
     por 
   <input type="text" name="respuesta_12" value="<?php echo $respuesta_12; ?>" size="8">
     que trabajan 
@@ -1575,7 +1718,7 @@ function ocultarMensaje4() {
 
 <ul>
   <li>
-  <input type="text" name="respuesta_16" value="<?php echo $respuesta_16; ?>" size="21">  
+  <input type="text" name="respuesta_16" value="<?php echo $respuesta_16; ?>" size="11">  
    .</li>
   <li>
   <input type="text" name="respuesta_17" value="<?php echo $respuesta_17; ?>" size="8">  
@@ -1621,7 +1764,9 @@ function ocultarMensaje4() {
   <li>
   <input type="text" name="respuesta_23" value="<?php echo $respuesta_23; ?>" size="11">  
    .</li>
-  <li>Computación en la nube.</li>
+  <li>
+  <input type="text" name="respuesta_91" value="<?php echo $respuesta_91; ?>" size="21">  
+   .</li>
   <li>Sistemas embebidos en tiempo real.</li>
   <li>Sistemas distribuidos.</li>
 </ul>
@@ -1642,6 +1787,8 @@ function ocultarMensaje4() {
     <?php echo $verificar_22 ?>
     <?php echo $verificar_23 ?>
     <?php echo $verificar_24 ?>
+    <?php echo $verificar_91 ?>
+
     <hr>
 <h4>Movimiento de información</h4>
 
@@ -1672,6 +1819,219 @@ function ocultarMensaje4() {
     <?php echo $verificar_26 ?>
     <?php echo $verificar_27 ?>
     <hr>
+<ul>
+  <li>
+    <strong>Enmascarable:</strong> interrupción que la CPU
+    <strong>
+    <input type="text" name="respuesta_28" value="<?php echo $respuesta_28; ?>" size="25">      
+     </strong>.<br>
+    <strong>Ejemplo:</strong> 
+    interrupción del 
+    <input type="text" name="respuesta_29" value="<?php echo $respuesta_29; ?>" size="8">  
+     .
+  </li>
+
+  <li>
+    <strong>No enmascarable (NMI):</strong> interrupción que la CPU
+    <strong>
+    <input type="text" name="respuesta_30" value="<?php echo $respuesta_30; ?>" size="12">      
+      o desactivar normalmente</strong> porque indica un evento 
+    <input type="text" name="respuesta_31" value="<?php echo $respuesta_31; ?>" size="8">  
+     .<br>
+    <strong>Ejemplo:</strong> 
+    <input type="text" name="respuesta_32" value="<?php echo $respuesta_32; ?>" size="11">  
+      de 
+    <input type="text" name="respuesta_33" value="<?php echo $respuesta_33; ?>" size="8">  
+     .
+  </li>
+</ul>
+
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_28 ?>
+    <?php echo $verificar_29 ?>
+    <?php echo $verificar_30 ?>
+    <?php echo $verificar_31 ?>
+    <?php echo $verificar_32 ?>
+    <?php echo $verificar_33 ?>
+
+    <hr>
+
+    <h3>1. Mencione por lo menos 
+    <input type="text" name="respuesta_34" value="<?php echo $respuesta_34; ?>" size="11">     
+      del sistema operativo que sean útiles para los usuarios.</h3>
+
+<p>Algunos servicios útiles para los usuarios son:</p>
+
+<ul>
+  <li><strong>
+  <input type="text" name="respuesta_35" value="<?php echo $respuesta_35; ?>" size="19">  
+   :</strong> permite cargar y ejecutar aplicaciones fácilmente.</li>
+
+  <li><strong>
+  <input type="text" name="respuesta_36" value="<?php echo $respuesta_36; ?>" size="31">  
+    :</strong> permite gestionar dispositivos como teclado, mouse, pantalla y discos.</li>
+
+  <li><strong>
+  <input type="text" name="respuesta_37" value="<?php echo $respuesta_37; ?>" size="16">   
+    :</strong> permite crear, modificar, borrar y organizar archivos y directorios.</li>
+
+  <li><strong>
+  <input type="text" name="respuesta_38" value="<?php echo $respuesta_38; ?>" size="16">  
+   :</strong> permite la comunicación entre procesos de una misma máquina o entre máquinas conectadas por red.</li>
+
+  <li><strong>
+  <input type="text" name="respuesta_39" value="<?php echo $respuesta_39; ?>" size="16">  
+  :</strong> identifica problemas como archivos inexistentes o accesos inválidos.</li>
+</ul>
+
+<button type="submit">Enviar</button>
+<?php echo $verificar_34 ?>
+    <?php echo $verificar_35 ?>
+    <?php echo $verificar_36 ?>
+    <?php echo $verificar_37 ?>
+    <?php echo $verificar_38 ?>
+    <?php echo $verificar_39 ?>
+    <hr>
+
+    <h3>2. Mencione por lo menos 
+    <input type="text" name="respuesta_40" value="<?php echo $respuesta_40; ?>" size="11">    
+      del sistema operativo que permiten que el sistema 
+    <input type="text" name="respuesta_41" value="<?php echo $respuesta_41; ?>" size="16">
+     .</h3>
+
+<p>Tres funciones son:</p>
+
+<ul>
+  <li><strong>
+  <input type="text" name="respuesta_42" value="<?php echo $respuesta_42; ?>" size="19">  
+   :</strong> administra memoria, colas de entrada/salida y espacio libre en disco.</li>
+
+  <li><strong>
+  <input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="16">  
+   :</strong> evita que los procesos interfieran entre sí y controla los permisos de acceso.</li>
+
+  <li><strong>
+  <input type="text" name="respuesta_44" value="<?php echo $respuesta_44; ?>" size="27">  
+     :</strong> registra operaciones realizadas en el sistema para mantener trazabilidad.</li>
+</ul>
+
+<button type="submit">Enviar</button>
+<?php echo $verificar_40 ?>
+    <?php echo $verificar_41 ?>
+    <?php echo $verificar_42 ?>
+    <?php echo $verificar_43 ?>
+    <?php echo $verificar_44 ?>  
+    <hr>
+
+    <h3>3. ¿Cuáles son los dos tipos principales de interfaz de usuario?</h3>
+
+<p>Los dos tipos principales son:</p>
+
+<ol>
+  <li><strong>
+  <input type="text" name="respuesta_45" value="<?php echo $respuesta_45; ?>" size="2">   
+    - 
+  <input type="text" name="respuesta_46" value="<?php echo $respuesta_46; ?>" size="21">   
+   .</strong></li>
+  <li><strong>
+  <input type="text" name="respuesta_47" value="<?php echo $respuesta_47; ?>" size="2">   
+    - 
+  <input type="text" name="respuesta_48" value="<?php echo $respuesta_48; ?>" size="21"> 
+   .</strong></li>
+</ol>
+
+    <button type="submit">Enviar</button>
+     <?php echo $verificar_45 ?>
+    <?php echo $verificar_46 ?>
+    <?php echo $verificar_47 ?>
+    <?php echo $verificar_48 ?>
+    <hr>
+    <h3>4. Defina qué es un system call.</h3>
+
+<p>
+  Un <strong>system call</strong> es la forma mediante la cual los programadores
+  acceden a las 
+  <input type="text" name="respuesta_49" value="<?php echo $respuesta_49; ?>" size="11">
+    que ofrece el 
+  <input type="text" name="respuesta_50" value="<?php echo $respuesta_50; ?>" size="14">
+   . Es una 
+  <input type="text" name="respuesta_51" value="<?php echo $respuesta_51; ?>" size="8">
+   
+  de 
+  <input type="text" name="respuesta_52" value="<?php echo $respuesta_52; ?>" size="8">
+  interfazservicios que permite que un programa solicite 
+  <input type="text" name="respuesta_53" value="<?php echo $respuesta_53; ?>" size="8">
+    al 
+  <input type="text" name="respuesta_54" value="<?php echo $respuesta_54; ?>" size="8">
+   .
+</p>
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_49 ?>
+    <?php echo $verificar_50 ?>
+    <?php echo $verificar_51 ?>
+    <?php echo $verificar_52 ?>
+    <?php echo $verificar_53 ?>
+    <?php echo $verificar_54 ?>
+    <hr>
+
+    <h3>5. Defina qué es una API.</h3>
+
+<p>
+  Una <strong>API (
+  <input type="text" name="respuesta_55" value="<?php echo $respuesta_55; ?>" size="31">  
+   )</strong> es una 
+  <input type="text" name="respuesta_56" value="<?php echo $respuesta_56; ?>" size="8">
+    mediante la cual los 
+  <input type="text" name="respuesta_57" value="<?php echo $respuesta_57; ?>" size="8">
+    acceden normalmente a los 
+  <input type="text" name="respuesta_58" value="<?php echo $respuesta_58; ?>" size="8">
+    del
+<input type="text" name="respuesta_59" value="<?php echo $respuesta_59; ?>" size="14">
+   , proporcionando funciones ya 
+  <input type="text" name="respuesta_60" value="<?php echo $respuesta_60; ?>" size="8">
+    para utilizar sus 
+  <input type="text" name="respuesta_61" value="<?php echo $respuesta_61; ?>" size="8">
+   .
+</p>
+
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_55 ?>
+    <?php echo $verificar_56 ?>
+    <?php echo $verificar_57 ?>
+    <?php echo $verificar_58 ?>
+    <?php echo $verificar_59 ?>
+    <?php echo $verificar_60 ?>
+    <?php echo $verificar_61 ?>
+    <hr>
+    <h3>6. ¿Cuál estructura de datos del kernel se puede emplear para una técnica de paso de parámetros a un system call?</h3>
+    <ul>
+  <li>
+  <input type="text" name="respuesta_62" value="<?php echo $respuesta_62; ?>" size="8">  
+   </li>
+  <li>
+    <input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="14">
+     
+    <ul>
+      <li>Mediante 
+      <input type="text" name="respuesta_64" value="<?php echo $respuesta_64; ?>" size="8">  
+        en 
+      <input type="text" name="respuesta_65" value="<?php echo $respuesta_65; ?>" size="8">
+       </li>
+      <li>
+      <input type="text" name="respuesta_66" value="<?php echo $respuesta_66; ?>" size="8">  
+       </li>
+    </ul>
+  </li>
+</ul>
+
+    <button type="submit">Enviar</button>
+     <?php echo $verificar_62 ?>
+    <?php echo $verificar_63 ?>
+    <?php echo $verificar_64 ?>
+    <?php echo $verificar_65 ?>
+    <?php echo $verificar_66 ?>
+    <hr>
+ 
 
 </div>
 
@@ -1679,7 +2039,148 @@ function ocultarMensaje4() {
 
 
 <div class="seccion derecha">
-        <hr>
+        <h3>7. Mencione por lo menos tres tipos principales de system calls.</h3>
+
+<p>Los principales tipos son:</p>
+
+<ul>
+  <li><strong>
+  <input type="text" name="respuesta_67" value="<?php echo $respuesta_67; ?>" size="16">   
+   :</strong> crear, pausar o terminar procesos.</li>
+  <li><strong>
+  <input type="text" name="respuesta_68" value="<?php echo $respuesta_68; ?>" size="14">   
+   :</strong> crear, borrar, renombrar o modificar archivos.</li>
+  <li><strong>
+  <input type="text" name="respuesta_69" value="<?php echo $respuesta_69; ?>" size="19">   
+   :</strong> abrir, leer, escribir o cerrar dispositivos.</li>
+  <li><strong>
+  <input type="text" name="respuesta_70" value="<?php echo $respuesta_70; ?>" size="26">   
+   .</strong></li>
+  <li><strong>
+  <input type="text" name="respuesta_71" value="<?php echo $respuesta_71; ?>" size="8">   
+   .</strong></li>
+  <li><strong>
+  <input type="text" name="respuesta_72" value="<?php echo $respuesta_72; ?>" size="8">   
+   .</strong></li>
+</ul>
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_67 ?>
+<?php echo $verificar_68 ?>
+<?php echo $verificar_69 ?>
+<?php echo $verificar_70 ?>
+<?php echo $verificar_71 ?>
+<?php echo $verificar_72 ?>
+    <hr>
+
+<h3>8. ¿Cuáles son los dos grupos diferentes de metas que se deben considerar cuando se diseña un sistema operativo?</h3>
+
+<p>Los dos grupos son:</p>
+
+<ol>
+  <li><strong>Qué 
+  <input type="text" name="respuesta_73" value="<?php echo $respuesta_73; ?>" size="8">  
+    ofrecer al 
+  <input type="text" name="respuesta_74" value="<?php echo $respuesta_74; ?>" size="8">
+   .</strong></li>
+  <li><strong>Cómo 
+  <input type="text" name="respuesta_76" value="<?php echo $respuesta_76; ?>" size="8">  
+    esos 
+  <input type="text" name="respuesta_75" value="<?php echo $respuesta_75; ?>" size="8">  
+    mediante mecanismos y políticas.</strong></li>
+</ol>
+
+<button type="submit">Enviar</button>
+<?php echo $verificar_73 ?>
+<?php echo $verificar_74 ?>
+<?php echo $verificar_75 ?>
+<?php echo $verificar_76 ?>
+
+<hr>
+<h3>9. ¿Cuál es la diferencia entre política y mecanismo?</h3>
+
+<ul>
+  <li><strong>Política:</strong> define <strong>
+  <input type="text" name="respuesta_77" value="<?php echo $respuesta_77; ?>" size="8">  
+   </strong> se va a hacer.</li>
+  <li><strong>Mecanismo:</strong> define <strong>
+  <input type="text" name="respuesta_78" value="<?php echo $respuesta_78; ?>" size="8">  
+   </strong> se va a hacer.</li>
+</ul>
+
+<button type="submit">Enviar</button>
+<?php echo $verificar_77 ?>
+<?php echo $verificar_78 ?>
+
+    <hr>
+<h3>10. Mencione al menos 3 formas diferentes de estructurar un sistema operativo.</h3>
+
+<p>Tres estructuras son:</p>
+
+<ol>
+  <li><strong>
+  <input type="text" name="respuesta_79" value="<?php echo $respuesta_79; ?>" size="17">  
+   :</strong> todas las funciones del sistema operativo están dentro de un único kernel.</li>
+  <li><strong>
+  <input type="text" name="respuesta_80" value="<?php echo $respuesta_80; ?>" size="24">  
+   :</strong> organiza el sistema en diferentes niveles desde hardware hasta usuario.</li>
+  <li><strong>
+  <input type="text" name="respuesta_81" value="<?php echo $respuesta_81; ?>" size="8">  
+   :</strong> mantiene solo funciones esenciales en el kernel y ejecuta otros servicios como procesos de usuario.</li>
+  <li><strong>
+  <input type="text" name="respuesta_82" value="<?php echo $respuesta_82; ?>" size="8">  
+   :</strong> permite cargar y descargar módulos del kernel en tiempo de ejecución.</li>
+</ol>
+
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_79 ?>
+<?php echo $verificar_80 ?>
+<?php echo $verificar_81 ?>
+<?php echo $verificar_82 ?>
+    <hr>
+<h3>11. Mencione al menos dos sistemas operativos híbridos diferentes.</h3>
+
+<p>Algunos ejemplos de sistemas operativos híbridos son:</p>
+
+<ul>
+  <li><strong>
+  <input type="text" name="respuesta_83" value="<?php echo $respuesta_83; ?>" size="8">  
+   .</strong></li>
+  <li><strong>
+  <input type="text" name="respuesta_84" value="<?php echo $respuesta_84; ?>" size="8">  
+   .</strong></li>
+
+    <button type="submit">Enviar</button>
+<?php echo $verificar_83 ?>
+<?php echo $verificar_84 ?>
+    <hr>
+<h3>12. ¿Cuál técnica emplean los microkernels para la comunicación entre servicios?</h3>
+
+<p>
+  Los microkernels utilizan la técnica de
+  <strong>
+  <input type="text" name="respuesta_85" value="<?php echo $respuesta_85; ?>" size="8">  
+    entre 
+  <input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="8">
+    (
+  <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="8">  
+    - 
+  <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="21">
+   )</strong>
+  para que los 
+  <input type="text" name="respuesta_89" value="<?php echo $respuesta_89; ?>" size="8">
+    puedan 
+  <input type="text" name="respuesta_90" value="<?php echo $respuesta_90; ?>" size="8">
+    entre sí.
+</p>
+
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_85 ?>
+<?php echo $verificar_86 ?>
+<?php echo $verificar_87 ?>
+<?php echo $verificar_88 ?>
+<?php echo $verificar_89 ?>
+<?php echo $verificar_90 ?>
+    <hr>
     <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
     <br>
     <input type="text" id="mostrar_solucion" name="mostrar_solucion"  value="<?php echo $mostrar_solucion?>">

@@ -122,7 +122,9 @@ if ($_POST) {
 
     } else {
     $respuesta_1 = isset($_POST['respuesta_1']) ? $_POST['respuesta_1'] : '';
-   if ($respuesta_1 === 'Hardware') {  
+   if ($respuesta_1 === 'Hardware'
+   || $respuesta_1 === 'hardware'
+   ) {  
        $verificar_1 = "correcto";
    } elseif ($respuesta_1 === '') {
        $verificar_1 = '';
@@ -132,7 +134,9 @@ if ($_POST) {
 
    // Verificar la respuesta de la segunda pregunta
    $respuesta_2 = isset($_POST['respuesta_2']) ? $_POST['respuesta_2'] : '';
-   if ($respuesta_2 === 'Sistema operativo') {  
+   if ($respuesta_2 === 'Sistema operativo'
+   || $respuesta_2 === 'sistema operativo'
+   ) {  
        $verificar_2 = "correcto";
    } elseif ($respuesta_2 === '') {
        $verificar_2 = '';
@@ -142,7 +146,9 @@ if ($_POST) {
 
    // Verificar la respuesta de la tercera pregunta
    $respuesta_3 = isset($_POST['respuesta_3']) ? $_POST['respuesta_3'] : '';
-   if ($respuesta_3 === 'Programas de aplicacion') {  
+   if ($respuesta_3 === 'Programas de aplicacion'
+   || $respuesta_3 === 'programas de aplicacion'
+   ) {  
        $verificar_3 = "correcto";
    } elseif ($respuesta_3 === '') {
        $verificar_3 = '';
@@ -152,7 +158,9 @@ if ($_POST) {
 
    // Verificar la respuesta de la cuarta pregunta
    $respuesta_4 = isset($_POST['respuesta_4']) ? $_POST['respuesta_4'] : '';
-   if ($respuesta_4 === 'Usuarios') {  
+   if ($respuesta_4 === 'Usuarios'
+   || $respuesta_4 === 'usuarios'
+   ) {  
        $verificar_4 = "correcto";
    } elseif ($respuesta_4 === '') {
        $verificar_4 = '';
@@ -596,7 +604,9 @@ if ($_POST) {
     }
 
     $respuesta_50 = isset($_POST['respuesta_50']) ? $_POST['respuesta_50'] : '';
-    if ($respuesta_50 === 'Falso') { 
+    if ($respuesta_50 === 'Falso'
+    || $respuesta_50 === 'falso'
+    ) { 
         $verificar_50 = "correcto";
     } elseif ($respuesta_50 === '') {
     $verificar_50 = '';
@@ -1013,7 +1023,7 @@ if ($respuesta_95 === 'HDD') {
 }
 
  $respuesta_96 = isset($_POST['respuesta_96']) ? $_POST['respuesta_96'] : '';
-if ($respuesta_96 === '189') { 
+if ($respuesta_96 === 'cuatro componentes') { 
     $verificar_96 = "correcto";
 } elseif ($respuesta_96 === '') {
     $verificar_96 = '';
@@ -1022,7 +1032,7 @@ if ($respuesta_96 === '189') {
 }
 
  $respuesta_97 = isset($_POST['respuesta_97']) ? $_POST['respuesta_97'] : '';
-if ($respuesta_97 === '210') { 
+if ($respuesta_97 === 'sistema de computo') { 
     $verificar_97 = "correcto";
 } elseif ($respuesta_97 === '') {
     $verificar_97 = '';
@@ -1031,7 +1041,7 @@ if ($respuesta_97 === '210') {
 }
 
  $respuesta_98 = isset($_POST['respuesta_98']) ? $_POST['respuesta_98'] : '';
-if ($respuesta_98 === '231') { 
+if ($respuesta_98 === 'tres recursos') { 
     $verificar_98 = "correcto";
 } elseif ($respuesta_98 === '') {
     $verificar_98 = '';
@@ -1040,7 +1050,7 @@ if ($respuesta_98 === '231') {
 }
 
  $respuesta_99 = isset($_POST['respuesta_99']) ? $_POST['respuesta_99'] : '';
-if ($respuesta_99 === '252') { 
+if ($respuesta_99 === 'asigna') { 
     $verificar_99 = "correcto";
 } elseif ($respuesta_99 === '') {
     $verificar_99 = '';
@@ -1050,7 +1060,7 @@ if ($respuesta_99 === '252') {
 
 
  $respuesta_100 = isset($_POST['respuesta_100']) ? $_POST['respuesta_100'] : '';
-if ($respuesta_100 === '44') { 
+if ($respuesta_100 === 'programa principal') { 
     $verificar_100 = "correcto";
 } elseif ($respuesta_100 === '') {
     $verificar_100 = '';
@@ -1059,7 +1069,7 @@ if ($respuesta_100 === '44') {
 }
 
  $respuesta_101 = isset($_POST['respuesta_101']) ? $_POST['respuesta_101'] : '';
-if ($respuesta_101 === '66') { 
+if ($respuesta_101 === 'incluyen') { 
     $verificar_101 = "correcto";
 } elseif ($respuesta_101 === '') {
     $verificar_101 = '';
@@ -1553,7 +1563,11 @@ function ocultarMensaje4() {
     
 <div class="seccion izquierda"> 
 
- <h3>1.1. ¿Cuáles son los cuatro componentes de un sistema de cómputo?</h3>
+ <h3>1.1. ¿Cuáles son los 
+ <input type="text" name="respuesta_96" value="<?php echo $respuesta_96; ?>" size="16">    
+   de un 
+   <input type="text" name="respuesta_97" value="<?php echo $respuesta_97; ?>" size="16">  
+    ?</h3>
 
 <ul>
     <li>
@@ -1571,12 +1585,18 @@ function ocultarMensaje4() {
 </ul>
 
     <button type="submit">Enviar</button>
+    <?php echo $verificar_96 ?>
+    <?php echo $verificar_97 ?>
     <?php echo $verificar_1 ?>
     <?php echo $verificar_2 ?>
     <?php echo $verificar_3 ?>
     <?php echo $verificar_4 ?>
 <hr>
-<h3>1.2. Mencione al menos tres recursos que el sistema operativo asigna.</h3>
+<h3>1.2. Mencione al menos 
+<input type="text" name="respuesta_98" value="<?php echo $respuesta_98; ?>" size="8">     
+  que el sistema operativo 
+  <input type="text" name="respuesta_99" value="<?php echo $respuesta_99; ?>" size="4">
+   .</h3>
 
 <ul>
     <li>
@@ -1597,6 +1617,8 @@ function ocultarMensaje4() {
      )</li>
 </ul>
        <button type="submit">Enviar</button>
+    <?php echo $verificar_98 ?>
+    <?php echo $verificar_99 ?>
 <?php echo $verificar_5 ?>
     <?php echo $verificar_6 ?>
     <?php echo $verificar_7 ?>  
@@ -1607,7 +1629,9 @@ function ocultarMensaje4() {
     <hr>
 
     <h3>
-    1.3. ¿Cuál es el nombre común que se emplea para referirse al programa principal del sistema operativo?
+    1.3. ¿Cuál es el nombre común que se emplea para referirse al 
+    <input type="text" name="respuesta_100" value="<?php echo $respuesta_100; ?>" size="16">
+      del sistema operativo?
     </h3>
     <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="8"> 
       o 
@@ -1618,12 +1642,15 @@ function ocultarMensaje4() {
 
      <br><br>
     <button type="submit">Enviar</button>
+    <?php echo $verificar_100 ?> 
     <?php echo $verificar_11 ?> 
     <?php echo $verificar_12 ?>
     <?php echo $verificar_13 ?>
     <hr>
 
-    <h3>1.4. ¿Qué incluyen generalmente los sistemas operativos móviles, además del núcleo del sistema operativo?</h3>
+    <h3>1.4. ¿Qué 
+    <input type="text" name="respuesta_101" value="<?php echo $respuesta_101; ?>" size="7">    
+      generalmente los sistemas operativos móviles, además del núcleo del sistema operativo?</h3>
 
 <p>
     Incluyen 
@@ -1643,6 +1670,7 @@ function ocultarMensaje4() {
     <li>Conectividad</li>
 </ul>
     <button type="submit">Enviar</button>
+    <?php echo $verificar_101 ?>
     <?php echo $verificar_14 ?>
     <?php echo $verificar_15 ?>
     <?php echo $verificar_16 ?>

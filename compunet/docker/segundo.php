@@ -18,21 +18,146 @@ if ($_POST) {
     
     if ($mostrar_solucion === 'mostrar_solucion') {        
  
-    $respuesta_1 = 'sincrono';
-    $respuesta_2 = 'asincrona';
-    $respuesta_3 = 'asincrono';
-    $respuesta_4 = 'sincrono';
-    $respuesta_5 = 'JavaScript';
-    $respuesta_6 = 'Call Stack';
-    $respuesta_7 = 'Call Stack';
-    $respuesta_8 = 'Web APIs';
-    $respuesta_9 = 'Task Queue';
-    $respuesta_10 = 'Microtask Queue';
-    $respuesta_11 = 'Event Loop';
-    $respuesta_12 = 'Call Stack';
-    $respuesta_13 = 'Event Loop';
-    $respuesta_14 = 'Call Stack';
-    $respuesta_15 = 'Call Stack';
+        $respuesta_111 = '24'; 
+        $respuesta_112 = '36';
+        $respuesta_113 = '48';
+        $respuesta_114 = '60';
+        $respuesta_115 = '72';
+        $respuesta_116 = '84';
+        $respuesta_117 = '96';
+        $respuesta_118 = '108';
+        $respuesta_119 = '120';
+        $respuesta_120 = '132';
+        $respuesta_121 = '144';
+        
+ 
+        $respuesta_1 = '26';
+        $respuesta_2 = '39';
+        $respuesta_3 = '52';
+        $respuesta_4 = '65';
+        $respuesta_5 = '78';
+        $respuesta_6 = '91';
+        $respuesta_7 = '104';
+        $respuesta_8 = '117';
+        $respuesta_9 = '130';
+        $respuesta_10 = '143';
+        $respuesta_11 = '156';
+        
+ 
+        $respuesta_12 = '28';
+        $respuesta_13 = '42';
+        $respuesta_14 = '56';
+        $respuesta_15 = '70';
+        $respuesta_16 = '84';
+        $respuesta_17 = '98';
+        $respuesta_18 = '112';
+        $respuesta_19 = '126';
+        $respuesta_20 = '140';
+        $respuesta_21 = '154';
+        $respuesta_22 = '168';
+        
+ 
+        $respuesta_23 = '30';
+        $respuesta_24 = '45';
+        $respuesta_25 = '60';
+        $respuesta_26 = '75';
+        $respuesta_27 = '90';
+        $respuesta_28 = '105';
+        $respuesta_29 = '120';
+        $respuesta_30 = '135';
+        $respuesta_31 = '150';
+        $respuesta_32 = '165';
+        $respuesta_33 = '180';
+        
+ 
+        $respuesta_34 = '32';
+        $respuesta_35 = '48';
+        $respuesta_36 = '64';
+        $respuesta_37 = '80';
+        $respuesta_38 = '96';
+        $respuesta_39 = '112';
+        $respuesta_40 = '128';
+        $respuesta_41 = '144';
+        $respuesta_42 = '160';
+        $respuesta_43 = '176';
+        $respuesta_44 = '192';
+        
+ 
+        $respuesta_45 = '34';
+        $respuesta_46 = '51';
+        $respuesta_47 = '68';
+        $respuesta_48 = '85';
+        $respuesta_49 = '102';
+        $respuesta_50 = '119';
+        $respuesta_51 = '136';
+        $respuesta_52 = '153';
+        $respuesta_53 = '170';
+        $respuesta_54 = '187';
+        $respuesta_55 = '204';
+        
+ 
+        $respuesta_56 = '36';
+        $respuesta_57 = '54';
+        $respuesta_58 = '72';
+        $respuesta_59 = '90';
+        $respuesta_60 = '108';
+        $respuesta_61 = '126';
+        $respuesta_62 = '144';
+        $respuesta_63 = '162';
+        $respuesta_64 = '180';
+        $respuesta_65 = '198';
+        $respuesta_66 = '216';
+        
+ 
+        $respuesta_67 = '38';
+        $respuesta_68 = '57';
+        $respuesta_69 = '76';
+        $respuesta_70 = '95';
+        $respuesta_71 = '114';
+        $respuesta_72 = '133';
+        $respuesta_73 = '152';
+        $respuesta_74 = '171';
+        $respuesta_75 = '190';
+        $respuesta_76 = '209';
+        $respuesta_77 = '228';
+        
+ 
+        $respuesta_78 = '40';
+        $respuesta_79 = '60';
+        $respuesta_80 = '80';
+        $respuesta_81 = '100';
+        $respuesta_82 = '120';
+        $respuesta_83 = '140';
+        $respuesta_84 = '160';
+        $respuesta_85 = '180';
+        $respuesta_86 = '200';
+        $respuesta_87 = '220';
+        $respuesta_88 = '240';
+        
+ 
+        $respuesta_89 = '42';
+        $respuesta_90 = '63';
+        $respuesta_91 = '84';
+        $respuesta_92 = '105';
+        $respuesta_93 = '126';
+        $respuesta_94 = '147';
+        $respuesta_95 = '168';
+        $respuesta_96 = '189';
+        $respuesta_97 = '210';
+        $respuesta_98 = '231';
+        $respuesta_99 = '252';
+        
+         $respuesta_100 = '44';
+        $respuesta_101 = '66';
+        $respuesta_102 = '88';
+        $respuesta_103 = '110';
+        $respuesta_104 = '132'; 
+        $respuesta_105 = '154';
+        $respuesta_106 = '176';
+        $respuesta_107 = '198';
+        $respuesta_108 = '220';
+        $respuesta_109 = '242';
+        $respuesta_110 = '264';
         
         // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
@@ -41,7 +166,7 @@ if ($_POST) {
 
     } else {
     $respuesta_1 = isset($_POST['respuesta_1']) ? $_POST['respuesta_1'] : '';
-   if ($respuesta_1 === 'sincrono') {  
+   if ($respuesta_1 === '26') {  
        $verificar_1 = "correcto";
    } elseif ($respuesta_1 === '') {
        $verificar_1 = '';
@@ -51,7 +176,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la segunda pregunta
    $respuesta_2 = isset($_POST['respuesta_2']) ? $_POST['respuesta_2'] : '';
-   if ($respuesta_2 === 'asincrona') {  
+   if ($respuesta_2 === '39') {  
        $verificar_2 = "correcto";
    } elseif ($respuesta_2 === '') {
        $verificar_2 = '';
@@ -61,7 +186,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la tercera pregunta
    $respuesta_3 = isset($_POST['respuesta_3']) ? $_POST['respuesta_3'] : '';
-   if ($respuesta_3 === 'asincrono') {  
+   if ($respuesta_3 === '52') {  
        $verificar_3 = "correcto";
    } elseif ($respuesta_3 === '') {
        $verificar_3 = '';
@@ -71,7 +196,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la cuarta pregunta
    $respuesta_4 = isset($_POST['respuesta_4']) ? $_POST['respuesta_4'] : '';
-   if ($respuesta_4 === 'sincrono') {  
+   if ($respuesta_4 === '65') {  
        $verificar_4 = "correcto";
    } elseif ($respuesta_4 === '') {
        $verificar_4 = '';
@@ -81,7 +206,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la quinta pregunta
    $respuesta_5 = isset($_POST['respuesta_5']) ? $_POST['respuesta_5'] : '';
-   if ($respuesta_5 === 'JavaScript') {  
+   if ($respuesta_5 === '78') {  
        $verificar_5 = "correcto";
    } elseif ($respuesta_5 === '') {
        $verificar_5 = '';
@@ -91,7 +216,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la sexta pregunta
    $respuesta_6 = isset($_POST['respuesta_6']) ? $_POST['respuesta_6'] : '';
-   if ($respuesta_6 === 'Call Stack') {  
+   if ($respuesta_6 === '91') {  
        $verificar_6 = "correcto";
    } elseif ($respuesta_6 === '') {
        $verificar_6 = '';
@@ -101,7 +226,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la séptima pregunta
    $respuesta_7 = isset($_POST['respuesta_7']) ? $_POST['respuesta_7'] : '';
-   if ($respuesta_7 === 'Call Stack') {  
+   if ($respuesta_7 === '104') {  
        $verificar_7 = "correcto";
    } elseif ($respuesta_7 === '') {
        $verificar_7 = '';
@@ -111,7 +236,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la octava pregunta
    $respuesta_8 = isset($_POST['respuesta_8']) ? $_POST['respuesta_8'] : '';
-   if ($respuesta_8 === 'Web APIs') {  
+   if ($respuesta_8 === '117') {  
        $verificar_8 = "correcto";
    } elseif ($respuesta_8 === '') {
        $verificar_8 = '';
@@ -121,7 +246,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la novena pregunta
    $respuesta_9 = isset($_POST['respuesta_9']) ? $_POST['respuesta_9'] : '';
-   if ($respuesta_9 === 'Task Queue') {  
+   if ($respuesta_9 === '130') {  
        $verificar_9 = "correcto";
    } elseif ($respuesta_9 === '') {
        $verificar_9 = '';
@@ -131,7 +256,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la décima pregunta
    $respuesta_10 = isset($_POST['respuesta_10']) ? $_POST['respuesta_10'] : '';
-   if ($respuesta_10 === 'Microtask Queue') {  
+   if ($respuesta_10 === '143') {  
        $verificar_10 = "correcto";
    } elseif ($respuesta_10 === '') {
        $verificar_10 = '';
@@ -141,7 +266,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la undécima pregunta
    $respuesta_11 = isset($_POST['respuesta_11']) ? $_POST['respuesta_11'] : '';
-   if ($respuesta_11 === 'Event Loop') {  
+   if ($respuesta_11 === '156') {  
        $verificar_11 = "correcto";
    } elseif ($respuesta_11 === '') {
        $verificar_11 = '';
@@ -152,7 +277,7 @@ if ($_POST) {
 
     // Verificar la respuesta de la primera pregunta
     $respuesta_12 = isset($_POST['respuesta_12']) ? $_POST['respuesta_12'] : '';
-    if ($respuesta_12 === 'Call Stack') {  
+    if ($respuesta_12 === '28') {  
         $verificar_12 = "correcto";
     } elseif ($respuesta_12 === '') {
         $verificar_12 = '';
@@ -162,7 +287,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la segunda pregunta
     $respuesta_13 = isset($_POST['respuesta_13']) ? $_POST['respuesta_13'] : '';
-    if ($respuesta_13 === 'Event Loop') { 
+    if ($respuesta_13 === '42') { 
         $verificar_13 = "correcto";
     } elseif ($respuesta_13 === '') {
         $verificar_13 = '';
@@ -172,7 +297,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la tercera pregunta
     $respuesta_14 = isset($_POST['respuesta_14']) ? $_POST['respuesta_14'] : '';
-    if ($respuesta_14 === 'Call Stack') {  
+    if ($respuesta_14 === '56') {  
         $verificar_14 = "correcto";
     } elseif ($respuesta_14 === '') {
         $verificar_14 = '';
@@ -182,7 +307,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la cuarta pregunta
     $respuesta_15 = isset($_POST['respuesta_15']) ? $_POST['respuesta_15'] : '';
-    if ($respuesta_15 === 'Call Stack') { 
+    if ($respuesta_15 === '70') { 
         $verificar_15 = "correcto";
     } elseif ($respuesta_15 === '') {
         $verificar_15 = '';
@@ -1184,7 +1309,7 @@ if ($respuesta_121 === '144') {
     width: calc(50% - 7.5px);
     padding: 20px;
     box-sizing: border-box;
-    height: 300vh;
+    height: 290vh;
     }
 
 </style>
@@ -1470,417 +1595,121 @@ function ocultarMensaje4() {
     
 <div class="seccion izquierda"> 
 
- <p><strong>Todo código 
-  <input type="text" name="respuesta_1" value="<?php echo $respuesta_1; ?>" size="8">   
-   se ejecuta primero antes que cualquier tarea 
-  <input type="text" name="respuesta_2" value="<?php echo $respuesta_2; ?>" size="8">
-  .</strong></p>
+     <h3>FROM python:3.9</h3>
+    <p>
+        Indica que la imagen se construye a partir de una imagen que
+        ya tiene Python 3.9 instalado.
+    </p>
 
-<h4>Ejemplo:</h4>
+    <h3>ENV PYTHONUNBUFFERED 1</h3>
+    <p>
+        Crea una variable de entorno para que Python muestre los
+        mensajes y logs inmediatamente en la consola.
+    </p>
 
-<pre><code>console.log("1. Inicio");
+    <h3>RUN mkdir /code</h3>
+    <p>
+        Ejecuta <code>mkdir /code</code> durante la construcción de
+        la imagen para crear la carpeta <code>/code</code>.
+    </p>
 
-setTimeout(() =&gt; {
-    console.log("3. setTimeout");
-}, 0);
+    <h3>WORKDIR /code</h3>
+    <p>
+        Establece <code>/code</code> como el directorio de trabajo
+        del contenedor. Es similar a ejecutar <code>cd /code</code>.
+    </p>
 
-console.log("2. Fin");</code></pre>
+    <h3>COPY requirements.txt /code/</h3>
+    <p>
+        Copia el archivo <code>requirements.txt</code> desde el
+        proyecto hacia la carpeta <code>/code</code> dentro de la imagen.
+    </p>
 
-<h4>Salida:</h4>
+    <h3>RUN pip install -r requirements.txt</h3>
+    <p>
+        Instala las dependencias de Python especificadas en el archivo
+        <code>requirements.txt</code>.
+    </p>
 
-<pre><code>1. Inicio
-2. Fin
-3. setTimeout</code></pre>
+    <h3>COPY . /code/</h3>
+    <p>
+        Copia todo el proyecto actual dentro de la carpeta
+        <code>/code</code>.
+    </p>
 
-<p>
-    Aunque <code>setTimeout</code> tenga <code>0 ms</code>, sigue siendo 
-     <input type="text" name="respuesta_3" value="<?php echo $respuesta_3; ?>" size="8">
-     ,
-    por lo que espera a que termine el código 
-     <input type="text" name="respuesta_4" value="<?php echo $respuesta_4; ?>" size="8">
-     .
-</p>
+    <p>Por ejemplo:</p>
+
+    <pre>
+manage.py
+models/
+views/
+serializers/
+    </pre>
+
+    <h3>ARG URL=0.0.0.0:4000</h3>
+    <p>
+        Define un argumento llamado <code>URL</code> con el valor
+        <code>0.0.0.0:4000</code>, que se utilizará para indicar
+        dónde ejecutar Django.
+    </p>
+
+    <h3>CMD</h3>
+
+    <pre>
+CMD ["sh", "-c",
+"python manage.py makemigrations supermarket_ms &&
+python manage.py migrate &&
+python manage.py runserver $URL"]
+    </pre>
+
+    <p>
+        Indica qué comandos se deben ejecutar cuando se inicia el
+        contenedor.
+    </p>
+
+    <h4>makemigrations</h4>
+    <p>
+        Genera las migraciones de Django a partir de los modelos
+        definidos en el proyecto.
+    </p>
+
+    <h4>migrate</h4>
+    <p>
+        Aplica las migraciones a la base de datos.
+    </p>
+
+    <h4>runserver</h4>
+    <p>
+        Inicia el servidor Django en <code>0.0.0.0:4000</code>.
+    </p>
+
+    <h4>Operador &&</h4>
+    <p>
+        Significa que cada comando se ejecuta solamente si el comando
+        anterior terminó correctamente.
+    </p>
+
+    <h3>Resumen</h3>
+
+    <ul>
+        <li><strong>FROM:</strong> indica la imagen base.</li>
+        <li><strong>ENV:</strong> define una variable de entorno.</li>
+        <li><strong>RUN:</strong> ejecuta comandos durante la construcción de la imagen.</li>
+        <li><strong>WORKDIR:</strong> establece la carpeta de trabajo.</li>
+        <li><strong>COPY:</strong> copia archivos a la imagen.</li>
+        <li><strong>ARG:</strong> define un argumento.</li>
+        <li><strong>CMD:</strong> indica qué ejecutar cuando inicia el contenedor.</li>
+    </ul>
    
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_1 ?>
-    <?php echo $verificar_2 ?>
-    <?php echo $verificar_3 ?>
-    <?php echo $verificar_4 ?>
-    <hr>
-
-    <h4>Funcionamiento del Event Loop</h4>
-
-<p>Una forma sencilla de verlo:</p>
-
-<pre>
-Código <input type="text" name="respuesta_5" value="<?php echo $respuesta_5; ?>" size="11"> 
-       ↓
-  <input type="text" name="respuesta_6" value="<?php echo $respuesta_6; ?>" size="11">  
-       ↓
-¿Llama a una operación asíncrona?
-       │
-       ├── NO ──→ continúa en <input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="11">
-       │
-       └── SÍ
-            ↓
-        <input type="text" name="respuesta_8" value="<?php echo $respuesta_8; ?>" size="11"> 
-            ↓
-   ┌────────┴─────────┐
-   ↓                  ↓
-<input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="11">    <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="14">    
-   │                  │
-   └────────┬─────────┘
-            ↓
-        <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="11">
-            ↓
-       <input type="text" name="respuesta_12" value="<?php echo $respuesta_12; ?>" size="11"> 
-</pre>
-
-<p>
-    El <strong>
-    <input type="text" name="respuesta_13" value="<?php echo $respuesta_13; ?>" size="11">    
-     </strong> está constantemente revisando las colas y,
-    cuando el <strong>
-    <input type="text" name="respuesta_14" value="<?php echo $respuesta_14; ?>" size="11">    
-     </strong> está vacío, mueve las tareas pendientes
-    al <strong>
-    <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="11">    
-     </strong> para ejecutarlas.
-</p>
-
-<button type="submit">Enviar</button>
-    <?php echo $verificar_5 ?>
-    <?php echo $verificar_6 ?>
-    <?php echo $verificar_7 ?>  
-    <?php echo $verificar_8 ?>
-    <?php echo $verificar_9 ?>
-    <?php echo $verificar_10 ?>
-    <?php echo $verificar_11 ?> 
-    <?php echo $verificar_12 ?>
-    <?php echo $verificar_13 ?>
-    <?php echo $verificar_14 ?>
-    <?php echo $verificar_15 ?>
-<hr>
-<h4>Ejemplo:</h4>
-
-<pre><code>console.log("1");
-
-setTimeout(() =&gt; {
-    console.log("2");
-}, 0);
-
-console.log("3");</code></pre>
-
-<h4>Proceso simplificado:</h4>
-
-<pre>
-1. console.log("1")
-        ↓
-   Call Stack
-        ↓
-   imprime 1
-
-
-2. setTimeout()
-        ↓
-     Web APIs
-        ↓
-   espera 0 ms
-        ↓
-   Task Queue
-
-
-3. console.log("3")
-        ↓
-   Call Stack
-        ↓
-   imprime 3
-
-
-4. Event Loop
-        ↓
-   Call Stack está vacío
-        ↓
-   toma el callback
-        ↓
-   Call Stack
-        ↓
-   imprime 2
-</pre>
-
-<h4>Idea clave</h4>
-
-<ul>
-    <li>
-        <strong>Call Stack:</strong>
-        ejecuta el código JavaScript.
-    </li>
-
-    <li>
-        <strong>Web APIs:</strong>
-        manejan operaciones asíncronas como 
-        <code>setTimeout</code>, <code>fetch</code> y eventos 
-        (principalmente en navegadores).
-    </li>
-
-    <li>
-        <strong>Task Queue:</strong>
-        almacena callbacks de tareas como <code>setTimeout</code>.
-    </li>
-
-    <li>
-        <strong>Microtask Queue:</strong>
-        almacena tareas de mayor prioridad como Promesas.
-    </li>
-
-    <li>
-        <strong>Event Loop:</strong>
-        coordina cuándo las tareas pasan de las colas al <code>Call Stack</code>.
-    </li>
-</ul>
-
-<hr>
-<h2>1. ¿Qué es Express?</h2>
-
-<p>
-    <strong>Express</strong> es un framework para el entorno de ejecución
-    <strong>Node.js</strong> que facilita la creación de aplicaciones web y APIs.
-    Este proporciona una serie de características y herramientas que simplifican
-    el desarrollo de aplicaciones del lado del servidor, sobre todo para el
-    desarrollo de <strong>microservicios</strong> y <strong>APIs RESTful</strong>.
-</p>
-
-<p>Algunas de las características clave de Express incluyen:</p>
-
-<ul>
-    <li>
-        <strong>Rutas:</strong>
-        Permite definir rutas para manejar diferentes solicitudes HTTP
-        (GET, POST, PUT, DELETE, etc.) y asociarlas con funciones específicas.
-    </li>
-
-    <li>
-        <strong>Middleware:</strong>
-        Soporta el uso de middleware, que son funciones que se ejecutan durante
-        el ciclo de vida de una solicitud. Esto permite agregar funcionalidades
-        como autenticación, manejo de errores, análisis de cuerpos de solicitudes,
-        etc.
-    </li>
-
-    <li>
-        <strong>Plantillas:</strong>
-        Facilita la integración con motores de plantillas para generar contenido
-        HTML dinámico.
-    </li>
-
-    <li>
-        <strong>Manejo de errores:</strong>
-        Proporciona un sistema para manejar errores de manera eficiente.
-    </li>
-
-    <li>
-        <strong>Extensibilidad:</strong>
-        Permite la integración con una amplia variedad de módulos y paquetes de
-        Node.js para ampliar sus funcionalidades.
-    </li>
-</ul>
-
-<p>
-    Proveniendo de antiguos desarrollos y aprendizajes del curso de
-    <strong>Computación en Internet 2</strong>, encontrarás bastantes similitudes
-    entre Express y el framework de Backend <strong>Spring</strong>, por lo que,
-    para ayudarte en tu proceso de entender el funcionamiento de Express,
-    realizaré algunas semejanzas con lo que ya conoces.
-</p>
-
 </div>
 
 
 
 
 <div class="seccion derecha">
-     
-  
-    <h3>1. ¿Qué significa <code>default</code>?</h3>
-
-    <p>
-        Un módulo puede declarar una exportación principal utilizando:
-    </p>
-
-    <pre><code>export default algo;</code></pre>
-
-    <p>
-        Esto significa que ese elemento es la exportación principal del módulo.
-    </p>
-
-    <p>Por ejemplo, en un archivo <code>saludar.ts</code>:</p>
-
-    <pre><code>function saludar() {
-    console.log("Hola");
-}
-
-export default saludar;</code></pre>
-
-    <p>
-        Luego, desde otro archivo podemos importar esa función:
-    </p>
-
-    <pre><code>import saludar from './saludar';</code></pre>
-
-    <p>
-        Fíjate en que <strong>no utilizamos <code>{}</code></strong>.
-    </p>
-
-    <pre><code>import saludar from './saludar';
-//      ↑
-//    default</code></pre>
-
-
-    <h3>2. ¿Por qué no lleva <code>{}</code>?</h3>
-
-    <p>
-        Los <code>{}</code> se utilizan para realizar
-        <strong>named imports</strong> o importaciones nombradas.
-    </p>
-
-    <p>Por ejemplo:</p>
-
-    <pre><code>export function saludar() {
-    console.log("Hola");
-}
-
-export function despedir() {
-    console.log("Adiós");
-}</code></pre>
-
-    <p>
-        Ahora existen dos exports nombrados:
-    </p>
-
-    <pre><code>import { saludar, despedir } from './saludar';</code></pre>
-
-    <p>
-        En este caso, los nombres deben coincidir con los nombres de los exports.
-    </p>
-
-    <p>
-        En cambio, con <code>default</code>:
-    </p>
-
-    <pre><code>export default saludar;</code></pre>
-
-    <p>
-        Podemos importar la función utilizando el nombre que queramos:
-    </p>
-
-    <pre><code>import saludar from './saludar';</code></pre>
-
-    <p>También podríamos escribir:</p>
-
-    <pre><code>import hola from './saludar';</code></pre>
-
-    <p>O:</p>
-
-    <pre><code>import miFuncion from './saludar';</code></pre>
-
-    <p>
-        Todos hacen referencia al mismo <code>default</code>.
-    </p>
-
-
-    <h3>3. Volvamos a Express</h3>
-
-    <p>
-        Cuando hacemos:
-    </p>
-
-    <pre><code>import express, { Express, Request, Response } from 'express';</code></pre>
-
-    <p>
-        Conceptualmente tenemos:
-    </p>
-
-    <pre><code>'express'
-    │
-    ├── default export
-    │       ↓
-    │    express
-    │
-    └── named exports
-            ├── Express
-            ├── Request
-            └── Response</code></pre>
-
-    <p>
-        Por eso:
-    </p>
-
-    <pre><code>import express from 'express';</code></pre>
-
-    <p>
-        Es un <strong>default import</strong>.
-    </p>
-
-    <p>
-        Mientras que:
-    </p>
-
-    <pre><code>import { Request, Response } from 'express';</code></pre>
-
-    <p>
-        Son <strong>named imports</strong>.
-    </p>
-
-
-    <h3>4. Diferencia entre Default Import y Named Import</h3>
-
-    <table border="1">
-        <tr>
-            <th>Tipo</th>
-            <th>Sintaxis</th>
-            <th>Significado</th>
-        </tr>
-        <tr>
-            <td>Default import</td>
-            <td><code>import express from 'express';</code></td>
-            <td>Importa la exportación principal.</td>
-        </tr>
-        <tr>
-            <td>Named import</td>
-            <td><code>import { Request } from 'express';</code></td>
-            <td>Importa un export específico por su nombre.</td>
-        </tr>
-    </table>
-
-
-    <h3>5. Idea principal</h3>
-
-    <p>
-        Puedes recordar la diferencia de esta manera:
-    </p>
-
-    <pre><code>import cosa from 'modulo';</code></pre>
-
-    <p>
-        Significa: <strong>"Dame la exportación principal del módulo".</strong>
-    </p>
-
-    <pre><code>import { cosa } from 'modulo';</code></pre>
-
-    <p>
-        Significa: <strong>"Dame específicamente el export llamado cosa".</strong>
-    </p>
-
-    <p>
-        Además, <code>default</code> no es exclusivo de Node.js.
-        Es una característica de los módulos de JavaScript (ES Modules)
-        que también utiliza TypeScript.
-    </p>
-          <hr>
-    <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
-    <br>
-    <input type="text" id="mostrar_solucion" name="mostrar_solucion"  value="<?php echo $mostrar_solucion?>">
-    <button type="submit"   >Mostrar Solución</button>   
+    
+ 
+         
 </div>
 </div>
  </form>

@@ -1309,7 +1309,7 @@ if ($respuesta_121 === '144') {
     width: calc(50% - 7.5px);
     padding: 20px;
     box-sizing: border-box;
-    height: 370vh;
+    height: 500vh;
     }
 
 </style>
@@ -1885,6 +1885,216 @@ volumes:
     </tbody>
 </table>
    
+<hr>
+ <header>
+    <h1>🐳 Taller #1 - Docker</h1>
+    <p>Microservicio Django + Base de Datos MySQL</p>
+</header>
+
+<main>
+
+    <!-- INTRODUCCIÓN -->
+    <section>
+        <h2>1. ¿Qué busca el taller?</h2>
+
+        <p>
+            El objetivo es construir un pequeño sistema distribuido utilizando Docker.
+            El sistema tiene un microservicio desarrollado en Python/Django y una base
+            de datos MySQL.
+        </p>
+
+        <div class="card-container">
+ 
+                <h3>🟦 Microservicio</h3>
+                <p>
+                    <strong>supermarket_ms</strong>
+                </p>
+                <p>
+                    Desarrollado con Python y Django.
+                    Expone una API REST.
+                </p>
+                <p>
+                    Puerto: <code>4000</code>
+                </p>
+      
+     
+                <h3>🟨 Base de datos</h3>
+                <p>
+                    <strong>supermarket_db</strong>
+                </p>
+                <p>
+                    Utiliza MySQL 5.7 para almacenar
+                    la información.
+                </p>
+                <p>
+                    Puerto: <code>3306</code>
+                </p>
+ 
+
+        </div>
+    </section>
+
+
+    <!-- IMAGEN VS CONTENEDOR -->
+    <section>
+        <h2>2. Imagen vs Contenedor</h2>
+
+        <p>
+            Esta es una de las ideas más importantes de Docker.
+        </p>
+
+        <div class="card-container">
+
+     
+                <h3>📦 Imagen</h3>
+
+                <p>
+                    Es una plantilla que contiene todo lo necesario
+                    para crear un contenedor.
+                </p>
+
+                <p>
+                    Ejemplo:
+                </p>
+
+                <code>supermarket_ms</code>
+        
+
+         
+                <h3>🚀 Contenedor</h3>
+
+                <p>
+                    Es una instancia de una imagen que está
+                    ejecutándose.
+                </p>
+
+                <p>
+                    Ejemplo:
+                </p>
+
+                <code>supermarket_ms container</code>
+        
+
+        </div>
+
+        <div class="important">
+            <strong>Idea clave:</strong>
+            <br>
+            Imagen = plantilla.
+            <br>
+            Contenedor = instancia ejecutándose de esa plantilla.
+        </div>
+    </section>
+
+
+    <!-- IMÁGENES -->
+    <section>
+        <h2>3. ¿Cuántas imágenes se utilizan?</h2>
+
+        <p>
+            En el taller se crean dos imágenes propias y se utiliza
+            adicionalmente la imagen oficial de phpMyAdmin.
+        </p>
+
+        <table>
+            <tr>
+                <th>Imagen</th>
+                <th>Basada en</th>
+                <th>Función</th>
+            </tr>
+
+            <tr>
+                <td><code>supermarket_db</code></td>
+                <td>mysql:5.7</td>
+                <td>Ejecutar MySQL</td>
+            </tr>
+
+            <tr>
+                <td><code>supermarket_ms</code></td>
+                <td>python:3</td>
+                <td>Ejecutar Django</td>
+            </tr>
+
+            <tr>
+                <td><code>phpmyadmin</code></td>
+                <td>Imagen oficial</td>
+                <td>Interfaz web para MySQL</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <!-- BASE DE DATOS -->
+    <section>
+        <h2>4. Componente 1: Base de datos</h2>
+
+        <h3>Dockerfile</h3>
+
+        <pre><code>FROM mysql:5.7
+
+ENV MYSQL_ROOT_PASSWORD=123
+ENV MYSQL_DATABASE=supermarket_db
+ENV MYSQL_USER=supermarket
+ENV MYSQL_PASSWORD=2021
+
+EXPOSE 3306</code></pre>
+
+        <h3>Crear la imagen</h3>
+
+        <pre><code>docker build -t supermarket_db .</code></pre>
+
+        <p>
+            Este comando lee el Dockerfile y crea una imagen llamada
+            <code>supermarket_db</code>.
+        </p>
+
+        <h3>Crear y ejecutar el contenedor</h3>
+
+        <pre><code>docker run -d -t -i \
+-p 3306:3306 \
+--name supermarket_db \
+supermarket_db</code></pre>
+
+        <p>
+            Ahora MySQL está ejecutándose dentro del contenedor.
+        </p>
+    </section>
+
+
+    <!-- PHPMYADMIN -->
+    <section>
+        <h2>5. phpMyAdmin</h2>
+
+        <p>
+            phpMyAdmin no es otra base de datos.
+            Es una interfaz web que permite administrar y consultar
+            MySQL de forma gráfica.
+        </p>
+
+        <pre><code>docker run --name phpmyadmin \
+-d \
+--link supermarket_db:db \
+-p 8081:80 \
+phpmyadmin</code></pre>
+
+        <p>
+            Después se puede acceder desde:
+        </p>
+
+        <pre><code>http://localhost:8081</code></pre>
+
+        <div class="important">
+            <strong>Importante:</strong>
+            <br>
+            MySQL utiliza el puerto 3306.
+            <br>
+            phpMyAdmin utiliza internamente el puerto 80,
+            pero Docker lo publica en el puerto 8081.
+        </div>
+    </section>
+
+
+   
 </div>
 
 
@@ -1892,6 +2102,427 @@ volumes:
 
 <div class="seccion derecha">
  
+  <!-- MICROSERVICIO -->
+    <section>
+        <h2>6. Componente 2: Microservicio</h2>
+
+        <p>
+            El microservicio está desarrollado utilizando
+            Python y Django.
+        </p>
+
+        <p>
+            Su función principal es exponer una API REST que permita
+            trabajar con categorías y productos.
+        </p>
+
+        <h3>Dockerfile</h3>
+
+        <pre><code>FROM python:3
+
+ENV PYTHONUNBUFFERED 1
+
+RUN mkdir /code
+
+WORKDIR /code
+
+COPY requirements.txt /code/
+
+RUN pip install -r requirements.txt
+
+COPY . /code/
+
+ARG URL=0.0.0.0:4000
+
+CMD ["sh", "-c",
+"python manage.py makemigrations supermarket_ms &&
+python manage.py migrate &&
+python manage.py runserver $URL"]</code></pre>
+
+        <h3>Crear la imagen</h3>
+
+        <pre><code>docker build -t supermarket_ms .</code></pre>
+
+        <p>
+            Se crea la imagen que contiene Python, Django,
+            sus dependencias y el código del proyecto.
+        </p>
+    </section>
+
+    <!-- CONTENEDOR MICROSERVICIO -->
+    <section>
+        <h2>7. Ejecutar el microservicio</h2>
+
+        <pre><code>docker run -p 4000:4000 \
+-e DB_HOST=host.docker.internal \
+-e DB_PORT=3306 \
+-e DB_USER=supermarket \
+-e DB_PASSWORD=2021 \
+-e DB_NAME=supermarket_db \
+-e URL=0.0.0.0:4000 \
+supermarket_ms</code></pre>
+
+        <p>
+            Las opciones <code>-e</code> crean variables de entorno.
+            Estas variables le indican a Django cómo conectarse
+            a MySQL.
+        </p>
+
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Función</th>
+            </tr>
+
+            <tr>
+                <td><code>DB_HOST</code></td>
+                <td>Dirección donde está MySQL</td>
+            </tr>
+
+            <tr>
+                <td><code>DB_PORT</code></td>
+                <td>Puerto de MySQL</td>
+            </tr>
+
+            <tr>
+                <td><code>DB_USER</code></td>
+                <td>Usuario de MySQL</td>
+            </tr>
+
+            <tr>
+                <td><code>DB_PASSWORD</code></td>
+                <td>Contraseña de MySQL</td>
+            </tr>
+
+            <tr>
+                <td><code>DB_NAME</code></td>
+                <td>Nombre de la base de datos</td>
+            </tr>
+
+            <tr>
+                <td><code>URL</code></td>
+                <td>Dirección y puerto del servidor Django</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <!-- ARQUITECTURA -->
+    <section>
+        <h2>8. Arquitectura completa</h2>
+
+        <pre><code>
+                         POSTMAN
+                            │
+                            │ HTTP / REST
+                            ▼
+                ┌───────────────────────┐
+                │   supermarket_ms      │
+                │                       │
+                │   Python + Django     │
+                │   API REST            │
+                │   Puerto 4000         │
+                └───────────┬───────────┘
+                            │
+                            │ MySQL
+                            │
+                            ▼
+                ┌───────────────────────┐
+                │   supermarket_db      │
+                │                       │
+                │   MySQL 5.7           │
+                │   Puerto 3306         │
+                └───────────▲───────────┘
+                            │
+                            │
+                ┌───────────┴───────────┐
+                │      phpMyAdmin       │
+                │      Puerto 8081      │
+                │      Interfaz Web     │
+                └───────────────────────┘
+        </code></pre>
+    </section>
+
+
+    <!-- CONECTORES -->
+    <section>
+        <h2>9. Conectores</h2>
+
+        <div class="card-container">
+
+            
+                <h3>🔌 Conector 1: MySQL</h3>
+
+                <p>
+                    Django utiliza el cliente MySQL para
+                    comunicarse con la base de datos.
+                </p>
+
+                <pre><code>Django
+   │
+   │ MySQL
+   ▼
+MySQL</code></pre>
+         
+ 
+                <h3>🔌 Conector 2: REST</h3>
+
+                <p>
+                    Postman se comunica con Django mediante
+                    HTTP utilizando la API REST.
+                </p>
+
+                <pre><code>Postman
+   │
+   │ HTTP
+   ▼
+Django</code></pre>
+           
+
+        </div>
+    </section>
+
+
+    <!-- CAPAS -->
+    <section>
+        <h2>10. Capas internas del microservicio</h2>
+
+        <div class="card-container">
+
+      
+                <h3>Models</h3>
+                <p>
+                    Representan y abstraen los datos
+                    almacenados en la base de datos.
+                </p>
+      
+
+        
+                <h3>Serializers</h3>
+                <p>
+                    Transforman los datos entre objetos
+                    Python y formatos como JSON.
+                </p>
+       
+
+            
+                <h3>APIViews</h3>
+                <p>
+                    Gestionan las peticiones HTTP
+                    de la API REST.
+                </p>
+            
+
+        </div>
+    </section>
+
+
+    <!-- CRUD -->
+    <section>
+        <h2>11. Operaciones CRUD</h2>
+
+        <p>
+            La API permite realizar operaciones CRUD sobre
+            <strong>Categories</strong> y <strong>Products</strong>.
+        </p>
+
+        <table>
+            <tr>
+                <th>Operación</th>
+                <th>HTTP</th>
+                <th>Función</th>
+            </tr>
+
+            <tr>
+                <td>Create</td>
+                <td><code>POST</code></td>
+                <td>Crear información</td>
+            </tr>
+
+            <tr>
+                <td>Read</td>
+                <td><code>GET</code></td>
+                <td>Consultar información</td>
+            </tr>
+
+            <tr>
+                <td>Update</td>
+                <td><code>PUT</code></td>
+                <td>Actualizar información</td>
+            </tr>
+
+            <tr>
+                <td>Delete</td>
+                <td><code>DELETE</code></td>
+                <td>Eliminar información</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <!-- POSTMAN -->
+    <section>
+        <h2>12. Ejemplo con Postman</h2>
+
+        <h3>Crear categoría</h3>
+
+        <pre><code>POST http://localhost:4000/categories/</code></pre>
+
+        <pre><code>{
+    "name": "Cat. Jeisson",
+    "description": "Categoría creada para el curso"
+}</code></pre>
+
+        <p><strong>Respuesta:</strong> 201 Created</p>
+
+        <h3>Consultar categoría</h3>
+
+        <pre><code>GET http://localhost:4000/categories/1</code></pre>
+
+        <p><strong>Respuesta:</strong> 200 OK</p>
+
+        <h3>Consultar todas las categorías</h3>
+
+        <pre><code>GET http://localhost:4000/categories/</code></pre>
+
+        <p><strong>Respuesta:</strong> 200 OK</p>
+
+        <h3>Actualizar categoría</h3>
+
+        <pre><code>PUT http://localhost:4000/categories/1</code></pre>
+
+        <pre><code>{
+    "name": "Cat. AWRI",
+    "description": "Categoría actualizada"
+}</code></pre>
+
+        <p><strong>Respuesta:</strong> 200 OK</p>
+
+        <h3>Eliminar categoría</h3>
+
+        <pre><code>DELETE http://localhost:4000/categories/1</code></pre>
+
+        <p><strong>Respuesta:</strong> 204 No Content</p>
+    </section>
+
+
+    <!-- VERIFICACIÓN -->
+    <section>
+        <h2>13. Verificación del sistema</h2>
+
+        <p>
+            Para verificar que los contenedores están ejecutándose:
+        </p>
+
+        <pre><code>docker ps</code></pre>
+
+        <p>
+            Se deben observar los contenedores correspondientes
+            al microservicio, MySQL y phpMyAdmin.
+        </p>
+
+        <p>
+            Después de realizar operaciones mediante Postman,
+            se utiliza phpMyAdmin para verificar que los cambios
+            realmente fueron realizados en MySQL.
+        </p>
+
+        <div class="success">
+            <strong>Ejemplo:</strong>
+            <br><br>
+
+            POST en Postman
+            → se crea una categoría
+            → Django procesa la petición
+            → Django utiliza el conector MySQL
+            → MySQL guarda el registro
+            → phpMyAdmin permite verificarlo.
+        </div>
+    </section>
+
+
+    <!-- PUERTOS -->
+    <section>
+        <h2>14. Puertos importantes</h2>
+
+        <table>
+            <tr>
+                <th>Puerto</th>
+                <th>Componente</th>
+                <th>Uso</th>
+            </tr>
+
+            <tr>
+                <td><code>3306</code></td>
+                <td>MySQL</td>
+                <td>Comunicación con la base de datos</td>
+            </tr>
+
+            <tr>
+                <td><code>4000</code></td>
+                <td>Django</td>
+                <td>API REST</td>
+            </tr>
+
+            <tr>
+                <td><code>8081</code></td>
+                <td>phpMyAdmin</td>
+                <td>Interfaz web</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <!-- RESUMEN -->
+    <section>
+        <h2>15. Resumen para explicar al profesor</h2>
+
+        <p>
+            El taller consiste en construir un sistema distribuido
+            utilizando Docker. Se tienen dos componentes principales:
+            un microservicio llamado <code>supermarket_ms</code>,
+            desarrollado con Python y Django, y una base de datos
+            llamada <code>supermarket_db</code>, implementada con
+            MySQL 5.7.
+        </p>
+
+        <p>
+            Para cada componente se crea una imagen Docker mediante
+            un Dockerfile. Posteriormente, a partir de esas imágenes
+            se crean contenedores que ejecutan los servicios.
+        </p>
+
+        <p>
+            El microservicio expone una API REST en el puerto
+            <code>4000</code> y se conecta a MySQL mediante el cliente
+            de MySQL de Django. MySQL utiliza el puerto
+            <code>3306</code>.
+        </p>
+
+        <p>
+            Adicionalmente se utiliza phpMyAdmin para administrar
+            visualmente la base de datos desde el navegador mediante
+            el puerto <code>8081</code>.
+        </p>
+
+        <p>
+            Finalmente, Postman se utiliza como cliente HTTP para
+            probar las operaciones CRUD de la API REST sobre
+            Categories y Products.
+        </p>
+
+        <div class="important">
+            <strong>En una frase:</strong>
+            <br><br>
+
+            Postman consume la API REST de Django, Django se conecta
+            a MySQL y MySQL almacena la información; Docker permite
+            ejecutar cada componente de forma aislada mediante
+            contenedores.
+        </div>
+    </section>
+
+</main>
  
     <hr>
     <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>

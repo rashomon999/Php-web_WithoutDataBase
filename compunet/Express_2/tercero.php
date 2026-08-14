@@ -9,7 +9,7 @@ $SOLUCIONES = [
 
     /* --- Bloque A: user.schema.ts (Zod) --- */
     1  => 'zod',
-    2  => 'object',
+    2  => 'export const userSchema: any = object',
     3  => 'string',
     4  => 'email',
     5  => 'min',
@@ -74,6 +74,30 @@ $SOLUCIONES = [
     52 => 'throw new ReferenceError("user already exists");',
     53 => 'userInput.password = await bcrypt.hash(userInput.password, 10);',
     54 => 'return UserModel.create(userInput);',
+
+    /* --- Firmas y andamiaje (try/catch), tapados en el propio codigo --- */
+    55 => 'export const validateSchema = (schema: AnyZodObject) => {',
+    56 => 'async',
+    57 => 'try',
+    58 => 'catch',
+    59 => 'public async create (req: Request, res: Response) {',
+    60 => 'try',
+    61 => 'instanceof',
+    62 => 'public async create (userInput: UserInput): Promise<UserDocument>{',
+    63 => 'public findByEmail (email: string, password: boolean = false): Promise<UserDocument | null>{',
+
+    /* --- Los imports de cada archivo --- */
+    64 => 'express',                                   // validate.middleware.ts
+    65 => 'AnyZodObject',
+    66 => ['zod/v3', 'zod'],
+    67 => 'express',                                   // user.controller.ts
+    68 => 'userService',
+    69 => ['user.interface', './user.interface'],
+    70 => 'UserDocument',
+    71 => 'bcrypt',                                    // user.service.ts
+    72 => 'jsonwebtoken',
+    73 => ['user.interface', './user.interface'],
+    74 => 'UserModel',
 ];
 
 $MULTIPLE = [
@@ -176,7 +200,7 @@ cabecera('Cuestionario 3 — POST /user', 'Zod, middleware de validacion, contro
 
 <pre><code>import {object, string, email} from '<?php hueco(1, 6); ?>';
 
-export const userSchema: any = <?php hueco(2, 8); ?>({
+<?php hueco(2, 38); ?>({
     name: <?php hueco(3, 8); ?>({error: "Name is required"}),
     email: <?php hueco(4, 8); ?>({error: "Not a valid email address"}),
     password: string({error: "Password is required"})
@@ -193,17 +217,27 @@ export const userSchema: any = <?php hueco(2, 8); ?>({
 <div class="card">
   <h2>B. <code>src/global/validate.middleware.ts</code></h2>
 
-<pre><code>export const validateSchema = (schema: AnyZodObject) =&gt; {
+<pre><code>import { NextFunction, Request, Response } from "<?php hueco(64, 9); ?>";
+import {<?php hueco(65, 14); ?>} from '<?php hueco(66, 8); ?>';
 
-   return async (req: Request, res: Response, next: <?php hueco(8, 14); ?>) =&gt; {
-                try {
+<?php firma(55, 59); ?>
+
+   return <?php hueco(56, 6); ?> (req: Request, res: Response, next: <?php hueco(8, 14); ?>) =&gt; {
+                <?php hueco(57, 4); ?> {
                     await schema.<?php hueco(9, 12); ?>(req.body);
                     <?php hueco(10, 6); ?>();
-                } catch(error){
+                } <?php hueco(58, 6); ?>(error){
                     res.<?php hueco(11, 8); ?>(<?php hueco(12, 5); ?>).json(error);
                 }
             }
 }</code></pre>
+
+  <div class="nota">
+     <b>Ojo al import raro:</b> el schema se declara con <code>zod</code> a secas en
+     <code>user.schema.ts</code>, pero el tipo <code>AnyZodObject</code> se importa de
+     <code>'zod/v3'</code>. Es un resto de compatibilidad: en Zod 4 ese tipo ya no vive en la raiz
+     del paquete, asi que se saca del espacio de la version 3.
+  </div>
 
   <div class="nota">
      <b>Fijate en el truco:</b> <code>validateSchema(userSchema)</code> <b>no es</b> el middleware.
@@ -225,12 +259,18 @@ export const userSchema: any = <?php hueco(2, 8); ?>({
 <div class="card">
   <h2>C. <code>user.controller.ts</code> &rarr; <code>create</code></h2>
 
-<pre><code>public async create (req: Request, res: Response) {
-    try {
+<pre><code>import {Request, Response} from '<?php hueco(67, 9); ?>';
+import { <?php hueco(68, 12); ?> } from './user.service';
+import { UserInput, UserLogin, UserUpdate } from './<?php hueco(69, 15); ?>';
+import { <?php hueco(70, 13); ?> } from './user.model';
+
+<?php firma(59, 50); ?>
+
+    <?php hueco(60, 4); ?> {
        const newUser = await <?php hueco(15, 13); ?>.create(req.body as <?php hueco(16, 11); ?>);
        res.<?php hueco(17, 7); ?>(<?php hueco(18, 5); ?>).json(newUser);
     } catch (error) {
-       if(error instanceof <?php hueco(19, 15); ?>) {
+       if(error <?php hueco(61, 11); ?> <?php hueco(19, 15); ?>) {
         res.status(<?php hueco(20, 5); ?>).json({message: "User already exists"});
        }
        res.status(500).json(error);
@@ -248,7 +288,14 @@ export const userSchema: any = <?php hueco(2, 8); ?>({
 <div class="card">
   <h2>D. <code>user.service.ts</code> &rarr; <code>create</code></h2>
 
-<pre><code>public async create (userInput: UserInput): Promise&lt;UserDocument&gt;{
+<pre><code>import <?php hueco(71, 8); ?> from "bcrypt";
+import jwt from "<?php hueco(72, 14); ?>";
+
+import { UserInput, UserLogin, UserUpdate } from "./<?php hueco(73, 15); ?>";
+import { UserDocument, <?php hueco(74, 11); ?> } from "./user.model";
+
+<?php firma(62, 67); ?>
+
 
     const userExists: UserDocument | null = await this.<?php hueco(21, 12); ?>(userInput.email);
 
@@ -265,7 +312,8 @@ export const userSchema: any = <?php hueco(2, 8); ?>({
 
   <p>Y <code>findByEmail</code>, que es a quien llama primero, por dentro hace:</p>
 
-<pre><code>public findByEmail (email: string, password: boolean = false): Promise&lt;UserDocument | null&gt;{
+<pre><code><?php firma(63, 93); ?>
+
     return UserModel.<?php hueco(29, 9); ?>({email}, {password});
 }</code></pre>
 

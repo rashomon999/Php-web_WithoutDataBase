@@ -142,6 +142,30 @@ function hueco($n, $size = 12) {
 }
 
 
+/* ---------- una FIRMA de metodo dentro de un bloque de codigo ---------
+   Igual que hueco(), pero ancho y con otro color: se usa para tapar la
+   linea de la firma completa (visibilidad, async, parametros con sus
+   tipos y tipo de retorno), que es lo que uno cree que sabe y no sabe.
+   ---------------------------------------------------------------------- */
+function firma($n, $size = 60) {
+    global $RESP, $VERIF;
+
+    $v   = isset($RESP[$n])  ? htmlspecialchars($RESP[$n], ENT_QUOTES, 'UTF-8') : '';
+    $c   = isset($VERIF[$n]) ? $VERIF[$n] : '';
+    $cls = ($c === 'correcto') ? 'ok' : (($c === 'incorrecto') ? 'bad' : '');
+
+    echo '<span class="hbox">';
+    echo '<input type="text" class="hueco firma ' . $cls . '"'
+       . ' name="respuesta_' . $n . '" id="respuesta_' . $n . '"'
+       . ' value="' . $v . '" size="' . $size . '"'
+       . ' title="firma ' . $n . '" placeholder="firma completa del metodo"'
+       . ' autocomplete="off" spellcheck="false">';
+    if     ($c === 'correcto')   echo '<span class="mk ok">&#10004;</span>';
+    elseif ($c === 'incorrecto') echo '<span class="mk bad">&#10008;</span>';
+    echo '</span>';
+}
+
+
 /* ---------- mostrar la solucion de un hueco concreto (uso opcional) ---------- */
 function sol($n) {
     global $SOL;
@@ -349,6 +373,11 @@ pre .hueco{background:#fdf6d8}
 .hueco:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(44,90,160,.18)}
 .hueco.ok{border-color:var(--verde);background:var(--verde-bg)}
 .hueco.bad{border-color:var(--rojo);background:var(--rojo-bg)}
+.hueco.firma{background:#e3edfb;border-style:dashed}
+pre .hueco.firma{background:#dbe8fa}
+.hueco.firma.ok{background:var(--verde-bg);border-style:solid}
+.hueco.firma.bad{background:var(--rojo-bg);border-style:solid}
+.hueco.firma::placeholder{color:#8a97a8;font-style:italic}
 .mk{font-weight:700;margin-left:4px}
 .mk.ok{color:var(--verde)}
 .mk.bad{color:var(--rojo)}

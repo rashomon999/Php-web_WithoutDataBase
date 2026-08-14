@@ -18,146 +18,95 @@ if ($_POST) {
     
     if ($mostrar_solucion === 'mostrar_solucion') {        
  
-        $respuesta_111 = '24'; 
-        $respuesta_112 = '36';
-        $respuesta_113 = '48';
-        $respuesta_114 = '60';
-        $respuesta_115 = '72';
-        $respuesta_116 = '84';
-        $respuesta_117 = '96';
-        $respuesta_118 = '108';
-        $respuesta_119 = '120';
-        $respuesta_120 = '132';
-        $respuesta_121 = '144';
-        
- 
-        $respuesta_1 = '26';
-        $respuesta_2 = '39';
-        $respuesta_3 = '52';
-        $respuesta_4 = '65';
-        $respuesta_5 = '78';
-        $respuesta_6 = '91';
-        $respuesta_7 = '104';
-        $respuesta_8 = '117';
-        $respuesta_9 = '130';
-        $respuesta_10 = '143';
-        $respuesta_11 = '156';
-        
- 
-        $respuesta_12 = '28';
-        $respuesta_13 = '42';
-        $respuesta_14 = '56';
-        $respuesta_15 = '70';
-        $respuesta_16 = '84';
-        $respuesta_17 = '98';
-        $respuesta_18 = '112';
-        $respuesta_19 = '126';
-        $respuesta_20 = '140';
-        $respuesta_21 = '154';
-        $respuesta_22 = '168';
-        
- 
-        $respuesta_23 = '30';
-        $respuesta_24 = '45';
-        $respuesta_25 = '60';
-        $respuesta_26 = '75';
-        $respuesta_27 = '90';
-        $respuesta_28 = '105';
-        $respuesta_29 = '120';
-        $respuesta_30 = '135';
-        $respuesta_31 = '150';
-        $respuesta_32 = '165';
-        $respuesta_33 = '180';
-        
- 
-        $respuesta_34 = '32';
-        $respuesta_35 = '48';
-        $respuesta_36 = '64';
-        $respuesta_37 = '80';
-        $respuesta_38 = '96';
-        $respuesta_39 = '112';
-        $respuesta_40 = '128';
-        $respuesta_41 = '144';
-        $respuesta_42 = '160';
-        $respuesta_43 = '176';
-        $respuesta_44 = '192';
-        
- 
-        $respuesta_45 = '34';
-        $respuesta_46 = '51';
-        $respuesta_47 = '68';
-        $respuesta_48 = '85';
-        $respuesta_49 = '102';
-        $respuesta_50 = '119';
-        $respuesta_51 = '136';
-        $respuesta_52 = '153';
-        $respuesta_53 = '170';
-        $respuesta_54 = '187';
-        $respuesta_55 = '204';
-        
- 
-        $respuesta_56 = '36';
-        $respuesta_57 = '54';
-        $respuesta_58 = '72';
-        $respuesta_59 = '90';
-        $respuesta_60 = '108';
-        $respuesta_61 = '126';
-        $respuesta_62 = '144';
-        $respuesta_63 = '162';
-        $respuesta_64 = '180';
-        $respuesta_65 = '198';
-        $respuesta_66 = '216';
-        
- 
-        $respuesta_67 = '38';
-        $respuesta_68 = '57';
-        $respuesta_69 = '76';
-        $respuesta_70 = '95';
-        $respuesta_71 = '114';
-        $respuesta_72 = '133';
-        $respuesta_73 = '152';
-        $respuesta_74 = '171';
-        $respuesta_75 = '190';
-        $respuesta_76 = '209';
-        $respuesta_77 = '228';
-        
- 
-        $respuesta_78 = '40';
-        $respuesta_79 = '60';
-        $respuesta_80 = '80';
-        $respuesta_81 = '100';
-        $respuesta_82 = '120';
-        $respuesta_83 = '140';
-        $respuesta_84 = '160';
-        $respuesta_85 = '180';
-        $respuesta_86 = '200';
-        $respuesta_87 = '220';
-        $respuesta_88 = '240';
-        
- 
-        $respuesta_89 = '42';
-        $respuesta_90 = '63';
-        $respuesta_91 = '84';
-        $respuesta_92 = '105';
-        $respuesta_93 = '126';
-        $respuesta_94 = '147';
-        $respuesta_95 = '168';
-        $respuesta_96 = '189';
-        $respuesta_97 = '210';
-        $respuesta_98 = '231';
-        $respuesta_99 = '252';
-        
-         $respuesta_100 = '44';
-        $respuesta_101 = '66';
-        $respuesta_102 = '88';
-        $respuesta_103 = '110';
-        $respuesta_104 = '132'; 
-        $respuesta_105 = '154';
-        $respuesta_106 = '176';
-        $respuesta_107 = '198';
-        $respuesta_108 = '220';
-        $respuesta_109 = '242';
-        $respuesta_110 = '264';
+        $respuesta_1 = 'Team Lead';
+    $respuesta_2 = 'Facilitar';
+    $respuesta_3 = 'recursos';
+    $respuesta_4 = 'equipo';
+    $respuesta_5 = 'Team Member';
+    $respuesta_6 = 'Modelado';
+    $respuesta_7 = 'Programacion';
+    $respuesta_8 = 'sistema';
+    $respuesta_9 = 'Service Owner';
+    $respuesta_10 = 'Coordinacion externa';
+    $respuesta_11 = 'Prioridades';
+    $respuesta_12 = 'servicio';
+    $respuesta_13 = 'Usuarios';
+    $respuesta_14 = 'Arquitectura';
+    $respuesta_15 = 'Reliability Engineer';
+    $respuesta_16 = 'despliegue';
+    $respuesta_17 = 'problemas';
+    $respuesta_18 = 'disponibilidad';
+    $respuesta_19 = 'Analisis rapido';
+    $respuesta_20 = 'Reparacion';
+    $respuesta_21 = 'causa raiz';
+    $respuesta_22 = 'Gatekeeper';
+    $respuesta_23 = 'cambio';
+    $respuesta_24 = 'siguiente';
+    $respuesta_25 = 'Pruebas';
+    $respuesta_26 = 'Metricas';
+    $respuesta_27 = 'DevOps Engineer';
+    $respuesta_28 = 'Herramientas DevOps';
+    $respuesta_29 = 'Pipelines';
+    $respuesta_30 = 'Configuracion';
+    $respuesta_31 = 'Automatizacion';
+    $respuesta_32 = 'Directa';
+    $respuesta_33 = 'Indirecta';
+    $respuesta_34 = 'Persistente';
+    $respuesta_35 = 'Efimera';
+    $respuesta_36 = 'Sincronica';
+    $respuesta_37 = 'Asincronica';
+    $respuesta_38 = 'Upstream';
+    $respuesta_39 = 'clientes';
+    $respuesta_40 = 'stakeholders';
+    $respuesta_41 = 'Service Owner';
+    $respuesta_42 = 'Downstream';
+    $respuesta_43 = 'Coordinacion';
+    $respuesta_44 = 'Operaciones';
+    $respuesta_45 = 'responsabilidades';
+    $respuesta_46 = 'Desarrollo';
+    $respuesta_47 = 'Cross-stream';
+    $respuesta_48 = 'Coordinacion';
+    $respuesta_49 = 'equipos';
+    $respuesta_50 = 'desarrollo';
+    $respuesta_51 = 'componentes';
+    $respuesta_52 = 'juntos';
+    $respuesta_53 = 'duplicacion';
+    $respuesta_54 = 'Cultura organizacional';
+    $respuesta_55 = 'cambiar rapido';
+    $respuesta_56 = 'estabilidad';
+    $respuesta_57 = 'Silos organizacionales';
+    $respuesta_58 = 'objetivos';
+    $respuesta_59 = 'responsabilidades';
+    $respuesta_60 = 'autoridad';
+    $respuesta_61 = 'Diferentes incentivos';
+    $respuesta_62 = 'Cambiar';
+    $respuesta_63 = 'entregar funcionalidades';
+    $respuesta_64 = 'Evitar cambios';
+    $respuesta_65 = 'evitar fallos';
+    $respuesta_66 = 'Herramientas';
+    $respuesta_67 = 'conocimiento especializado';
+    $respuesta_68 = 'mantenimiento';
+    $respuesta_69 = 'procesos comunes';
+    $respuesta_70 = 'Personal';
+    $respuesta_71 = 'tareas';
+    $respuesta_72 = 'Ops';
+    $respuesta_73 = 'Dev';
+    $respuesta_74 = 'aumentar costos';
+    $respuesta_75 = 'desarrolladores';
+    $respuesta_76 = 'caros';
+    $respuesta_77 = 'automatizacion';
+    $respuesta_78 = 'compensar';
+    $respuesta_79 = 'velocidad';
+    $respuesta_80 = 'automatizacion';
+    $respuesta_81 = 'tiempo';
+    $respuesta_82 = 'entrega';
+    $respuesta_83 = 'respuesta';
+    $respuesta_84 = 'errores';
+    $respuesta_85 = 'herramientas';
+    $respuesta_86 = 'Capacitacion';
+    $respuesta_87 = 'responsabilidades';
+    $respuesta_88 = 'desarrolladores';
+    $respuesta_89 = 'supervision';
         
         // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
@@ -586,7 +535,9 @@ if ($_POST) {
     }
 
     $respuesta_44 = isset($_POST['respuesta_44']) ? $_POST['respuesta_44'] : '';
-    if ($respuesta_44 === 'Operaciones') { 
+    if ($respuesta_44 === 'Operaciones'
+    || $respuesta_44 === 'operaciones'
+    ) { 
         $verificar_44 = "correcto";
     } elseif ($respuesta_44 === '') {
     $verificar_44 = '';
@@ -604,7 +555,9 @@ if ($_POST) {
     }
 
     $respuesta_46 = isset($_POST['respuesta_46']) ? $_POST['respuesta_46'] : '';
-    if ($respuesta_46 === 'Desarrollo') { 
+    if ($respuesta_46 === 'Desarrollo'
+    || $respuesta_46 === 'desarrollo'
+    ) { 
         $verificar_46 = "correcto";
     } elseif ($respuesta_46 === '') {
     $verificar_46 = '';
@@ -1616,7 +1569,7 @@ function ocultarMensaje4() {
 
 
 <h4>
-<input type="text" name="respuesta_5" value="<?php echo $respuesta_5; ?>" size="8">       
+<input type="text" name="respuesta_5" value="<?php echo $respuesta_5; ?>" size="12">       
  </h4>
 
 <ul>
@@ -1624,7 +1577,7 @@ function ocultarMensaje4() {
     <input type="text" name="respuesta_6" value="<?php echo $respuesta_6; ?>" size="8">       
      .</li>
     <li>
-    <input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="8">       
+    <input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="9">       
      .</li>
     <li>Pruebas.</li>
     <li>Entrega del 
@@ -1641,7 +1594,7 @@ function ocultarMensaje4() {
 
 <ul>
     <li>
-    <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="15">       
+    <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="18">       
      .</li>
     <li>
     <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="8">       
@@ -1679,8 +1632,7 @@ function ocultarMensaje4() {
     <?php echo $verificar_12 ?>
     <?php echo $verificar_13 ?>
     <?php echo $verificar_14 ?>
-    <?php echo $verificar_15 ?>
-    <br><br>
+     <br><br>
 <h4>
 <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="16">       
  </h4>
@@ -1695,7 +1647,7 @@ function ocultarMensaje4() {
     <input type="text" name="respuesta_17" value="<?php echo $respuesta_17; ?>" size="8">       
      .</li>
     <li>Mantener 
-    <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="8">       
+    <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="10">       
      .</li>
 </ul>
 
@@ -1714,7 +1666,8 @@ function ocultarMensaje4() {
 </ul>
 
 <button type="submit">Enviar</button> 
- 
+     <?php echo $verificar_15 ?>
+
     <?php echo $verificar_16 ?>
     <?php echo $verificar_17 ?>
     <?php echo $verificar_18 ?>
@@ -1764,23 +1717,23 @@ Decide si un
 
 
 <h4>
-<input type="text" name="respuesta_27" value="<?php echo $respuesta_27; ?>" size="8">    
+<input type="text" name="respuesta_27" value="<?php echo $respuesta_27; ?>" size="13">    
  </h4>
 
 <p>Responsable de:</p>
 
 <ul>
     <li>
-    <input type="text" name="respuesta_28" value="<?php echo $respuesta_28; ?>" size="15">    
+    <input type="text" name="respuesta_28" value="<?php echo $respuesta_28; ?>" size="18">    
      .</li>
     <li>
     <input type="text" name="respuesta_29" value="<?php echo $respuesta_29; ?>" size="8">    
      .</li>
     <li>
-    <input type="text" name="respuesta_30" value="<?php echo $respuesta_30; ?>" size="8">    
+    <input type="text" name="respuesta_30" value="<?php echo $respuesta_30; ?>" size="10">    
      .</li>
     <li>
-    <input type="text" name="respuesta_31" value="<?php echo $respuesta_31; ?>" size="8">    
+    <input type="text" name="respuesta_31" value="<?php echo $respuesta_31; ?>" size="12">    
      .</li>
 </ul>
 
@@ -1890,7 +1843,7 @@ Responsable:
  </h4>
 
 <p>
-<input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="8"> 
+<input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="10"> 
   con 
 <input type="text" name="respuesta_44" value="<?php echo $respuesta_44; ?>" size="8"> 
  .
@@ -1898,7 +1851,7 @@ Responsable:
 
 <p>
 Solución DevOps: mover 
-<input type="text" name="respuesta_45" value="<?php echo $respuesta_45; ?>" size="8"> 
+<input type="text" name="respuesta_45" value="<?php echo $respuesta_45; ?>" size="14"> 
   a 
 <input type="text" name="respuesta_46" value="<?php echo $respuesta_46; ?>" size="8"> 
  .
@@ -1910,7 +1863,7 @@ Solución DevOps: mover
  </h4>
 
 <p>
-<input type="text" name="respuesta_48" value="<?php echo $respuesta_48; ?>" size="8"> 
+<input type="text" name="respuesta_48" value="<?php echo $respuesta_48; ?>" size="10"> 
   entre 
 <input type="text" name="respuesta_49" value="<?php echo $respuesta_49; ?>" size="8"> 
   de 
@@ -1922,7 +1875,7 @@ Solución DevOps: mover
 
 <ol>
     <li>Que los 
-    <input type="text" name="respuesta_51" value="<?php echo $respuesta_51; ?>" size="8">     
+    <input type="text" name="respuesta_51" value="<?php echo $respuesta_51; ?>" size="10">     
       funcionen 
     <input type="text" name="respuesta_52" value="<?php echo $respuesta_52; ?>" size="8"> 
      .</li>
@@ -1955,7 +1908,7 @@ Solución DevOps: mover
 <h3>10. Barreras para adoptar DevOps</h3>
 
 <h4>1. 
-<input type="text" name="respuesta_54" value="<?php echo $respuesta_54; ?>" size="14">    
+<input type="text" name="respuesta_54" value="<?php echo $respuesta_54; ?>" size="19">    
  </h4>
 
 <p>Conflicto tradicional:</p>
@@ -1963,18 +1916,18 @@ Solución DevOps: mover
 <pre>
 Desarrollo:
 Necesitamos 
-<input type="text" name="respuesta_55" value="<?php echo $respuesta_55; ?>" size="8">
+<input type="text" name="respuesta_55" value="<?php echo $respuesta_55; ?>" size="14">
  .
 
 Operaciones:
 Necesitamos 
-<input type="text" name="respuesta_56" value="<?php echo $respuesta_56; ?>" size="8">
+<input type="text" name="respuesta_56" value="<?php echo $respuesta_56; ?>" size="14">
  .
 </pre>
 
 
 <h4>2. 
-<input type="text" name="respuesta_57" value="<?php echo $respuesta_57; ?>" size="14">    
+<input type="text" name="respuesta_57" value="<?php echo $respuesta_57; ?>" size="18">    
  </h4>
 
 <p>Cada equipo protege:</p>
@@ -1984,7 +1937,7 @@ Necesitamos
     <input type="text" name="respuesta_58" value="<?php echo $respuesta_58; ?>" size="8">    
      .</li>
     <li>Sus 
-    <input type="text" name="respuesta_59" value="<?php echo $respuesta_59; ?>" size="8">    
+    <input type="text" name="respuesta_59" value="<?php echo $respuesta_59; ?>" size="14">    
      .</li>
     <li>Su 
     <input type="text" name="respuesta_60" value="<?php echo $respuesta_60; ?>" size="8">    
@@ -2000,11 +1953,11 @@ Necesitamos
 Desarrollo:
 <input type="text" name="respuesta_62" value="<?php echo $respuesta_62; ?>" size="8">
   → 
-<input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="16">
+<input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="25">
  
 
 Operaciones:
-<input type="text" name="respuesta_64" value="<?php echo $respuesta_64; ?>" size="12">
+<input type="text" name="respuesta_64" value="<?php echo $respuesta_64; ?>" size="14">
   → 
 <input type="text" name="respuesta_65" value="<?php echo $respuesta_65; ?>" size="12">
  
@@ -2017,13 +1970,13 @@ Operaciones:
 
 <ul>
     <li>Requieren 
-    <input type="text" name="respuesta_67" value="<?php echo $respuesta_67; ?>" size="8">    
+    <input type="text" name="respuesta_67" value="<?php echo $respuesta_67; ?>" size="23">    
      .</li>
     <li>Necesitan 
-    <input type="text" name="respuesta_68" value="<?php echo $respuesta_68; ?>" size="8">    
+    <input type="text" name="respuesta_68" value="<?php echo $respuesta_68; ?>" size="12">    
      .</li>
     <li>Necesitan 
-    <input type="text" name="respuesta_69" value="<?php echo $respuesta_69; ?>" size="8">    
+    <input type="text" name="respuesta_69" value="<?php echo $respuesta_69; ?>" size="16">    
      .</li>
 </ul>
 
@@ -2040,18 +1993,18 @@ Mover
   a 
 <input type="text" name="respuesta_73" value="<?php echo $respuesta_73; ?>" size="8">
   puede 
-<input type="text" name="respuesta_74" value="<?php echo $respuesta_74; ?>" size="8">
+<input type="text" name="respuesta_74" value="<?php echo $respuesta_74; ?>" size="13">
   porque:
 </p>
 
 <ul>
     <li>Los 
-    <input type="text" name="respuesta_75" value="<?php echo $respuesta_75; ?>" size="8">    
+    <input type="text" name="respuesta_75" value="<?php echo $respuesta_75; ?>" size="11">    
       suelen ser más 
     <input type="text" name="respuesta_76" value="<?php echo $respuesta_76; ?>" size="8">
      .</li>
     <li>Se necesita 
-    <input type="text" name="respuesta_77" value="<?php echo $respuesta_77; ?>" size="8">    
+    <input type="text" name="respuesta_77" value="<?php echo $respuesta_77; ?>" size="12">    
       para 
     <input type="text" name="respuesta_78" value="<?php echo $respuesta_78; ?>" size="8">
      .</li>
@@ -2097,7 +2050,7 @@ Mover
     <input type="text" name="respuesta_79" value="<?php echo $respuesta_79; ?>" size="8">    
      .</li>
     <li>Más 
-    <input type="text" name="respuesta_80" value="<?php echo $respuesta_80; ?>" size="8">    
+    <input type="text" name="respuesta_80" value="<?php echo $respuesta_80; ?>" size="12">    
      .</li>
     <li>Menor 
     <input type="text" name="respuesta_81" value="<?php echo $respuesta_81; ?>" size="8">    
@@ -2116,15 +2069,15 @@ Mover
 
 <ul>
     <li>Necesidad de 
-    <input type="text" name="respuesta_85" value="<?php echo $respuesta_85; ?>" size="8">    
+    <input type="text" name="respuesta_85" value="<?php echo $respuesta_85; ?>" size="9">    
      .</li>
     <li>
     <input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="8">    
      .</li>
     <li>Más 
-    <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="8">    
+    <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="14">    
       para 
-    <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="8">
+    <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="12">
      .</li>
     <li>Menor 
     <input type="text" name="respuesta_89" value="<?php echo $respuesta_89; ?>" size="8">    

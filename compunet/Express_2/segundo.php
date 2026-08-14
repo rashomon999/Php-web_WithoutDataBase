@@ -72,6 +72,13 @@ $SOLUCIONES = [
     52 => 'userRouter.delete("/:id", userController.delete);',
     53 => 'userRouter.post("/login", userController.login);',
     54 => 'app.get("/", (req: Request, res: Response) => {',
+
+    /* --- Los imports del router (ojo a las rutas relativas) --- */
+    55 => 'express',
+    56 => ['user.controller', './user.controller'],
+    57 => ['../auth', '../auth/'],
+    58 => ['../global/validate.middleware', '../global/validate.middleware.ts'],
+    59 => ['user.schema', './user.schema'],
 ];
 
 $MULTIPLE = [
@@ -172,11 +179,11 @@ cabecera('Cuestionario 2 — Router, rutas y recorridos', 'user.route.ts, el pre
 <div class="card">
   <h2>A. <code>src/users/user.route.ts</code> completo</h2>
 
-<pre><code>import express, {Request, Response} from 'express';
-import { userController } from './user.controller';
-import { auth } from '../auth';
-import { validateSchema } from '../global/validate.middleware';
-import { userSchema } from './user.schema';
+<pre><code>import express, {Request, Response} from '<?php hueco(55, 9); ?>';
+import { userController } from './<?php hueco(56, 16); ?>';
+import { auth } from '<?php hueco(57, 10); ?>';
+import { validateSchema } from '<?php hueco(58, 30); ?>';
+import { userSchema } from './<?php hueco(59, 13); ?>';
 
 export const userRouter = express.<?php hueco(1, 8); ?>();
 

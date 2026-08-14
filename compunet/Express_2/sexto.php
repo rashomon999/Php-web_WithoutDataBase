@@ -77,6 +77,9 @@ $SOLUCIONES = [
     55 => 'export interface UserDocument extends UserInput, Document{',
     56 => 'export const userService = new UserService();',
     57 => 'export * from \'./user.route\';',
+
+    /* --- El import del modelo --- */
+    58 => ['user.interface', './user.interface'],
 ];
 
 $MULTIPLE = [
@@ -178,7 +181,7 @@ cabecera('Cuestionario 6 — Capas, modelo y que es Express', 'Mongoose, interfa
   <h2>A. <code>src/users/user.model.ts</code> — el modelo de Mongoose</h2>
 
 <pre><code>import {Document, Schema, model} from "<?php hueco(1, 10); ?>";
-import { UserInput } from "./user.interface";
+import { UserInput } from "./<?php hueco(58, 15); ?>";
 
 export interface UserDocument extends <?php hueco(2, 11); ?>, Document{
     createdAt: Date,

@@ -10,7 +10,7 @@ for ($i = 1; $i <= 230; $i++) {
     ${"verificar_" . $i} = '';
 }
 
-     
+     $respuesta_121_1 = '';
 
 $mostrar_solucion = ''; 
 if ($_POST) {

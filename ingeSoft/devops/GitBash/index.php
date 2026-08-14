@@ -1,2142 +1,513 @@
 <?php
- 
-for ($i = 1; $i <= 230; $i++) {
-    ${"respuesta_" . $i} = '';
-}
- 
-
-     
-for ($i = 1; $i <= 230; $i++) {
-    ${"verificar_" . $i} = '';
-}
-
-     
-
-$mostrar_solucion = ''; 
-if ($_POST) {
-    $mostrar_solucion = isset($_POST['mostrar_solucion']) ? $_POST['mostrar_solucion'] : '';
-    
-    if ($mostrar_solucion === 'mostrar_solucion') {        
- 
-        $respuesta_111 = '24'; 
-        $respuesta_112 = '36';
-        $respuesta_113 = '48';
-        $respuesta_114 = '60';
-        $respuesta_115 = '72';
-        $respuesta_116 = '84';
-        $respuesta_117 = '96';
-        $respuesta_118 = '108';
-        $respuesta_119 = '120';
-        $respuesta_120 = '132';
-        $respuesta_121 = '144';
-        
- 
-        $respuesta_1 = '26';
-        $respuesta_2 = '39';
-        $respuesta_3 = '52';
-        $respuesta_4 = '65';
-        $respuesta_5 = '78';
-        $respuesta_6 = '91';
-        $respuesta_7 = '104';
-        $respuesta_8 = '117';
-        $respuesta_9 = '130';
-        $respuesta_10 = '143';
-        $respuesta_11 = '156';
-        
- 
-        $respuesta_12 = '28';
-        $respuesta_13 = '42';
-        $respuesta_14 = '56';
-        $respuesta_15 = '70';
-        $respuesta_16 = '84';
-        $respuesta_17 = '98';
-        $respuesta_18 = '112';
-        $respuesta_19 = '126';
-        $respuesta_20 = '140';
-        $respuesta_21 = '154';
-        $respuesta_22 = '168';
-        
- 
-        $respuesta_23 = '30';
-        $respuesta_24 = '45';
-        $respuesta_25 = '60';
-        $respuesta_26 = '75';
-        $respuesta_27 = '90';
-        $respuesta_28 = '105';
-        $respuesta_29 = '120';
-        $respuesta_30 = '135';
-        $respuesta_31 = '150';
-        $respuesta_32 = '165';
-        $respuesta_33 = '180';
-        
- 
-        $respuesta_34 = '32';
-        $respuesta_35 = '48';
-        $respuesta_36 = '64';
-        $respuesta_37 = '80';
-        $respuesta_38 = '96';
-        $respuesta_39 = '112';
-        $respuesta_40 = '128';
-        $respuesta_41 = '144';
-        $respuesta_42 = '160';
-        $respuesta_43 = '176';
-        $respuesta_44 = '192';
-        
- 
-        $respuesta_45 = '34';
-        $respuesta_46 = '51';
-        $respuesta_47 = '68';
-        $respuesta_48 = '85';
-        $respuesta_49 = '102';
-        $respuesta_50 = '119';
-        $respuesta_51 = '136';
-        $respuesta_52 = '153';
-        $respuesta_53 = '170';
-        $respuesta_54 = '187';
-        $respuesta_55 = '204';
-        
- 
-        $respuesta_56 = '36';
-        $respuesta_57 = '54';
-        $respuesta_58 = '72';
-        $respuesta_59 = '90';
-        $respuesta_60 = '108';
-        $respuesta_61 = '126';
-        $respuesta_62 = '144';
-        $respuesta_63 = '162';
-        $respuesta_64 = '180';
-        $respuesta_65 = '198';
-        $respuesta_66 = '216';
-        
- 
-        $respuesta_67 = '38';
-        $respuesta_68 = '57';
-        $respuesta_69 = '76';
-        $respuesta_70 = '95';
-        $respuesta_71 = '114';
-        $respuesta_72 = '133';
-        $respuesta_73 = '152';
-        $respuesta_74 = '171';
-        $respuesta_75 = '190';
-        $respuesta_76 = '209';
-        $respuesta_77 = '228';
-        
- 
-        $respuesta_78 = '40';
-        $respuesta_79 = '60';
-        $respuesta_80 = '80';
-        $respuesta_81 = '100';
-        $respuesta_82 = '120';
-        $respuesta_83 = '140';
-        $respuesta_84 = '160';
-        $respuesta_85 = '180';
-        $respuesta_86 = '200';
-        $respuesta_87 = '220';
-        $respuesta_88 = '240';
-        
- 
-        $respuesta_89 = '42';
-        $respuesta_90 = '63';
-        $respuesta_91 = '84';
-        $respuesta_92 = '105';
-        $respuesta_93 = '126';
-        $respuesta_94 = '147';
-        $respuesta_95 = '168';
-        $respuesta_96 = '189';
-        $respuesta_97 = '210';
-        $respuesta_98 = '231';
-        $respuesta_99 = '252';
-        
-         $respuesta_100 = '44';
-        $respuesta_101 = '66';
-        $respuesta_102 = '88';
-        $respuesta_103 = '110';
-        $respuesta_104 = '132'; 
-        $respuesta_105 = '154';
-        $respuesta_106 = '176';
-        $respuesta_107 = '198';
-        $respuesta_108 = '220';
-        $respuesta_109 = '242';
-        $respuesta_110 = '264';
-        
-        // Marcar todas como correctas
-    for ($i = 1; $i <= 122; $i++) {
-    ${"verificar_$i"} = "correcto";
-    }
-
-    } else {
-    $respuesta_1 = isset($_POST['respuesta_1']) ? $_POST['respuesta_1'] : '';
-   if ($respuesta_1 === '26') {  
-       $verificar_1 = "correcto";
-   } elseif ($respuesta_1 === '') {
-       $verificar_1 = '';
-   } else {
-       $verificar_1 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la segunda pregunta
-   $respuesta_2 = isset($_POST['respuesta_2']) ? $_POST['respuesta_2'] : '';
-   if ($respuesta_2 === '39') {  
-       $verificar_2 = "correcto";
-   } elseif ($respuesta_2 === '') {
-       $verificar_2 = '';
-   } else {
-       $verificar_2 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la tercera pregunta
-   $respuesta_3 = isset($_POST['respuesta_3']) ? $_POST['respuesta_3'] : '';
-   if ($respuesta_3 === '52') {  
-       $verificar_3 = "correcto";
-   } elseif ($respuesta_3 === '') {
-       $verificar_3 = '';
-   } else {
-       $verificar_3 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la cuarta pregunta
-   $respuesta_4 = isset($_POST['respuesta_4']) ? $_POST['respuesta_4'] : '';
-   if ($respuesta_4 === '65') {  
-       $verificar_4 = "correcto";
-   } elseif ($respuesta_4 === '') {
-       $verificar_4 = '';
-   } else {
-       $verificar_4 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la quinta pregunta
-   $respuesta_5 = isset($_POST['respuesta_5']) ? $_POST['respuesta_5'] : '';
-   if ($respuesta_5 === '78') {  
-       $verificar_5 = "correcto";
-   } elseif ($respuesta_5 === '') {
-       $verificar_5 = '';
-   } else {
-       $verificar_5 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la sexta pregunta
-   $respuesta_6 = isset($_POST['respuesta_6']) ? $_POST['respuesta_6'] : '';
-   if ($respuesta_6 === '91') {  
-       $verificar_6 = "correcto";
-   } elseif ($respuesta_6 === '') {
-       $verificar_6 = '';
-   } else {
-       $verificar_6 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la séptima pregunta
-   $respuesta_7 = isset($_POST['respuesta_7']) ? $_POST['respuesta_7'] : '';
-   if ($respuesta_7 === '104') {  
-       $verificar_7 = "correcto";
-   } elseif ($respuesta_7 === '') {
-       $verificar_7 = '';
-   } else {
-       $verificar_7 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la octava pregunta
-   $respuesta_8 = isset($_POST['respuesta_8']) ? $_POST['respuesta_8'] : '';
-   if ($respuesta_8 === '117') {  
-       $verificar_8 = "correcto";
-   } elseif ($respuesta_8 === '') {
-       $verificar_8 = '';
-   } else {
-       $verificar_8 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la novena pregunta
-   $respuesta_9 = isset($_POST['respuesta_9']) ? $_POST['respuesta_9'] : '';
-   if ($respuesta_9 === '130') {  
-       $verificar_9 = "correcto";
-   } elseif ($respuesta_9 === '') {
-       $verificar_9 = '';
-   } else {
-       $verificar_9 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la décima pregunta
-   $respuesta_10 = isset($_POST['respuesta_10']) ? $_POST['respuesta_10'] : '';
-   if ($respuesta_10 === '143') {  
-       $verificar_10 = "correcto";
-   } elseif ($respuesta_10 === '') {
-       $verificar_10 = '';
-   } else {
-       $verificar_10 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la undécima pregunta
-   $respuesta_11 = isset($_POST['respuesta_11']) ? $_POST['respuesta_11'] : '';
-   if ($respuesta_11 === '156') {  
-       $verificar_11 = "correcto";
-   } elseif ($respuesta_11 === '') {
-       $verificar_11 = '';
-   } else {
-       $verificar_11 = "incorrecto";
-   }
-
-
-    // Verificar la respuesta de la primera pregunta
-    $respuesta_12 = isset($_POST['respuesta_12']) ? $_POST['respuesta_12'] : '';
-    if ($respuesta_12 === '28') {  
-        $verificar_12 = "correcto";
-    } elseif ($respuesta_12 === '') {
-        $verificar_12 = '';
-    } else {
-        $verificar_12 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la segunda pregunta
-    $respuesta_13 = isset($_POST['respuesta_13']) ? $_POST['respuesta_13'] : '';
-    if ($respuesta_13 === '42') { 
-        $verificar_13 = "correcto";
-    } elseif ($respuesta_13 === '') {
-        $verificar_13 = '';
-    } else {
-         $verificar_13 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la tercera pregunta
-    $respuesta_14 = isset($_POST['respuesta_14']) ? $_POST['respuesta_14'] : '';
-    if ($respuesta_14 === '56') {  
-        $verificar_14 = "correcto";
-    } elseif ($respuesta_14 === '') {
-        $verificar_14 = '';
-    } else {
-        $verificar_14 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la cuarta pregunta
-    $respuesta_15 = isset($_POST['respuesta_15']) ? $_POST['respuesta_15'] : '';
-    if ($respuesta_15 === '70') { 
-        $verificar_15 = "correcto";
-    } elseif ($respuesta_15 === '') {
-        $verificar_15 = '';
-    } else {
-        $verificar_15 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la quinta pregunta
-    $respuesta_16 = isset($_POST['respuesta_16']) ? $_POST['respuesta_16'] : '';
-    if ($respuesta_16 === '84') {  
-        $verificar_16 = "correcto";
-    } elseif ($respuesta_16 === '') {
-        $verificar_16 = '';
-    } else {
-        $verificar_16 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la sexta pregunta
-    $respuesta_17 = isset($_POST['respuesta_17']) ? $_POST['respuesta_17'] : '';
-    if ($respuesta_17 === '98') {  
-        $verificar_17 = "correcto";
-        } elseif ($respuesta_17 === '') {
-        $verificar_17 = '';
-    } else {
-        $verificar_17 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la séptima pregunta
-    $respuesta_18 = isset($_POST['respuesta_18']) ? $_POST['respuesta_18'] : '';
-    if ($respuesta_18 === '112') {  
-        $verificar_18 = "correcto";
-    } elseif ($respuesta_18 === '') {
-        $verificar_18 = '';
-    } else {
-        $verificar_18 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la octava pregunta
-    $respuesta_19 = isset($_POST['respuesta_19']) ? $_POST['respuesta_19'] : '';
-    if ($respuesta_19 === '126') {  
-        $verificar_19 = "correcto";
-    } elseif ($respuesta_19 === '') {
-        $verificar_19 = '';
-    } else {
-        $verificar_19 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la novena pregunta
-    $respuesta_20 = isset($_POST['respuesta_20']) ? $_POST['respuesta_20'] : '';
-    if ($respuesta_20 === '140') {  
-        $verificar_20 = "correcto";
-    } elseif ($respuesta_20 === '') {
-        $verificar_20 = '';
-    } else {
-        $verificar_20 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la décima pregunta
-    $respuesta_21 = isset($_POST['respuesta_21']) ? $_POST['respuesta_21'] : '';
-    if ($respuesta_21 === '154') {  
-         $verificar_21 = "correcto";
-    } elseif ($respuesta_21 === '') {
-        $verificar_21 = '';
-    } else {
-        $verificar_21 = "incorrecto";
-    }
-  
-    // Verificar la respuesta de la undécima pregunta
-    $respuesta_22 = isset($_POST['respuesta_22']) ? $_POST['respuesta_22'] : '';
-    if ($respuesta_22 === '168') {  
-        $verificar_22 = "correcto";
-    } elseif ($respuesta_22 === '') {
-        $verificar_22 = '';
-    } else {
-        $verificar_22 = "incorrecto";
-    }
-
-     // Verificar la respuesta de la primera pregunta
-   $respuesta_23 = isset($_POST['respuesta_23']) ? $_POST['respuesta_23'] : '';
-   if ($respuesta_23 === '30') {  
-       $verificar_23 = "correcto";
-   } elseif ($respuesta_23 === '') {
-       $verificar_23 = '';
-   } else {
-       $verificar_23 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la segunda pregunta
-   $respuesta_24 = isset($_POST['respuesta_24']) ? $_POST['respuesta_24'] : '';
-   if ($respuesta_24 === '45') {  
-       $verificar_24 = "correcto";
-   } elseif ($respuesta_24 === '') {
-       $verificar_24 = '';
-   } else {
-       $verificar_24 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la tercera pregunta
-   $respuesta_25 = isset($_POST['respuesta_25']) ? $_POST['respuesta_25'] : '';
-   if ($respuesta_25 === '60') { 
-       $verificar_25 = "correcto";
-   } elseif ($respuesta_25 === '') {
-       $verificar_25 = '';
-   } else {
-       $verificar_25 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la cuarta pregunta
-   $respuesta_26 = isset($_POST['respuesta_26']) ? $_POST['respuesta_26'] : '';
-   if ($respuesta_26 === '75') {  
-       $verificar_26 = "correcto";
-   } elseif ($respuesta_26 === '') {
-       $verificar_26 = '';
-   } else {
-       $verificar_26 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la quinta pregunta
-   $respuesta_27 = isset($_POST['respuesta_27']) ? $_POST['respuesta_27'] : '';
-   if ($respuesta_27 === '90') {  
-       $verificar_27 = "correcto";
-   } elseif ($respuesta_27 === '') {
-       $verificar_27 = '';
-   } else {
-       $verificar_27 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la sexta pregunta
-   $respuesta_28 = isset($_POST['respuesta_28']) ? $_POST['respuesta_28'] : '';
-   if ($respuesta_28 === '105') {  
-       $verificar_28 = "correcto";
-   } elseif ($respuesta_28 === '') {
-       $verificar_28 = '';
-   } else {
-       $verificar_28 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la séptima pregunta
-   $respuesta_29 = isset($_POST['respuesta_29']) ? $_POST['respuesta_29'] : '';
-   if ($respuesta_29 === '120') {  
-       $verificar_29 = "correcto";
-   } elseif ($respuesta_29 === '') {
-       $verificar_29 = '';
-   } else {
-       $verificar_29 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la octava pregunta
-   $respuesta_30 = isset($_POST['respuesta_30']) ? $_POST['respuesta_30'] : '';
-   if ($respuesta_30 === '135') {  
-       $verificar_30 = "correcto";
-   } elseif ($respuesta_30 === '') {
-       $verificar_30 = '';
-   } else {
-       $verificar_30 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la novena pregunta
-   $respuesta_31 = isset($_POST['respuesta_31']) ? $_POST['respuesta_31'] : '';
-   if ($respuesta_31 === '150') {  
-       $verificar_31 = "correcto";
-   } elseif ($respuesta_31 === '') {
-       $verificar_31 = '';
-   } else {
-       $verificar_31 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la décima pregunta
-   $respuesta_32 = isset($_POST['respuesta_32']) ? $_POST['respuesta_32'] : '';
-   if ($respuesta_32 === '165') {  
-       $verificar_32 = "correcto";
-   } elseif ($respuesta_32 === '') {
-       $verificar_32 = '';
-   } else {
-       $verificar_32 = "incorrecto";
-   }
-
-   // Verificar la respuesta de la undécima pregunta
-   $respuesta_33 = isset($_POST['respuesta_33']) ? $_POST['respuesta_33'] : '';
-   if ($respuesta_33 === '180') {  
-       $verificar_33 = "correcto";
-   } elseif ($respuesta_33 === '') {
-       $verificar_33 = '';
-   } else {
-       $verificar_33 = "incorrecto";
-   }
-
-    $respuesta_34 = isset($_POST['respuesta_34']) ? $_POST['respuesta_34'] : '';
-    if ($respuesta_34 === '32') { 
-        $verificar_34 = "correcto";
-    } elseif ($respuesta_34 === '') {
-        $verificar_34 = '';
-    } else {
-        $verificar_34 = "incorrecto";
-    }
-
-    $respuesta_35 = isset($_POST['respuesta_35']) ? $_POST['respuesta_35'] : '';
-    if ($respuesta_35 === '48') { 
-        $verificar_35 = "correcto";
-    } elseif ($respuesta_35 === '') {
-        $verificar_35 = '';
-    } else {
-        $verificar_35 = "incorrecto";
-    }
-
-    $respuesta_36 = isset($_POST['respuesta_36']) ? $_POST['respuesta_36'] : '';
-    if ($respuesta_36 === '64') { 
-        $verificar_36 = "correcto";
-    } elseif ($respuesta_36 === '') {
-    $verificar_36 = '';
-    } else {
-        $verificar_36 = "incorrecto";
-    }
-
-    $respuesta_37 = isset($_POST['respuesta_37']) ? $_POST['respuesta_37'] : '';
-    if ($respuesta_37 === '80') { 
-        $verificar_37 = "correcto";
-    } elseif ($respuesta_37 === '') {
-        $verificar_37 = '';
-    } else {
-        $verificar_37 = "incorrecto";
-    }
-
-    $respuesta_38 = isset($_POST['respuesta_38']) ? $_POST['respuesta_38'] : '';
-    if ($respuesta_38 === '96') { 
-        $verificar_38 = "correcto";
-    } elseif ($respuesta_38 === '') {
-        $verificar_38 = '';
-    } else {
-        $verificar_38 = "incorrecto";
-    }
-
-    $respuesta_39 = isset($_POST['respuesta_39']) ? $_POST['respuesta_39'] : '';
-    if ($respuesta_39 === '112') { 
-        $verificar_39 = "correcto";
-    } elseif ($respuesta_39 === '') {
-        $verificar_39 = '';
-    } else {
-        $verificar_39 = "incorrecto";
-    }
-
-    $respuesta_40 = isset($_POST['respuesta_40']) ? $_POST['respuesta_40'] : '';
-    if ($respuesta_40 === '128') { 
-        $verificar_40 = "correcto";
-    } elseif ($respuesta_40 === '') {
-        $verificar_40 = '';
-    } else {
-        $verificar_40 = "incorrecto";
-    }
-
-    $respuesta_41 = isset($_POST['respuesta_41']) ? $_POST['respuesta_41'] : '';
-    if ($respuesta_41 === '144') { 
-        $verificar_41 = "correcto";
-    } elseif ($respuesta_41 === '') {
-        $verificar_41 = '';
-    } else {
-        $verificar_41 = "incorrecto";
-    }
-
-    $respuesta_42 = isset($_POST['respuesta_42']) ? $_POST['respuesta_42'] : '';
-    if ($respuesta_42 === '160') { 
-        $verificar_42 = "correcto";
-    } elseif ($respuesta_42 === '') {
-        $verificar_42 = '';
-    } else {
-        $verificar_42 = "incorrecto";
-    }
-
-    $respuesta_43 = isset($_POST['respuesta_43']) ? $_POST['respuesta_43'] : '';
-    if ($respuesta_43 === '176') { 
-        $verificar_43 = "correcto";
-    } elseif ($respuesta_43 === '') {
-        $verificar_43 = '';
-    } else {
-    $verificar_43 = "incorrecto";
-    }
-
-    $respuesta_44 = isset($_POST['respuesta_44']) ? $_POST['respuesta_44'] : '';
-    if ($respuesta_44 === '192') { 
-        $verificar_44 = "correcto";
-    } elseif ($respuesta_44 === '') {
-    $verificar_44 = '';
-    } else {
-        $verificar_44 = "incorrecto";
-    }
-
-    $respuesta_45 = isset($_POST['respuesta_45']) ? $_POST['respuesta_45'] : '';
-    if ($respuesta_45 === '34') { 
-        $verificar_45 = "correcto";
-    } elseif ($respuesta_45 === '') {
-    $verificar_45 = '';
-    } else {
-        $verificar_45 = "incorrecto";
-    }
-
-    $respuesta_46 = isset($_POST['respuesta_46']) ? $_POST['respuesta_46'] : '';
-    if ($respuesta_46 === '51') { 
-        $verificar_46 = "correcto";
-    } elseif ($respuesta_46 === '') {
-    $verificar_46 = '';
-    } else {
-        $verificar_46 = "incorrecto";
-    }
-
-    $respuesta_47 = isset($_POST['respuesta_47']) ? $_POST['respuesta_47'] : '';
-    if ($respuesta_47 === '68') { 
-        $verificar_47 = "correcto";
-    } elseif ($respuesta_47 === '') {
-        $verificar_47 = '';
-    } else {
-        $verificar_47 = "incorrecto";
-    }
-
-    $respuesta_48 = isset($_POST['respuesta_48']) ? $_POST['respuesta_48'] : '';
-    if ($respuesta_48 === '85') { 
-        $verificar_48 = "correcto";
-    } elseif ($respuesta_48 === '') {
-    $verificar_48 = '';
-    } else {
-        $verificar_48 = "incorrecto";
-    }
-
-    $respuesta_49 = isset($_POST['respuesta_49']) ? $_POST['respuesta_49'] : '';
-    if ($respuesta_49 === '102') { 
-        $verificar_49 = "correcto";
-    } elseif ($respuesta_49 === '') {
-    $verificar_49 = '';
-    } else {
-        $verificar_49 = "incorrecto";
-    }
-
-    $respuesta_50 = isset($_POST['respuesta_50']) ? $_POST['respuesta_50'] : '';
-    if ($respuesta_50 === '119') { 
-        $verificar_50 = "correcto";
-    } elseif ($respuesta_50 === '') {
-    $verificar_50 = '';
-    } else {
-        $verificar_50 = "incorrecto";
-    }
-
- $respuesta_51 = isset($_POST['respuesta_51']) ? $_POST['respuesta_51'] : '';
-if ($respuesta_51 === '136') { 
-    $verificar_51 = "correcto";
-} elseif ($respuesta_51 === '') {
-    $verificar_51 = '';
-} else {
-    $verificar_51 = "incorrecto";
-}
-
- $respuesta_52 = isset($_POST['respuesta_52']) ? $_POST['respuesta_52'] : '';
-if ($respuesta_52 === '153') { 
-    $verificar_52 = "correcto";
-} elseif ($respuesta_52 === '') {
-    $verificar_52 = '';
-} else {
-    $verificar_52 = "incorrecto";
-}
-
- $respuesta_53 = isset($_POST['respuesta_53']) ? $_POST['respuesta_53'] : '';
-if ($respuesta_53 === '170') { 
-    $verificar_53 = "correcto";
-} elseif ($respuesta_53 === '') {
-    $verificar_53 = '';
-} else {
-    $verificar_53 = "incorrecto";
-}
-
- $respuesta_54 = isset($_POST['respuesta_54']) ? $_POST['respuesta_54'] : '';
-if ($respuesta_54 === '187') { 
-    $verificar_54 = "correcto";
-} elseif ($respuesta_54 === '') {
-    $verificar_54 = '';
-} else {
-    $verificar_54 = "incorrecto";
-}
-
- $respuesta_55 = isset($_POST['respuesta_55']) ? $_POST['respuesta_55'] : '';
-if ($respuesta_55 === '204') { 
-    $verificar_55 = "correcto";
-} elseif ($respuesta_55 === '') {
-    $verificar_55 = '';
-} else {
-    $verificar_55 = "incorrecto";
-}
-
-
- $respuesta_56 = isset($_POST['respuesta_56']) ? $_POST['respuesta_56'] : '';
-if ($respuesta_56 === '36') { 
-    $verificar_56 = "correcto";
-} elseif ($respuesta_56 === '') {
-    $verificar_56 = '';
-} else {
-    $verificar_56 = "incorrecto";
-}
-
- $respuesta_57 = isset($_POST['respuesta_57']) ? $_POST['respuesta_57'] : '';
-if ($respuesta_57 === '54') { 
-    $verificar_57 = "correcto";
-} elseif ($respuesta_57 === '') {
-    $verificar_57 = '';
-} else {
-    $verificar_57 = "incorrecto";
-}
-
- $respuesta_58 = isset($_POST['respuesta_58']) ? $_POST['respuesta_58'] : '';
-if ($respuesta_58 === '72') { 
-    $verificar_58 = "correcto";
-} elseif ($respuesta_58 === '') {
-    $verificar_58 = '';
-} else {
-    $verificar_58 = "incorrecto";
-}
-
- $respuesta_59 = isset($_POST['respuesta_59']) ? $_POST['respuesta_59'] : '';
-if ($respuesta_59 === '90') { 
-    $verificar_59 = "correcto";
-} elseif ($respuesta_59 === '') {
-    $verificar_59 = '';
-} else {
-    $verificar_59 = "incorrecto";
-}
-
- $respuesta_60 = isset($_POST['respuesta_60']) ? $_POST['respuesta_60'] : '';
-if ($respuesta_60 === '108') { 
-    $verificar_60 = "correcto";
-} elseif ($respuesta_60 === '') {
-    $verificar_60 = '';
-} else {
-    $verificar_60 = "incorrecto";
-}
-
- $respuesta_61 = isset($_POST['respuesta_61']) ? $_POST['respuesta_61'] : '';
-if ($respuesta_61 === '126') { 
-    $verificar_61 = "correcto";
-} elseif ($respuesta_61 === '') {
-    $verificar_61 = '';
-} else {
-    $verificar_61 = "incorrecto";
-}
-
- $respuesta_62 = isset($_POST['respuesta_62']) ? $_POST['respuesta_62'] : '';
-if ($respuesta_62 === '144') { 
-    $verificar_62 = "correcto";
-} elseif ($respuesta_62 === '') {
-    $verificar_62 = '';
-} else {
-    $verificar_62 = "incorrecto";
-}
-
- $respuesta_63 = isset($_POST['respuesta_63']) ? $_POST['respuesta_63'] : '';
-if ($respuesta_63 === '162') { 
-    $verificar_63 = "correcto";
-} elseif ($respuesta_63 === '') {
-    $verificar_63 = '';
-} else {
-    $verificar_63 = "incorrecto";
-}
-
- $respuesta_64 = isset($_POST['respuesta_64']) ? $_POST['respuesta_64'] : '';
-if ($respuesta_64 === '180') { 
-    $verificar_64 = "correcto";
-} elseif ($respuesta_64 === '') {
-    $verificar_64 = '';
-} else {
-    $verificar_64 = "incorrecto";
-}
-
- $respuesta_65 = isset($_POST['respuesta_65']) ? $_POST['respuesta_65'] : '';
-if ($respuesta_65 === '198') { 
-    $verificar_65 = "correcto";
-} elseif ($respuesta_65 === '') {
-    $verificar_65 = '';
-} else {
-    $verificar_65 = "incorrecto";
-}
-
- $respuesta_66 = isset($_POST['respuesta_66']) ? $_POST['respuesta_66'] : '';
-if ($respuesta_66 === '216') { 
-    $verificar_66 = "correcto";
-} elseif ($respuesta_66 === '') {
-    $verificar_66 = '';
-} else {
-    $verificar_66 = "incorrecto";
-}
-
- $respuesta_67 = isset($_POST['respuesta_67']) ? $_POST['respuesta_67'] : '';
-if ($respuesta_67 === '38') { 
-    $verificar_67 = "correcto";
-} elseif ($respuesta_67 === '') {
-    $verificar_67 = '';
-} else {
-    $verificar_67 = "incorrecto";
-}
-
- $respuesta_68 = isset($_POST['respuesta_68']) ? $_POST['respuesta_68'] : '';
-if ($respuesta_68 === '57') { 
-    $verificar_68 = "correcto";
-} elseif ($respuesta_68 === '') {
-    $verificar_68 = '';
-} else {
-    $verificar_68 = "incorrecto";
-}
-
- $respuesta_69 = isset($_POST['respuesta_69']) ? $_POST['respuesta_69'] : '';
-if ($respuesta_69 === '76') { 
-    $verificar_69 = "correcto";
-} elseif ($respuesta_69 === '') {
-    $verificar_69 = '';
-} else {
-    $verificar_69 = "incorrecto";
-}
-
- $respuesta_70 = isset($_POST['respuesta_70']) ? $_POST['respuesta_70'] : '';
-if ($respuesta_70 === '95') { 
-    $verificar_70 = "correcto";
-} elseif ($respuesta_70 === '') {
-    $verificar_70 = '';
-} else {
-    $verificar_70 = "incorrecto";
-}
-
- $respuesta_71 = isset($_POST['respuesta_71']) ? $_POST['respuesta_71'] : '';
-if ($respuesta_71 === '114') { 
-    $verificar_71 = "correcto";
-} elseif ($respuesta_71 === '') {
-    $verificar_71 = '';
-} else {
-    $verificar_71 = "incorrecto";
-}
-
- $respuesta_72 = isset($_POST['respuesta_72']) ? $_POST['respuesta_72'] : '';
-if ($respuesta_72 === '133') { 
-    $verificar_72 = "correcto";
-} elseif ($respuesta_72 === '') {
-    $verificar_72 = '';
-} else {
-    $verificar_72 = "incorrecto";
-}
-
- $respuesta_73 = isset($_POST['respuesta_73']) ? $_POST['respuesta_73'] : '';
-if ($respuesta_73 === '152') { 
-    $verificar_73 = "correcto";
-} elseif ($respuesta_73 === '') {
-    $verificar_73 = '';
-} else {
-    $verificar_73 = "incorrecto";
-}
-
- $respuesta_74 = isset($_POST['respuesta_74']) ? $_POST['respuesta_74'] : '';
-if ($respuesta_74 === '171') { 
-    $verificar_74 = "correcto";
-} elseif ($respuesta_74 === '') {
-    $verificar_74 = '';
-} else {
-    $verificar_74 = "incorrecto";
-}
-
- $respuesta_75 = isset($_POST['respuesta_75']) ? $_POST['respuesta_75'] : '';
-if ($respuesta_75 === '190') { 
-    $verificar_75 = "correcto";
-} elseif ($respuesta_75 === '') {
-    $verificar_75 = '';
-} else {
-    $verificar_75 = "incorrecto";
-}
-
- $respuesta_76 = isset($_POST['respuesta_76']) ? $_POST['respuesta_76'] : '';
-if ($respuesta_76 === '209') { 
-    $verificar_76 = "correcto";
-} elseif ($respuesta_76 === '') {
-    $verificar_76 = '';
-} else {
-    $verificar_76 = "incorrecto";
-}
-
- $respuesta_77 = isset($_POST['respuesta_77']) ? $_POST['respuesta_77'] : '';
-if ($respuesta_77 === '228') { 
-    $verificar_77 = "correcto";
-} elseif ($respuesta_77 === '') {
-    $verificar_77 = '';
-} else {
-    $verificar_77 = "incorrecto";
-}
-
- $respuesta_78 = isset($_POST['respuesta_78']) ? $_POST['respuesta_78'] : '';
-if ($respuesta_78 === '40') { 
-    $verificar_78 = "correcto";
-} elseif ($respuesta_78 === '') {
-    $verificar_78 = '';
-} else {
-    $verificar_78 = "incorrecto";
-}
-
- $respuesta_79 = isset($_POST['respuesta_79']) ? $_POST['respuesta_79'] : '';
-if ($respuesta_79 === '60') { 
-    $verificar_79 = "correcto";
-} elseif ($respuesta_79 === '') {
-    $verificar_79 = '';
-} else {
-    $verificar_79 = "incorrecto";
-}
-
- $respuesta_80 = isset($_POST['respuesta_80']) ? $_POST['respuesta_80'] : '';
-if ($respuesta_80 === '80') { 
-    $verificar_80 = "correcto";
-} elseif ($respuesta_80 === '') {
-    $verificar_80 = '';
-} else {
-    $verificar_80 = "incorrecto";
-}
-
- $respuesta_81 = isset($_POST['respuesta_81']) ? $_POST['respuesta_81'] : '';
-if ($respuesta_81 === '100') { 
-    $verificar_81 = "correcto";
-} elseif ($respuesta_81 === '') {
-    $verificar_81 = '';
-} else {
-    $verificar_81 = "incorrecto";
-}
-
-    $respuesta_82 = isset($_POST['respuesta_82']) ? $_POST['respuesta_82'] : '';
-    if ($respuesta_82 === '120') { 
-        $verificar_82 = "correcto";
-    } elseif ($respuesta_82 === '') {
-        $verificar_82 = '';
-    } else {
-        $verificar_82 = "incorrecto";
-    }
-
-    $respuesta_83 = isset($_POST['respuesta_83']) ? $_POST['respuesta_83'] : '';
-    if ($respuesta_83 === '140') { 
-       $verificar_83 = "correcto";
-    } elseif ($respuesta_83 === '') {
-        $verificar_83 = '';
-    } else {
-        $verificar_83 = "incorrecto";
-    }
-
-    $respuesta_84 = isset($_POST['respuesta_84']) ? $_POST['respuesta_84'] : '';
-    if ($respuesta_84 === '160') { 
-        $verificar_84 = "correcto";
-    } elseif ($respuesta_84 === '') {
-        $verificar_84 = '';
-    } else {
-        $verificar_84 = "incorrecto";
-    }
-
-    $respuesta_85 = isset($_POST['respuesta_85']) ? $_POST['respuesta_85'] : '';
-    if ($respuesta_85 === '180') { 
-        $verificar_85 = "correcto";
-    } elseif ($respuesta_85 === '') {
-        $verificar_85 = '';
-    } else {
-        $verificar_85 = "incorrecto";
-    }
-
-    $respuesta_86 = isset($_POST['respuesta_86']) ? $_POST['respuesta_86'] : '';
-    if ($respuesta_86 === '200') { 
-        $verificar_86 = "correcto";
-    } elseif ($respuesta_86 === '') {
-        $verificar_86 = '';
-    } else {
-        $verificar_86 = "incorrecto";
-    }
-
-    $respuesta_87 = isset($_POST['respuesta_87']) ? $_POST['respuesta_87'] : '';
-    if ($respuesta_87 === '220') { 
-        $verificar_87 = "correcto";
-    } elseif ($respuesta_87 === '') {
-        $verificar_87 = '';
-    } else {
-        $verificar_87 = "incorrecto";
-    }
-
-    $respuesta_88 = isset($_POST['respuesta_88']) ? $_POST['respuesta_88'] : '';
-    if ($respuesta_88 === '240') { 
-        $verificar_88 = "correcto";
-    } elseif ($respuesta_88 === '') {
-        $verificar_88 = '';
-    } else {
-        $verificar_88 = "incorrecto";
-    }
-
- $respuesta_89 = isset($_POST['respuesta_89']) ? $_POST['respuesta_89'] : '';
-if ($respuesta_89 === '42') { 
-    $verificar_89 = "correcto";
-} elseif ($respuesta_89 === '') {
-    $verificar_89 = '';
-} else {
-    $verificar_89 = "incorrecto";
-}
-
- $respuesta_90 = isset($_POST['respuesta_90']) ? $_POST['respuesta_90'] : '';
-if ($respuesta_90 === '63') { 
-    $verificar_90 = "correcto";
-} elseif ($respuesta_90 === '') {
-    $verificar_90 = '';
-} else {
-    $verificar_90 = "incorrecto";
-}
-
- $respuesta_91 = isset($_POST['respuesta_91']) ? $_POST['respuesta_91'] : '';
-if ($respuesta_91 === '84') { 
-    $verificar_91 = "correcto";
-} elseif ($respuesta_91 === '') {
-    $verificar_91 = '';
-} else {
-    $verificar_91 = "incorrecto";
-}
-
- $respuesta_92 = isset($_POST['respuesta_92']) ? $_POST['respuesta_92'] : '';
-if ($respuesta_92 === '105') { 
-    $verificar_92 = "correcto";
-} elseif ($respuesta_92 === '') {
-    $verificar_92 = '';
-} else {
-    $verificar_92 = "incorrecto";
-}
-
- $respuesta_93 = isset($_POST['respuesta_93']) ? $_POST['respuesta_93'] : '';
-if ($respuesta_93 === '126') { 
-    $verificar_93 = "correcto";
-} elseif ($respuesta_93 === '') {
-    $verificar_93 = '';
-} else {
-    $verificar_93 = "incorrecto";
-}
-
- $respuesta_94 = isset($_POST['respuesta_94']) ? $_POST['respuesta_94'] : '';
-if ($respuesta_94 === '147') { 
-    $verificar_94 = "correcto";
-} elseif ($respuesta_94 === '') {
-    $verificar_94 = '';
-} else {
-    $verificar_94 = "incorrecto";
-}
-
- $respuesta_95 = isset($_POST['respuesta_95']) ? $_POST['respuesta_95'] : '';
-if ($respuesta_95 === '168') { 
-    $verificar_95 = "correcto";
-} elseif ($respuesta_95 === '') {
-    $verificar_95 = '';
-} else {
-    $verificar_95 = "incorrecto";
-}
-
- $respuesta_96 = isset($_POST['respuesta_96']) ? $_POST['respuesta_96'] : '';
-if ($respuesta_96 === '189') { 
-    $verificar_96 = "correcto";
-} elseif ($respuesta_96 === '') {
-    $verificar_96 = '';
-} else {
-    $verificar_96 = "incorrecto";
-}
-
- $respuesta_97 = isset($_POST['respuesta_97']) ? $_POST['respuesta_97'] : '';
-if ($respuesta_97 === '210') { 
-    $verificar_97 = "correcto";
-} elseif ($respuesta_97 === '') {
-    $verificar_97 = '';
-} else {
-    $verificar_97 = "incorrecto";
-}
-
- $respuesta_98 = isset($_POST['respuesta_98']) ? $_POST['respuesta_98'] : '';
-if ($respuesta_98 === '231') { 
-    $verificar_98 = "correcto";
-} elseif ($respuesta_98 === '') {
-    $verificar_98 = '';
-} else {
-    $verificar_98 = "incorrecto";
-}
-
- $respuesta_99 = isset($_POST['respuesta_99']) ? $_POST['respuesta_99'] : '';
-if ($respuesta_99 === '252') { 
-    $verificar_99 = "correcto";
-} elseif ($respuesta_99 === '') {
-    $verificar_99 = '';
-} else {
-    $verificar_99 = "incorrecto";
-}
-
-
- $respuesta_100 = isset($_POST['respuesta_100']) ? $_POST['respuesta_100'] : '';
-if ($respuesta_100 === '44') { 
-    $verificar_100 = "correcto";
-} elseif ($respuesta_100 === '') {
-    $verificar_100 = '';
-} else {
-    $verificar_100 = "incorrecto";
-}
-
- $respuesta_101 = isset($_POST['respuesta_101']) ? $_POST['respuesta_101'] : '';
-if ($respuesta_101 === '66') { 
-    $verificar_101 = "correcto";
-} elseif ($respuesta_101 === '') {
-    $verificar_101 = '';
-} else {
-    $verificar_101 = "incorrecto";
-}
-
- $respuesta_102 = isset($_POST['respuesta_102']) ? $_POST['respuesta_102'] : '';
-if ($respuesta_102 === '88') { 
-    $verificar_102 = "correcto";
-} elseif ($respuesta_102 === '') {
-    $verificar_102 = '';
-} else {
-    $verificar_102 = "incorrecto";
-}
-
- $respuesta_103 = isset($_POST['respuesta_103']) ? $_POST['respuesta_103'] : '';
-if ($respuesta_103 === '110') { 
-    $verificar_103 = "correcto";
-} elseif ($respuesta_103 === '') {
-    $verificar_103 = '';
-} else {
-    $verificar_103 = "incorrecto";
-}
-
- $respuesta_104 = isset($_POST['respuesta_104']) ? $_POST['respuesta_104'] : '';
-if ($respuesta_104 === '132') { 
-    $verificar_104 = "correcto";
-} elseif ($respuesta_104 === '') {
-    $verificar_104 = '';
-} else {
-    $verificar_104 = "incorrecto";
-}
-
- $respuesta_105 = isset($_POST['respuesta_105']) ? $_POST['respuesta_105'] : '';
-if ($respuesta_105 === '154') { 
-    $verificar_105 = "correcto";
-} elseif ($respuesta_105 === '') {
-    $verificar_105 = '';
-} else {
-    $verificar_105 = "incorrecto";
-}
-
- $respuesta_106 = isset($_POST['respuesta_106']) ? $_POST['respuesta_106'] : '';
-if ($respuesta_106 === '176') { 
-    $verificar_106 = "correcto";
-} elseif ($respuesta_106 === '') {
-    $verificar_106 = '';
-} else {
-    $verificar_106 = "incorrecto";
-}
-
- $respuesta_107 = isset($_POST['respuesta_107']) ? $_POST['respuesta_107'] : '';
-if ($respuesta_107 === '198') { 
-    $verificar_107 = "correcto";
-} elseif ($respuesta_107 === '') {
-    $verificar_107 = '';
-} else {
-    $verificar_107 = "incorrecto";
-}
-
- $respuesta_108 = isset($_POST['respuesta_108']) ? $_POST['respuesta_108'] : '';
-if ($respuesta_108 === '220') { 
-    $verificar_108 = "correcto";
-} elseif ($respuesta_108 === '') {
-    $verificar_108 = '';
-} else {
-    $verificar_108 = "incorrecto";
-}
-
- $respuesta_109 = isset($_POST['respuesta_109']) ? $_POST['respuesta_109'] : '';
-if ($respuesta_109 === '242') { 
-    $verificar_109 = "correcto";
-} elseif ($respuesta_109 === '') {
-    $verificar_109 = '';
-} else {
-    $verificar_109 = "incorrecto";
-}
-
- $respuesta_110 = isset($_POST['respuesta_110']) ? $_POST['respuesta_110'] : '';
-if ($respuesta_110 === '264') { 
-    $verificar_110 = "correcto";
-} elseif ($respuesta_110 === '') {
-    $verificar_110 = '';
-} else {
-    $verificar_110 = "incorrecto";
-}
-
-// Tabla del 12
-$respuesta_111 = isset($_POST['respuesta_111']) ? $_POST['respuesta_111'] : '';
-if ($respuesta_111 === '24') {  
-    $verificar_111 = "correcto";
-} elseif ($respuesta_111 === '') {
-    $verificar_111 = '';
-} else {
-    $verificar_111 = "incorrecto";
-}
-
-$respuesta_112 = isset($_POST['respuesta_112']) ? $_POST['respuesta_112'] : '';
-if ($respuesta_112 === '36') {  
-    $verificar_112 = "correcto";
-} elseif ($respuesta_112 === '') {
-    $verificar_112 = '';
-} else {
-    $verificar_112 = "incorrecto";
-}
-
-$respuesta_113 = isset($_POST['respuesta_113']) ? $_POST['respuesta_113'] : '';
-if ($respuesta_113 === '48') {  
-    $verificar_113 = "correcto";
-} elseif ($respuesta_113 === '') {
-    $verificar_113 = '';
-} else {
-    $verificar_113 = "incorrecto";
-}
-
-$respuesta_114 = isset($_POST['respuesta_114']) ? $_POST['respuesta_114'] : '';
-if ($respuesta_114 === '60') {  
-    $verificar_114 = "correcto";
-} elseif ($respuesta_114 === '') {
-    $verificar_114 = '';
-} else {
-    $verificar_114 = "incorrecto";
-}
-
-$respuesta_115 = isset($_POST['respuesta_115']) ? $_POST['respuesta_115'] : '';
-if ($respuesta_115 === '72') {  
-    $verificar_115 = "correcto";
-} elseif ($respuesta_115 === '') {
-    $verificar_115 = '';
-} else {
-    $verificar_115 = "incorrecto";
-}
-
-$respuesta_116 = isset($_POST['respuesta_116']) ? $_POST['respuesta_116'] : '';
-if ($respuesta_116 === '84') {  
-    $verificar_116 = "correcto";
-} elseif ($respuesta_116 === '') {
-    $verificar_116 = '';
-} else {
-    $verificar_116 = "incorrecto";
-}
-
-$respuesta_117 = isset($_POST['respuesta_117']) ? $_POST['respuesta_117'] : '';
-if ($respuesta_117 === '96') {  
-    $verificar_117 = "correcto";
-} elseif ($respuesta_117 === '') {
-    $verificar_117 = '';
-} else {
-    $verificar_117 = "incorrecto";
-}
-
-$respuesta_118 = isset($_POST['respuesta_118']) ? $_POST['respuesta_118'] : '';
-if ($respuesta_118 === '108') {  
-    $verificar_118 = "correcto";
-} elseif ($respuesta_118 === '') {
-    $verificar_118 = '';
-} else {
-    $verificar_118 = "incorrecto";
-}
-
-$respuesta_119 = isset($_POST['respuesta_119']) ? $_POST['respuesta_119'] : '';
-if ($respuesta_119 === '120') {  
-    $verificar_119 = "correcto";
-} elseif ($respuesta_119 === '') {
-    $verificar_119 = '';
-} else {
-    $verificar_119 = "incorrecto";
-}
-
-$respuesta_120 = isset($_POST['respuesta_120']) ? $_POST['respuesta_120'] : '';
-if ($respuesta_120 === '132') {  
-    $verificar_120 = "correcto";
-} elseif ($respuesta_120 === '') {
-    $verificar_120 = '';
-} else {
-    $verificar_120 = "incorrecto";
-}
-
-$respuesta_121 = isset($_POST['respuesta_121']) ? $_POST['respuesta_121'] : '';
-if ($respuesta_121 === '144') {  
-    $verificar_121 = "correcto";
-} elseif ($respuesta_121 === '') {
-    $verificar_121 = '';
-} else {
-    $verificar_121 = "incorrecto";
-}
-}
-}
+/* ==========================================================================
+   IngeSoft5 / DevOps / GitBash — parte 1: el lenguaje
+   Fuente: Ejercicios_Bash.pdf y Dev-Ops – bash.pdf
+   ========================================================================== */
+
+$CSS = '../../../css/bootstrap.min.css';
+require_once __DIR__ . '/../motor.php';
+
+$SOLUCIONES = [
+    /* --- comandos comunes --- */
+    1  => ['cd'],
+    2  => ['ls'],
+    3  => ['mkdir'],
+    4  => ['touch'],
+    5  => ['rm'],
+    6  => ['cp'],
+    7  => ['mv'],
+    8  => ['cat'],
+    9  => ['grep'],
+    10 => ['chmod'],
+    11 => ['df'],
+    12 => ['ps'],
+    13 => ['sudo'],
+    14 => ['history'],
+
+    /* --- operadores de archivo --- */
+    15 => ['-f'],
+    16 => ['-d'],
+    17 => ['-e'],
+    18 => ['-s'],
+    19 => ['-r'],
+    20 => ['-w'],
+    21 => ['-x'],
+    22 => ['-nt'],
+
+    /* --- strings --- */
+    23 => ['-z'],
+    24 => ['-n'],
+    25 => ['=='],
+    26 => ['!='],
+
+    /* --- numericos --- */
+    27 => ['-eq'],
+    28 => ['-ne'],
+    29 => ['-gt'],
+    30 => ['-ge'],
+    31 => ['-lt'],
+    32 => ['-le'],
+
+    /* --- if --- */
+    33 => ['if'],
+    34 => ['then'],
+    35 => ['elif'],
+    36 => ['else'],
+    37 => ['fi'],
+
+    /* --- for --- */
+    38 => ['for item in a b c; do', 'for item in a b c ; do'],
+    39 => ['for i in {1..5}; do', 'for i in {1..5} ; do'],
+    40 => ['for ((i=0; i<10; i++)); do', 'for ((i=0; i<10; i++)) ; do'],
+    41 => ['for f in /var/log/*.log; do', 'for f in /var/log/*.log ; do'],
+    42 => ['done'],
+
+    /* --- while --- */
+    43 => ['while read -r line; do', 'while read -r line ; do'],
+    44 => ['while true; do', 'while true ; do'],
+    45 => ['while (( count < 10 )); do', 'while ((count < 10)); do'],
+
+    /* --- case --- */
+    46 => ['case'],
+    47 => ['in'],
+    48 => [';;'],
+    49 => ['*)'],
+    50 => ['esac'],
+    51 => ['|'],
+
+    /* --- set --- */
+    52 => ['set -e'],
+    53 => ['set -u'],
+    54 => ['set -o pipefail'],
+    55 => ['0'],
+
+    /* --- parametros y read --- */
+    56 => ['$1'],
+    57 => ['read -r -p "Type someting: " var', 'read -r -p "Type someting: " var'],
+
+    /* --- red y procesos --- */
+    58 => ['ss'],
+    59 => ['-n'],
+    60 => ['-a'],
+    61 => ['-t'],
+    62 => ['-u'],
+    63 => ['ps -e'],
+    64 => ['ps -f'],
+    65 => ['ps -p'],
+    66 => ['ps --forest'],
+    67 => ['top'],
+
+    /* --- crontab --- */
+    68 => ['minuto'],
+    69 => ['hora'],
+    70 => ['dia del mes', 'dia'],
+    71 => ['mes'],
+    72 => ['dia de la semana', 'dia semana'],
+    73 => ['@reboot'],
+    74 => ['@daily'],
+    75 => ['@hourly'],
+    76 => ['crontab -l'],
+    77 => ['crontab -e'],
+    78 => ['crontab -r'],
+];
+
+/* solo las conceptuales van como texto; los comandos y flags respetan mayusculas */
+$TEXTO = [68,69,70,71,72];
+
+$MULTIPLE = [
+    'm1' => [
+        'texto'    => '&iquest;Cual es la diferencia entre <code>[[ -e $RUTA ]]</code> y <code>[[ -f $RUTA ]]</code>?',
+        'opciones' => [
+            'a' => 'Ninguna',
+            'b' => '<code>-e</code> es verdadero si la ruta <b>existe</b>, sea lo que sea (archivo, carpeta, enlace); <code>-f</code> solo si es un <b>archivo regular</b>',
+            'c' => '<code>-e</code> es para carpetas y <code>-f</code> para archivos',
+            'd' => '<code>-f</code> comprueba ademas que no este vacio'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'El que comprueba que no este vacio es <code>-s</code>. Si un directorio pasa <code>-e</code> pero tu esperabas un archivo, el script se rompe mas adelante.'
+    ],
+    'm2' => [
+        'texto'    => 'Quieres comparar dos numeros. &iquest;Cual usas?',
+        'opciones' => [
+            'a' => '<code>[[ $N1 == $N2 ]]</code>',
+            'b' => '<code>[[ $N1 -eq $N2 ]]</code>',
+            'c' => '<code>[[ $N1 = $N2 ]]</code>',
+            'd' => '<code>[[ $N1 equals $N2 ]]</code>'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Regla de oro: <b>simbolos para strings</b> (<code>==</code>, <code>!=</code>), <b>letras para numeros</b> (<code>-eq</code>, <code>-ne</code>, <code>-gt</code>...). Con <code>==</code>, <code>"08"</code> y <code>"8"</code> serian distintos.'
+    ],
+    'm3' => [
+        'texto'    => 'Segun los apuntes, &iquest;cual es la forma <b>mas segura</b> de iterar sobre archivos?',
+        'opciones' => [
+            'a' => '<code>for file in $(ls *.log); do</code>',
+            'b' => '<code>for f in /var/log/*.log; do</code> — globbing',
+            'c' => '<code>for i in {1..100}; do</code>',
+            'd' => '<code>for ((i=0; i&lt;n; i++)); do</code>'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'El globbing evita problemas con espacios en los nombres. Con <code>$(ls)</code> un archivo llamado <code>mi log.txt</code> se parte en dos iteraciones.'
+    ],
+    'm4' => [
+        'texto'    => 'Se te olvida el <code>;;</code> al final de un bloque de <code>case</code>. &iquest;Que pasa?',
+        'opciones' => [
+            'a' => 'Se ejecuta el bloque siguiente tambien',
+            'b' => 'Bash da error',
+            'c' => 'No pasa nada, es opcional',
+            'd' => 'Se ejecuta el caso <code>*)</code>'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Es literal en tus apuntes: &laquo;es el equivalente al <code>break</code>; si lo olvidas, Bash dara error&raquo;.'
+    ],
+    'm5' => [
+        'texto'    => 'Tu script tiene <code>set -e</code>. Corres un comando que devuelve status code 3. &iquest;Que ocurre?',
+        'opciones' => [
+            'a' => 'El script continua y guarda el codigo',
+            'b' => 'El script <b>termina inmediatamente</b>, porque el status code es distinto de 0',
+            'c' => 'El script reintenta el comando',
+            'd' => 'Se imprime una advertencia y sigue'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'En Bash, <b>0 = exito</b> y cualquier otro numero = fallo. <code>set -e</code> convierte un fallo silencioso en una parada visible.'
+    ],
+    'm6' => [
+        'texto'    => 'Escribes <code>echo "$NOMBRE"</code> pero nunca definiste <code>NOMBRE</code>. &iquest;Que hace <code>set -u</code>?',
+        'opciones' => [
+            'a' => 'La define como cadena vacia',
+            'b' => 'Trata la variable no definida como un <b>error</b> y detiene el script',
+            'c' => 'Pide el valor por teclado',
+            'd' => 'No hace nada con las variables'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Sin <code>set -u</code> una variable mal escrita se evalua como vacia y silenciosamente haces cosas como <code>rm -rf /$RUTA</code> con RUTA vacia.'
+    ],
+    'm7' => [
+        'texto'    => '&iquest;Que problema resuelve <code>set -o pipefail</code>?',
+        'opciones' => [
+            'a' => 'Que los pipes sean mas rapidos',
+            'b' => 'Que si <b>un comando dentro de un pipeline falla</b>, todo el pipe se considere fallido; por defecto solo cuenta el status del ultimo',
+            'c' => 'Que se puedan encadenar mas de dos comandos',
+            'd' => 'Que el pipe no se cierre'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Sin el, <code>comando_que_falla | grep algo</code> devuelve 0 si el grep encontro algo, y tu <code>set -e</code> nunca se entera.'
+    ],
+    'm8' => [
+        'texto'    => 'Los tres <code>set</code> juntos se ponen al principio del script. &iquest;Como se escribe normalmente?',
+        'opciones' => [
+            'a' => '<code>set -euo pipefail</code>',
+            'b' => '<code>set --strict</code>',
+            'c' => '<code>set -all</code>',
+            'd' => '<code>set safe</code>'
+        ],
+        'correcta' => 'a',
+        'porque'   => 'Las banderas de una letra se pueden agrupar: <code>-e</code> + <code>-u</code> + <code>-o pipefail</code> = <code>set -euo pipefail</code>. Es el arranque estandar de un script serio.'
+    ],
+    'm9' => [
+        'texto'    => 'En <code>ss -n --all --tcp</code>, &iquest;que hace <code>-n</code>?',
+        'opciones' => [
+            'a' => 'Muestra solo los sockets nuevos',
+            'b' => 'Muestra direcciones y puertos en formato <b>numerico</b>, sin resolver nombres',
+            'c' => 'Numera las lineas de salida',
+            'd' => 'Limita el numero de resultados'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Sin <code>-n</code>, <code>ss</code> intenta resolver DNS y traducir puertos a nombres de servicio, lo que hace la salida mas lenta y mas dificil de filtrar con grep.'
+    ],
+    'm10' => [
+        'texto'    => 'Un cron <code>*/5 * * * *</code> significa...',
+        'opciones' => [
+            'a' => 'A las 5 en punto de cada hora',
+            'b' => 'Cada 5 minutos',
+            'c' => 'Cada 5 horas',
+            'd' => 'Los dias 5 de cada mes'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'El <code>*/N</code> en un campo significa &laquo;cada N unidades de ese campo&raquo;. Como esta en el primer campo (minutos), es cada 5 minutos.'
+    ],
+    'm11' => [
+        'texto'    => '&iquest;Cual es el orden de los cinco campos del crontab?',
+        'opciones' => [
+            'a' => 'hora, minuto, dia, mes, dia de la semana',
+            'b' => 'minuto, hora, dia del mes, mes, dia de la semana',
+            'c' => 'dia, mes, año, hora, minuto',
+            'd' => 'minuto, hora, dia de la semana, dia del mes, mes'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'De la unidad mas pequeña a la mas grande, y el dia de la semana al final. Truco: 0 2 * * * = &laquo;minuto 0, hora 2, todos los dias&raquo;.'
+    ],
+    'm12' => [
+        'texto'    => '&iquest;Que hace <code>crontab -r</code>?',
+        'opciones' => [
+            'a' => 'Recarga los cron jobs',
+            'b' => '<b>Elimina</b> todos los cron jobs del usuario actual, sin preguntar',
+            'c' => 'Los lista en formato raw',
+            'd' => 'Los reinicia'
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Es peligrosamente parecido a <code>-e</code> (editar) en el teclado. Borra todo el crontab del usuario de un golpe.'
+    ],
+];
+
+iniciar($SOLUCIONES, $MULTIPLE, $TEXTO);
+cabecera('Bash · 1 — el lenguaje', 'Ejercicios_Bash.pdf y Dev-Ops – bash.pdf');
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas sobre simplificación de expresiones matemáticas</title>
-    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../style_2_0.css">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<style>
- 
-    .seccion {
-    /*width: 50%;*/    
-    width: calc(50% - 7.5px);
-    padding: 20px;
-    box-sizing: border-box;
-    height: 370vh;
-    }
-
-</style>
- 
-<script>
-function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-
-    fetch(event.target.action, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(html => {
-        document.body.innerHTML = html;
-
-        // Asegúrate de que MathJax procese el nuevo contenido
-        if (window.MathJax) {
-            MathJax.typeset();
-        }
-        actualizarFormula();
-        actualizarFormula2();
-        actualizarFormula3();
-        actualizarFormula4();
-        actualizarFormula5();
-        actualizarFormula6();
-        actualizarFormula7();
-        actualizarFormula8();
-        actualizarFormula9();
-        actualizarFormula10();
-        actualizarFormula11();
-        actualizarFormula12();
-        actualizarFormula13();
-        actualizarFormula14();
-        actualizarFormula15();
-        actualizarFormula16();
-        actualizarFormula17();
-        actualizarFormula18();
-        actualizarFormula19();
-        actualizarFormula20();
-    })
-    .catch(error => {
-        console.error('Error al enviar el formulario:', error);
-    });
-}
-
-function actualizarFormula() {
-    var f = document.getElementById('respuesta_1').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula2() {
-    var f = document.getElementById('respuesta_2').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula2').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula3() {
-    var f = document.getElementById('respuesta_3').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula3').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula4() {
-    var f = document.getElementById('respuesta_4').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula4').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula5() {
-    var f = document.getElementById('respuesta_5').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula5').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula6() {
-    var f = document.getElementById('respuesta_6').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula6').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula7() {
-    var f = document.getElementById('respuesta_7').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula7').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula8() {
-    var f = document.getElementById('respuesta_8').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula8').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula9() {
-    var f = document.getElementById('respuesta_9').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula9').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula10() {
-    var f = document.getElementById('respuesta_10').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula10').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula11() {
-    var f = document.getElementById('respuesta_11').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula11').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula12() {
-    var f = document.getElementById('respuesta_12').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula12').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula13() {
-    var f = document.getElementById('respuesta_13').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula13').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula14() {
-    var f = document.getElementById('respuesta_14').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula14').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula15() {
-    var f = document.getElementById('respuesta_15').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula15').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula16() {
-    var f = document.getElementById('respuesta_16').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula16').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula17() {
-    var f = document.getElementById('respuesta_17').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula17').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula18() {
-    var f = document.getElementById('respuesta_18').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula18').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula19() {
-    var f = document.getElementById('respuesta_19').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula19').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function actualizarFormula20() {
-    var f = document.getElementById('respuesta_20').value || "";
-    var formula = ` \\ ${f} \\, `;
-    document.getElementById('formula20').innerHTML = `$$ ${formula} $$`;
-    if (window.MathJax) {
-        MathJax.typeset();
-    }
-}
-
-function mostrarMensaje() {
-    document.getElementById("mensaje").style.display = 'block';
-    // Asegúrate de que MathJax procese el nuevo contenido
-    MathJax.typeset([document.getElementById("mensaje")]);
-}
-
-function ocultarMensaje() {
-    document.getElementById("mensaje").style.display = 'none';
-}
-
-
-function mostrarMensaje2() {
-    document.getElementById("mensaje2").style.display = 'block';
-    // Asegúrate de que MathJax procese el nuevo contenido
-    MathJax.typeset([document.getElementById("mensaje")]);
-}
-
-function ocultarMensaje2() {
-    document.getElementById("mensaje2").style.display = 'none';
-}
-
-
-
-function mostrarMensaje3() {
-    document.getElementById("mensaje3").style.display = 'block';
-    // Asegúrate de que MathJax procese el nuevo contenido
-    MathJax.typeset([document.getElementById("mensaje3")]);
-}
-
-function ocultarMensaje3() {
-    document.getElementById("mensaje3").style.display = 'none';
-}
-
-function mostrarMensaje4() {
-    document.getElementById("mensaje4").style.display = 'block';
-    // Asegúrate de que MathJax procese el nuevo contenido
-    MathJax.typeset([document.getElementById("mensaje4")]);
-}
-
-function ocultarMensaje4() {
-    document.getElementById("mensaje4").style.display = 'none';
-}
-
-
-
-
-</script>
-    
-</head>
-<body>  
-
-<form action="./index.php" method="POST" onsubmit="handleSubmit(event)" autocomplete="off"> 
-<div class="form-container">
-
-    
-<div class="seccion izquierda"> 
-
-     <h1>🐧 Common Bash Commands</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Comando</th>
-                <th>¿Para qué sirve?</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td><code>cd</code></td>
-                <td>Cambiar de carpeta</td>
-            </tr>
-
-            <tr>
-                <td><code>ls</code></td>
-                <td>Ver archivos y carpetas</td>
-            </tr>
-
-            <tr>
-                <td><code>mkdir</code></td>
-                <td>Crear carpetas</td>
-            </tr>
-
-            <tr>
-                <td><code>touch</code></td>
-                <td>Crear archivos</td>
-            </tr>
-
-            <tr>
-                <td><code>rm</code></td>
-                <td>Eliminar archivos o carpetas</td>
-            </tr>
-
-            <tr>
-                <td><code>cp</code></td>
-                <td>Copiar archivos o carpetas</td>
-            </tr>
-
-            <tr>
-                <td><code>mv</code></td>
-                <td>Mover o renombrar archivos</td>
-            </tr>
-
-            <tr>
-                <td><code>echo</code></td>
-                <td>Mostrar texto</td>
-            </tr>
-
-            <tr>
-                <td><code>read</code></td>
-                <td>Leer entrada del usuario</td>
-            </tr>
-
-            <tr>
-                <td><code>cat</code></td>
-                <td>Mostrar contenido de archivos</td>
-            </tr>
-
-            <tr>
-                <td><code>grep</code></td>
-                <td>Buscar texto</td>
-            </tr>
-
-            <tr>
-                <td><code>chmod</code></td>
-                <td>Cambiar permisos</td>
-            </tr>
-
-            <tr>
-                <td><code>sudo</code></td>
-                <td>Ejecutar como administrador</td>
-            </tr>
-
-            <tr>
-                <td><code>df</code></td>
-                <td>Ver espacio disponible en el disco</td>
-            </tr>
-
-            <tr>
-                <td><code>history</code></td>
-                <td>Ver comandos anteriores</td>
-            </tr>
-
-            <tr>
-                <td><code>ps</code></td>
-                <td>Ver procesos en ejecución</td>
-            </tr>
-        </tbody>
-    </table>
-   
-    <p>¿Qué comando puedo utilizar para buscar entre todos los 
-    contenedores de Docker aquellos cuyo nombre o información contenga la palabra supermarket?</p>
-
-    <p>docker ps -a | grep supermarket</p>
-
-    <strong>descomposicion:</strong>
-    <p>"Ejecuta docker ps -a y pásale su resultado a grep supermarket para filtrar las líneas que contengan supermarket."</p>
-    <hr>
-    <p>¿Qué comando permite mostrar los permisos, propietario, tamaño y fecha de modificación del 
-        archivo deploy-frontend.ps1 en formato detallado?</p>
-
-        <p>ls -l deploy-frontend.ps1</p>
-
-    <strong>descomposicion: </strong>
-    <li>ls → lista archivos/directorios.</li>
-    <li>-l → listado largo (long format).</li>
-    <pre>
-- rw- r-- r--
-│ │   │   │
-│ │   │   └── Otros usuarios
-│ │   └────── Grupo
-│ └────────── Propietario
-└──────────── Tipo
-
-    </pre>
-    <hr>
-    <p>¿Qué comando permite mostrar el contenido del archivo deploy-frontend.ps1 en la terminal?</p>
-    <p>cat deploy-frontend.ps1</p>
-
-    <hr>
-<h3>Configuración y ejecución de scripts en PowerShell</h3>
-<br>
-    <h3>1. Set-ExecutionPolicy Bypass -Scope Process -Force</h3>
-
-<pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force</code></pre>
-
-<p>
-    Significa:
-    <strong>"Permite ejecutar scripts de PowerShell durante esta sesión,
-    sin cambiar permanentemente la configuración."</strong>
-</p>
-
-<h4>Por partes:</h4>
-
-<ul>
-    <li>
-        <code>Set-ExecutionPolicy</code> →
-        configura la política que controla la ejecución de scripts.
-    </li>
-    <li>
-        <code>Bypass</code> →
-        no bloquea el script por esa política.
-    </li>
-    <li>
-        <code>-Scope Process</code> →
-        el cambio dura solo mientras esta sesión/proceso de PowerShell
-        esté activo.
-    </li>
-    <li>
-        <code>-Force</code> →
-        no pregunta si estás seguro; lo ejecuta directamente.
-    </li>
-</ul>
-
-<p>
-    <strong>Importante:</strong> no está cambiando permanentemente la
-    política de Windows porque utiliza <code>-Scope Process</code>.
-</p>
-
-
-<h3>2. $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition</h3>
-
-<pre><code>$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition</code></pre>
-
-<p>
-    Esta línea obtiene <strong>la carpeta donde está guardado el script</strong>
-    y la guarda en una variable llamada <code>$scriptDir</code>.
-</p>
-
-<p>Por ejemplo, si el script está en:</p>
-
-<pre><code>C:\proyecto\backend\deploy-backend.ps1</code></pre>
-
-<p>Entonces:</p>
-
-<pre><code>$scriptDir</code></pre>
-
-<p>contendrá:</p>
-
-<pre><code>C:\proyecto\backend</code></pre>
-
-<h4>Por partes:</h4>
-
-<ul>
-    <li>
-        <code>$MyInvocation.MyCommand.Definition</code> →
-        obtiene la ubicación del script que se está ejecutando.
-    </li>
-    <li>
-        <code>Split-Path -Parent</code> →
-        obtiene la carpeta padre, quitando el nombre del archivo.
-    </li>
-    <li>
-        <code>$scriptDir =</code> →
-        guarda ese resultado en la variable <code>$scriptDir</code>.
-    </li>
-</ul>
-
-<p>
-    En otras palabras:
-    <strong>"Averigua dónde está este script y guarda esa carpeta
-    en <code>$scriptDir</code>."</strong>
-</p>
-
-
-<h3>3. Set-Location $scriptDir</h3>
-
-<pre><code>Set-Location $scriptDir</code></pre>
-
-<p>
-    Esto hace que PowerShell <strong>se mueva a esa carpeta</strong>.
-</p>
-
-<p>
-    Es prácticamente equivalente al comando <code>cd</code> de Bash:
-</p>
-
-<pre><code>cd C:\proyecto\backend</code></pre>
-
-<p>
-    Si <code>$scriptDir</code> contiene:
-</p>
-
-<pre><code>C:\proyecto\backend</code></pre>
-
-<p>Entonces:</p>
-
-<pre><code>Set-Location $scriptDir</code></pre>
-
-<p>
-    hace que el directorio actual pase a ser:
-</p>
-
-<pre><code>C:\proyecto\backend</code></pre>
-
-
-<h3>Las tres juntas</h3>
-
-<p>
-    Puedes entenderlas como una secuencia:
-</p>
-
-<pre><code>
-1. Permitir temporalmente ejecutar scripts
-                    ↓
-2. Averiguar dónde está este script
-                    ↓
-3. Moverse a esa carpeta
-</code></pre>
-
-<h4>En palabras sencillas:</h4>
-
-<pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force</code></pre>
-
-<p>
-    <strong>"Déjame ejecutar este script."</strong>
-</p>
-
-<pre><code>$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition</code></pre>
-
-<p>
-    <strong>"Averigua dónde está el script."</strong>
-</p>
-
-<pre><code>Set-Location $scriptDir</code></pre>
-
-<p>
-    <strong>"Ahora trabaja desde esa carpeta."</strong>
-</p>
-
-<h3>¿Por qué es útil?</h3>
-
-<p>
-    Supongamos que ejecutas:
-</p>
-
-<pre><code>C:\proyecto\backend\deploy-backend.ps1</code></pre>
-
-<p>
-    pero actualmente estás ubicado en:
-</p>
-
-<pre><code>C:\Users\Luis</code></pre>
-
-<p>
-    El script se mueve automáticamente a:
-</p>
-
-<pre><code>C:\proyecto\backend</code></pre>
-
-<p>
-    Así, los comandos que vienen después pueden encontrar correctamente
-    archivos como:
-</p>
-
-<ul>
-    <li><code>Dockerfile</code></li>
-    <li><code>docker-compose.yml</code></li>
-    <li><code>.env</code></li>
-    <li><code>src\</code></li>
-</ul>
-
-<p>
-    sin importar desde qué carpeta hayas ejecutado el archivo
-    <code>.ps1</code>.
-</p>
+<div class="card">
+  <h2>Como se usa</h2>
+  <p>Todo lo que cae del PDF de Bash, con las palabras clave en blanco. Aqui la mayoria de
+     respuestas son <b>comandos y banderas</b>, asi que <b>si</b> importan las mayusculas y los
+     guiones: <code>-eq</code> no es <code>-EQ</code>.</p>
+  <div class="nota">
+    Los espacios sobrantes y el tipo de comillas dan igual. Pulsa <b>Enter</b> dentro de un
+    hueco para verificar. En la <b>parte 2</b> estan los 15 retos.
+  </div>
 </div>
 
 
-
-
-<div class="seccion derecha">
-    
-   <h3>Reto 1 — Validar archivo de configuración de Nginx</h3>
-
-<p><strong>Objetivo:</strong> comprobar si existe el archivo de configuración de Nginx. Si no existe, terminar con código <code>1</code>.</p>
-
-<pre><code>#!/bin/bash
-
-FILE="/etc/nginx/nginx.conf"
-
-if [[ -f "$FILE" ]]; then
-    echo "El archivo de configuración de nginx existe."
-    exit 0
-else
-    echo "El archivo de configuración de nginx no existe."
-    exit 1
-fi</code></pre>
-
-<h4>¿Qué estás practicando?</h4>
-
-<pre><code>[[ -f "$FILE" ]]</code></pre>
-
-<p><code>-f</code> → verdadero si existe y es un archivo regular.</p>
-
-<pre><code>exit 1</code></pre>
-
-<p><code>exit 1</code> → termina el script indicando que ocurrió un error.</p>
-
-
-<h3>Reto 2 — Validar si el usuario actual es root</h3>
-
-<p><strong>Objetivo:</strong> determinar si el usuario que ejecuta el script es <code>root</code>.</p>
-
-<pre><code>#!/bin/bash
-
-if [[ "$USER" == "root" ]]; then
-    echo "El usuario actual es root."
-else
-    echo "El usuario actual NO es root."
-fi</code></pre>
-
-<h4>Concepto</h4>
-
-<p>Aquí utilizamos una operación con strings:</p>
-
-<pre><code>[[ "$USER" == "root" ]]</code></pre>
-
-<p><code>==</code> → compara si dos strings son iguales.</p>
-
-<h4>Alternativa con comparación numérica</h4>
-
-<pre><code>if [[ "$EUID" -eq 0 ]]; then
-    echo "El usuario es root."
-else
-    echo "El usuario NO es root."
-fi</code></pre>
-
-<p><code>-eq</code> → significa "igual a" en comparaciones numéricas.</p>
-
-
-<h3>Reto 3 — Validar si una variable de entorno está definida</h3>
-
-<pre><code>#!/bin/bash
-
-if [[ -n "$MI_VARIABLE" ]]; then
-    echo "La variable está definida."
-else
-    echo "La variable no está definida o está vacía."
-fi</code></pre>
-
-<h4>Concepto</h4>
-
-<pre><code>[[ -n "$STR" ]]</code></pre>
-
-<p><code>-n</code> → verdadero si el string no está vacío.</p>
-
-<h4>Ejemplo</h4>
-
-<pre><code>export MI_VARIABLE="hola"
-./script.sh</code></pre>
-
-
-<h3>Reto 4 — Ejecutar df -h sobre varios servidores</h3>
-
-<p>Para este reto podemos guardar las direcciones de los servidores en una lista.</p>
-
-<pre><code>#!/bin/bash
-
-SERVIDORES=("192.168.1.10" "192.168.1.20" "192.168.1.30")
-
-for SERVER in "${SERVIDORES[@]}"; do
-    echo "===== Servidor: $SERVER ====="
-    ssh "$SERVER" "df -h"
-done</code></pre>
-
-<h4>Concepto principal</h4>
-
-<pre><code>for SERVER in "${SERVIDORES[@]}"</code></pre>
-
-<p>
-    Utilizamos <code>for</code> para recorrer una lista de servidores.
-</p>
-
-<pre><code>ssh "$SERVER" "df -h"</code></pre>
-
-<p>
-    <code>ssh</code> permite conectarse al servidor y ejecutar
-    <code>df -h</code> remotamente.
-</p>
-
-
-<h3>Reto 5 — Ping a IPs almacenadas en un archivo</h3>
-
-<p>
-    Supongamos que tenemos un archivo llamado <code>ips.txt</code>
-    con una dirección IP por línea:
-</p>
-
-<pre><code>8.8.8.8
-1.1.1.1
-192.168.1.1</code></pre>
-
-<h4>Script</h4>
-
-<pre><code>#!/bin/bash
-
-while read -r IP; do
-    echo "Probando $IP..."
-
-    if ping -c 1 -W 2 "$IP" &gt; /dev/null 2&gt;&amp;1; then
-        echo "$IP está disponible."
-    else
-        echo "$IP NO está disponible."
-    fi
-
-done &lt; ips.txt</code></pre>
-
-<h4>Concepto importante</h4>
-
-<pre><code>while read -r IP</code></pre>
-
-<p>
-    Lee el archivo línea por línea y guarda cada línea en la variable
-    <code>IP</code>.
-</p>
-
-<pre><code>done &lt; ips.txt</code></pre>
-
-<p>
-    Hace que el contenido de <code>ips.txt</code> sea la entrada del
-    ciclo <code>while</code>.
-</p>
-
-<h3>Reto 6 — Eliminar contenedores <code>exited</code></h3>
-
-<pre><code>#!/bin/bash
-
-docker ps -aq -f status=exited | xargs -r docker rm</code></pre>
-
-<h4>¿Qué hace?</h4>
-
-<pre><code>docker ps -aq -f status=exited</code></pre>
-
-<p>
-    Obtiene los IDs de los contenedores cuyo estado es
-    <code>exited</code>.
-</p>
-
-<p>
-    El símbolo <code>|</code> pasa la salida del comando anterior
-    al siguiente comando.
-</p>
-
-<pre><code>xargs -r docker rm</code></pre>
-
-<p>
-    Utiliza los IDs recibidos para eliminar los contenedores.
-</p>
-
-<p>
-    <strong>Nota:</strong> este comando es destructivo porque elimina
-    contenedores detenidos.
-</p>
-
-<h3>Reto 7 — Verificar que HTTP devuelve 200</h3>
-
-<pre><code>#!/bin/bash
-
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://httpbin.org/status/200)
-
-if [[ "$STATUS" -eq 200 ]]; then
-    echo "Servicio arriba"
-else
-    echo "Servicio abajo. Status code: $STATUS"
-fi</code></pre>
-
-<h4>Obtener el código HTTP</h4>
-
-<pre><code>curl -s -o /dev/null -w "%{http_code}" URL</code></pre>
-
-<p>
-    Obtiene solamente el código de respuesta HTTP, por ejemplo:
-</p>
-
-<pre><code>200</code></pre>
-
-<h4>Comparar el código</h4>
-
-<pre><code>[[ "$STATUS" -eq 200 ]]</code></pre>
-
-<p>
-    Comprueba si el código almacenado en <code>STATUS</code> es igual a
-    <code>200</code>.
-</p>
-         
+<div class="card">
+  <h2>1. Comandos comunes</h2>
+
+  <table class="datos">
+    <tr><th>Comando</th><th>Para que sirve</th></tr>
+    <tr><td><?php hueco(1, 8); ?></td><td>cambiar de carpeta</td></tr>
+    <tr><td><?php hueco(2, 8); ?></td><td>ver archivos y carpetas</td></tr>
+    <tr><td><?php hueco(3, 8); ?></td><td>crear carpetas</td></tr>
+    <tr><td><?php hueco(4, 8); ?></td><td>crear archivos vacios</td></tr>
+    <tr><td><?php hueco(5, 8); ?></td><td>eliminar archivos o carpetas</td></tr>
+    <tr><td><?php hueco(6, 8); ?></td><td>copiar</td></tr>
+    <tr><td><?php hueco(7, 8); ?></td><td>mover o renombrar</td></tr>
+    <tr><td><?php hueco(8, 8); ?></td><td>mostrar el contenido de un archivo</td></tr>
+    <tr><td><?php hueco(9, 8); ?></td><td>buscar texto dentro de archivos o de una salida</td></tr>
+    <tr><td><?php hueco(10, 8); ?></td><td>cambiar permisos (por ejemplo, hacer ejecutable un script)</td></tr>
+    <tr><td><?php hueco(11, 8); ?></td><td>ver el uso de disco</td></tr>
+    <tr><td><?php hueco(12, 8); ?></td><td>listar procesos</td></tr>
+    <tr><td><?php hueco(13, 8); ?></td><td>ejecutar como superusuario</td></tr>
+    <tr><td><?php hueco(14, 8); ?></td><td>ver los comandos que has escrito antes</td></tr>
+  </table>
+
+  <div class="nota"><b>Nombres de variables:</b> empiezan por letra o guion bajo, admiten letras,
+    numeros y guiones bajos, <b>distinguen mayusculas</b>, no llevan espacios ni caracteres
+    especiales, deben ser descriptivos y no pueden ser palabras reservadas.</div>
+
+  <?php enviar(); ?>
 </div>
+
+
+<div class="card">
+  <h2>2. Condicionales: operaciones sobre archivos</h2>
+
+  <table class="datos">
+    <tr><th>Operacion</th><th>Verdadero si...</th></tr>
+    <tr><td>[[ <?php hueco(15, 6); ?> $FILE ]]</td><td>el archivo existe y es un archivo <b>regular</b></td></tr>
+    <tr><td>[[ <?php hueco(16, 6); ?> $DIR ]]</td><td>el <b>directorio</b> existe</td></tr>
+    <tr><td>[[ <?php hueco(17, 6); ?> $PATH ]]</td><td>la ruta <b>existe</b>, sea lo que sea</td></tr>
+    <tr><td>[[ <?php hueco(18, 6); ?> $FILE ]]</td><td>el archivo existe y <b>no esta vacio</b></td></tr>
+    <tr><td>[[ <?php hueco(19, 6); ?> $FILE ]]</td><td>tienes permiso de <b>lectura</b></td></tr>
+    <tr><td>[[ <?php hueco(20, 6); ?> $FILE ]]</td><td>tienes permiso de <b>escritura</b></td></tr>
+    <tr><td>[[ <?php hueco(21, 6); ?> $FILE ]]</td><td>el archivo es <b>ejecutable</b></td></tr>
+    <tr><td>[[ $F1 <?php hueco(22, 6); ?> $F2 ]]</td><td>el archivo 1 es <b>mas reciente</b> que el 2</td></tr>
+  </table>
+
+  <?php mc('m1'); ?>
+  <?php enviar(); ?>
 </div>
- </form>
-<div class="centered-container">
-    <a
-        name="siguiente"
-        id="siguiente"
-        class="btn btn-primary"
-        href="segundo.php"
-        role="button"
-        width="50px"
-        height="50px"
-    >Siguiente</a>
+
+
+<div class="card">
+  <h2>3. Condicionales: strings y numeros</h2>
+
+  <table class="datos">
+    <tr><th>Strings</th><th>Verdadero si...</th></tr>
+    <tr><td>[[ <?php hueco(23, 6); ?> $STR ]]</td><td>el string esta <b>vacio</b> (zero)</td></tr>
+    <tr><td>[[ <?php hueco(24, 6); ?> $STR ]]</td><td>el string <b>no</b> esta vacio</td></tr>
+    <tr><td>[[ $A <?php hueco(25, 6); ?> $B ]]</td><td>los strings son iguales</td></tr>
+    <tr><td>[[ $A <?php hueco(26, 6); ?> $B ]]</td><td>los strings son diferentes</td></tr>
+  </table>
+
+  <table class="datos">
+    <tr><th>Numeros</th><th>Significa</th></tr>
+    <tr><td>[[ $N1 <?php hueco(27, 6); ?> $N2 ]]</td><td>igual a (<em>equal</em>)</td></tr>
+    <tr><td>[[ $N1 <?php hueco(28, 6); ?> $N2 ]]</td><td>diferente de (<em>not equal</em>)</td></tr>
+    <tr><td>[[ $N1 <?php hueco(29, 6); ?> $N2 ]]</td><td>mayor que (<em>greater than</em>)</td></tr>
+    <tr><td>[[ $N1 <?php hueco(30, 6); ?> $N2 ]]</td><td>mayor o igual (<em>greater or equal</em>)</td></tr>
+    <tr><td>[[ $N1 <?php hueco(31, 6); ?> $N2 ]]</td><td>menor que (<em>less than</em>)</td></tr>
+    <tr><td>[[ $N1 <?php hueco(32, 6); ?> $N2 ]]</td><td>menor o igual (<em>less or equal</em>)</td></tr>
+  </table>
+
+  <?php mc('m2'); ?>
+  <?php enviar(); ?>
 </div>
-</body>
-</html>
+
+
+<div class="card">
+  <h2>4. La estructura <code>if</code></h2>
+
+  <pre><code><?php hueco(33, 6); ?> [[ condition ]];
+<?php hueco(34, 6); ?>
+      statement
+<?php hueco(35, 7); ?> [[ condition ]];
+then
+      statement
+<?php hueco(36, 7); ?>
+      default
+<?php hueco(37, 5); ?></code></pre>
+
+  <div class="nota">Fijate en el cierre: <code>fi</code> es <code>if</code> al reves,
+    igual que <code>esac</code> es <code>case</code> al reves.</div>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>5. Ciclos <code>for</code>: cinco variantes</h2>
+
+  <table class="datos">
+    <tr><th>Variante</th><th>Sintaxis</th><th>Uso principal</th></tr>
+    <tr><td>Lista explicita</td><td><?php hueco(38, 24); ?></td><td>iterar sobre una lista definida</td></tr>
+    <tr><td>Resultado de comando</td><td><code>for file in $(ls *.log); do</code></td><td>procesar la salida de un comando</td></tr>
+    <tr><td>Rango numerico</td><td><?php hueco(39, 24); ?></td><td>ejecutar una accion N veces (reintentos)</td></tr>
+    <tr><td>Estilo C</td><td><?php hueco(40, 26); ?></td><td>logica aritmetica y contadores precisos</td></tr>
+    <tr><td>Globbing</td><td><?php hueco(41, 28); ?></td><td>la forma <b>mas segura</b> de iterar sobre archivos</td></tr>
+  </table>
+
+  <p>Y todos cierran con <?php hueco(42, 8); ?> .</p>
+
+  <?php mc('m3'); ?>
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>6. Ciclos <code>while</code></h2>
+
+  <table class="datos">
+    <tr><th>Variante</th><th>Sintaxis</th><th>Uso principal</th></tr>
+    <tr><td>Condicion logica</td><td><code>while [[ $STATUS != "running" ]]; do</code></td><td>esperar a que un servicio cambie de estado</td></tr>
+    <tr><td>Lectura de archivos</td><td><?php hueco(43, 26); ?></td><td>procesar un log o CSV linea a linea</td></tr>
+    <tr><td>Ciclo infinito</td><td><?php hueco(44, 22); ?></td><td>daemons de monitoreo, menus</td></tr>
+    <tr><td>Contadores</td><td><?php hueco(45, 28); ?></td><td>alternativa aritmetica al <code>for</code></td></tr>
+  </table>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>7. <code>case</code></h2>
+
+  <table class="datos">
+    <tr><th>Componente</th><th>Funcion</th><th>Nota</th></tr>
+    <tr><td><?php hueco(46, 8); ?> "$VAR" <?php hueco(47, 6); ?></td><td>inicio de la evaluacion</td><td>siempre entrecomilla <code>"$VAR"</code> por si esta vacia</td></tr>
+    <tr><td><code>pattern)</code></td><td>el patron a buscar</td><td>admite texto plano o wildcards (<code>*.log</code>)</td></tr>
+    <tr><td><?php hueco(51, 6); ?> , &amp;</td><td>operadores logicos OR y AND</td><td>para agrupar varios patrones</td></tr>
+    <tr><td><?php hueco(48, 6); ?></td><td>terminador de bloque</td><td>equivale al <code>break</code>; si falta, Bash da error</td></tr>
+    <tr><td><?php hueco(49, 6); ?></td><td>el comodin universal</td><td>siempre el ultimo, captura las excepciones</td></tr>
+    <tr><td><?php hueco(50, 8); ?></td><td>cierre de la estructura</td><td>es <code>case</code> escrito al reves</td></tr>
+  </table>
+
+  <?php mc('m4'); ?>
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>8. Los tres <code>set</code> del principio</h2>
+  <p>Van arriba del todo en cualquier script que vaya a correr desatendido.</p>
+
+  <table class="datos">
+    <tr><th>Opcion</th><th>Que hace</th></tr>
+    <tr><td><?php hueco(52, 12); ?></td><td><em>Exit immediately</em>: termina el script si un comando devuelve un status code distinto de <?php hueco(55, 4); ?></td></tr>
+    <tr><td><?php hueco(53, 12); ?></td><td><em>Unbound variables</em>: si una variable no esta definida, lo trata como error</td></tr>
+    <tr><td><?php hueco(54, 18); ?></td><td>si un comando dentro de un <b>pipeline</b> falla, todo el pipe se considera fallido</td></tr>
+  </table>
+
+  <?php mc('m5'); ?>
+  <?php mc('m6'); ?>
+  <?php mc('m7'); ?>
+  <?php mc('m8'); ?>
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>9. Leer entradas</h2>
+
+  <p>Los parametros que le pasas al script se leen con <?php hueco(56, 6); ?> ,
+     <code>$2</code>, ... <code>$n</code>.</p>
+
+  <p>Y de forma interactiva:</p>
+  <?php linea(57, 'pide por teclado <code>Type someting: </code> y guarda la respuesta en <code>var</code>', 'escribe la linea completa...'); ?>
+  <?php ayuda('<code>read</code>, la bandera <code>-r</code> (no interpretar backslashes) y <code>-p</code> (prompt), el texto entre comillas, y al final el nombre de la variable <b>sin</b> el <code>$</code>.'); ?>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>10. Diagnostico de red y procesos</h2>
+
+  <p>Para validar conexiones se usa <?php hueco(58, 6); ?> (<em>Socket Statistics</em>),
+     el sucesor de <code>netstat</code>. Sus banderas:</p>
+
+  <table class="datos">
+    <tr><th>Bandera</th><th>Significa</th></tr>
+    <tr><td><?php hueco(59, 6); ?> / <code>--numeric</code></td><td>direcciones y puertos en numerico</td></tr>
+    <tr><td><?php hueco(60, 6); ?> / <code>--all</code></td><td>todos los sockets</td></tr>
+    <tr><td><?php hueco(61, 6); ?> / <code>--tcp</code></td><td>solo sockets TCP</td></tr>
+    <tr><td><?php hueco(62, 6); ?> / <code>--udp</code></td><td>solo sockets UDP</td></tr>
+  </table>
+
+  <p>Y para procesos:</p>
+  <table class="datos">
+    <tr><th>Comando</th><th>Que muestra</th></tr>
+    <tr><td><?php hueco(63, 12); ?></td><td>todos los procesos</td></tr>
+    <tr><td><?php hueco(64, 12); ?></td><td><em>full format list</em></td></tr>
+    <tr><td><code>ps -u</code></td><td>el usuario asociado al proceso</td></tr>
+    <tr><td><?php hueco(65, 12); ?> PID</td><td>informacion del proceso con ese PID</td></tr>
+    <tr><td><?php hueco(66, 14); ?></td><td>los procesos en arbol</td></tr>
+    <tr><td><?php hueco(67, 10); ?></td><td>lo mismo pero <b>interactivo</b> y en vivo</td></tr>
+  </table>
+
+  <?php mc('m9'); ?>
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>11. Crontab</h2>
+
+  <p>Los cinco campos, en orden:</p>
+  <pre><code><?php hueco(68, 10); ?>  <?php hueco(69, 8); ?>  <?php hueco(70, 14); ?>  <?php hueco(71, 8); ?>  <?php hueco(72, 18); ?>
+
+# ejemplo
+* * * * * sh /path/to/script.sh</code></pre>
+
+  <p>Los atajos con arroba:</p>
+  <table class="datos">
+    <tr><th>Atajo</th><th>Cuando se ejecuta</th></tr>
+    <tr><td><?php hueco(73, 12); ?></td><td>una vez al inicio del sistema</td></tr>
+    <tr><td><code>@yearly</code> / <code>@annually</code></td><td>una vez al año</td></tr>
+    <tr><td><code>@monthly</code></td><td>una vez al mes</td></tr>
+    <tr><td><code>@weekly</code></td><td>una vez a la semana</td></tr>
+    <tr><td><?php hueco(74, 12); ?> / <code>@midnight</code></td><td>una vez al dia</td></tr>
+    <tr><td><?php hueco(75, 12); ?></td><td>cada hora</td></tr>
+  </table>
+
+  <p>Y los tres comandos:</p>
+  <table class="datos">
+    <tr><th>Comando</th><th>Que hace</th></tr>
+    <tr><td><?php hueco(76, 14); ?></td><td>lista los cron jobs del usuario actual</td></tr>
+    <tr><td><?php hueco(77, 14); ?></td><td>edita el archivo de cron jobs</td></tr>
+    <tr><td><?php hueco(78, 14); ?></td><td><b>elimina</b> los cron jobs del usuario</td></tr>
+  </table>
+
+  <?php mc('m10'); ?>
+  <?php mc('m11'); ?>
+  <?php mc('m12'); ?>
+  <?php enviar('Verificar todo el cuestionario'); ?>
+</div>
+
+<?php
+pie('../Menu.php', 'segundo.php');

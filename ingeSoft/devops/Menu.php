@@ -31,7 +31,14 @@
     <div class="centered-container">
         <a class="btn" href=".\Lectura_1\index.php">Lectura_1</a>
         <a class="btn" href=".\dummies\index.php">Lectura_1 (parte 2)</a>
-        <a class="btn" href=".\GitBash\index.php">Git bash</a>
+        <a class="btn" href=".\GitBash\index.php">Bash — 1. el lenguaje</a>
+        <a class="btn" href=".\GitBash\segundo.php">Bash — 2. los 15 retos</a>
+        <a class="btn" href=".\Docker\index.php">Docker — 1. contenedores</a>
+        <a class="btn" href=".\Docker\segundo.php">Docker — 2. Dockerfile y comandos</a>
+        <a class="btn" href=".\Sesion03\index.php">Sesión 3 — 1. Definiciones y necesidad</a>
+        <a class="btn" href=".\Sesion03\segundo.php">Sesión 3 — 2. Silos y sistemas</a>
+        <a class="btn" href=".\Sesion03\tercero.php">Sesión 3 — 3. Prácticas y adopción</a>
+        <a class="btn" href=".\Sesion03\cuarto.php">Sesión 3 — 4. Procesos, tecnología y equipos</a>
 
         
     </div>

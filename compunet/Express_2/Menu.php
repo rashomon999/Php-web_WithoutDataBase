@@ -40,6 +40,11 @@ h1{font-size:28px;margin:0 0 4px}
     Cada cuestionario termina con un bloque <b>"De memoria: la linea completa"</b>, donde hay que
     escribir la linea entera de codigo sin mirar; ahi tampoco importan el tipo de comillas ni el
     punto y coma final, y si fallas te enseña debajo la linea correcta.
+    <br><br>
+    Los huecos <b>azules y punteados</b> dentro del codigo son <b>firmas de metodo</b>: hay que
+    escribirlas enteras, con la visibilidad, el <code>async</code>, los parametros con sus tipos y
+    el tipo de retorno. El <code>try</code>, el <code>catch</code> y el <code>instanceof</code>
+    tambien van tapados, para que reproduzcas la estructura y no solo las palabras sueltas.
   </div>
 
   <div class="grid">

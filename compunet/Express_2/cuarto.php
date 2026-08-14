@@ -68,6 +68,19 @@ $SOLUCIONES = [
     48 => 'const user = await this.findById(id);',
     49 => 'const secret: string = process.env.JWT_SECRET || "";',
     50 => 'token: await this.generateToken(userExists._id.toString())',
+
+    /* --- Firmas y andamiaje, tapados en el propio codigo --- */
+    51 => 'public async login (req: Request, res: Response) {',
+    52 => 'public async login(userLogin: UserLogin): Promise<any>{',
+    53 => 'public async generateToken(id: string): Promise<string> {',
+    54 => 'await',
+    55 => ['throw', 'throw new'],
+    56 => 'if (user == null){ throw new Error(); }',
+
+    /* --- Los imports que hacen falta para el login --- */
+    57 => 'UserLogin',
+    58 => 'bcrypt',
+    59 => 'jwt',
 ];
 
 $MULTIPLE = [
@@ -180,7 +193,12 @@ cabecera('Cuestionario 4 — POST /user/login', 'Buscar por email, comparar el h
 }</code></pre>
 
   <p>Y en <code>user.controller.ts</code>:</p>
-<pre><code>public async login (req: Request, res: Response) {
+<pre><code>import {Request, Response} from 'express';
+import { userService } from './user.service';
+import { UserInput, <?php hueco(57, 11); ?>, UserUpdate } from './user.interface';
+
+<?php firma(51, 50); ?>
+
     const user = await <?php hueco(4, 13); ?>.login(req.body as <?php hueco(5, 11); ?>);
     res.<?php hueco(6, 6); ?>(user);
 }</code></pre>
@@ -196,17 +214,24 @@ cabecera('Cuestionario 4 — POST /user/login', 'Buscar por email, comparar el h
 <div class="card">
   <h2>B. <code>user.service.ts</code> &rarr; <code>login</code></h2>
 
-<pre><code>public async login(userLogin: UserLogin): Promise&lt;any&gt;{
+<pre><code>import <?php hueco(58, 8); ?> from "bcrypt";
+import <?php hueco(59, 5); ?> from "jsonwebtoken";
+
+import { UserInput, UserLogin, UserUpdate } from "./user.interface";
+import { UserDocument, UserModel } from "./user.model";
+
+<?php firma(52, 54); ?>
+
 
     const userExists: UserDocument | null =
               await this.<?php hueco(7, 12); ?>(userLogin.email, <?php hueco(8, 6); ?>);
 
     if (userExists === <?php hueco(9, 6); ?>){
-        throw new ReferenceError("<?php hueco(10, 15); ?>");
+        <?php hueco(55, 10); ?> new ReferenceError("<?php hueco(10, 15); ?>");
     }
 
     const isMatch: boolean =
-              await <?php hueco(11, 8); ?>.<?php hueco(12, 9); ?>(userLogin.password, userExists.password);
+              <?php hueco(54, 6); ?> <?php hueco(11, 8); ?>.<?php hueco(12, 9); ?>(userLogin.password, userExists.password);
 
     if (!isMatch){
         throw new ReferenceError("Not Authorized");
@@ -237,12 +262,14 @@ cabecera('Cuestionario 4 — POST /user/login', 'Buscar por email, comparar el h
 <div class="card">
   <h2>C. <code>generateToken()</code> — la firma del JWT</h2>
 
-<pre><code>public async generateToken(id: string): Promise&lt;string&gt; {
+<pre><code><?php firma(53, 52); ?>
+
 
     const user = await this.<?php hueco(21, 9); ?>(id);
 
     process.loadEnvFile();
-    if (user == null){ throw new Error(); }
+    <?php firma(56, 38); ?>
+
 
     const secret: string = process.env.<?php hueco(22, 12); ?> || "";
 

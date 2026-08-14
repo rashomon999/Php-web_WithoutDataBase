@@ -1907,7 +1907,7 @@ function ocultarMensaje4() {
    :</strong> administra memoria, colas de entrada/salida y espacio libre en disco.</li>
 
   <li><strong>
-  <input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="16">  
+  <input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="18">  
    :</strong> evita que los procesos interfieran entre sí y controla los permisos de acceso.</li>
 
   <li><strong>
@@ -1959,7 +1959,7 @@ function ocultarMensaje4() {
    
   de 
   <input type="text" name="respuesta_52" value="<?php echo $respuesta_52; ?>" size="8">
-  interfazservicios que permite que un programa solicite 
+   que permite que un programa solicite 
   <input type="text" name="respuesta_53" value="<?php echo $respuesta_53; ?>" size="8">
     al 
   <input type="text" name="respuesta_54" value="<?php echo $respuesta_54; ?>" size="8">
@@ -2057,7 +2057,7 @@ function ocultarMensaje4() {
   <input type="text" name="respuesta_70" value="<?php echo $respuesta_70; ?>" size="26">   
    .</strong></li>
   <li><strong>
-  <input type="text" name="respuesta_71" value="<?php echo $respuesta_71; ?>" size="8">   
+  <input type="text" name="respuesta_71" value="<?php echo $respuesta_71; ?>" size="11">   
    .</strong></li>
   <li><strong>
   <input type="text" name="respuesta_72" value="<?php echo $respuesta_72; ?>" size="8">   
@@ -2127,7 +2127,7 @@ function ocultarMensaje4() {
   <input type="text" name="respuesta_81" value="<?php echo $respuesta_81; ?>" size="8">  
    :</strong> mantiene solo funciones esenciales en el kernel y ejecuta otros servicios como procesos de usuario.</li>
   <li><strong>
-  <input type="text" name="respuesta_82" value="<?php echo $respuesta_82; ?>" size="8">  
+  <input type="text" name="respuesta_82" value="<?php echo $respuesta_82; ?>" size="11">  
    :</strong> permite cargar y descargar módulos del kernel en tiempo de ejecución.</li>
 </ol>
 
@@ -2158,13 +2158,13 @@ function ocultarMensaje4() {
 <p>
   Los microkernels utilizan la técnica de
   <strong>
-  <input type="text" name="respuesta_85" value="<?php echo $respuesta_85; ?>" size="8">  
+  <input type="text" name="respuesta_85" value="<?php echo $respuesta_85; ?>" size="11">  
     entre 
   <input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="8">
     (
   <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="8">  
     - 
-  <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="21">
+  <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="23">
    )</strong>
   para que los 
   <input type="text" name="respuesta_89" value="<?php echo $respuesta_89; ?>" size="8">

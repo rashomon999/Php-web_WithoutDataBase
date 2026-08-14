@@ -85,6 +85,12 @@ $libros = [
         'link' => 'Trading/Menu.php'
     ],
     [
+        'nombre' => 'CiberSeguridad',
+        'imagen' => 'fondo.jpg',
+        'categoria' => 'principal',
+        'link' => 'CiberSeguridad/Menu.php'
+    ],
+    [
         'nombre' => 'APO',
         'imagen' => 'fondo.jpg',
         'categoria' => 'principal',

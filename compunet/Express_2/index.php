@@ -72,6 +72,11 @@ $SOLUCIONES = [
     50 => 'app.use("/user", userRouter);',
     51 => 'export const userRouter = express.Router();',
     52 => 'const connectionString: string = process.env.MONGO_URL || "";',
+
+    /* --- Los imports de connectionDB.ts --- */
+    53 => 'mongoose',
+    54 => 'dns',
+    55 => 'setServers',
 ];
 
 $MULTIPLE = [
@@ -284,7 +289,17 @@ Se crea userRouter
 src/index.ts recibe userRouter</code></pre>
 
   <h3>Y el import de la base de datos</h3>
-<pre><code>import {db} from './config/connectionDB';
+<pre><code>import {db} from './config/connectionDB';</code></pre>
+
+  <p>Y ese archivo, <code>src/config/connectionDB.ts</code>, empieza asi:</p>
+
+<pre><code>import <?php hueco(53, 10); ?> from "mongoose";
+import <?php hueco(54, 5); ?> from "dns";
+
+// Configurar DNS antes de que Mongoose intente conectarse
+dns.<?php hueco(55, 12); ?>(["8.8.8.8", "8.8.4.4"]);
+
+const connectionString: string =  process.env.MONGO_URL || "";
 
 export const db = mongoose.<?php hueco(33, 9); ?>(connectionString)
                     .then( () =&gt; console.log("Connected to MongoDB") )

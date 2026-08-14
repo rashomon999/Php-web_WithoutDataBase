@@ -68,6 +68,20 @@ $SOLUCIONES = [
     50 => 'if (error instanceof TokenExpiredError) {',
     51 => 'const id: string = req.params.id as string || \'\';',
     52 => 'const user: UserDocument | null = await userService.findById(id);',
+
+    /* --- Firmas y andamiaje, tapados en el propio codigo --- */
+    53 => 'export const auth = async (req: Request, res: Response, next: NextFunction) => {',
+    54 => 'try',
+    55 => 'catch',
+    56 => 'instanceof',
+    57 => ['return', 'return;'],
+    58 => 'public async getOne (req: Request, res: Response) {',
+    59 => 'public findById (id: string): Promise<UserDocument | null>{',
+
+    /* --- Los imports del controller --- */
+    60 => 'express',
+    61 => ['user.service', './user.service'],
+    62 => ['user.model', './user.model'],
 ];
 
 $MULTIPLE = [
@@ -168,10 +182,11 @@ cabecera('Cuestionario 5 — GET /user/profile', 'El middleware auth: Authorizat
 <div class="card">
   <h2>A. <code>src/auth/auth.middleware.ts</code> completo</h2>
 
-<pre><code>import { NextFunction, Request, Response } from "<?php hueco(1, 9); ?>";
+<pre><code>import { <?php hueco(3, 14); ?>, Request, Response } from "<?php hueco(1, 9); ?>";
 import jwt, { <?php hueco(2, 18); ?> } from "jsonwebtoken";
 
-export const auth = async (req: Request, res: Response, next: <?php hueco(3, 14); ?>) =&gt; {
+<?php firma(53, 74); ?>
+
 
     let token: string | undefined = req.<?php hueco(4, 7); ?>("<?php hueco(5, 14); ?>");
 
@@ -179,10 +194,10 @@ export const auth = async (req: Request, res: Response, next: <?php hueco(3, 14)
 
     if(!token){
         res.status(<?php hueco(6, 5); ?>).json({"message": "<?php hueco(7, 15); ?>"});
-        return;
+        <?php hueco(57, 8); ?>;
     }
 
-    try {
+    <?php hueco(54, 4); ?> {
         token = token.<?php hueco(8, 8); ?>("<?php hueco(9, 8); ?>","");
 
         const secret: string = process.env.<?php hueco(10, 12); ?> || "";
@@ -193,10 +208,10 @@ export const auth = async (req: Request, res: Response, next: <?php hueco(3, 14)
 
         <?php hueco(15, 6); ?>();
 
-    }catch(error){
+    }<?php hueco(55, 6); ?>(error){
         console.error(error);
 
-        if(error instanceof <?php hueco(16, 18); ?>){
+        if(error <?php hueco(56, 11); ?> <?php hueco(16, 18); ?>){
             res.status(401).json({"message": "<?php hueco(17, 14); ?>"});
             return;
         }
@@ -236,7 +251,12 @@ Despues:  eyJhbGci...</code></pre>
 <div class="card">
   <h2>C. <code>userController.getOne</code> y el service</h2>
 
-<pre><code>public async getOne (req: Request, res: Response) {
+<pre><code>import {Request, Response} from '<?php hueco(60, 9); ?>';
+import { userService } from './<?php hueco(61, 13); ?>';
+import { UserDocument } from './<?php hueco(62, 12); ?>';
+
+<?php firma(58, 50); ?>
+
      try {
         const id: string = req.<?php hueco(23, 7); ?>.<?php hueco(24, 4); ?> as string || '';
 
@@ -255,7 +275,8 @@ Despues:  eyJhbGci...</code></pre>
 }</code></pre>
 
   <p>Y en el service:</p>
-<pre><code>public findById (id: string): Promise&lt;UserDocument | null&gt;{
+<pre><code><?php firma(59, 58); ?>
+
     return UserModel.<?php hueco(30, 9); ?>(id);
 }</code></pre>
 

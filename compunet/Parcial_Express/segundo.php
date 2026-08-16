@@ -66,6 +66,7 @@ $SOLUCIONES = [
     44 => 'optional: { type: Boolean, default: false },',
     45 => 'export const IngredientModel = model<IngredientDocument>("Ingredient", ingredientSchema);',
     46 => 'export type IngredientUpdate = Partial<Omit<IngredientInput, "recipeId">>;',
+    47 => 'RecipeInput',
 ];
 
 $RETOS = [
@@ -260,12 +261,12 @@ cabecera('Parcial 2 — Interfaces y modelos', 'Recipe e Ingredient: la forma de
 
 <pre><code>export type Difficulty = <?php hueco(1, 30); ?>;
 
-export interface RecipeInput {
-    name: string,
-    description<?php hueco(3, 3); ?>: string,
+export interface <?php hueco(47, 12); ?> {
+    name: <?php hueco(19, 8); ?>,
+    description<?php hueco(3, 3); ?>: <?php hueco(20, 8); ?>,
     difficulty?: <?php hueco(2, 12); ?>,
-    preparationTimeMinutes?: number,
-    servings?: number
+    preparationTimeMinutes?: <?php hueco(21, 8); ?>,
+    servings?: <?php hueco(22, 8); ?>
 }
 
 export type RecipeUpdate = <?php hueco(4, 9); ?>&lt;RecipeInput&gt;;</code></pre>
@@ -294,10 +295,10 @@ import { RecipeInput } from "./recipe.interface";
 <?php firma(37, 36); ?>
 
     name: { type: String, <?php hueco(9, 10); ?>: true },
-    description: { type: String },
+    description: { type: <?php hueco(23, 8); ?> },
     difficulty: { type: String, <?php hueco(10, 6); ?>: ["easy", "medium", "hard"], default: "<?php hueco(11, 7); ?>" },
     preparationTimeMinutes: { type: <?php hueco(12, 8); ?> },
-    servings: { type: Number },
+    servings: { type: <?php hueco(24, 8); ?> },
     createdAt: { type: Date, default: <?php hueco(14, 10); ?> }
 }, { <?php hueco(15, 12); ?>: false, collection: "<?php hueco(16, 10); ?>" });
 
@@ -319,11 +320,11 @@ export const RecipeModel = <?php hueco(17, 7); ?>&lt;RecipeDocument&gt;("<?php h
 
 <pre><code>export interface IngredientInput {
     recipeId: <?php hueco(19, 8); ?>,
-    name: string,
+    name: <?php hueco(25, 8); ?>,
     quantity: <?php hueco(20, 8); ?>,
-    unit?: string,
+    unit?: <?php hueco(26, 8); ?>,
     optional?: <?php hueco(21, 9); ?>,
-    notes?: string
+    notes?: <?php hueco(27, 8); ?>
 }
 
 export type IngredientUpdate = Partial&lt;<?php hueco(22, 6); ?>&lt;IngredientInput, "recipeId"&gt;&gt;;</code></pre>
@@ -346,11 +347,11 @@ export type IngredientUpdate = Partial&lt;<?php hueco(22, 6); ?>&lt;IngredientIn
 <?php firma(38, 52); ?>
 
     recipeId: <?php hueco(23, 8); ?>.<?php hueco(24, 10); ?>,
-    name: string,
-    quantity: number,
-    unit?: string,
-    optional: boolean,
-    notes?: string
+    name: <?php hueco(28, 8); ?>,
+    quantity: <?php hueco(29, 8); ?>,
+    unit?: <?php hueco(30, 8); ?>,
+    optional: <?php hueco(31, 9); ?>,
+    notes?: <?php hueco(32, 8); ?>
 }
 
 const ingredientSchema = new Schema({
@@ -358,11 +359,11 @@ const ingredientSchema = new Schema({
     name: { type: String, required: true },
     quantity: { type: Number, required: true },
     unit: { type: String },
-    optional: { type: <?php hueco(28, 9); ?>, default: <?php hueco(29, 7); ?> },
+    optional: { type: <?php hueco(33, 9); ?>, default: <?php hueco(34, 7); ?> },
     notes: { type: String }
-}, { versionKey: false, collection: "<?php hueco(30, 13); ?>" });
+}, { versionKey: false, collection: "<?php hueco(35, 13); ?>" });
 
-export const IngredientModel = model&lt;IngredientDocument&gt;("<?php hueco(31, 12); ?>", ingredientSchema);</code></pre>
+export const IngredientModel = model&lt;IngredientDocument&gt;("<?php hueco(36, 12); ?>", ingredientSchema);</code></pre>
 
   <?php reto('ingredientModel'); ?>
 

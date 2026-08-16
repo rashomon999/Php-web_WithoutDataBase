@@ -84,6 +84,66 @@ $SOLUCIONES = [
     62 => ['user.model', './user.model'],
 ];
 
+/* =====================================================================
+   RETOS — se desbloquean al tener todos los huecos del bloque en verde
+   ===================================================================== */
+$RETOS = [
+
+'auth' => [
+    'titulo' => '<code>src/auth/auth.middleware.ts</code>',
+    'huecos' => [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,53,54,55,56,57],
+    'codigo' => <<<'EOT'
+import { NextFunction, Request, Response } from "express";
+import jwt, { TokenExpiredError } from "jsonwebtoken";
+
+export const auth = async (req: Request, res: Response, next: NextFunction) => {
+    let token: string | undefined = req.header("Authorization");
+
+    process.loadEnvFile();
+    if(!token){
+        res.status(401).json({"message": "Not Authorized"});
+        return;
+    }
+    try {
+        token = token.replace("Bearer ","");
+        const secret: string = process.env.JWT_SECRET || "";
+        const decoded: any = await jwt.verify(token, secret);
+        req.params.id = decoded.id;
+        next();
+    }catch(error){
+        console.error(error);
+        if(error instanceof TokenExpiredError){
+            res.status(401).json({"message": "Token expired"});
+            return;
+        }
+        res.status(401).json({"message": "Not Authorized"});
+    }
+}
+EOT
+],
+
+'getone' => [
+    'titulo' => 'el metodo <code>getOne</code> del controller',
+    'huecos' => [23, 24, 25, 26, 27, 28, 29, 58, 60, 61, 62],
+    'codigo' => <<<'EOT'
+public async getOne (req: Request, res: Response) {
+     try {
+        const id: string = req.params.id as string || '';
+        const user: UserDocument | null = await userService.findById(id);
+        if (user === null){
+            res.status(404).json({message: `User with id ${id} not found`});
+            return;
+        }
+        res.json(user);
+     } catch (error) {
+        res.status(500).json(error);
+     }
+}
+EOT
+],
+
+];
+
 $MULTIPLE = [
     'm1' => [
         'texto'    => '¿Por que <code>auth</code> escribe el id en <code>req.params.id</code> y no en cualquier otra propiedad?',
@@ -175,7 +235,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE);
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
 cabecera('Cuestionario 5 — GET /user/profile', 'El middleware auth: Authorization, Bearer, jwt.verify y next()');
 ?>
 
@@ -185,7 +245,7 @@ cabecera('Cuestionario 5 — GET /user/profile', 'El middleware auth: Authorizat
 <pre><code>import { <?php hueco(3, 14); ?>, Request, Response } from "<?php hueco(1, 9); ?>";
 import jwt, { <?php hueco(2, 18); ?> } from "jsonwebtoken";
 
-<?php firma(53, 74); ?>
+<?php firma(53, 80); ?>
 
 
     let token: string | undefined = req.<?php hueco(4, 7); ?>("<?php hueco(5, 14); ?>");
@@ -219,6 +279,8 @@ import jwt, { <?php hueco(2, 18); ?> } from "jsonwebtoken";
         res.status(<?php hueco(18, 5); ?>).json({"message": "Not Authorized"});
     }
 }</code></pre>
+
+  <?php reto('auth'); ?>
 
   <?php enviar(); ?>
 </div>
@@ -285,6 +347,8 @@ import { UserDocument } from './<?php hueco(62, 12); ?>';
      <code>GET /user/:id</code> y <code>GET /user/<?php hueco(31, 9); ?></code>.</p>
   <p>Funciona porque el controller solo lee <code>req.params.id</code>, sin importarle si ese valor
      vino de la URL o si lo puso el <?php hueco(32, 14); ?> de autenticacion.</p>
+
+  <?php reto('getone'); ?>
 
   <?php enviar(); ?>
 </div>

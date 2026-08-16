@@ -129,6 +129,7 @@
         <a class="btn" href=".\NodeJs\index.php">NodeJs</a>
         <a class="btn" href=".\Express\index.php">Express</a>
         <a class="btn" href=".\Express_2\Menu.php">Express — Cuestionarios</a>
+        <a class="btn" href=".\Parcial_Express\Menu.php">Parcial Express — Recetas</a>
 
         <h2>Exposición</h2>
 

@@ -79,6 +79,44 @@ $SOLUCIONES = [
     55 => 'setServers',
 ];
 
+/* =====================================================================
+   RETOS — se desbloquean al tener todos los huecos del bloque en verde
+   ===================================================================== */
+$RETOS = [
+
+'indexts' => [
+    'titulo' => '<code>src/index.ts</code>',
+    'huecos' => [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    'codigo' => <<<'EOT'
+import express, {Express, Request, Response} from 'express';
+import {userRouter} from './users/';
+import {db} from './config/connectionDB';
+
+const app: Express = express();
+
+process.loadEnvFile();
+
+const port: number = parseInt(process.env.PORT || "3000");
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use("/user", userRouter);
+
+app.get("/", (req: Request, res: Response) => {
+    res.send("Hola mundo");
+});
+
+db.then( () =>
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    })
+)
+EOT
+],
+
+];
+
 $MULTIPLE = [
     'm1' => [
         'texto'    => '<code>const app: Express = express();</code> — ¿que hace exactamente esta linea?',
@@ -170,7 +208,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE);
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
 cabecera('Cuestionario 1 — Arranque e index.ts', 'Express, npm/Yarn y el punto de entrada linea por linea');
 ?>
 
@@ -243,6 +281,8 @@ app.get("/", (req: Request, res: <?php hueco(20, 9); ?>) =&gt; {
         console.log(`Server is running on port ${port}`);
     })
 )</code></pre>
+
+  <?php reto('indexts'); ?>
 
   <?php enviar(); ?>
 </div>

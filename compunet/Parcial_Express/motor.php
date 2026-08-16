@@ -66,9 +66,9 @@ function _normcod($t) {
 
     /* El texto de los mensajes es arbitrario y no hay por que memorizarlo:
        cualquier literal entrecomillado que contenga un espacio se vacia antes
-       de comparar. Los literales SIN espacios (rutas como "/user/profile",
-       cabeceras como "Authorization", nombres de modelo como "User") si
-       cuentan, porque esos si son parte de la estructura. */
+       de comparar. Los literales SIN espacios (rutas como "/api/recipe",
+       cabeceras como "x-api-key", nombres de modelo como "Recipe") si cuentan,
+       porque esos si son parte de la estructura. */
     $t = preg_replace('/([\'"`])((?:(?!\1).)*\s(?:(?!\1).)*)\1/u', '$1$1', $t);
 
     $t = str_replace('"', "'", $t);
@@ -398,10 +398,12 @@ function reto($id) {
         echo '<p class="retoinfo bad">&#10008; ' . $info['ok'] . ' de ' . $info['total'] . ' lineas correctas. '
            . 'La primera diferencia esta en la <b>linea ' . $info['falla'] . '</b>'
            . ($info['sobran'] > 0 ? ' (y te sobran ' . $info['sobran'] . ' lineas)' : '')
-           . '. Se ignoran lineas en blanco, espacios, comillas, el punto y coma final y el texto de los mensajes.</p>';
+           . '. Se ignoran lineas en blanco, espacios, comillas, el punto y coma final y el '
+           . 'texto de los mensajes.</p>';
     } else {
         echo '<p class="retoinfo">Se compara linea a linea. Se ignoran las lineas en blanco, '
-           . 'los espacios, el tipo de comillas y el punto y coma final.</p>';
+           . 'los espacios, el tipo de comillas, el punto y coma final y <b>el texto que va '
+           . 'dentro de los mensajes</b> (eso es arbitrario, no hay que memorizarlo).</p>';
     }
     echo '</div>';
 }
@@ -493,10 +495,10 @@ pre code{background:none;color:inherit;padding:0;font-size:inherit}
 .flujo{background:#11161d;color:#cfe3ff}
 
 /* ---- huecos ---- */
-.hbox{display:inline-block;white-space:nowrap}
+.hbox{display:inline-flex;align-items:center;gap:6px;max-width:100%;white-space:nowrap;flex-wrap:wrap}
 .hueco{font-family:Consolas,Menlo,monospace;font-size:13.5px;
        border:2px solid #9aa3ad;border-radius:5px;padding:1px 6px;
-       background:#fffbe8;color:#1f2733;outline:none}
+       background:#fffbe8;color:#1f2733;outline:none;max-width:100%}
 pre .hueco{background:#fdf6d8}
 .hueco:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(44,90,160,.18)}
 .hueco.ok{border-color:var(--verde);background:var(--verde-bg)}
@@ -512,12 +514,28 @@ pre .hueco.firma{background:#dbe8fa}
 .sol{font-family:Consolas,Menlo,monospace;background:var(--verde-bg);
      color:var(--verde);padding:1px 6px;border-radius:4px}
 
+/* ---- tablas (para columnas que NO se pueden alinear con espacios,
+       porque los inputs no miden lo mismo que el texto) ---- */
+.tablabox{border:1px solid var(--borde);border-radius:10px;overflow:hidden;margin:16px 0}
+.tabla{width:100%;border-collapse:collapse;font-size:14.5px}
+.tabla th{text-align:left;background:#1f2733;color:#cfe3ff;font-weight:600;
+          padding:9px 12px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+.tabla td{padding:9px 12px;border-top:1px solid var(--borde);vertical-align:middle}
+.tabla tbody tr:nth-child(even){background:#f7f8fa}
+.tabla .cod{font-family:Consolas,Menlo,monospace;font-size:13.5px}
+.tabla .op{font-family:Consolas,Menlo,monospace;font-weight:700;color:#2c5aa0;white-space:nowrap}
+.tabla .nowrap{white-space:nowrap}
+@media(max-width:700px){
+  .tabla{font-size:13px}
+  .tabla th,.tabla td{padding:7px 8px}
+}
+
 /* ---- lineas completas ---- */
 .lineabox{margin:0 0 16px}
 .lineabox .pista{font-size:14.5px;color:#3c4654;margin:0 0 5px}
 .lineabox .pista b{color:#1f2733}
-.lineain{display:flex;align-items:center;gap:8px}
-.hueco.linea{flex:1;width:100%;font-size:13.5px;padding:8px 11px;background:#fffbe8}
+.lineain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hueco.linea{flex:1 1 260px;width:100%;min-width:0;font-size:13.5px;padding:8px 11px;background:#fffbe8}
 .corregida{margin-top:6px;font-family:Consolas,Menlo,monospace;font-size:13px;
            background:var(--verde-bg);color:#12602a;border-left:3px solid var(--verde);
            padding:6px 10px;border-radius:0 6px 6px 0;white-space:pre-wrap;word-break:break-word}
@@ -528,11 +546,11 @@ pre .hueco.firma{background:#dbe8fa}
 .pregunta.ok{border-left-color:var(--verde);background:var(--verde-bg)}
 .pregunta.bad{border-left-color:var(--rojo);background:var(--rojo-bg)}
 .pregunta .enunciado{font-weight:600;margin:0 0 8px}
-.opcion{display:block;padding:5px 8px;border-radius:6px;cursor:pointer;font-size:15px}
+.opcion{display:block;padding:5px 8px;border-radius:6px;cursor:pointer;font-size:15px;word-break:break-word;line-height:1.5}
 .opcion:hover{background:rgba(44,90,160,.07)}
 .opcion.es-correcta{background:#d7f0dd;font-weight:600}
 .porque{margin:10px 0 0;font-size:14px;background:#fff;border-radius:6px;
-        padding:8px 12px;border:1px dashed var(--borde)}
+        padding:8px 12px;border:1px dashed var(--borde);word-break:break-word}
 
 /* ---- retos ---- */
 .reto{margin:18px 0 4px;border-radius:10px;padding:14px 16px;font-size:14.5px}
@@ -556,6 +574,15 @@ pre .hueco.firma{background:#dbe8fa}
 .retoinfo.bad{color:var(--rojo)}
 .card.sin-codigo pre{display:none}
 
+/* ---- comandos del arranque ---- */
+.command-list{display:grid;gap:10px;margin-top:16px}
+.command-item{display:grid;grid-template-columns:46px minmax(180px, 220px) 1fr;gap:12px;align-items:center;
+             background:#f8f9fb;border:1px solid var(--borde);border-radius:8px;padding:10px 12px}
+.command-number{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;
+               border-radius:50%;background:#e8eefb;color:var(--azul);font-weight:700;font-family:Consolas,Menlo,monospace}
+.command-box{display:flex;align-items:center;justify-content:center}
+.command-text{font-size:14px;color:#2f3a48}
+
 /* ---- botones ---- */
 .acciones{margin:18px 0 4px;display:flex;gap:10px;flex-wrap:wrap}
 .btn-ok{background:var(--azul);color:#fff;border:0;border-radius:8px;
@@ -574,7 +601,20 @@ pre .hueco.firma{background:#dbe8fa}
 @media(max-width:700px){
   .wrap{padding:14px 10px}
   .card{padding:16px 14px}
+  .topbar{padding:10px 12px}
+  .topbar .spacer{display:none}
+  .score{white-space:normal}
+  .hbox{white-space:normal}
+  .hueco.linea{flex-basis:100%}
+  .lineain{align-items:flex-start}
+  .command-item{grid-template-columns:36px 1fr;}
+  .command-text{grid-column:2}
   pre{font-size:12.5px}
+  .tabla, .tabla thead, .tabla tbody, .tabla th, .tabla td, .tabla tr{display:block;width:100%}
+  .tabla thead{display:none}
+  .tabla tbody tr{border-top:1px solid var(--borde);padding:8px 0}
+  .tabla td{border-top:none;padding:6px 10px}
+  .tabla td:before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#5a636e;font-weight:700;margin-bottom:4px}
 }
 </style>
 <script>

@@ -47,6 +47,15 @@ h1{font-size:28px;margin:0 0 4px}
     tambien van tapados, para que reproduzcas la estructura y no solo las palabras sueltas.
   </div>
 
+  <div class="caja" style="background:#fff6e5;border-left-color:#f0b429">
+    <b>&#127919; Retos.</b> Cuando dejas <b>todos</b> los huecos de un bloque en verde se desbloquea
+    su reto: escribir ese archivo o ese metodo <b>entero</b>, en un cuadro de texto, sin rellenar
+    nada. Se compara linea a linea ignorando lineas en blanco, espacios, comillas y el punto y coma
+    final, y si fallas te dice cuantas lineas llevas bien y en cual esta la primera diferencia.
+    Hay un boton para <b>ocultar el codigo de arriba</b> mientras lo escribes. El marcador de retos
+    va aparte, arriba a la derecha.
+  </div>
+
   <div class="grid">
 
     <a class="tarjeta" href="index.php">

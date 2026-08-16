@@ -75,12 +75,67 @@ $SOLUCIONES = [
     53 => 'public async generateToken(id: string): Promise<string> {',
     54 => 'await',
     55 => ['throw', 'throw new'],
-    56 => 'if (user == null){ throw new Error(); }',
+    56 => 'if (user == null){',
 
     /* --- Los imports que hacen falta para el login --- */
     57 => 'UserLogin',
     58 => 'bcrypt',
     59 => 'jwt',
+];
+
+/* =====================================================================
+   RETOS — se desbloquean al tener todos los huecos del bloque en verde
+   ===================================================================== */
+$RETOS = [
+
+'login' => [
+    'titulo' => 'el metodo <code>login</code> del service',
+    'huecos' => [7, 8, 9, 10, 11, 12, 13, 14, 15, 52, 54, 55, 58, 59],
+    'codigo' => <<<'EOT'
+public async login(userLogin: UserLogin): Promise<any>{
+    const userExists: UserDocument | null = await this.findByEmail(userLogin.email, true);
+    if (userExists === null){
+        throw new ReferenceError("Not Authorized");
+    }
+
+    const isMatch: boolean = await bcrypt.compare(userLogin.password, userExists.password);
+    if (!isMatch){
+        throw new ReferenceError("Not Authorized");
+    }
+
+    return {
+        id: userExists._id,
+        roles: ['admin'],
+        token: await this.generateToken(userExists._id.toString())
+    }
+}
+EOT
+],
+
+'token' => [
+    'titulo' => 'el metodo <code>generateToken</code>',
+    'huecos' => [21, 22, 23, 24, 25, 26, 27, 28, 29, 53, 56],
+    'codigo' => <<<'EOT'
+public async generateToken(id: string): Promise<string> {
+    const user = await this.findById(id);
+
+    process.loadEnvFile();
+    if (user == null){
+        throw new Error();
+    }
+    const secret: string = process.env.JWT_SECRET || "";
+
+    return jwt.sign({
+                        id: user._id.toString(),
+                        name: user.name,
+                        email: user.email
+                    },
+                    secret,
+                    {expiresIn: "1m"});
+}
+EOT
+],
+
 ];
 
 $MULTIPLE = [
@@ -174,7 +229,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE);
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
 cabecera('Cuestionario 4 — POST /user/login', 'Buscar por email, comparar el hash y firmar el JWT');
 ?>
 
@@ -255,6 +310,8 @@ import { UserDocument, UserModel } from "./user.model";
      Pero para hacer login necesitamos justamente el <?php hueco(20, 8); ?> de la contraseña
      para poder compararlo.</p>
 
+  <?php reto('login'); ?>
+
   <?php enviar(); ?>
 </div>
 
@@ -262,13 +319,17 @@ import { UserDocument, UserModel } from "./user.model";
 <div class="card">
   <h2>C. <code>generateToken()</code> — la firma del JWT</h2>
 
-<pre><code><?php firma(53, 52); ?>
+<pre><code><?php firma(53, 56); ?>
 
 
     const user = await this.<?php hueco(21, 9); ?>(id);
 
     process.loadEnvFile();
-    <?php firma(56, 38); ?>
+
+    <?php firma(56, 26); ?>
+
+        throw new Error();
+    }
 
 
     const secret: string = process.env.<?php hueco(22, 12); ?> || "";
@@ -288,6 +349,8 @@ import { UserDocument, UserModel } from "./user.model";
   <div class="avisoflujo">Ese mismo <code>JWT_SECRET</code> es el que usara despues el middleware
      <code>auth</code> con <code>jwt.verify(token, secret)</code>. Si cambias el secreto, todos los
      tokens ya emitidos dejan de valer.</div>
+
+  <?php reto('token'); ?>
 
   <?php enviar(); ?>
 </div>

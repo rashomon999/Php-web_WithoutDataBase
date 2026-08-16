@@ -82,6 +82,36 @@ $SOLUCIONES = [
     58 => ['user.interface', './user.interface'],
 ];
 
+/* =====================================================================
+   RETOS — se desbloquean al tener todos los huecos del bloque en verde
+   ===================================================================== */
+$RETOS = [
+
+'model' => [
+    'titulo' => '<code>src/users/user.model.ts</code>',
+    'huecos' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 58],
+    'codigo' => <<<'EOT'
+import {Document, Schema, model} from "mongoose";
+import { UserInput } from "./user.interface";
+
+export interface UserDocument extends UserInput, Document{
+    createdAt: Date,
+    updatedAt: Date,
+    deletedAt: Date
+}
+
+const userSchema = new Schema({
+    name: {type: String, required: true },
+    email: {type: String, required: true, unique: true },
+    password: {type: String, required: true, select: false },
+}, {timestamps: true, collection: 'users'});
+
+export const UserModel = model<UserDocument>("User", userSchema);
+EOT
+],
+
+];
+
 $MULTIPLE = [
     'm1' => [
         'texto'    => '¿Mongoose es parte de Express?',
@@ -173,7 +203,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE);
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
 cabecera('Cuestionario 6 — Capas, modelo y que es Express', 'Mongoose, interfaces, codigos HTTP y Dockerfile');
 ?>
 
@@ -202,6 +232,8 @@ export const UserModel = <?php hueco(9, 7); ?>&lt;UserDocument&gt;("<?php hueco(
 
   <p>Y <code>unique: true</code> en el email evita <?php hueco(12, 16); ?>
      a nivel de base de datos.</p>
+
+  <?php reto('model'); ?>
 
   <?php enviar(); ?>
 </div>
@@ -373,6 +405,130 @@ CMD ["npm", "<?php hueco(48, 5); ?>", "<?php hueco(49, 5); ?>"]</code></pre>
   <h2>H. Preguntas de comprension</h2>
   <?php mc('m1'); mc('m2'); mc('m3'); mc('m4'); mc('m5'); mc('m6'); mc('m7'); mc('m8'); ?>
   <?php enviar('Verificar'); ?>
+</div>
+
+
+<div class="card">
+  <h2>I. El mapa completo, de punta a punta</h2>
+
+  <p>Los tres recorridos que estudiaste en los cuestionarios 3, 4 y 5, juntos en un solo dibujo.
+     No hay nada que rellenar aqui: es para mirarlo entero y ver como encajan.</p>
+
+  <p>Fijate en tres cosas mientras lo recorres:</p>
+  <ul>
+    <li><b>Donde se juntan y donde se separan.</b> Crear y hacer login usan <b>el mismo</b>
+        <code>findByEmail()</code> y el mismo modelo; se separan justo despues, en
+        <code>bcrypt.hash()</code> frente a <code>bcrypt.compare()</code>.</li>
+    <li><b>El JWT cierra el circulo.</b> Lo firma el login (<code>jwt.sign</code>) y lo verifica
+        <code>auth</code> (<code>jwt.verify</code>) en una peticion <b>posterior</b>, con el mismo
+        <code>JWT_SECRET</code>. Son dos mitades del mismo mecanismo separadas en el tiempo.</li>
+    <li><b>El unico camino hacia el controller pasa por <code>next()</code>.</b> Cada rombo del
+        dibujo que responde (401, ERROR) es una rama que <b>corta</b> la cadena.</li>
+  </ul>
+
+<pre class="flujo"><code>                              ┌──────────────┐
+                              │   CLIENTE    │
+                              └──────┬───────┘
+                                     │
+                     ┌───────────────┴───────────────┐
+                     │                               │
+               CREAR USUARIO                       LOGIN
+                     │                               │
+                     │ name, email, password         │ email, password
+                     ▼                               ▼
+           ┌────────────────────┐          ┌────────────────────┐
+           │   UserController   │          │   UserController   │
+           │      create()      │          │      login()       │
+           └──────────┬─────────┘          └──────────┬─────────┘
+                      │                               │
+                  UserInput                       UserLogin
+                      │                               │
+                      ▼                               ▼
+           ┌────────────────────┐          ┌────────────────────┐
+           │    UserService     │          │    UserService     │
+           │      create()      │          │      login()       │
+           └──────────┬─────────┘          └──────────┬─────────┘
+                      │                               │
+                      │ findByEmail(email)            │ findByEmail(email, true)
+                      ▼                               ▼
+           ┌─────────────────────────────────────────────────────┐
+           │                     UserModel                       │
+           │                      MongoDB                        │
+           └──────────────────────────┬──────────────────────────┘
+                                      │
+                                UserDocument
+                                      │
+                     ┌────────────────┴──────────────┐
+                     │                               │
+               CREAR USUARIO                       LOGIN
+                     │                               │
+                     ▼                               ▼
+              bcrypt.hash()                   bcrypt.compare()
+                     │                               │
+                     ▼                          ¿Coincide?
+             UserModel.create()                  /        \
+                     │                         NO          SÍ
+                     ▼                          │           │
+                  MongoDB                     ERROR         ▼
+                                                     generateToken()
+                                                            │
+                                                            ▼
+                                                        jwt.sign()
+                                                            │
+                                                            ▼
+                                                           JWT
+                                                            │
+                                                            ▼
+                                                         CLIENTE
+                                                            │
+                                                  guarda / usa el JWT
+                                                            │
+                                                            │ NUEVA PETICION
+                                                            │ Authorization:
+                                                            │ Bearer &lt;JWT&gt;
+                                                            ▼
+                                                     ┌──────────────┐
+                                                     │     auth     │
+                                                     │  middleware  │
+                                                     └──────┬───────┘
+                                                            │
+                                                      jwt.verify()
+                                                            │
+                                                      ¿JWT valido?
+                                                       /        \
+                                                     NO          SÍ
+                                                      │           │
+                                                     401       decoded
+                                                                  │
+                                              req.params.id = decoded.id
+                                                                  │
+                                                                  ▼
+                                                               next()
+                                                                  │
+                                                                  ▼
+                                                      ┌────────────────┐
+                                                      │ UserController │
+                                                      │    getOne()    │
+                                                      └───────┬────────┘
+                                                              │
+                                                    userService.findById()
+                                                              │
+                                                              ▼
+                                                    UserModel.findById()
+                                                              │
+                                                              ▼
+                                                           MongoDB
+                                                              │
+                                                              ▼
+                                                        UserDocument
+                                                              │
+                                                              ▼
+                                                       res.json(user)</code></pre>
+
+  <div class="nota">Un detalle que el dibujo deja ver de golpe: <code>getOne()</code> es el mismo
+     controller que atiende <code>GET /user/:id</code>. La diferencia es que ahi el
+     <code>req.params.id</code> lo pone la <b>URL</b>, y aqui lo pone el <b>middleware</b>. Al
+     controller le da igual: solo lee <code>req.params.id</code>.</div>
 </div>
 
 <?php

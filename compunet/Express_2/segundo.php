@@ -81,6 +81,41 @@ $SOLUCIONES = [
     59 => ['user.schema', './user.schema'],
 ];
 
+/* =====================================================================
+   RETOS — se desbloquean al tener todos los huecos del bloque en verde
+   ===================================================================== */
+$RETOS = [
+
+'route' => [
+    'titulo' => '<code>src/users/user.route.ts</code>',
+    'huecos' => [1,2,3,4,5,6,7,8,9,10,11,12,13,14,55,56,57,58,59],
+    'codigo' => <<<'EOT'
+import express, {Request, Response} from 'express';
+import { userController } from './user.controller';
+import { auth } from '../auth';
+import { validateSchema } from '../global/validate.middleware';
+import { userSchema } from './user.schema';
+
+export const userRouter = express.Router();
+
+userRouter.get("/", userController.getAll);
+
+userRouter.get("/profile", auth, userController.getOne);
+
+userRouter.get("/:id", userController.getOne);
+
+userRouter.post("/", validateSchema(userSchema), userController.create);
+
+userRouter.put("/:id", userController.update);
+
+userRouter.delete("/:id", userController.delete);
+
+userRouter.post("/login", userController.login);
+EOT
+],
+
+];
+
 $MULTIPLE = [
     'm1' => [
         'texto'    => 'Al arrancar el servidor, <code>app.get("/", callback)</code>...',
@@ -172,7 +207,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE);
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
 cabecera('Cuestionario 2 — Router, rutas y recorridos', 'user.route.ts, el prefijo /user y el camino de cada peticion');
 ?>
 
@@ -203,6 +238,8 @@ userRouter.post("<?php hueco(13, 8); ?>", userController.<?php hueco(14, 7); ?>)
 
   <div class="nota">Ojo: <code>delete</code> aparece dos veces porque el verbo HTTP y el metodo del
      controlador se llaman igual. No es un error.</div>
+
+  <?php reto('route'); ?>
 
   <?php enviar(); ?>
 </div>

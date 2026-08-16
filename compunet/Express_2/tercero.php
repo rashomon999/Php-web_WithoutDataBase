@@ -9,7 +9,7 @@ $SOLUCIONES = [
 
     /* --- Bloque A: user.schema.ts (Zod) --- */
     1  => 'zod',
-    2  => 'export const userSchema: any = object',
+    2  => 'object',
     3  => 'string',
     4  => 'email',
     5  => 'min',
@@ -98,6 +98,93 @@ $SOLUCIONES = [
     72 => 'jsonwebtoken',
     73 => ['user.interface', './user.interface'],
     74 => 'UserModel',
+
+    /* --- ¿Donde se valida cada cosa? --- */
+    75 => ['user.schema.ts', 'user.schema', 'zod', 'el schema'],
+    76 => ['user.service.ts', 'user.service', 'service', 'el service'],
+    77 => ['user.controller.ts', 'user.controller', 'controller', 'el controller'],
+    78 => ['user.model.ts', 'user.model', 'model', 'el model', 'el modelo'],
+];
+
+/* =====================================================================
+   RETOS — se desbloquean al tener todos los huecos del bloque en verde
+   ===================================================================== */
+$RETOS = [
+
+'schema' => [
+    'titulo' => '<code>user.schema.ts</code>',
+    'huecos' => [1, 2, 3, 4, 5, 6],
+    'codigo' => <<<'EOT'
+import {object, string, email} from 'zod';
+
+export const userSchema: any = object({
+    name: string({error: "Name is required"}),
+    email: email({error: "Not a valid email address"}),
+    password: string({error: "Password is required"})
+                .min(8, "Password must be at least 8 characters long")
+});
+EOT
+],
+
+'middleware' => [
+    'titulo' => '<code>validate.middleware.ts</code>',
+    'huecos' => [8, 9, 10, 11, 12, 55, 56, 57, 58, 64, 65, 66],
+    'codigo' => <<<'EOT'
+import { NextFunction, Request, Response } from "express";
+import {AnyZodObject} from 'zod/v3';
+
+export const validateSchema = (schema: AnyZodObject) => {
+   return async (req: Request, res: Response, next: NextFunction) => {
+                try {
+                    await schema.parseAsync(req.body);
+                    next();
+                } catch(error){
+                    res.status(400).json(error);
+                }
+            }
+}
+EOT
+],
+
+'controller' => [
+    'titulo' => 'el metodo <code>create</code> del controller',
+    'huecos' => [15, 16, 17, 18, 19, 20, 59, 60, 61],
+    'codigo' => <<<'EOT'
+public async create (req: Request, res: Response) {
+    try {
+       const newUser = await userService.create(req.body as UserInput);
+       res.status(201).json(newUser);
+    } catch (error) {
+       if(error instanceof ReferenceError) {
+        res.status(422).json({message: "User already exists"});
+       }
+       res.status(500).json(error);
+    }
+}
+EOT
+],
+
+'service' => [
+    'titulo' => '<code>create</code> y <code>findByEmail</code> del service',
+    'huecos' => [21, 22, 23, 24, 25, 26, 27, 28, 29, 62, 63],
+    'codigo' => <<<'EOT'
+public async create (userInput: UserInput): Promise<UserDocument>{
+    const userExists: UserDocument | null = await this.findByEmail(userInput.email);
+    if (userExists !== null){
+        throw new ReferenceError("user already exists");
+    }
+    if(userInput.password){
+        userInput.password = await bcrypt.hash(userInput.password, 10);
+    }
+    return UserModel.create(userInput);
+}
+
+public findByEmail (email: string, password: boolean = false): Promise<UserDocument | null>{
+    return UserModel.findOne({email}, {password});
+}
+EOT
+],
+
 ];
 
 $MULTIPLE = [
@@ -178,6 +265,17 @@ $MULTIPLE = [
         'correcta' => 'c',
         'porque'   => 'Mira el <code>catch</code> de <code>create</code>: el <code>if</code> responde 422 pero no hace <code>return</code>, asi que sigue ejecutando <code>res.status(500).json(error)</code>. Es un bug real del codigo del curso, bueno para tenerlo presente.',
     ],
+    'm9' => [
+        'texto'    => 'En este proyecto, ¿donde se comprueba que el usuario que quieres crear <b>no exista ya</b>?',
+        'opciones' => [
+            'a' => 'En el schema de Zod, junto con el resto de validaciones del body.',
+            'b' => 'En el <b>service</b>: es una regla de negocio y ademas hay que preguntarle a MongoDB, cosa que Zod no puede hacer.',
+            'c' => 'En el controller, antes de llamar al service.',
+            'd' => 'En el router, con un middleware.',
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Zod valida <b>la forma</b> del dato sin salir del proceso. Saber si un email ya esta usado exige ir a la base de datos, y eso ya es logica de negocio: <code>findByEmail</code> &rarr; <code>throw ReferenceError</code>. El modelo pone ademas una red de seguridad con <code>unique: true</code>.',
+    ],
     'm8' => [
         'texto'    => 'Orden correcto de la cadena para <code>POST /user</code>:',
         'opciones' => [
@@ -191,7 +289,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE);
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
 cabecera('Cuestionario 3 — POST /user', 'Zod, middleware de validacion, controller, service, bcrypt y modelo');
 ?>
 
@@ -200,7 +298,7 @@ cabecera('Cuestionario 3 — POST /user', 'Zod, middleware de validacion, contro
 
 <pre><code>import {object, string, email} from '<?php hueco(1, 6); ?>';
 
-<?php hueco(2, 38); ?>({
+export const userSchema: any = <?php hueco(2, 8); ?>({
     name: <?php hueco(3, 8); ?>({error: "Name is required"}),
     email: <?php hueco(4, 8); ?>({error: "Not a valid email address"}),
     password: string({error: "Password is required"})
@@ -209,6 +307,8 @@ cabecera('Cuestionario 3 — POST /user', 'Zod, middleware de validacion, contro
 
   <p>Ademas de Zod, la otra opcion mencionada en el curso para validar los datos que llegan al backend
      (mediante reglas y middleware de Express) es <?php hueco(7, 20); ?>.</p>
+
+  <?php reto('schema'); ?>
 
   <?php enviar(); ?>
 </div>
@@ -220,7 +320,7 @@ cabecera('Cuestionario 3 — POST /user', 'Zod, middleware de validacion, contro
 <pre><code>import { NextFunction, Request, Response } from "<?php hueco(64, 9); ?>";
 import {<?php hueco(65, 14); ?>} from '<?php hueco(66, 8); ?>';
 
-<?php firma(55, 59); ?>
+<?php firma(55, 54); ?>
 
    return <?php hueco(56, 6); ?> (req: Request, res: Response, next: <?php hueco(8, 14); ?>) =&gt; {
                 <?php hueco(57, 4); ?> {
@@ -252,6 +352,8 @@ import {<?php hueco(65, 14); ?>} from '<?php hueco(66, 8); ?>';
   <p>Si Zod detecta un error, el middleware responde con el codigo HTTP
      <?php hueco(14, 5); ?> y la cadena se corta: <b>no</b> se llama al controller.</p>
 
+  <?php reto('middleware'); ?>
+
   <?php enviar(); ?>
 </div>
 
@@ -281,6 +383,8 @@ import { <?php hueco(70, 13); ?> } from './user.model';
      Saca <code>req.body</code>, se lo pasa al service y con lo que le devuelvan arma la respuesta.
      No sabe nada de MongoDB.</div>
 
+  <?php reto('controller'); ?>
+
   <?php enviar(); ?>
 </div>
 
@@ -294,7 +398,7 @@ import jwt from "<?php hueco(72, 14); ?>";
 import { UserInput, UserLogin, UserUpdate } from "./<?php hueco(73, 15); ?>";
 import { UserDocument, <?php hueco(74, 11); ?> } from "./user.model";
 
-<?php firma(62, 67); ?>
+<?php firma(62, 62); ?>
 
 
     const userExists: UserDocument | null = await this.<?php hueco(21, 12); ?>(userInput.email);
@@ -316,6 +420,8 @@ import { UserDocument, <?php hueco(74, 11); ?> } from "./user.model";
 
     return UserModel.<?php hueco(29, 9); ?>({email}, {password});
 }</code></pre>
+
+  <?php reto('service'); ?>
 
   <?php enviar(); ?>
 </div>
@@ -387,6 +493,30 @@ Define como se representa el usuario en Mongo   →  <?php hueco(46, 24); ?></co
   <div class="nota">El <code>route</code> no crea el usuario. Solo dice:
      <i>"cuando llegue POST /user, primero valida y despues llama a userController.create"</i>.</div>
 
+  <h3>Y ahora la pregunta fina: "validar" no es una sola cosa</h3>
+  <p>En este proyecto hay <b>cuatro</b> comprobaciones distintas y cada una vive en un sitio.
+     Escribe el archivo (o la capa) donde ocurre cada una:</p>
+
+<pre><code>Que el body tenga la FORMA correcta
+(name texto, email valido, password de 8)        →  <?php hueco(75, 24); ?>
+
+Que el usuario YA EXISTA al crearlo
+(email repetido → ReferenceError)                →  <?php hueco(76, 24); ?>
+
+Que el usuario NO EXISTA al leerlo por id
+(user === null → 404)                            →  <?php hueco(77, 24); ?>
+
+Que el email no se pueda repetir NUNCA,
+garantizado por la base de datos (unique: true)  →  <?php hueco(78, 24); ?></code></pre>
+
+  <div class="avisoflujo">
+     La linea que las separa es esta: <b>Zod solo mira el dato que tiene delante</b>, sin salir del
+     proceso. En cuanto una comprobacion necesita <b>preguntarle algo a MongoDB</b> ya no es
+     validacion de entrada, es <b>logica de negocio</b>, y por eso vive en el service. El controller
+     se queda con las comprobaciones de <b>respuesta</b> (¿hay algo que devolver? si no, 404), y el
+     modelo pone la ultima red de seguridad a nivel de base de datos.
+  </div>
+
   <?php enviar(); ?>
 </div>
 
@@ -410,7 +540,7 @@ Define como se representa el usuario en Mongo   →  <?php hueco(46, 24); ?></co
 
 <div class="card">
   <h2>H. Preguntas de comprension</h2>
-  <?php mc('m1'); mc('m2'); mc('m3'); mc('m4'); mc('m5'); mc('m6'); mc('m7'); mc('m8'); ?>
+  <?php mc('m1'); mc('m2'); mc('m9'); mc('m3'); mc('m4'); mc('m5'); mc('m6'); mc('m7'); mc('m8'); ?>
   <?php enviar('Verificar'); ?>
 </div>
 

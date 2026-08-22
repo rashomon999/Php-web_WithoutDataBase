@@ -1,12 +1,12 @@
 <?php
 /* =========================================================================
-   instalar.php  —  descomprime sitio_01.zip ... sitio_09.zip en el servidor
+   instalar.php  —  descomprime parte_01.zip ... parte_21.zip en el servidor
 
    COMO SE USA
-   1. Sube por FTP este archivo y los sitio_*.zip a la carpeta htdocs/
+   1. Sube por FTP este archivo y los parte_*.zip a la carpeta htdocs/
    2. Abre en el navegador:  https://TU-DOMINIO/instalar.php
    3. Se va refrescando solo hasta terminar.
-   4. BORRA instalar.php, los sitio_*.zip y instalar_estado.json cuando acabe.
+   4. BORRA instalar.php, los parte_*.zip y instalar_estado.json cuando acabe.
    ========================================================================= */
 
 @set_time_limit(0);
@@ -16,7 +16,7 @@ const ESTADO   = __DIR__ . '/instalar_estado.json';
 const SEGUNDOS = 12;   // cuanto trabaja cada pasada antes de refrescar
 
 function zips(): array {
-    $z = glob(__DIR__ . '/sitio_*.zip');
+    $z = glob(__DIR__ . '/parte_*.zip');
     sort($z);
     return $z;
 }
@@ -64,7 +64,7 @@ if (!class_exists('ZipArchive')) {
 }
 if (!$zips) {
     html('<h1>No encuentro los .zip</h1>
-          <p class="chico">Sube <code>sitio_01.zip</code> … <code>sitio_09.zip</code> a esta
+          <p class="chico">Sube <code>parte_01.zip</code> … <code>parte_21.zip</code> a esta
           misma carpeta y recarga.</p>');
 }
 if (!is_writable(__DIR__)) {
@@ -158,7 +158,7 @@ if ($fin) {
     <div class=\"barra\"><i style=\"width:100%\"></i></div>
     $lista
     <p class=\"chico\"><strong>Ahora borra por FTP</strong>: <code>instalar.php</code>,
-    <code>instalar_estado.json</code> y todos los <code>sitio_*.zip</code>.
+    <code>instalar_estado.json</code> y todos los <code>parte_*.zip</code>.
     Ocupan sitio y no hacen falta.</p>
     <p><a href=\"index.php\">Ir al sitio &rarr;</a></p>");
 }

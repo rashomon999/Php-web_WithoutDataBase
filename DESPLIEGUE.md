@@ -5,7 +5,7 @@ en el servidor (`$_POST` + `$respuesta_N`). Necesita un servidor que ejecute PHP
 GitHub Pages, Netlify y Vercel no sirven, ahí la verificación de respuestas se rompe.
 
 InfinityFree es hosting compartido gratuito: **no se duerme nunca**, PHP 8.3, subdominio
-con SSL. Sitio: **160 MB, 3.384 archivos**.
+con SSL. Sitio: **160 MB, 3.384 archivos**. Dominio: `questionnaires.rf.gd`.
 
 ---
 
@@ -23,23 +23,36 @@ con SSL. Sitio: **160 MB, 3.384 archivos**.
 
 ## Paso 2 — Subir el paquete
 
-En tu disco está la carpeta **`C:\xampp\htdocs\php_web\_paquete_ftp`** con 10 archivos:
+En tu disco está la carpeta **`C:\xampp\htdocs\php_web\_paquete_ftp`** con 22 archivos:
 
 ```
 instalar.php
-sitio_01.zip  …  sitio_09.zip
+parte_01.zip  …  parte_21.zip
 ```
 
 Son el sitio entero comprimido. **Se sube eso, no los 3.384 archivos sueltos** —
 subir archivo por archivo por FTP tarda una eternidad y siempre falla alguno.
 
-1. Instala [FileZilla](https://filezilla-project.org/download.php?type=client).
-2. Arriba, en la barra rápida, pon los datos del Paso 1 y dale a *Conexión rápida*.
-3. En el panel derecho (servidor) entra en la carpeta **`htdocs`**.
-4. En el panel izquierdo (tu PC) ve a `C:\xampp\htdocs\php_web\_paquete_ftp`.
-5. Selecciona los 10 archivos y arrástralos a `htdocs`.
+> **Por qué 21 trozos y no uno solo:** InfinityFree tiene un límite duro de **10 MB por
+> archivo**, aplicado a nivel de sistema de archivos (ni FTP ni el gestor web se lo
+> saltan). Cada parte pesa ~8 MB para quedar holgada por debajo. Los otros límites:
+> 1 MB para archivos `.php`/`.html` (el mayor del sitio son 385 KB) y 10 kB para
+> `.htaccess` (el nuestro son 2 KB). Todo cabe.
 
-Son 161 MB en 10 archivos: unos pocos minutos, según tu subida.
+**No uses FileZilla**: su instalador viene con software empaquetado y Windows Defender
+lo bloquea como PUA. Usa **WinSCP**, que es limpio y hace lo mismo:
+
+1. Instala [WinSCP](https://winscp.net) (o desde la Microsoft Store).
+2. En *Nueva sesión*: **Protocolo `FTP`**, **Cifrado `TLS/SSL explícito`**,
+   servidor `ftpupload.net`, puerto 21, y tu usuario/contraseña del Paso 1.
+   Acepta el aviso del certificado.
+3. En el panel derecho (servidor) entra en la carpeta **`htdocs`** y borra lo que
+   InfinityFree deja ahí de fábrica (`index2.html` y el archivo de aviso).
+4. En el panel izquierdo (tu PC) ve a `C:\xampp\htdocs\php_web\_paquete_ftp`.
+5. Selecciona los 22 archivos y arrástralos a `htdocs`.
+
+Son 161 MB: unos minutos, según tu velocidad de subida. Si WinSCP marca algún archivo
+en rojo, vuelve a arrastrarlo.
 
 ---
 
@@ -61,7 +74,7 @@ Si se queda parado, recarga la página: retoma donde iba, no repite trabajo.
 ## Paso 4 — Limpiar y activar SSL
 
 1. Por FTP, **borra de `htdocs`**: `instalar.php`, `instalar_estado.json` y los
-   nueve `sitio_*.zip`. Ya no sirven de nada y ocupan 161 MB.
+   veintiún `parte_*.zip`. Ya no sirven de nada y ocupan 161 MB.
 2. En el panel de InfinityFree: *Free SSL Certificates* → emite el certificado del
    subdominio (tarda unos minutos en propagarse).
 3. Entra a `https://TU-SUBDOMINIO/` y comprueba: portada → **Materias** → una materia
@@ -74,8 +87,8 @@ Ya está público. Cualquiera con el link entra, a cualquier hora.
 ## Cómo actualizar el sitio más adelante
 
 Para cambios pequeños (un cuestionario nuevo, un archivo corregido) no hace falta
-repetir todo: conéctate por FileZilla y arrastra **solo los archivos cambiados** a la
-misma ruta dentro de `htdocs`. FileZilla te pregunta si sobrescribir; di que sí.
+repetir todo: conéctate por WinSCP y arrastra **solo los archivos cambiados** a la
+misma ruta dentro de `htdocs`. Te pregunta si sobrescribir; di que sí.
 
 ---
 
@@ -152,7 +165,9 @@ Comprobación automática: 935 archivos, 4.843 enlaces internos revisados.
   *incorrecto* bien, y el botón «mostrar solución» también.
 - POST al motor de APO (`APO/Lectura_1/index.php`): responde correctamente.
 - Sin *warnings*, *deprecated* ni errores de PHP en el log.
-- Los 9 zips: **integridad OK**, 3.384 entradas, sin duplicados, `.htaccess` dentro,
-  y ni rastro de `node_modules`, `.git` ni `administrador`.
+- Los 21 zips: **integridad OK**, 3.384 entradas, sin duplicados, `.htaccess` dentro,
+  ninguno pasa de 8,2 MB, y ni rastro de `node_modules`, `.git` ni `administrador`.
+- Ningún archivo del sitio supera los límites de InfinityFree: el mayor pesa 1,49 MB
+  (`img/Parcial #1 Física.pdf`) y ningún `.php`/`.html` llega a 1 MB.
 - `instalar.php` probado de verdad contra un servidor PHP: extrae y el resultado es
   **byte a byte idéntico** al original.

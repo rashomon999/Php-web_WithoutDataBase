@@ -1,7 +1,11 @@
 node_modules/
 .idea/
 _to_delete/
+_paquete_ftp/
 *.tar.gz
+*.zip
 _full_listing.txt
+_publicar.log
+publicar.config
 .DS_Store
 Thumbs.db

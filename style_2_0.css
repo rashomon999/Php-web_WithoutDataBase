@@ -92,3 +92,24 @@ body {
     background-color: #f8f9fa;
 
 }
+
+@media (max-width: 768px) {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seccion {
+        width: 100%;
+        min-height: auto;
+        margin-left: 0;
+    }
+
+    .seccion.izquierda {
+        order: 1;
+    }
+
+    .seccion.derecha {
+        order: 2;
+    }
+}

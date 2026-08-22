@@ -1848,7 +1848,7 @@ function ocultarMensaje4() {
     <button onmousedown="mostrarImagen2()" onmouseup="ocultarImagen2()">Ayuda</button>
     <!-- Elemento para mostrar la imagen -->
  
-    <img id="imagenMostrada2" src="../../../../img/iso.png"  style="display: none; max-width: 100%" width="460">
+    <img id="imagenMostrada2" src="../../../../img/ISO.png"  style="display: none; max-width: 100%" width="460">
 
     <script>
         function mostrarImagen2() {

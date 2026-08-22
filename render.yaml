@@ -1,0 +1,14 @@
+# Despliegue en Render (plan gratuito) usando el Dockerfile del repo.
+# https://render.com  ->  New +  ->  Blueprint  ->  elegir este repositorio
+services:
+  - type: web
+    name: cuestionarios
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /index.php
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 10000

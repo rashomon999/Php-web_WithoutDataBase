@@ -100,7 +100,7 @@ if ($_POST) {
         name="siguiente"
         id="siguiente"
         class="btn btn-primary"
-        href="octavo.php"
+        href="Octavo.php"
         role="button"
         width="50px"
         height="50px"

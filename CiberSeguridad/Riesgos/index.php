@@ -10,7 +10,7 @@ require_once __DIR__ . '/../motor.php';
 $SOLUCIONES = [
     /* --- 1. NIST: verbo + definicion con huecos --- */
     1  => ['identificar', 'identify'],
-    2  => ['activos'],
+    2  => ['identificar que activos'],
     3  => ['valor'],
     4  => ['proteger', 'protect'],
     5  => ['controles'],
@@ -214,7 +214,7 @@ cabecera('2 · Riesgo, amenazas y ataques', 'notas_2 — definiciones con huecos
   <p>Cada una con su definicion. Rellena el verbo y las palabras clave.</p>
 
   <p><b>1&ordm;</b> <?php hueco(1, 13); ?> —
-     identificar que <?php hueco(2, 10); ?> se quieren proteger. Es necesario saber
+       <?php hueco(2, 24); ?> se quieren proteger. Es necesario saber
      que informacion, sistemas o recursos tienen <?php hueco(3, 8); ?>
      antes de aplicar medidas de seguridad.</p>
 

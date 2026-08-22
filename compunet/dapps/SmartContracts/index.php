@@ -9,10 +9,10 @@ require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [
     /* --- definicion --- */
-    1  => ['digitales'],
-    2  => ['blockchain'],
-    3  => ['automaticamente'],
-    4  => ['predeterminados', 'predeterminadas'],
+    1  => ['Los contratos inteligentes son contratos digitales almacenados'],
+    2  => ['una blockchain'],
+    3  => ['se ejecutan automaticamente cuando se cumplen terminos'],
+    4  => ['condiciones predeterminados'],
     5  => ['intermediario'],
     6  => ['x'],
     7  => ['y'],
@@ -168,10 +168,10 @@ cabecera('2 · Smart Contracts', 'exposicion.pdf — definicion, ejecucion, Soli
 <div class="card">
   <h2>1. Definicion</h2>
 
-  <p>Los contratos inteligentes son contratos <?php hueco(1, 12); ?>
-     almacenados en una <?php hueco(2, 12); ?> que se ejecutan
-     <?php hueco(3, 16); ?> cuando se cumplen terminos y condiciones
-     <?php hueco(4, 16); ?> .</p>
+  <p>  <?php hueco(1, 62); ?>
+       en   <?php hueco(2, 14); ?> que  
+     <?php hueco(3, 55); ?>   y  
+     <?php hueco(4, 26); ?> .</p>
 
   <p>Se usan para automatizar la ejecucion de un acuerdo, de modo que todos los
      participantes puedan estar inmediatamente seguros del resultado, sin la participacion

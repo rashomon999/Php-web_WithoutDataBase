@@ -28,7 +28,7 @@ $libros = [
         'nombre' => 'Ingesoft',
         'imagen' => 'fondo.jpg',
         'categoria' => 'principal',
-        'link' => 'ingesoft/Menu.php'
+        'link' => 'ingeSoft/Menu.php'
     ],
     [
         'nombre' => 'Inglés',

@@ -35,7 +35,7 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas sobre simplificación de expresiones matemáticas</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="octavo.css">
+    <link rel="stylesheet" href="Octavo.css">
     <style>
         .imagen {
             max-width: 100%;
@@ -71,7 +71,7 @@ if ($_POST) {
 </head>
 <body>
 <div class="seccion izquierda">
-    <form action="./octavo.php" method="POST" onsubmit="handleSubmit(event)">
+    <form action="./Octavo.php" method="POST" onsubmit="handleSubmit(event)">
         <img src="..\img\Captura de pantalla 2024-07-06 094015.png" alt="">
         <img src="..\..\img\Captura de pantalla 2024-07-06 094122.png" alt=""><br>
         Encontramos el valor que satisface la igualdad (con limite definido como e=2,71828) <br>
@@ -85,7 +85,7 @@ if ($_POST) {
 </div>
 
 <div class="seccion derecha">
-    <form action="./octavo.php" method="POST" onsubmit="handleSubmit(event)"> 
+    <form action="./Octavo.php" method="POST" onsubmit="handleSubmit(event)"> 
         <img src="..\..\img\Captura de pantalla 2024-07-06 095457.png" alt="">
         <img src="..\..\img\Captura de pantalla 2024-07-06 095538.png" alt=""> <br><br>
         <img src="..\..\img\Captura de pantalla 2024-07-06 100138.png" alt=""> <br><br>

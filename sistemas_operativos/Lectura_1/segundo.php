@@ -137,7 +137,8 @@ if ($_POST) {
     $respuesta_89 = 'servicios';
     $respuesta_90 = 'comunicarse';
         $respuesta_91 = 'Computacion en la nube';
-
+    $respuesta_93 = 'ambientes de computación';
+ 
      
     // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
@@ -447,7 +448,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la novena pregunta
    $respuesta_31 = isset($_POST['respuesta_31']) ? $_POST['respuesta_31'] : '';
-   if ($respuesta_31 === 'crítico') {  
+   if ($respuesta_31 === 'critico') {  
        $verificar_31 = "correcto";
    } elseif ($respuesta_31 === '') {
        $verificar_31 = '';
@@ -1055,7 +1056,7 @@ if ($respuesta_92 === '105') {
 }
 
  $respuesta_93 = isset($_POST['respuesta_93']) ? $_POST['respuesta_93'] : '';
-if ($respuesta_93 === '126') { 
+if ($respuesta_93 === 'ambientes de computacion') { 
     $verificar_93 = "correcto";
 } elseif ($respuesta_93 === '') {
     $verificar_93 = '';
@@ -1751,7 +1752,9 @@ function ocultarMensaje4() {
     <?php echo $verificar_19 ?> 
     <?php echo $verificar_20 ?>
     <hr>
-<h4>1.30. Mencione al menos cinco tipos diferentes de ambientes de computación</h4>
+<h4>1.30. Mencione al menos cinco tipos diferentes de 
+<input type="text" name="respuesta_93" value="<?php echo $respuesta_93; ?>" size="23">    
+ </h4>
 
 <ul>
   <li>Computación tradicional (desktop/laptop).</li>
@@ -1783,6 +1786,7 @@ function ocultarMensaje4() {
 </ul>
 
     <button type="submit">Enviar</button>
+    <?php echo $verificar_93 ?>
     <?php echo $verificar_21 ?>
     <?php echo $verificar_22 ?>
     <?php echo $verificar_23 ?>
@@ -1834,7 +1838,7 @@ function ocultarMensaje4() {
   <li>
     <strong>No enmascarable (NMI):</strong> interrupción que la CPU
     <strong>
-    <input type="text" name="respuesta_30" value="<?php echo $respuesta_30; ?>" size="12">      
+    <input type="text" name="respuesta_30" value="<?php echo $respuesta_30; ?>" size="13">      
       o desactivar normalmente</strong> porque indica un evento 
     <input type="text" name="respuesta_31" value="<?php echo $respuesta_31; ?>" size="8">  
      .<br>
@@ -2009,7 +2013,7 @@ function ocultarMensaje4() {
   <input type="text" name="respuesta_62" value="<?php echo $respuesta_62; ?>" size="8">  
    </li>
   <li>
-    <input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="14">
+    <input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="16">
      
     <ul>
       <li>Mediante 
@@ -2164,7 +2168,7 @@ function ocultarMensaje4() {
     (
   <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="8">  
     - 
-  <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="23">
+  <input type="text" name="respuesta_88" value="<?php echo $respuesta_88; ?>" size="24">
    )</strong>
   para que los 
   <input type="text" name="respuesta_89" value="<?php echo $respuesta_89; ?>" size="8">

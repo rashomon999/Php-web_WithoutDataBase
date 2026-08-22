@@ -2792,7 +2792,7 @@ El Master
         name="siguiente"
         id="siguiente"
         class="btn btn-primary"
-        href="cuarto.php"
+        href="Cuarto.php"
         role="button"
         width="50px"
         height="50px"

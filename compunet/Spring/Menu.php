@@ -31,7 +31,7 @@
     <div class="centered-container">
         <a class="btn" href=".\Introduccion\index.php">Introduccion</a>
         <a class="btn" href=".\cuestionarioIntro\index.php">cuestionario</a>
-        <a class="btn" href=".\Introduccion_2\index.php">Introduccion 2</a>
+        <a class="btn" href=".\introduccion_2\index.php">Introduccion 2</a>
         <a class="btn" href=".\cuestionario_2\index.php">cuestionario_2</a>
 
         <a class="btn" href=".\Anotaciones\index.php">Anotaciones</a>

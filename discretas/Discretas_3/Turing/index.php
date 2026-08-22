@@ -1635,7 +1635,7 @@ function ocultarMensaje4() {
 <img src="../../../img/guia_446.png" alt="" width="300"> 
 </p>
 <p>
-<img src="../../../img/guia_447.png" alt="" width="300">
+<img src="../../../img/GUIA_447.png" alt="" width="300">
 <img src="../../../img/guia_448.png" alt="" width="280">
 <img src="../../../img/guia_449.png" alt="" width="300"> 
 </p>

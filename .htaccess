@@ -1,0 +1,55 @@
+# ============================================================
+#  Sitio de cuestionarios (PHP sin base de datos)
+#  Valido para Apache 2.4: InfinityFree, Byet, Render, XAMPP...
+# ============================================================
+
+DirectoryIndex index.php index.html
+Options -Indexes
+
+# --- Rescate de enlaces con mayusculas/minusculas equivocadas -------------
+# En Windows (XAMPP) "Menu.php" y "menu.php" son el mismo archivo; en Linux NO.
+# Si el servidor tiene mod_speling, corrige el caso automaticamente.
+<IfModule mod_speling.c>
+    CheckSpelling On
+    CheckCaseOnly On
+</IfModule>
+
+# --- No ensenar errores de PHP a los visitantes --------------------------
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
+# --- Codificacion por defecto -------------------------------------------
+AddDefaultCharset UTF-8
+
+# --- Archivos que nadie debe poder abrir desde la web -------------------
+<FilesMatch "(^\.|\.(sql|bak|log|ini|md|yaml|yml|lock)$|^Dockerfile$|^package(-lock)?\.json$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+RedirectMatch 404 /\.git(/|$)
+RedirectMatch 404 /node_modules(/|$)
+RedirectMatch 404 /_to_delete(/|$)
+
+# --- Cache de imagenes y hojas de estilo --------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png   "access plus 30 days"
+    ExpiresByType image/jpeg  "access plus 30 days"
+    ExpiresByType image/gif   "access plus 30 days"
+    ExpiresByType image/webp  "access plus 30 days"
+    ExpiresByType text/css    "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
+
+# --- Compresion ---------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript
+</IfModule>

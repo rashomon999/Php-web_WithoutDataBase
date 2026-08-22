@@ -1478,7 +1478,7 @@ function ocultarMensaje4() {
     puntos para pertencer a la grafica, si un punto tiene coordenada z=0 entonces esta en el plano.
     <br>
     <strong>Z=0 o plano xy  </strong> 
-    <img src="../../img/Z_0.png" alt="">
+    <img src="../../img/z_0.png" alt="">
     <br>
     <strong>plano zy o x=0 : </strong>
     <br>

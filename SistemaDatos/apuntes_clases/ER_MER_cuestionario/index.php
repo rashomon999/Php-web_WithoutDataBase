@@ -1973,7 +1973,7 @@ Puede ser <strong>total (obligatoria)</strong> o <strong>parcial (opcional)</str
 
 <div class="seccion derecha">
    
-<img src="../../../img/personal.png" alt="">
+<img src="../../../img/PERSONAL.png" alt="">
 <h5>Participación de las Entidades en una Relación</h5>
 
 <ul>

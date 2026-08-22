@@ -32,7 +32,7 @@
     <div class="centered-container">
         <a class="btn" href="./Map/index.php">Map</a>
         <a class="btn" href="./For/index.php">For</a>
-        <a class="btn" href="./Codigo/index.php">Codigo</a>
+        <a class="btn" href="./codigo/index.php">Codigo</a>
     </div>
 </body>
 </html>

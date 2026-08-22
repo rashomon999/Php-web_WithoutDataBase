@@ -25,17 +25,17 @@ if ($_POST) {
     $respuesta_6 = 'cambio';
     $respuesta_7 = 'produccion';
     $respuesta_8 = 'alta calidad';
-    $respuesta_9 = 'tiempo';
+    $respuesta_9 = 'Reducir el tiempo';
     $respuesta_10 = 'entrega';
     $respuesta_11 = 'time';
     $respuesta_12 = 'rapido';
-    $respuesta_13 = 'calidad';
+    $respuesta_13 = 'Mantener alta calidad';
     $respuesta_14 = 'errores';
-    $respuesta_15 = 'Automatizar';
-    $respuesta_16 = 'colaboracion';
+    $respuesta_15 = 'Automatizar procesos';
+    $respuesta_16 = 'Mejorar la colaboracion';
     $respuesta_17 = 'silos';
     $respuesta_18 = 'cinco';
-    $respuesta_19 = 'Operaciones';
+    $respuesta_19 = 'Tratar a Operaciones';
     $respuesta_20 = 'ciudadanos';
     $respuesta_21 = 'primera clase';
     $respuesta_22 = 'First-class';
@@ -48,7 +48,7 @@ if ($_POST) {
     $respuesta_29 = 'Seguridad';
     $respuesta_30 = 'final';
     $respuesta_31 = 'desplegar';
-    $respuesta_32 = 'responsable';
+    $respuesta_32 = 'Hacer que Desarrollo sea responsable';
     $respuesta_33 = 'incidentes relevantes';
     $respuesta_34 = 'entrega codigo';
     $respuesta_35 = 'mantiene sistema';
@@ -59,7 +59,7 @@ if ($_POST) {
     $respuesta_40 = 'detectar';
     $respuesta_41 = 'error';
     $respuesta_42 = 'solucionarlo';
-    $respuesta_43 = 'proceso';
+    $respuesta_43 = 'Aplicar un proceso';
     $respuesta_44 = 'despliegue comun';
     $respuesta_45 = 'Desarrollo';
     $respuesta_46 = 'Operaciones';
@@ -68,7 +68,7 @@ if ($_POST) {
     $respuesta_49 = 'configuraciones incorrectas';
     $respuesta_50 = 'facilidad';
     $respuesta_51 = 'rastrear cambios';
-    $respuesta_52 = 'despliegue continuo';
+    $respuesta_52 = 'Usar despliegue continuo';
     $respuesta_53 = 'reducir';
     $respuesta_54 = 'tiempo';
     $respuesta_55 = 'Commit';
@@ -77,7 +77,7 @@ if ($_POST) {
     $respuesta_58 = 'Integracion continua';
     $respuesta_59 = 'Pruebas automaticas';
     $respuesta_60 = 'Pipelines';
-    $respuesta_61 = 'infraestructura';
+    $respuesta_61 = 'Tratar la infraestructura';
     $respuesta_62 = 'codigo';
     $respuesta_63 = 'Infrastructure';
     $respuesta_64 = 'Code';
@@ -90,26 +90,26 @@ if ($_POST) {
     $respuesta_71 = 'versiones';
     $respuesta_72 = 'Pruebas';
     $respuesta_73 = 'Revision';
-    $respuesta_74 = 'plan';
+    $respuesta_74 = 'Definir plan';
     $respuesta_75 = 'lanzamiento';
     $respuesta_76 = 'Funcionalidades nuevas';
     $respuesta_77 = 'Fechas';
     $respuesta_78 = 'Recursos necesarios';
     $respuesta_79 = 'Capacitacion';
     $respuesta_80 = 'Operaciones';
-    $respuesta_81 = 'compatibilidad';
+    $respuesta_81 = 'Asegurar compatibilidad';
     $respuesta_82 = 'compatibilidad';
     $respuesta_83 = 'Librerias';
     $respuesta_84 = 'Plataformas';
     $respuesta_85 = 'Servicios externos';
-    $respuesta_86 = 'integridad';
+    $respuesta_86 = 'Mantener integridad';
     $respuesta_87 = 'paquete';
     $respuesta_88 = 'lanzamiento';
     $respuesta_89 = 'incluir';
     $respuesta_90 = 'antiguas accidentalmente';
     $respuesta_91 = 'componentes';
     $respuesta_92 = 'desplegados';
-    $respuesta_93 = 'rastrear';
+    $respuesta_93 = 'Poder rastrear';
     $respuesta_94 = 'revertir cambios';
     $respuesta_95 = 'despliegue';
     $respuesta_96 = 'Instalar';
@@ -155,9 +155,9 @@ if ($_POST) {
     $respuesta_135 = 'Monitorea';
     $respuesta_136 = 'rollback';
     $respuesta_137 = 'problemas';
-    $respuesta_138 = 'respuesta';
-    $respuesta_139 = 'respuesta';
-    $respuesta_140 = 'respuesta';
+    $respuesta_138 = 'Objetivos';
+    $respuesta_139 = 'Prácticas';
+    $respuesta_140 = 'Todos';
         // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
     ${"verificar_$i"} = "correcto";
@@ -245,7 +245,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la novena pregunta
    $respuesta_9 = isset($_POST['respuesta_9']) ? $_POST['respuesta_9'] : '';
-   if ($respuesta_9 === 'tiempo') {  
+   if ($respuesta_9 === 'Reducir el tiempo') {  
        $verificar_9 = "correcto";
    } elseif ($respuesta_9 === '') {
        $verificar_9 = '';
@@ -286,7 +286,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la segunda pregunta
     $respuesta_13 = isset($_POST['respuesta_13']) ? $_POST['respuesta_13'] : '';
-    if ($respuesta_13 === 'calidad') { 
+    if ($respuesta_13 === 'Mantener alta calidad') { 
         $verificar_13 = "correcto";
     } elseif ($respuesta_13 === '') {
         $verificar_13 = '';
@@ -306,7 +306,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la cuarta pregunta
     $respuesta_15 = isset($_POST['respuesta_15']) ? $_POST['respuesta_15'] : '';
-    if ($respuesta_15 === 'Automatizar') { 
+    if ($respuesta_15 === 'Automatizar procesos') { 
         $verificar_15 = "correcto";
     } elseif ($respuesta_15 === '') {
         $verificar_15 = '';
@@ -316,7 +316,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la quinta pregunta
     $respuesta_16 = isset($_POST['respuesta_16']) ? $_POST['respuesta_16'] : '';
-    if ($respuesta_16 === 'colaboracion') {  
+    if ($respuesta_16 === 'Mejorar la colaboracion') {  
         $verificar_16 = "correcto";
     } elseif ($respuesta_16 === '') {
         $verificar_16 = '';
@@ -346,8 +346,8 @@ if ($_POST) {
   
     // Verificar la respuesta de la octava pregunta
     $respuesta_19 = isset($_POST['respuesta_19']) ? $_POST['respuesta_19'] : '';
-    if ($respuesta_19 === 'Operaciones'
-    || $respuesta_19 === 'operaciones'
+    if ($respuesta_19 === 'Tratar a Operaciones'
+    || $respuesta_19 === 'Tratar a operaciones'
     ) {  
         $verificar_19 = "correcto";
     } elseif ($respuesta_19 === '') {
@@ -480,7 +480,7 @@ if ($_POST) {
 
    // Verificar la respuesta de la décima pregunta
    $respuesta_32 = isset($_POST['respuesta_32']) ? $_POST['respuesta_32'] : '';
-   if ($respuesta_32 === 'responsable') {  
+   if ($respuesta_32 === 'Hacer que Desarrollo sea responsable') {  
        $verificar_32 = "correcto";
    } elseif ($respuesta_32 === '') {
        $verificar_32 = '';
@@ -584,7 +584,7 @@ if ($_POST) {
     }
 
     $respuesta_43 = isset($_POST['respuesta_43']) ? $_POST['respuesta_43'] : '';
-    if ($respuesta_43 === 'proceso') { 
+    if ($respuesta_43 === 'Aplicar un proceso') { 
         $verificar_43 = "correcto";
     } elseif ($respuesta_43 === '') {
         $verificar_43 = '';
@@ -665,7 +665,7 @@ if ($respuesta_51 === 'rastrear cambios') {
 }
 
  $respuesta_52 = isset($_POST['respuesta_52']) ? $_POST['respuesta_52'] : '';
-if ($respuesta_52 === 'despliegue continuo') { 
+if ($respuesta_52 === 'Usar despliegue continuo') { 
     $verificar_52 = "correcto";
 } elseif ($respuesta_52 === '') {
     $verificar_52 = '';
@@ -747,7 +747,7 @@ if ($respuesta_60 === 'Pipelines') {
 }
 
  $respuesta_61 = isset($_POST['respuesta_61']) ? $_POST['respuesta_61'] : '';
-if ($respuesta_61 === 'infraestructura') { 
+if ($respuesta_61 === 'Tratar la infraestructura') { 
     $verificar_61 = "correcto";
 } elseif ($respuesta_61 === '') {
     $verificar_61 = '';
@@ -864,7 +864,7 @@ if ($respuesta_73 === 'Revision') {
 }
 
  $respuesta_74 = isset($_POST['respuesta_74']) ? $_POST['respuesta_74'] : '';
-if ($respuesta_74 === 'plan') { 
+if ($respuesta_74 === 'Definir plan') { 
     $verificar_74 = "correcto";
 } elseif ($respuesta_74 === '') {
     $verificar_74 = '';
@@ -929,7 +929,7 @@ if ($respuesta_80 === 'Operaciones'
 }
 
  $respuesta_81 = isset($_POST['respuesta_81']) ? $_POST['respuesta_81'] : '';
-if ($respuesta_81 === 'compatibilidad') { 
+if ($respuesta_81 === 'Asegurar compatibilidad') { 
     $verificar_81 = "correcto";
 } elseif ($respuesta_81 === '') {
     $verificar_81 = '';
@@ -974,7 +974,7 @@ if ($respuesta_81 === 'compatibilidad') {
     }
 
     $respuesta_86 = isset($_POST['respuesta_86']) ? $_POST['respuesta_86'] : '';
-    if ($respuesta_86 === 'integridad') { 
+    if ($respuesta_86 === 'Mantener integridad') { 
         $verificar_86 = "correcto";
     } elseif ($respuesta_86 === '') {
         $verificar_86 = '';
@@ -1037,7 +1037,7 @@ if ($respuesta_92 === 'desplegados') {
 }
 
  $respuesta_93 = isset($_POST['respuesta_93']) ? $_POST['respuesta_93'] : '';
-if ($respuesta_93 === 'rastrear') { 
+if ($respuesta_93 === 'Poder rastrear') { 
     $verificar_93 = "correcto";
 } elseif ($respuesta_93 === '') {
     $verificar_93 = '';
@@ -1456,7 +1456,7 @@ if ($respuesta_137 === 'problemas') {
 }
 
 $respuesta_138 = isset($_POST['respuesta_138']) ? $_POST['respuesta_138'] : '';
-if ($respuesta_138 === 'respuesta') {   
+if ($respuesta_138 === 'Objetivos') {   
     $verificar_138 = "correcto";
 } elseif ($respuesta_138 === '') {
     $verificar_138 = '';
@@ -1465,7 +1465,7 @@ if ($respuesta_138 === 'respuesta') {
 }
 
 $respuesta_139 = isset($_POST['respuesta_139']) ? $_POST['respuesta_139'] : '';
-if ($respuesta_139 === 'respuesta') {   
+if ($respuesta_139 === 'Practicas') {   
     $verificar_139 = "correcto";
 } elseif ($respuesta_139 === '') {
     $verificar_139 = '';
@@ -1474,7 +1474,7 @@ if ($respuesta_139 === 'respuesta') {
 }
 
 $respuesta_140 = isset($_POST['respuesta_140']) ? $_POST['respuesta_140'] : '';
-if ($respuesta_140 === 'respuesta') {   
+if ($respuesta_140 === 'Todos') {   
     $verificar_140 = "correcto";
 } elseif ($respuesta_140 === '') {
     $verificar_140 = '';
@@ -1834,14 +1834,16 @@ function ocultarMensaje4() {
  
 
 
-<h3>2. Objetivos principales de DevOps</h3>
+<h3>2. 
+    <input type="text" name="respuesta_138" value="<?php echo $respuesta_138; ?>" size="8">
+      principales de DevOps</h3>
 
 <p>DevOps busca:</p>
 
 <ol>
     <li>
-        <strong>Reducir el 
-        <input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="8">    
+        <strong>  
+        <input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="14">    
           de 
         <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="8">
           (<em>
@@ -1855,8 +1857,8 @@ function ocultarMensaje4() {
     </li>
 
     <li>
-        <strong>Mantener alta 
-        <input type="text" name="respuesta_13" value="<?php echo $respuesta_13; ?>" size="8">    
+        <strong>  
+        <input type="text" name="respuesta_13" value="<?php echo $respuesta_13; ?>" size="17">    
           del software</strong>
         <ul>
             <li>Evitar 
@@ -1868,8 +1870,8 @@ function ocultarMensaje4() {
 
     <li>
         <strong>
-        <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="8">    
-          procesos</strong>
+        <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="18">    
+           </strong>
         <ul>
             <li>Reducir errores humanos.</li>
             <li>Acelerar despliegues.</li>
@@ -1877,8 +1879,8 @@ function ocultarMensaje4() {
     </li>
 
     <li>
-        <strong>Mejorar la 
-        <input type="text" name="respuesta_16" value="<?php echo $respuesta_16; ?>" size="8">    
+        <strong>  
+        <input type="text" name="respuesta_16" value="<?php echo $respuesta_16; ?>" size="19">    
           entre Desarrollo y Operaciones</strong>
         <ul>
             <li>Romper los 
@@ -1888,6 +1890,7 @@ function ocultarMensaje4() {
     </li>
 </ol>
     <button type="submit">Enviar</button> 
+    <?php echo $verificar_138 ?>
     <?php echo $verificar_9 ?>
     <?php echo $verificar_10 ?>
     <?php echo $verificar_11 ?> 
@@ -1898,14 +1901,16 @@ function ocultarMensaje4() {
     <?php echo $verificar_16 ?>
     <?php echo $verificar_17 ?>
     <hr>
-<h3>3. Prácticas DevOps principales</h3>
+<h3>3. 
+<input type="text" name="respuesta_139" value="<?php echo $respuesta_139; ?>" size="8">    
+  DevOps principales</h3>
 
 <p>El libro identifica 
 <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="8">     
   categorías principales:</p>
 
-<h4>1. Tratar a 
-<input type="text" name="respuesta_19" value="<?php echo $respuesta_19; ?>" size="8">     
+<h4>1.   
+<input type="text" name="respuesta_19" value="<?php echo $respuesta_19; ?>" size="16">     
   como 
 <input type="text" name="respuesta_20" value="<?php echo $respuesta_20; ?>" size="8"> 
   de 
@@ -1949,6 +1954,7 @@ Operaciones debe participar desde etapas tempranas del desarrollo.
 </p>
 
 <button type="submit">Enviar</button>
+<?php echo $verificar_139 ?>
 <?php echo $verificar_18 ?>
     <?php echo $verificar_19 ?> 
     <?php echo $verificar_20 ?>
@@ -1965,8 +1971,8 @@ Operaciones debe participar desde etapas tempranas del desarrollo.
     <?php echo $verificar_31 ?>
     <hr>
 
-<h4>2. Hacer que Desarrollo sea 
-<input type="text" name="respuesta_32" value="<?php echo $respuesta_32; ?>" size="8">    
+<h4>2.   
+<input type="text" name="respuesta_32" value="<?php echo $respuesta_32; ?>" size="32">    
   de 
 <input type="text" name="respuesta_33" value="<?php echo $respuesta_33; ?>" size="18">
  </h4>
@@ -2011,14 +2017,16 @@ Objetivo: reducir el
     <?php echo $verificar_42 ?>
     <hr>
 
-<h4>3. Aplicar un 
-<input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="9">    
+<h4>3.   
+<input type="text" name="respuesta_43" value="<?php echo $respuesta_43; ?>" size="15">    
   de 
 <input type="text" name="respuesta_44" value="<?php echo $respuesta_44; ?>" size="14">
  </h4>
 
 <p>
-Todos deben seguir el mismo proceso:
+
+<input type="text" name="respuesta_140" value="<?php echo $respuesta_140; ?>" size="11"> 
+deben seguir el mismo proceso:
 </p>
 
 <ul>
@@ -2050,6 +2058,8 @@ Todos deben seguir el mismo proceso:
 </ul>
 
     <button type="submit">Enviar</button>
+    <?php echo $verificar_140 ?>
+
     <?php echo $verificar_43 ?>
     <?php echo $verificar_44 ?>  
     <?php echo $verificar_45 ?>
@@ -2061,8 +2071,8 @@ Todos deben seguir el mismo proceso:
     <?php echo $verificar_51 ?>
 <hr>
 
-<h4>4. Usar 
-<input type="text" name="respuesta_52" value="<?php echo $respuesta_52; ?>" size="16">    
+<h4>4.   
+<input type="text" name="respuesta_52" value="<?php echo $respuesta_52; ?>" size="22">    
    </h4>
 
 <p>
@@ -2105,8 +2115,8 @@ Busca
     <?php echo $verificar_59 ?>
     <?php echo $verificar_60 ?>
 <hr>
-<h4>5. Tratar la 
-<input type="text" name="respuesta_61" value="<?php echo $respuesta_61; ?>" size="11">    
+<h4>5.   
+<input type="text" name="respuesta_61" value="<?php echo $respuesta_61; ?>" size="19">    
   como 
 <input type="text" name="respuesta_62" value="<?php echo $respuesta_62; ?>" size="9">
   (<em>
@@ -2177,8 +2187,8 @@ La
     
  <h3>4. Proceso tradicional de Release</h3>
 
-<h4>1. Definir 
-<input type="text" name="respuesta_74" value="<?php echo $respuesta_74; ?>" size="8">     
+<h4>1.   
+<input type="text" name="respuesta_74" value="<?php echo $respuesta_74; ?>" size="9">     
   de 
 <input type="text" name="respuesta_75" value="<?php echo $respuesta_75; ?>" size="8"> 
  </h4>
@@ -2208,8 +2218,8 @@ La
 <?php echo $verificar_79 ?>
 <?php echo $verificar_80 ?>
 <hr>
-<h4>2. Asegurar 
-<input type="text" name="respuesta_81" value="<?php echo $respuesta_81; ?>" size="11">    
+<h4>2.   
+<input type="text" name="respuesta_81" value="<?php echo $respuesta_81; ?>" size="20">    
  </h4>
 
 <p>Verificar 
@@ -2235,8 +2245,8 @@ La
 <?php echo $verificar_84 ?>
 <?php echo $verificar_85 ?>
 <hr>
-<h4>3. Mantener 
-<input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="9">    
+<h4>3.   
+<input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="17">    
   del 
 <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="9">
   de 
@@ -2266,8 +2276,8 @@ La
 <?php echo $verificar_92 ?>
 <hr>
 
-<h4>4. Poder 
-<input type="text" name="respuesta_93" value="<?php echo $respuesta_93; ?>" size="9">    
+<h4>4.   
+<input type="text" name="respuesta_93" value="<?php echo $respuesta_93; ?>" size="12">    
   y 
 <input type="text" name="respuesta_94" value="<?php echo $respuesta_94; ?>" size="14">
  </h4>

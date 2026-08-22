@@ -9,13 +9,13 @@ require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [
     /* --- definicion de dApp --- */
-    1  => ['descentralizada'],
-    2  => ['blockchain'],
-    3  => ['seguridad'],
+    1  => ['Una Aplicacion descentralizada'],
+    2  => ['opera sobre una red blockchain'],
+    3  => ['proporcionar mayor seguridad'],
     4  => ['transparencia'],
-    5  => ['autonomia'],
-    6  => ['empresa'],
-    7  => ['servidor'],
+    5  => ['autonomia en comparacion con las aplicaciones tradicionales'],
+    6  => ['Cuando usas una DApp'],
+    7  => ['tu informacion no esta controlada por una unica empresa o servidor'],
     8  => ['nodos'],
 
     /* --- que problema resuelve --- */
@@ -26,7 +26,7 @@ $SOLUCIONES = [
 
     /* --- descentralizacion --- */
     13 => ['control'],
-    14 => ['distribuido', 'distribuida'],
+    14 => ['distribuida', 'distribuido'],
     15 => ['auditadas', 'auditar'],
 
     /* --- P2P --- */
@@ -35,13 +35,13 @@ $SOLUCIONES = [
     18 => ['napster'],
 
     /* --- blockchain --- */
-    19 => ['libro mayor', 'libro de contabilidad', 'libro mayor digital'],
+    19 => ['Blockchain es una base de datos o libro mayor digital descentralizado que almacena registros'],
     20 => ['transparente', 'transparentes'],
     21 => ['inmutable', 'inmutables'],
     22 => ['manipulacion'],
-    23 => ['bloque'],
-    24 => ['cadena'],
-    25 => ['cronologica'],
+    23 => ['Cada bloque contiene datos'],
+    24 => ['cadena cronologica'],
+    25 => ['Modificar algo del pasado'],
 
     /* --- por que todos los nodos ejecutan --- */
     26 => ['transaccion'],
@@ -69,6 +69,11 @@ $SOLUCIONES = [
     42 => ['poseen', 'poseer'],
     43 => ['propiedad'],
     44 => ['wallet', 'billetera'],
+
+    /*añadidos */
+    45 => ['Utiliza las caracteristicas de esa red'],
+    46 => ['forma segura a traves de una red de computadoras'],
+
 ];
 
 $TEXTO = range(1, 44);
@@ -171,16 +176,20 @@ cabecera('1 · Fundamentos de las dApps', 'exposicion.pdf — que son, que probl
 <div class="card">
   <h2>1. Que es una dApp</h2>
 
-  <p>Una Aplicacion <?php hueco(1, 16); ?> (DApp) es una aplicacion que
-     opera sobre una red <?php hueco(2, 12); ?> . Utiliza las caracteristicas
-     de esa red para proporcionar mayor <?php hueco(3, 12); ?> ,
-     <?php hueco(4, 14); ?> y <?php hueco(5, 12); ?>
-     en comparacion con las aplicaciones tradicionales.</p>
+  <p>  <?php hueco(1, 31); ?> (DApp) es una aplicacion que
+       <?php hueco(2, 30); ?> . 
+        <?php hueco(45, 38); ?>
+        
+       para   <?php hueco(3, 28); ?> ,
+     <?php hueco(4, 14); ?> y <?php hueco(5, 61); ?>
+      .</p>
 
-  <p>Cuando usas una DApp, tu informacion no esta controlada por una unica
-     <?php hueco(6, 10); ?> o <?php hueco(7, 10); ?> ,
+  <p>
+  <?php hueco(6, 20); ?>  
+   ,  
+       <?php hueco(7, 66); ?> ,
      sino que se registra en la blockchain y es verificada por multiples
-     <?php hueco(8, 9); ?> de la red.</p>
+     <?php hueco(8, 7); ?> de la red.</p>
 
   <?php enviar(); ?>
   <?php mc('m1'); ?>
@@ -229,15 +238,15 @@ cabecera('1 · Fundamentos de las dApps', 'exposicion.pdf — que son, que probl
 <div class="card">
   <h2>4. Que es una blockchain</h2>
 
-  <p>Blockchain es una base de datos o <?php hueco(19, 18); ?> digital
-     descentralizado que almacena registros de forma segura a traves de una red de
-     computadoras, de manera <?php hueco(20, 13); ?> ,
+  <p>  <?php hueco(19, 91); ?>  
+       de 
+       <?php hueco(46, 47); ?>
+          , de manera <?php hueco(20, 13); ?> ,
      <?php hueco(21, 12); ?> y resistente a la
      <?php hueco(22, 14); ?> .</p>
 
-  <p>Cada <?php hueco(23, 10); ?> contiene datos, y los bloques estan
-     enlazados formando una <?php hueco(24, 10); ?>
-     <?php hueco(25, 13); ?> . Modificar algo del pasado significaria romper
+  <p>  <?php hueco(23, 26); ?>  , y los bloques estan enlazados formando una <?php hueco(24, 19); ?>
+       .  <?php hueco(25, 26); ?>  significaria romper
      la cadena entera, y como hay miles de copias, el resto lo rechazaria.</p>
 
   <?php enviar(); ?>
@@ -273,8 +282,7 @@ cabecera('1 · Fundamentos de las dApps', 'exposicion.pdf — que son, que probl
     <tr><td><?php hueco(33, 16); ?></td><td>el contrato ejecuta solo cuando se cumple la condicion</td></tr>
     <tr><td>Reduccion de <?php hueco(34, 15); ?></td><td>los usuarios interactuan directamente entre ellos</td></tr>
     <tr><td>Control sobre activos y datos</td><td>el usuario toma posesion de lo suyo</td></tr>
-    <tr><td><?php hueco(35, 13); ?></td><td>se construye sobre protocolos existentes, a menudo con codigo abierto</td></tr>
-  </table>
+   </table>
 
   <?php enviar(); ?>
 </div>
@@ -287,7 +295,7 @@ cabecera('1 · Fundamentos de las dApps', 'exposicion.pdf — que son, que probl
   <table class="datos">
     <tr><th>Limitacion</th><th>En una linea</th></tr>
     <tr><td><?php hueco(36, 16); ?></td><td>algunas blockchains son lentas y limitadas en capacidad</td></tr>
-    <tr><td>Costos de transaccion</td><td>cada operacion cuesta, y ese costo se llama <?php hueco(37, 7); ?></td></tr>
+    <tr><td>Costos de transaccion</td><td>Cada operación puede tener un costo, llamado <?php hueco(37, 7); ?></td></tr>
     <tr><td>Seguridad</td><td>no estan libres de <?php hueco(39, 18); ?> ni de intentos de hacking</td></tr>
     <tr><td><?php hueco(38, 14); ?></td><td>wallets, redes y firmas hacen la experiencia dura para un usuario nuevo</td></tr>
     <tr><td>Dependencia de la infraestructura</td><td>la dApp hereda los limites de la blockchain sobre la que corre</td></tr>

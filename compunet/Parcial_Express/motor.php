@@ -482,6 +482,10 @@ body{margin:0;background:var(--gris);font-family:-apple-system,Segoe UI,Arial,sa
 .card > h2{margin:0 0 4px;font-size:21px;color:var(--azul);
            border-bottom:2px solid #eceff3;padding-bottom:10px}
 .card > h3{margin:22px 0 8px;font-size:17px;color:#2f3a48}
+.field-list{margin:18px 0 18px}
+.field-list h3{margin:0 0 10px;font-size:27px;line-height:1.2;color:#1f2733}
+.field-list ul{margin:0;padding-left:28px;list-style:disc}
+.field-list li{margin:6px 0;font-size:17px;line-height:1.5;list-style:disc}
 .card p{margin:10px 0}
 .nota{background:#fff8e1;border-left:4px solid #f0b429;padding:10px 14px;
       border-radius:0 8px 8px 0;font-size:14.5px;margin:14px 0}
@@ -497,8 +501,9 @@ pre code{background:none;color:inherit;padding:0;font-size:inherit}
 /* ---- huecos ---- */
 .hbox{display:inline-flex;align-items:center;gap:6px;max-width:100%;white-space:nowrap;flex-wrap:wrap}
 .hueco{font-family:Consolas,Menlo,monospace;font-size:13.5px;
-       border:2px solid #9aa3ad;border-radius:5px;padding:1px 6px;
-       background:#fffbe8;color:#1f2733;outline:none;max-width:100%}
+       border:2px solid #9aa3ad;border-radius:5px;padding:1px 8px;
+       background:#fffbe8;color:#1f2733;outline:none;max-width:100%;
+       min-width:120px; min-height:32px}
 pre .hueco{background:#fdf6d8}
 .hueco:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(44,90,160,.18)}
 .hueco.ok{border-color:var(--verde);background:var(--verde-bg)}
@@ -535,7 +540,7 @@ pre .hueco.firma{background:#dbe8fa}
 .lineabox .pista{font-size:14.5px;color:#3c4654;margin:0 0 5px}
 .lineabox .pista b{color:#1f2733}
 .lineain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.hueco.linea{flex:1 1 260px;width:100%;min-width:0;font-size:13.5px;padding:8px 11px;background:#fffbe8}
+.hueco.linea{flex:1 1 420px;width:100%;min-width:280px;font-size:13.5px;padding:8px 11px;background:#fffbe8}
 .corregida{margin-top:6px;font-family:Consolas,Menlo,monospace;font-size:13px;
            background:var(--verde-bg);color:#12602a;border-left:3px solid var(--verde);
            padding:6px 10px;border-radius:0 6px 6px 0;white-space:pre-wrap;word-break:break-word}

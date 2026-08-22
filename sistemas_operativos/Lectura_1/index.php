@@ -35,7 +35,7 @@ if ($_POST) {
     $respuesta_15 = 'aplicaciones';
     $respuesta_16 = 'sistema';
     $respuesta_17 = 'constantemente';
-    $respuesta_18 = 'señal';
+    $respuesta_18 = 'Es una señal';
     $respuesta_19 = 'dispositivo';
     $respuesta_20 = 'atencion';
     $respuesta_21 = 'genera';
@@ -113,8 +113,15 @@ if ($_POST) {
     $respuesta_93 = 'SSD';
     $respuesta_94 = 'Disco magnetico';
     $respuesta_95 = 'HDD';
+    $respuesta_96 = 'cuatro componentes';
+    $respuesta_97 = 'sistema de computo';
+    $respuesta_98 = 'tres recursos';
+    $respuesta_99 = 'asigna';
+    $respuesta_100 = 'programa principal';
     
-        
+    $respuesta_102 = 'mecanismo';
+    $respuesta_103 = 'los discos';
+          
         // Marcar todas como correctas
     for ($i = 1; $i <= 122; $i++) {
     ${"verificar_$i"} = "correcto";
@@ -301,7 +308,7 @@ if ($_POST) {
   
     // Verificar la respuesta de la séptima pregunta
     $respuesta_18 = isset($_POST['respuesta_18']) ? $_POST['respuesta_18'] : '';
-    if ($respuesta_18 === 'señal') {  
+    if ($respuesta_18 === 'Es una señal') {  
         $verificar_18 = "correcto";
     } elseif ($respuesta_18 === '') {
         $verificar_18 = '';
@@ -1078,7 +1085,7 @@ if ($respuesta_101 === 'incluyen') {
 }
 
  $respuesta_102 = isset($_POST['respuesta_102']) ? $_POST['respuesta_102'] : '';
-if ($respuesta_102 === '88') { 
+if ($respuesta_102 === 'mecanismo') { 
     $verificar_102 = "correcto";
 } elseif ($respuesta_102 === '') {
     $verificar_102 = '';
@@ -1087,7 +1094,7 @@ if ($respuesta_102 === '88') {
 }
 
  $respuesta_103 = isset($_POST['respuesta_103']) ? $_POST['respuesta_103'] : '';
-if ($respuesta_103 === '110') { 
+if ($respuesta_103 === 'los discos') { 
     $verificar_103 = "correcto";
 } elseif ($respuesta_103 === '') {
     $verificar_103 = '';
@@ -1688,8 +1695,8 @@ function ocultarMensaje4() {
 <h3>1.5. ¿Qué es una interrupción?</h3>
 
 <p>
-    Es una 
-    <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="8">
+      
+    <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="10">
       enviada al procesador por un 
     <input type="text" name="respuesta_19" value="<?php echo $respuesta_19; ?>" size="8">
       o programa para avisarle que necesita 
@@ -1707,7 +1714,9 @@ function ocultarMensaje4() {
     <?php echo $verificar_20 ?>
     <hr>
 
-    <h3>1.6. ¿Cuál es el mecanismo de disparo de una interrupción?</h3>
+    <h3>1.6. ¿Cuál es el 
+    <input type="text" name="respuesta_102" value="<?php echo $respuesta_102; ?>" size="8">    
+      de disparo de una interrupción?</h3>
 
 <p>
     El dispositivo 
@@ -1719,6 +1728,8 @@ function ocultarMensaje4() {
      .
 </p>
     <button type="submit">Enviar</button>
+    <?php echo $verificar_102 ?>
+
     <?php echo $verificar_21 ?>
     <?php echo $verificar_22 ?>
     <?php echo $verificar_23 ?>
@@ -2073,7 +2084,9 @@ function ocultarMensaje4() {
   <li>Crear y administrar directorios.</li>
 </ul>
 
-<h4>1.23. Mencione al menos dos actividades que realiza el sistema operativo con relación a la gestión de los discos</h4>
+<h4>1.23. Mencione al menos dos actividades que realiza el sistema operativo con relación a la gestión de 
+<input type="text" name="respuesta_103" value="<?php echo $respuesta_103; ?>" size="8">    
+ </h4>
 
 <ul>
   <li>Administrar 
@@ -2113,6 +2126,8 @@ function ocultarMensaje4() {
 </p>
 
     <button type="submit">Enviar</button>
+    <?php echo $verificar_103 ?>
+
     <?php echo $verificar_80 ?>
 <?php echo $verificar_81 ?>
 <?php echo $verificar_82 ?>

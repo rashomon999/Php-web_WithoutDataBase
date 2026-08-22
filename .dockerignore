@@ -1,0 +1,11 @@
+.git
+.github
+.idea
+node_modules
+_to_delete
+administrador
+libros.sql
+package.json
+package-lock.json
+*.tar.gz
+DESPLIEGUE.md

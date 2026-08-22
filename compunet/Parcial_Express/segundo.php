@@ -8,7 +8,7 @@ require_once __DIR__ . '/motor.php';
 $SOLUCIONES = [
 
     /* --- A: recipe.interface.ts --- */
-    1  => ['"easy" | "medium" | "hard"', "'easy' | 'medium' | 'hard'"],
+    1  => ['export type Difficulty = "easy" | "medium" | "hard";', "export type Difficulty = 'easy' | 'medium' | 'hard';"],
     2  => 'Difficulty',
     3  => '?',
     4  => 'Partial',
@@ -66,7 +66,13 @@ $SOLUCIONES = [
     44 => 'optional: { type: Boolean, default: false },',
     45 => 'export const IngredientModel = model<IngredientDocument>("Ingredient", ingredientSchema);',
     46 => 'export type IngredientUpdate = Partial<Omit<IngredientInput, "recipeId">>;',
-    47 => 'RecipeInput',
+    47 => 'export interface RecipeInput {',
+    48 => 'name: string,',
+    49 => 'description?: string,',
+    50 => 'difficulty?: Difficulty,',
+    51 => 'preparationTimeMinutes?: number,',
+    52 => 'servings?: number',
+    53 => 'export type RecipeUpdate = Partial<RecipeInput>;',
 ];
 
 $RETOS = [
@@ -256,20 +262,28 @@ cabecera('Parcial 2 — Interfaces y modelos', 'Recipe e Ingredient: la forma de
 ?>
 
 <div class="card">
-    <img src="../../img/guia_477.png" alt="">
   <h2>A. <code>src/recipes/recipe.interface.ts</code></h2>
 
-<pre><code>export type Difficulty = <?php hueco(1, 30); ?>;
+  <div class="field-list">
+    <h3>Recipe</h3>
+    <ul>
+      <li>name (string, requerido)</li>
+      <li>description (string)</li>
+      <li>difficulty (enum: easy, medium, hard)</li>
+      <li>preparationTimeMinutes (number)</li>
+      <li>servings (number)</li>
+      <li>createdAt (date, default: now)</li>
+    </ul>
+  </div>
 
-export interface <?php hueco(47, 12); ?> {
-    name: <?php hueco(19, 8); ?>,
-    description<?php hueco(3, 3); ?>: <?php hueco(20, 8); ?>,
-    difficulty?: <?php hueco(2, 12); ?>,
-    preparationTimeMinutes?: <?php hueco(21, 8); ?>,
-    servings?: <?php hueco(22, 8); ?>
-}
-
-export type RecipeUpdate = <?php hueco(4, 9); ?>&lt;RecipeInput&gt;;</code></pre>
+<?php linea(1, 'Escribe la línea completa de la definición de <code>Difficulty</code>:'); ?>
+<?php linea(47, 'Escribe la línea completa de la declaración de <code>RecipeInput</code>:'); ?>
+<?php linea(48, 'Escribe la línea completa de la propiedad <code>name</code>:'); ?>
+<?php linea(49, 'Escribe la línea completa de la propiedad <code>description</code>:'); ?>
+<?php linea(50, 'Escribe la línea completa de la propiedad <code>difficulty</code>:'); ?>
+<?php linea(51, 'Escribe la línea completa de la propiedad <code>preparationTimeMinutes</code>:'); ?>
+<?php linea(52, 'Escribe la línea completa de la propiedad <code>servings</code>:'); ?>
+<?php linea(53, 'Escribe la línea completa del tipo <code>RecipeUpdate</code>:'); ?>
 
   <div class="nota">El <code>?</code> marca el campo como opcional. Solo <code>name</code> es
      requerido segun el enunciado, asi que todo lo demas lo lleva. Y como el PUT es parcial,
@@ -284,25 +298,25 @@ export type RecipeUpdate = <?php hueco(4, 9); ?>&lt;RecipeInput&gt;;</code></pre
 <div class="card">
   <h2>B. <code>src/recipes/recipe.model.ts</code></h2>
 
-<pre><code>import { Document, <?php hueco(8, 8); ?>, model } from "<?php hueco(5, 10); ?>";
+<pre><code>import { Document, <?php hueco(8, 12); ?>, model } from "<?php hueco(5, 16); ?>";
 import { RecipeInput } from "./recipe.interface";
 
-<?php firma(36, 56); ?>
+<?php firma(36, 66); ?>
 
-    createdAt: <?php hueco(13, 6); ?>
+    createdAt: <?php hueco(13, 12); ?>
 }
 
-<?php firma(37, 36); ?>
+<?php firma(37, 46); ?>
 
-    name: { type: String, <?php hueco(9, 10); ?>: true },
-    description: { type: <?php hueco(23, 8); ?> },
-    difficulty: { type: String, <?php hueco(10, 6); ?>: ["easy", "medium", "hard"], default: "<?php hueco(11, 7); ?>" },
-    preparationTimeMinutes: { type: <?php hueco(12, 8); ?> },
-    servings: { type: <?php hueco(24, 8); ?> },
-    createdAt: { type: Date, default: <?php hueco(14, 10); ?> }
-}, { <?php hueco(15, 12); ?>: false, collection: "<?php hueco(16, 10); ?>" });
+    name: { type: String, <?php hueco(9, 14); ?>: true },
+    description: { type: <?php hueco(23, 14); ?> },
+    difficulty: { type: String, <?php hueco(10, 12); ?>: ["easy", "medium", "hard"], default: "<?php hueco(11, 10); ?>" },
+    preparationTimeMinutes: { type: <?php hueco(12, 14); ?> },
+    servings: { type: <?php hueco(24, 14); ?> },
+    createdAt: { type: Date, default: <?php hueco(14, 16); ?> }
+}, { <?php hueco(15, 18); ?>: false, collection: "<?php hueco(16, 18); ?>" });
 
-export const RecipeModel = <?php hueco(17, 7); ?>&lt;RecipeDocument&gt;("<?php hueco(18, 8); ?>", recipeSchema);</code></pre>
+export const RecipeModel = <?php hueco(17, 14); ?>&lt;RecipeDocument&gt;("<?php hueco(18, 18); ?>", recipeSchema);</code></pre>
 
   <p>Y las dos piezas que faltan de la interfaz: extiende
      <code><?php hueco(6, 12); ?></code> (para heredar los campos) y
@@ -319,15 +333,15 @@ export const RecipeModel = <?php hueco(17, 7); ?>&lt;RecipeDocument&gt;("<?php h
   <h2>C. <code>src/ingredients/ingredient.interface.ts</code></h2>
 
 <pre><code>export interface IngredientInput {
-    recipeId: <?php hueco(19, 8); ?>,
-    name: <?php hueco(25, 8); ?>,
-    quantity: <?php hueco(20, 8); ?>,
-    unit?: <?php hueco(26, 8); ?>,
-    optional?: <?php hueco(21, 9); ?>,
-    notes?: <?php hueco(27, 8); ?>
+    recipeId: <?php hueco(19, 18); ?>,
+    name: <?php hueco(25, 16); ?>,
+    quantity: <?php hueco(20, 18); ?>,
+    unit?: <?php hueco(26, 16); ?>,
+    optional?: <?php hueco(21, 14); ?>,
+    notes?: <?php hueco(27, 16); ?>
 }
 
-export type IngredientUpdate = Partial&lt;<?php hueco(22, 6); ?>&lt;IngredientInput, "recipeId"&gt;&gt;;</code></pre>
+export type IngredientUpdate = Partial&lt;<?php hueco(22, 14); ?>&lt;IngredientInput, "recipeId"&gt;&gt;;</code></pre>
 
   <div class="avisoflujo">Fijate en el <code>recipeId: string</code>. Por HTTP llega como texto;
      dentro de Mongo vive como <code>ObjectId</code>. Son el mismo dato en dos formas, y por eso
@@ -344,26 +358,26 @@ export type IngredientUpdate = Partial&lt;<?php hueco(22, 6); ?>&lt;IngredientIn
 
 <pre><code>import { Document, Schema, Types, model } from "mongoose";
 
-<?php firma(38, 52); ?>
+<?php firma(38, 62); ?>
 
-    recipeId: <?php hueco(23, 8); ?>.<?php hueco(24, 10); ?>,
-    name: <?php hueco(28, 8); ?>,
-    quantity: <?php hueco(29, 8); ?>,
-    unit?: <?php hueco(30, 8); ?>,
-    optional: <?php hueco(31, 9); ?>,
-    notes?: <?php hueco(32, 8); ?>
+    recipeId: <?php hueco(23, 18); ?>.<?php hueco(24, 18); ?>,
+    name: <?php hueco(28, 16); ?>,
+    quantity: <?php hueco(29, 18); ?>,
+    unit?: <?php hueco(30, 16); ?>,
+    optional: <?php hueco(31, 18); ?>,
+    notes?: <?php hueco(32, 16); ?>
 }
 
 const ingredientSchema = new Schema({
-    recipeId: { type: Schema.Types.ObjectId, <?php hueco(25, 5); ?>: "<?php hueco(26, 8); ?>", <?php hueco(27, 10); ?>: true },
+    recipeId: { type: Schema.Types.ObjectId, <?php hueco(25, 8); ?>: "<?php hueco(26, 12); ?>", <?php hueco(27, 16); ?>: true },
     name: { type: String, required: true },
     quantity: { type: Number, required: true },
     unit: { type: String },
-    optional: { type: <?php hueco(33, 9); ?>, default: <?php hueco(34, 7); ?> },
+    optional: { type: <?php hueco(33, 18); ?>, default: <?php hueco(34, 14); ?> },
     notes: { type: String }
-}, { versionKey: false, collection: "<?php hueco(35, 13); ?>" });
+}, { versionKey: false, collection: "<?php hueco(35, 18); ?>" });
 
-export const IngredientModel = model&lt;IngredientDocument&gt;("<?php hueco(36, 12); ?>", ingredientSchema);</code></pre>
+export const IngredientModel = model&lt;IngredientDocument&gt;("<?php hueco(36, 18); ?>", ingredientSchema);</code></pre>
 
   <?php reto('ingredientModel'); ?>
 

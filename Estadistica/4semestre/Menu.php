@@ -36,7 +36,7 @@
       
         <br><br>
          
-        <a class="btn" href=".\Cuestionario\index.php">Cuestionario</a>
+        <a class="btn" href=".\cuestionario\index.php">Cuestionario</a>
         <a class="btn" href=".\Hipotesis\index.php">formularHipotesis</a>
         <br><br>
         <a class="btn" href=".\Anova\index.php">ANOVA y Regresion</a>

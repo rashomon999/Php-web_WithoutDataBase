@@ -9,9 +9,9 @@ require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [
     /* --- 1. Ciberseguridad --- */
-    1  => ['proteccion'],
+    1  => ['La ciberseguridad es la proteccion'],
     2  => ['activos'],
-    3  => ['informacion'],
+    3  => ['informacion mediante la identificacion'],
     4  => ['amenazas'],
     5  => ['procesada'],
     6  => ['almacenada'],
@@ -176,10 +176,10 @@ cabecera('1 · Fundamentos: CIA y no repudio', 'notas_1 (Tab 1) — definiciones
 <div class="card">
   <h2>1. Ciberseguridad</h2>
 
-  <p>La ciberseguridad es la <?php hueco(1, 13); ?>
+  <p>  <?php hueco(1, 35); ?>
      de los <?php hueco(2, 10); ?>
-     de <?php hueco(3, 13); ?>
-     mediante la identificacion y el tratamiento de las <?php hueco(4, 11); ?>
+     de <?php hueco(3, 38); ?>
+       y el tratamiento de las <?php hueco(4, 11); ?>
      a la informacion que es <?php hueco(5, 12); ?> ,
      <?php hueco(6, 13); ?> y
      <?php hueco(7, 14); ?>

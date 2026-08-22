@@ -810,7 +810,9 @@ if ($respuesta_71 === 'Integracion continua') {
 }
 
  $respuesta_72 = isset($_POST['respuesta_72']) ? $_POST['respuesta_72'] : '';
-if ($respuesta_72 === 'Continuous Integration') { 
+if ($respuesta_72 === 'Continuous Integration'
+|| $respuesta_72 === 'continuous integration'
+) { 
     $verificar_72 = "correcto";
 } elseif ($respuesta_72 === '') {
     $verificar_72 = '';
@@ -900,7 +902,9 @@ if ($respuesta_81 === 'Pruebas continuas') {
 }
 
     $respuesta_82 = isset($_POST['respuesta_82']) ? $_POST['respuesta_82'] : '';
-    if ($respuesta_82 === 'Continuous Testing') { 
+    if ($respuesta_82 === 'Continuous Testing'
+    || $respuesta_82 === 'continuous testing'
+    ) { 
         $verificar_82 = "correcto";
     } elseif ($respuesta_82 === '') {
         $verificar_82 = '';
@@ -1650,13 +1654,13 @@ Esta arquitectura ayuda a integrar:
     <input type="text" name="respuesta_16" value="<?php echo $respuesta_16; ?>" size="8">    
      .</li>
     <li>
-    <input type="text" name="respuesta_17" value="<?php echo $respuesta_17; ?>" size="8">    
+    <input type="text" name="respuesta_17" value="<?php echo $respuesta_17; ?>" size="11">    
      .</li>
     <li>
     <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="8">    
      .</li>
     <li>
-    <input type="text" name="respuesta_19" value="<?php echo $respuesta_19; ?>" size="8">    
+    <input type="text" name="respuesta_19" value="<?php echo $respuesta_19; ?>" size="14">    
       del 
     <input type="text" name="respuesta_20" value="<?php echo $respuesta_20; ?>" size="8">
      .</li>
@@ -1675,14 +1679,14 @@ La arquitectura propone
     <input type="text" name="respuesta_23" value="<?php echo $respuesta_23; ?>" size="8">    
      )</strong></li>
     <li><strong>
-    <input type="text" name="respuesta_24" value="<?php echo $respuesta_24; ?>" size="8">    
+    <input type="text" name="respuesta_24" value="<?php echo $respuesta_24; ?>" size="10">    
       (
-    <input type="text" name="respuesta_25" value="<?php echo $respuesta_25; ?>" size="8">    
+    <input type="text" name="respuesta_25" value="<?php echo $respuesta_25; ?>" size="15">    
      )</strong></li>
     <li><strong>
     <input type="text" name="respuesta_26" value="<?php echo $respuesta_26; ?>" size="8">    
       (
-    <input type="text" name="respuesta_27" value="<?php echo $respuesta_27; ?>" size="8">    
+    <input type="text" name="respuesta_27" value="<?php echo $respuesta_27; ?>" size="10">    
      )</strong></li>
     <li><strong>
     <input type="text" name="respuesta_28" value="<?php echo $respuesta_28; ?>" size="8">    
@@ -1728,7 +1732,7 @@ Su objetivo es alinear el
   del 
 <input type="text" name="respuesta_33" value="<?php echo $respuesta_33; ?>" size="8">
  </strong> y ajustarlos mediante la 
-<input type="text" name="respuesta_34" value="<?php echo $respuesta_34; ?>" size="8">
+<input type="text" name="respuesta_34" value="<?php echo $respuesta_34; ?>" size="14">
   de los 
 <input type="text" name="respuesta_35" value="<?php echo $respuesta_35; ?>" size="8">
  .
@@ -1781,7 +1785,7 @@ Los métodos tradicionales suelen ser
     <input type="text" name="respuesta_46" value="<?php echo $respuesta_46; ?>" size="8">
      .</li>
     <li>Falta de 
-    <input type="text" name="respuesta_47" value="<?php echo $respuesta_47; ?>" size="8">    
+    <input type="text" name="respuesta_47" value="<?php echo $respuesta_47; ?>" size="11">    
     entre áreas.</li>
     </ul>
 
@@ -1792,7 +1796,7 @@ Los métodos tradicionales suelen ser
     <input type="text" name="respuesta_49" value="<?php echo $respuesta_49; ?>" size="8">
       y modificarlos
     constantemente según la 
-    <input type="text" name="respuesta_50" value="<?php echo $respuesta_50; ?>" size="8">
+    <input type="text" name="respuesta_50" value="<?php echo $respuesta_50; ?>" size="14">
       de los clientes.
     </p>
 
@@ -1841,10 +1845,10 @@ Los métodos tradicionales suelen ser
 Su objetivo es crear software de 
 <input type="text" name="respuesta_58" value="<?php echo $respuesta_58; ?>" size="8"> 
   mediante la 
-<input type="text" name="respuesta_59" value="<?php echo $respuesta_59; ?>" size="8"> 
+<input type="text" name="respuesta_59" value="<?php echo $respuesta_59; ?>" size="9"> 
   entre equipos
 y la realización de 
-<input type="text" name="respuesta_60" value="<?php echo $respuesta_60; ?>" size="8"> 
+<input type="text" name="respuesta_60" value="<?php echo $respuesta_60; ?>" size="14"> 
  .
 </p>
 
@@ -1854,16 +1858,16 @@ Incluye dos prácticas principales:
 
 <ul>
     <li>
-    <input type="text" name="respuesta_61" value="<?php echo $respuesta_61; ?>" size="8">     
+    <input type="text" name="respuesta_61" value="<?php echo $respuesta_61; ?>" size="19">     
      .</li>
     <li>
-    <input type="text" name="respuesta_62" value="<?php echo $respuesta_62; ?>" size="8">     
+    <input type="text" name="respuesta_62" value="<?php echo $respuesta_62; ?>" size="16">     
      .</li>
 </ul>
 
 
 <h4>
-<input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="8">    
+<input type="text" name="respuesta_63" value="<?php echo $respuesta_63; ?>" size="19">    
  </h4>
 
 <p>
@@ -1874,7 +1878,7 @@ Permite que diferentes equipos trabajen
 
 <ul>
     <li>
-    <input type="text" name="respuesta_65" value="<?php echo $respuesta_65; ?>" size="8">    
+    <input type="text" name="respuesta_65" value="<?php echo $respuesta_65; ?>" size="11">    
      .</li>
     <li>
     <input type="text" name="respuesta_66" value="<?php echo $respuesta_66; ?>" size="8">    
@@ -1894,9 +1898,9 @@ Permite que diferentes equipos trabajen
 </ul>
 
 <h4>
-<input type="text" name="respuesta_71" value="<?php echo $respuesta_71; ?>" size="14">    
+<input type="text" name="respuesta_71" value="<?php echo $respuesta_71; ?>" size="16">    
   (
-<input type="text" name="respuesta_72" value="<?php echo $respuesta_72; ?>" size="14">    
+<input type="text" name="respuesta_72" value="<?php echo $respuesta_72; ?>" size="18">    
  )</h4>
 
 <p>
@@ -1980,7 +1984,7 @@ Busca:
 
 <ul>
     <li>Verificar 
-    <input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="8">    
+    <input type="text" name="respuesta_86" value="<?php echo $respuesta_86; ?>" size="11">    
       el código.</li>
     <li>Garantizar el 
     <input type="text" name="respuesta_87" value="<?php echo $respuesta_87; ?>" size="8">    

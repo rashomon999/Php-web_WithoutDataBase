@@ -1965,7 +1965,7 @@ Operaciones:
 
 
 <h4>4. 
-<input type="text" name="respuesta_66" value="<?php echo $respuesta_66; ?>" size="8">    
+<input type="text" name="respuesta_66" value="<?php echo $respuesta_66; ?>" size="10">    
  </h4>
 
 <ul>

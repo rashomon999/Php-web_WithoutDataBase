@@ -1,16 +1,21 @@
+# Imagen lista para Render / Koyeb / Fly / cualquier PaaS con Docker.
 FROM php:8.2-apache
 
-# Copia tus archivos al contenedor
+# .htaccess + reescritura de URLs
+RUN a2enmod rewrite expires headers \
+ && sed -ri 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf
+
+# El PaaS inyecta el puerto en $PORT (Render usa 10000). Apache sabe leer
+# variables de entorno con la sintaxis ${VAR}, asi que basta con sustituirlo.
+ENV PORT=10000
+RUN sed -ri 's/^Listen 80$/Listen ${PORT}/' /etc/apache2/ports.conf \
+ && sed -ri 's/<VirtualHost \*:80>/<VirtualHost *:${PORT}>/' /etc/apache2/sites-enabled/000-default.conf
+
+# No mostrar errores de PHP a los visitantes
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 COPY . /var/www/html/
+RUN chown -R www-data:www-data /var/www/html
 
-# Habilita el módulo de reescritura (útil si usas .htaccess)
-RUN a2enmod rewrite
-
-# Expone el puerto 8080 porque Railway lo requiere
-EXPOSE 8080
-
-# Cambia el puerto de Apache a 8080 (por defecto es 80)
-RUN sed -i 's/80/8080/g' /etc/apache2/ports.conf /etc/apache2/sites-enabled/000-default.conf
-
-# Inicia Apache en primer plano
+EXPOSE 10000
 CMD ["apache2-foreground"]

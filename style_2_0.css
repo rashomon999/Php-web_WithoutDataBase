@@ -94,15 +94,23 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+
     .form-container {
         display: flex;
         flex-direction: column;
+        gap: 12px;
+        padding: 12px 10px 10px;
     }
 
     .seccion {
         width: 100%;
         min-height: auto;
         margin-left: 0;
+        padding: 16px 12px;
     }
 
     .seccion.izquierda {
@@ -111,5 +119,24 @@ body {
 
     .seccion.derecha {
         order: 2;
+        margin-left: 0;
+    }
+
+    .centered-container {
+        position: static;
+        padding: 12px 14px 18px;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    button[type="submit"],
+    .submit-button,
+    .btn {
+        width: 100%;
     }
 }

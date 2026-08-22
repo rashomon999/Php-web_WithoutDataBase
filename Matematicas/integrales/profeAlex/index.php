@@ -295,114 +295,11 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas sobre simplificación de expresiones matemáticas</title>
      <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+     <link rel="stylesheet" href="../../../style_2_0.css">
  
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
- 
-<style>
-
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    max-width: 100%;
-}
-
-.form-container {
-    display: flex;
-    height: 100%;
-}
-
-.seccion {
-    /*width: 50%;*/    
-    width: calc(50% - 7.5px);
-    padding: 20px;
-    box-sizing: border-box;
-      /* overflow-y: auto; */ /* lo quitas */
-  min-height: 240vh; /* lo pones igual que antes */
-}
-
-/* Estilos específicos para la sección derecha */
-.seccion.derecha {
-    margin-left: 15px;
-    background-color: #f0f0f0;
-}
-
-/* Estilos específicos para la sección izquierda */
-.seccion.izquierda {
-    background-color: #e0e0e0;
-}
-
-/* Estilos para los botones de enviar */
-.submit-button {
-    margin: 10px 0;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-/* Asegurar que los elementos matemáticos se muestren correctamente */
-.katex {
-    font-size: 1.1em;
-}
-
-
-.imagen {
-    max-width: 100%;
-    height: auto;
-}
-
-
-.input-container {
-    display: flex; /* Usa Flexbox */
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    align-items: center; /* Alinea los inputs verticalmente */
-    gap: 20px; /* Espacio uniforme entre inputs */
-}
-
-
-
-/* Estilo para las líneas verticales */
-.middle {
-    border-left: 1px solid #000; /* Línea izquierda */
-    border-right: 1px solid #000; /* Línea derecha */
-}
-
-/* Estilo de los inputs */
-.input-cell input {
-    size: 50;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-
-.centered-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Centra los elementos a lo largo del eje transversal,
-    que en este caso es vertical. Esto asegura que los elementos estén centrados
-    verticalmente dentro del contenedor. */
-
-    justify-content: center; /*Centra los elementos a lo largo del eje principal,
-     que en este caso es horizontal. Esto asegura que los elementos estén centrados
-      horizontalmente dentro del contenedor. */
-    text-align: center;
-    position: fixed; /* Establece la posición del contenedor como fija. Un elemento
-     con posición fija se mantiene en la    misma posición incluso cuando la página
-      se desplaza. */
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    background-color: #f8f9fa;
-
-}
-
-</style>
-
- 
- 
- 
-
-
+</head>
+<body>
 
 <script>
 function handleSubmit(event) {

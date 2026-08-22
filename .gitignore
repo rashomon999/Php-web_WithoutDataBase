@@ -6,6 +6,7 @@ _paquete_ftp/
 *.zip
 _full_listing.txt
 _publicar.log
+_publicar_estado.txt
 publicar.config
 .DS_Store
 Thumbs.db

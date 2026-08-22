@@ -16,3 +16,6 @@ cd C:\xampp\htdocs\php_web
 
 desde cualquier sitio:
 C:\xampp\htdocs\php_web\publicar.bat /ver
+
+cambios:
+C:\xampp\htdocs\php_web\publicar.bat

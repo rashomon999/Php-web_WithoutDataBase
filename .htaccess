@@ -45,8 +45,11 @@ RedirectMatch 404 /_to_delete(/|$)
     ExpiresByType image/jpeg  "access plus 30 days"
     ExpiresByType image/gif   "access plus 30 days"
     ExpiresByType image/webp  "access plus 30 days"
-    ExpiresByType text/css    "access plus 7 days"
-    ExpiresByType application/javascript "access plus 7 days"
+    # CSS y JS con caché corta: son los que estas tocando a menudo y no
+    # quieres que el navegador del movil se quede una semana con la version
+    # vieja. Las imagenes si conviene cachearlas largo, casi nunca cambian.
+    ExpiresByType text/css    "access plus 5 minutes"
+    ExpiresByType application/javascript "access plus 5 minutes"
 </IfModule>
 
 # --- Compresion ---------------------------------------------------------

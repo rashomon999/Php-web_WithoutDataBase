@@ -242,10 +242,15 @@ foreach ($k in $subir) {
 }
 
 $g = New-Object System.Text.StringBuilder
-[void]$g.AppendLine("option batch continue")
+# "abort" ANTES de conectar: si el servidor no responde queremos rendirnos a la
+# primera. Con "continue" WinSCP reintenta la conexion en bucle, y machacar el
+# FTP de InfinityFree es justo lo que dispara sus bloqueos temporales de IP.
+[void]$g.AppendLine("option batch abort")
 [void]$g.AppendLine("option confirm off")
 [void]$g.AppendLine("option transfer binary")
+[void]$g.AppendLine("option reconnecttime off")
 [void]$g.AppendLine("open ftpes://${usr}:${passEnc}@${FTP_HOST}/ -certificate=* -timeout=30")
+[void]$g.AppendLine("option batch continue")
 
 foreach ($d in ($dirs | Sort-Object { $_.Split($SEP).Length })) {
     $rd = $REMOTO + "/" + ($d -replace [regex]::Escape([string]$SEP), "/")

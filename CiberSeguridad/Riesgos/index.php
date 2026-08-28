@@ -260,18 +260,30 @@ cabecera('2 · Riesgo, amenazas y ataques', 'notas_2 — definiciones con huecos
      atacan a proposito; y las <?php hueco(16, 12); ?> son los terremotos,
      incendios e inundaciones.</p>
 
+  <p>En el mapa de <b>Cyber Agent</b> los nombres se escriben en ingles y cada rama
+     se etiqueta con su <i>sector, capacidad o motivo</i>. Estos son tres de cada lado:</p>
+
   <table class="datos">
-    <tr><th>Amigables (friendly)</th><th>por que hacen daño</th></tr>
-    <tr><td>Empleados</td><td>borran o comparten archivos por accidente</td></tr>
-    <tr><td>Administradores de sistemas</td><td>tienen <?php hueco(18, 13); ?> altos: un error suyo tumba sistemas enteros</td></tr>
-    <tr><td>Usuarios comunes</td><td>abren enlaces maliciosos por <?php hueco(19, 16); ?></td></tr>
+    <tr><th>Amigables &mdash; <i>Friendly (unintentional)</i></th><th>por que hacen daño</th></tr>
+    <tr><td><b>Employee</b><br><i>Commercial</i></td><td>borran o comparten archivos por accidente</td></tr>
+    <tr><td><b>Security Agent</b><br><i>National Security</i></td><td>tienen <?php hueco(18, 13); ?> altos sobre los sistemas: un error suyo tumba sistemas enteros</td></tr>
+    <tr><td><b>End-User / Customer</b><br><i>Commercial</i></td><td>abren enlaces maliciosos por <?php hueco(19, 16); ?></td></tr>
   </table>
   <table class="datos">
-    <tr><th>No amigables (unfriendly)</th><th>que buscan</th></tr>
-    <tr><td>Hackers</td><td>acceder a sistemas sin autorizacion</td></tr>
-    <tr><td>Ciberdelincuentes</td><td>robar informacion o dinero</td></tr>
-    <tr><td>Creadores de malware</td><td>desarrollar el software con el que se ataca</td></tr>
+    <tr><th>No amigables &mdash; <i>Hostile (intentional) / Threat Agent</i></th><th>que buscan</th></tr>
+    <tr><td><b>Cyber Criminal</b><br><i>Profit oriented</i></td><td>dinero: fraude, ransomware, robo y venta de informacion</td></tr>
+    <tr><td><b>Hacktivist</b><br><i>Socially motivated citizens</i></td><td>visibilidad para una causa social: filtraciones, defacements, caida de servicios</td></tr>
+    <tr><td><b>Cyber Terrorist</b><br><i>Ideologically motivated</i></td><td>causar miedo o daño por ideologia, apuntando a infraestructura critica</td></tr>
   </table>
+
+  <div class="avisoflujo">
+    <b>Como se leen los nombres del mapa.</b> Los <i>Friendly</i> hacen daño <b>sin intencion</b>
+    (Researcher, Ethical Hacker, Security Agent, Law Enforcement Agent, Cyber-Soldier, Employee,
+    End-User/Customer). Los <i>Hostile</i> se separan por <b>capacidad</b>: baja
+    (Script Kiddies, Online Social Hacker, Insider) y alta
+    (Provider/Developer/Operator, Espionage &mdash; State o Corporation &mdash;,
+    Hacktivist, Cyber Terrorist, Cyber Criminal, Cyber Fighter).
+  </div>
 
   <?php mc('m3'); ?>
   <?php enviar(); ?>

@@ -45,7 +45,7 @@ $SOLUCIONES = [
     26 => ['intermediarios'],
 
     /* --- solidity --- */
-    27 => ['solidity'],
+    27 => ['solidity es el lenguaje de programacion mas usado para escribir contratos inteligentes'],
     28 => ['ethereum'],
     29 => ['objetos'],
     30 => ['determinista'],
@@ -203,33 +203,7 @@ ENTONCES entregar <?php hueco(9, 10); ?> al apartamento</code></pre>
   <?php enviar(); ?>
 </div>
 
-
-<div class="card">
-  <h2>3. El ejemplo de codigo: la Caja</h2>
-  <p>Este es el contrato minimo de tus apuntes. Completa las palabras de Solidity:</p>
-
-  <pre><code><?php hueco(10, 10); ?> Caja {
-
-    <?php hueco(11, 6); ?> dinero;
-
-    <?php hueco(12, 10); ?> guardar(uint cantidad) <?php hueco(13, 8); ?> {
-      dinero = cantidad;
-    }
-
-    function consultar() public <?php hueco(14, 6); ?> <?php hueco(15, 9); ?>(uint) {
-      return dinero;
-    }
-}</code></pre>
-
-  <div class="nota">
-    <b>Dos palabras que te pueden preguntar.</b>
-    <code>public</code> = la funcion se puede llamar desde fuera del contrato.
-    <code>view</code> = la funcion solo <em>lee</em>, no modifica el estado; por eso no cuesta gas
-    cuando la llamas desde fuera.
-  </div>
-
-  <?php enviar(); ?>
-</div>
+ 
 
 
 <div class="card">
@@ -277,8 +251,7 @@ ENTONCES entregar <?php hueco(9, 10); ?> al apartamento</code></pre>
 <div class="card">
   <h2>6. Solidity</h2>
 
-  <p><?php hueco(27, 12); ?> es el lenguaje de programacion mas usado para escribir
-     contratos inteligentes en <?php hueco(28, 12); ?> y redes compatibles.
+  <p><?php hueco(27, 87); ?>  en <?php hueco(28, 12); ?> y redes compatibles.
      Es un lenguaje de proposito especifico orientado a
      <?php hueco(29, 10); ?> , diseñado para que los desarrolladores puedan definir
      las reglas de un contrato de forma precisa y <?php hueco(30, 14); ?> .</p>
@@ -319,22 +292,6 @@ ENTONCES entregar <?php hueco(9, 10); ?> al apartamento</code></pre>
 </div>
 
 
-<div class="card">
-  <h2>8. Donde se usan: DeFi</h2>
-
-  <pre><code>Usuario deposita <?php hueco(36, 10); ?>
-     ↓
-Smart contract <?php hueco(37, 10); ?>
-     ↓
-Entrega <?php hueco(38, 10); ?> automaticamente</code></pre>
-
-  <p>No necesitas un <?php hueco(39, 8); ?> . Ese es el ejemplo de finanzas
-     descentralizadas de tus apuntes. Ademas las dApps se usan en NFTs, juegos blockchain,
-     exchanges descentralizados (Uniswap), sistemas de votacion, cadenas de suministro y
-     arte digital.</p>
-
-  <?php enviar('Verificar todo el cuestionario'); ?>
-</div>
-
+ 
 <?php
-pie('../Fundamentos/index.php', '../Arquitectura/index.php');
+pie('../Fundamentos/index.php', '../MiDapp/index.php');

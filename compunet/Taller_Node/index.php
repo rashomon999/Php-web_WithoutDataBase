@@ -1,59 +1,62 @@
 <?php
 
 // =========================================================
-// ÚNICA FUENTE DE VERDAD: aquí se define cada respuesta correcta UNA sola vez.
+// ÚNICA FUENTE DE VERDAD: cada respuesta correcta se define UNA sola vez aquí.
 // Se usa tanto para "mostrar_solucion" como para validar lo que llega por POST.
 // =========================================================
 $correctas = [
-    // Tabla 1 (preguntas 1-11)
-    1 => '26', 2 => '39', 3 => '52', 4 => '65', 5 => '78',
-    6 => '91', 7 => '104', 8 => '117', 9 => '130', 10 => '143', 11 => '156',
+    1 => 'public async createVehicle(req: Request, res: Response) {',
+    2 => 'const vehicle: VehicleDocument = await vehicleService.create(req.body as VehicleInput);',
+    3 => 'return res.status(201).json(vehicle);',
+    4 => 'return res.status(500).json({ message: "Error creating vehicle" });',
 
-    // Tabla 2 (preguntas 12-22)
+    // Tabla 13 (preguntas 5-11)
+    5 => '78', 6 => '91', 7 => '104', 8 => '117', 9 => '130', 10 => '143', 11 => '156',
+
+    // Tabla 14 (preguntas 12-22)
     12 => '28', 13 => '42', 14 => '56', 15 => '70', 16 => '84',
     17 => '98', 18 => '112', 19 => '126', 20 => '140', 21 => '154', 22 => '168',
 
-    // Tabla 3 (preguntas 23-33)
+    // Tabla 15 (preguntas 23-33)
     23 => '30', 24 => '45', 25 => '60', 26 => '75', 27 => '90',
     28 => '105', 29 => '120', 30 => '135', 31 => '150', 32 => '165', 33 => '180',
 
-    // Tabla 4 (preguntas 34-44)
+    // Tabla 16 (preguntas 34-44)
     34 => '32', 35 => '48', 36 => '64', 37 => '80', 38 => '96',
     39 => '112', 40 => '128', 41 => '144', 42 => '160', 43 => '176', 44 => '192',
 
-    // Tabla 5 (preguntas 45-55)
+    // Tabla 17 (preguntas 45-55)
     45 => '34', 46 => '51', 47 => '68', 48 => '85', 49 => '102',
     50 => '119', 51 => '136', 52 => '153', 53 => '170', 54 => '187', 55 => '204',
 
-    // Tabla 6 (preguntas 56-66)
+    // Tabla 18 (preguntas 56-66)
     56 => '36', 57 => '54', 58 => '72', 59 => '90', 60 => '108',
     61 => '126', 62 => '144', 63 => '162', 64 => '180', 65 => '198', 66 => '216',
 
-    // Tabla 7 (preguntas 67-77)
+    // Tabla 19 (preguntas 67-77)
     67 => '38', 68 => '57', 69 => '76', 70 => '95', 71 => '114',
     72 => '133', 73 => '152', 74 => '171', 75 => '190', 76 => '209', 77 => '228',
 
-    // Tabla 8 (preguntas 78-88)
+    // Tabla 20 (preguntas 78-88)
     78 => '40', 79 => '60', 80 => '80', 81 => '100', 82 => '120',
     83 => '140', 84 => '160', 85 => '180', 86 => '200', 87 => '220', 88 => '240',
 
-    // Tabla 9 (preguntas 89-99)
+    // Tabla 21 (preguntas 89-99)
     89 => '42', 90 => '63', 91 => '84', 92 => '105', 93 => '126',
     94 => '147', 95 => '168', 96 => '189', 97 => '210', 98 => '231', 99 => '252',
 
-    // Tabla 10 (preguntas 100-110)
+    // Tabla 22 (preguntas 100-110)
     100 => '44', 101 => '66', 102 => '88', 103 => '110', 104 => '132',
     105 => '154', 106 => '176', 107 => '198', 108 => '220', 109 => '242', 110 => '264',
 
-    // Tabla 12 (preguntas 111-121)
+    // Tabla del 12 (preguntas 111-121)
     111 => '24', 112 => '36', 113 => '48', 114 => '60', 115 => '72',
     116 => '84', 117 => '96', 118 => '108', 119 => '120', 120 => '132', 121 => '144',
 ];
 
-// Normaliza un string para comparar sin que importen los espacios:
-// quita espacios al inicio/final y colapsa espacios múltiples en uno solo.
+// Normaliza un string para comparar SIN QUE IMPORTEN LOS ESPACIOS EN ABSOLUTO:
+// elimina todos los espacios, tabs y saltos de línea (no solo los colapsa).
 function normalizar($str) {
-    // Elimina TODOS los espacios (y saltos de línea/tabs) para que no importen en absoluto
     return preg_replace('/\s+/', '', $str);
 }
 
@@ -74,7 +77,7 @@ if ($_POST) {
             ${"verificar_" . $i} = "correcto";
         }
     } else {
-        // Validar cada respuesta enviada contra el array $correctas (ignorando espacios)
+        // Validar cada respuesta enviada contra el array $correctas (los espacios no importan)
         foreach ($correctas as $i => $valor) {
             $enviado = isset($_POST["respuesta_$i"]) ? $_POST["respuesta_$i"] : '';
             ${"respuesta_" . $i} = $enviado; // se muestra tal cual lo escribió el usuario
@@ -99,8 +102,8 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas sobre simplificación de expresiones matemáticas</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="./../style_2_0.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../style_2_0.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <style>
@@ -110,7 +113,7 @@ if ($_POST) {
     width: calc(50% - 7.5px);
     padding: 20px;
     box-sizing: border-box;
-    height: 370vh;
+    max-height: 220vh;
     }
 
 </style>
@@ -395,194 +398,70 @@ function ocultarMensaje4() {
 
     
 <div class="seccion izquierda"> 
+<img src="../../img/guia_478.png" alt="" width="900">
+<br><br>
+<strong>Hay que saber:</strong>
+<p>1. Los Controladores son async pero NO retornan datos</p>
 
- <input type="text" name="respuesta_1" value="<?php echo htmlspecialchars($respuesta_1, ENT_QUOTES); ?>" size="8">
-    <button type="submit">Enviar</button> 
+<p>Los servicios retornan <code>Promise&lt;Datos&gt;</code> → porque devuelven información</p>
+
+<p>Los controladores retornan <code>Promise&lt;void&gt;</code> → porque envían respuestas HTTP, no datos</p>
+ 
+<p>Enviar respuesta significa: res.json(entidad gestionada por el controller)</p>
+
+<strong>definamos la cabecera del metodo create:</strong>
+
+<p>     
+    
+<input type="text" name="respuesta_1" value="<?php echo htmlspecialchars($respuesta_1, ENT_QUOTES); ?>" size="51">
+ 
+</p>
+<p>luego dentro de un bloque try definimos la constante</p>
+
+<input type="text" name="respuesta_2" value="<?php echo htmlspecialchars($respuesta_2, ENT_QUOTES); ?>" size="85">
+
+<p>Ahora enviamos la respuesta HTTP con estado 201:</p>
+
+<input type="text" name="respuesta_3" value="<?php echo htmlspecialchars($respuesta_3, ENT_QUOTES); ?>" size="30">
+
+<p>Y cerramos el catch:</p>
+
+<input type="text" name="respuesta_4" value="<?php echo htmlspecialchars($respuesta_4, ENT_QUOTES); ?>" size="60">
+<br><br>
+<button type="submit">Enviar</button>
     <?php echo $verificar_1 ?>
     <?php echo $verificar_2 ?>
     <?php echo $verificar_3 ?>
     <?php echo $verificar_4 ?>
-    <?php echo $verificar_5 ?>
-    <?php echo $verificar_6 ?>
-    <?php echo $verificar_7 ?>  
-    <?php echo $verificar_8 ?>
-    <?php echo $verificar_9 ?>
-    <?php echo $verificar_10 ?>
-    <?php echo $verificar_11 ?> 
-    <?php echo $verificar_12 ?>
-    <?php echo $verificar_13 ?>
-    <?php echo $verificar_14 ?>
-    <?php echo $verificar_15 ?>
-    <?php echo $verificar_16 ?>
-    <?php echo $verificar_17 ?>
-    <?php echo $verificar_18 ?>
-    <?php echo $verificar_19 ?> 
-    <?php echo $verificar_20 ?>
-    <?php echo $verificar_21 ?>
-    <?php echo $verificar_22 ?>
-    <?php echo $verificar_23 ?>
-    <?php echo $verificar_24 ?>
-    <?php echo $verificar_25 ?>
-    <?php echo $verificar_26 ?>
-    <?php echo $verificar_27 ?>
-    <?php echo $verificar_28 ?>
-    <?php echo $verificar_29 ?>
-    <?php echo $verificar_30 ?>
-    <?php echo $verificar_31 ?>
-    <?php echo $verificar_32 ?>
-    <?php echo $verificar_33 ?>
-    <?php echo $verificar_34 ?>
-    <?php echo $verificar_35 ?>
-    <?php echo $verificar_36 ?>
-    <?php echo $verificar_37 ?>
-    <?php echo $verificar_38 ?>
-    <?php echo $verificar_39 ?>
-    <?php echo $verificar_40 ?>
-    <?php echo $verificar_41 ?>
+    <hr>
+
+    <img src="../../img/guia_479.png" alt="" width="900">
+    <p>vemos que no esta definido: getSalesByEmployee</p>
+    <p>Estudiemos el metodo find de model que se llama desde service:</p>
+    <pre>
+
+// 1. Sin parámetros - trae TODOS los documentos
+async getSales(): Promise<SaleDocument[]> {
+    return await SaleModel.find();
+}
+
+// 2. Con filtro - trae documentos que coinciden
+async getSalesByEmployee(employeeId: string): Promise<SaleDocument[]> {
+    return await SaleModel.find({ employeeId });
+}
+
+// 3. Con múltiples filtros - trae documentos que coinciden con todos
+async getSalesByEmployeeAndDate(employeeId: string, date: string): Promise<SaleDocument[]> {
+    return await SaleModel.find({ employeeId, date });
+}
+
+// 4. Con opciones avanzadas
+async getSalesLimited(): Promise<SaleDocument[]> {
+    return await SaleModel.find().limit(10).sort({ date: -1 });
+}
+    </pre>
 
 
-    <?php echo $verificar_42 ?>
-    <?php echo $verificar_43 ?>
-    <?php echo $verificar_44 ?>  
-    <?php echo $verificar_45 ?>
-    <?php echo $verificar_46 ?>
-    <?php echo $verificar_47 ?>
-    <?php echo $verificar_48 ?>
-    <?php echo $verificar_49 ?>
-    <?php echo $verificar_50 ?>
-    <?php echo $verificar_51 ?>
-    <?php echo $verificar_52 ?>
-    <?php echo $verificar_53 ?>
-    <?php echo $verificar_54 ?>
-    <?php echo $verificar_55 ?>
-
-
-
-    <?php echo $verificar_56 ?>
-    <?php echo $verificar_57 ?>
-    <?php echo $verificar_58 ?>
-    <?php echo $verificar_59 ?>
-    <?php echo $verificar_60 ?>
-    <?php echo $verificar_61 ?>
-    <?php echo $verificar_62 ?>
-    <?php echo $verificar_63 ?>
-    <?php echo $verificar_64 ?>
-    <?php echo $verificar_65 ?>
-    <?php echo $verificar_66 ?>
-
-    <?php echo $verificar_67 ?>
-<?php echo $verificar_68 ?>
-<?php echo $verificar_69 ?>
-<?php echo $verificar_70 ?>
-<?php echo $verificar_71 ?>
-<?php echo $verificar_72 ?>
-<?php echo $verificar_73 ?>
-<?php echo $verificar_74 ?>
-<?php echo $verificar_75 ?>
-<?php echo $verificar_76 ?>
-<?php echo $verificar_77 ?>
-<?php echo $verificar_78 ?>
-<?php echo $verificar_79 ?>
-<?php echo $verificar_80 ?>
-<?php echo $verificar_81 ?>
-<?php echo $verificar_82 ?>
-<?php echo $verificar_83 ?>
-<?php echo $verificar_84 ?>
-<?php echo $verificar_85 ?>
-<?php echo $verificar_86 ?>
-<?php echo $verificar_87 ?>
-<?php echo $verificar_88 ?>
-<?php echo $verificar_89 ?>
-<?php echo $verificar_90 ?>
-<?php echo $verificar_91 ?>
-<?php echo $verificar_92 ?>
-<?php echo $verificar_93 ?>
-<?php echo $verificar_94 ?>
-<?php echo $verificar_95 ?>
-<?php echo $verificar_96 ?>
-<?php echo $verificar_97 ?>
-<?php echo $verificar_98 ?>
-<?php echo $verificar_99 ?>
-<?php echo $verificar_100 ?>
-<?php echo $verificar_101 ?>
-<?php echo $verificar_102 ?>
-<?php echo $verificar_103 ?>
-<?php echo $verificar_104 ?>
-<?php echo $verificar_105 ?>
-<?php echo $verificar_106 ?>
-<?php echo $verificar_107 ?>
-<?php echo $verificar_108 ?>
-<?php echo $verificar_109 ?>
-<?php echo $verificar_110 ?>
-<?php echo $verificar_111 ?>
-<?php echo $verificar_112 ?>
-<?php echo $verificar_113 ?>
-<?php echo $verificar_114 ?>
-<?php echo $verificar_115 ?>
-<?php echo $verificar_116 ?>
-<?php echo $verificar_117 ?>
-<?php echo $verificar_118 ?>
-<?php echo $verificar_119 ?>
-<?php echo $verificar_120 ?>
-<?php echo $verificar_121 ?>
-<?php echo $verificar_122 ?>
-<?php echo $verificar_123 ?>
-<?php echo $verificar_124 ?>
-<?php echo $verificar_125 ?>
-<?php echo $verificar_126 ?>
-<?php echo $verificar_127 ?>
-<?php echo $verificar_128 ?>
-<?php echo $verificar_129 ?>
-<?php echo $verificar_130 ?>
-<?php echo $verificar_131 ?>
-<?php echo $verificar_132 ?>
-<?php echo $verificar_133 ?>
-    <br><br><br>
-
-  
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_23 ?>
-    <?php echo $verificar_24 ?>
-    <?php echo $verificar_25 ?>
-    <?php echo $verificar_26 ?>
-    <?php echo $verificar_27 ?>
-    <?php echo $verificar_28 ?>
-    <?php echo $verificar_29 ?>
-    <?php echo $verificar_30 ?>
-    <?php echo $verificar_31 ?>
-    <?php echo $verificar_32 ?>
-    <?php echo $verificar_33 ?>
-
- 
-   
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_34 ?>
-    <?php echo $verificar_35 ?>
-    <?php echo $verificar_36 ?>
-    <?php echo $verificar_37 ?>
-    <?php echo $verificar_38 ?>
-    <?php echo $verificar_39 ?>
-    <?php echo $verificar_40 ?>
-    <?php echo $verificar_41 ?>
-    <?php echo $verificar_42 ?>
-    <?php echo $verificar_43 ?>
-    <?php echo $verificar_44 ?>
-            <br><br><br>
-
-    
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_45 ?>
-    <?php echo $verificar_46 ?>
-    <?php echo $verificar_47 ?>
-    <?php echo $verificar_48 ?>
-    <?php echo $verificar_49 ?>
-    <?php echo $verificar_50 ?>
-    <?php echo $verificar_51 ?>
-    <?php echo $verificar_52 ?>
-    <?php echo $verificar_53 ?>
-    <?php echo $verificar_54 ?>
-    <?php echo $verificar_55 ?>
-   
 </div>
 
 
@@ -590,78 +469,12 @@ function ocultarMensaje4() {
 
 <div class="seccion derecha">
     
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_56 ?>
-    <?php echo $verificar_57 ?>
-    <?php echo $verificar_58 ?>
-    <?php echo $verificar_59 ?>
-    <?php echo $verificar_60 ?>
-    <?php echo $verificar_61 ?>
-    <?php echo $verificar_62 ?>
-    <?php echo $verificar_63 ?>
-    <?php echo $verificar_64 ?>
-    <?php echo $verificar_65 ?>
-    <?php echo $verificar_66 ?>
  
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_67 ?>
-    <?php echo $verificar_68 ?>
-    <?php echo $verificar_69 ?>
-    <?php echo $verificar_70 ?>
-    <?php echo $verificar_71 ?>
-    <?php echo $verificar_72 ?>
-    <?php echo $verificar_73 ?>
-    <?php echo $verificar_74 ?>
-    <?php echo $verificar_75 ?>
-    <?php echo $verificar_76 ?>
-    <?php echo $verificar_77 ?>
- 
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_78 ?>
-    <?php echo $verificar_79 ?>
-    <?php echo $verificar_80 ?> 
-    <?php echo $verificar_81 ?>
-    <?php echo $verificar_82 ?>
-    <?php echo $verificar_83 ?>
-    <?php echo $verificar_84 ?>
-    <?php echo $verificar_85 ?>
-    <?php echo $verificar_86 ?>
-    <?php echo $verificar_87 ?>
-    <?php echo $verificar_88 ?>
- 
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_89 ?>
-    <?php echo $verificar_90 ?>
-    <?php echo $verificar_91 ?>
-    <?php echo $verificar_92 ?>
-    <?php echo $verificar_93 ?>
-    <?php echo $verificar_94 ?>
-    <?php echo $verificar_95 ?>
-    <?php echo $verificar_96 ?>
-    <?php echo $verificar_97 ?>
-    <?php echo $verificar_98 ?> 
-    <?php echo $verificar_99 ?>
- 
-    <button type="submit">Enviar</button>
-    <?php echo $verificar_100 ?>
-    <?php echo $verificar_101 ?>
-    <?php echo $verificar_102 ?>
-    <?php echo $verificar_103 ?>
-    <?php echo $verificar_104 ?>
-    <?php echo $verificar_105 ?>
-    <?php echo $verificar_106 ?>
-    <?php echo $verificar_107 ?>
-    <?php echo $verificar_108 ?>
-    <?php echo $verificar_109 ?>
-    <?php echo $verificar_110 ?>
-    <br><br><br>
- 
-    <hr>
+             <hr>
     <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
     <br>
     <input type="text" id="mostrar_solucion" name="mostrar_solucion"  value="<?php echo htmlspecialchars($mostrar_solucion, ENT_QUOTES); ?>">
     <button type="submit"   >Mostrar Solución</button>
-         
 </div>
 </div>
  </form>

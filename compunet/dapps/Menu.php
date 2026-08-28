@@ -27,12 +27,12 @@ $CUESTIONARIOS = [
         'src'   => 'exposicion.pdf — frontend, ABI, RPC, flujo_normal'
     ],
     [
-        'n'     => '4',
-        'ruta'  => 'Stack/index.php',
-        'tit'   => 'El stack de la demo',
-        'desc'  => 'Sepolia, Hardhat, Alchemy, MetaMask y Etherscan: que hace cada uno. Chain IDs, cliente-servidor vs p2p, gas, por que cada deploy crea un contrato nuevo, y Bitcoin vs Ethereum.',
-        'huecos'=> '42 huecos + 11 preguntas',
-        'src'   => 'exposicion.pdf — Tecnologias_usadas, gas, Sepolia'
+        'n'     => '5',
+        'ruta'  => 'MiDapp/index.php',
+        'tit'   => 'Nuestra demo: tecnologias y flujo',
+        'desc'  => 'Las seis capas del esquema, que es cada tecnologia y que papel jugo, nodos y RPC, dApp frente a app tradicional, codigo inmutable vs estado mutable, el ABI, por que desplegar no es sobreescribir, y de que depende (y de que no) la dApp.',
+        'huecos'=> '50 huecos + 15 preguntas',
+        'src'   => 'la demo de Donaciones Transparentes — sin escribir codigo'
     ],
 ];
 ?><!DOCTYPE html>

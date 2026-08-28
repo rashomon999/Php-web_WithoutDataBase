@@ -16,11 +16,11 @@ $SOLUCIONES = [
     5  => ['autonomia en comparacion con las aplicaciones tradicionales'],
     6  => ['Cuando usas una DApp'],
     7  => ['tu informacion no esta controlada por una unica empresa o servidor'],
-    8  => ['nodos'],
+    8  => ['sino que se registra en la blockchain y es verificada por multiples nodos'],
 
     /* --- que problema resuelve --- */
-    9  => ['intermediarios'],
-    10 => ['centrales'],
+    9  => ['Las DApps buscan reducir la dependencia de intermediarios'],
+    10 => ['autoridades centrales'],
     11 => ['directamente'],
     12 => ['verificadas'],
 
@@ -188,8 +188,8 @@ cabecera('1 · Fundamentos de las dApps', 'exposicion.pdf — que son, que probl
   <?php hueco(6, 20); ?>  
    ,  
        <?php hueco(7, 66); ?> ,
-     sino que se registra en la blockchain y es verificada por multiples
-     <?php hueco(8, 7); ?> de la red.</p>
+      
+     <?php hueco(8, 72); ?> de la red.</p>
 
   <?php enviar(); ?>
   <?php mc('m1'); ?>
@@ -200,8 +200,8 @@ cabecera('1 · Fundamentos de las dApps', 'exposicion.pdf — que son, que probl
 <div class="card">
   <h2>2. Que problema buscan solucionar</h2>
 
-  <p>Las DApps buscan reducir la dependencia de <?php hueco(9, 15); ?>
-     y autoridades <?php hueco(10, 11); ?> , permitiendo que los usuarios
+  <p>  <?php hueco(9, 57); ?>
+     y   <?php hueco(10, 22); ?> , permitiendo que los usuarios
      interactuen <?php hueco(11, 13); ?> y que las operaciones sean
      <?php hueco(12, 12); ?> por multiples participantes de la red.</p>
 

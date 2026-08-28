@@ -1,5 +1,7 @@
 <?php
- 
+
+$CSS = '../../../style_2_0.css';
+
 for ($i = 1; $i <= 230; $i++) {
     ${"respuesta_" . $i} = '';
 }
@@ -1495,18 +1497,6 @@ if ($respuesta_140 === 'Todos') {
     <link rel="stylesheet" href="../../../style_2_0.css">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<style>
- 
-    .seccion {
-    /*width: 50%;*/    
-    width: calc(50% - 7.5px);
-    padding: 20px;
-    box-sizing: border-box;
-    height: 500vh;
-    }
-
-</style>
- 
 <script>
 function handleSubmit(event) {
     event.preventDefault();

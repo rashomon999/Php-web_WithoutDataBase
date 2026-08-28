@@ -385,4 +385,4 @@ la pagina redibuja los numeros y el historial</code></pre>
 </div>
 
 <?php
-pie('../SmartContracts/index.php', '../Stack/index.php');
+pie('../SmartContracts/index.php', '../MiDapp/index.php');

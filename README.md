@@ -4,18 +4,6 @@ http://questionnaires.rf.gd/index.php
 
 
 Automatizado:
-CMD
-cd C:\xampp\htdocs\php_web
-publicar.bat /ver
-
-
-PowerShell
-cd C:\xampp\htdocs\php_web
-.\publicar.bat /ver
-
-
-desde cualquier sitio:
-C:\xampp\htdocs\php_web\publicar.bat /ver
-
-cambios:
-C:\xampp\htdocs\php_web\publicar.bat
+C:\xampp\htdocs\php_web\publicar.bat /ver     ← mira qué cambió, no sube
+C:\xampp\htdocs\php_web\publicar.bat          ← sube, preguntando antes
+C:\xampp\htdocs\php_web\publicar.bat /auto    ← sube sin preguntar

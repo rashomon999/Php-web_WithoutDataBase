@@ -11,11 +11,23 @@ $correctas = [
     4 => 'return res.status(500).json({ message: "Error creating vehicle" });',
 
     // Tabla 13 (preguntas 5-11)
-    5 => '78', 6 => '91', 7 => '104', 8 => '117', 9 => '130', 10 => '143', 11 => '156',
+    5 => 'find();', 
+    6 => 'find({ employeeId });', 
+    7 => 'find({ employeeId, date });', 
+    8 => 'find().limit(10).sort({ date: -1 });', 
+    
+    9 => 'const endDate = new Date();', 
+    10 => 'const startDate = new Date();', 
+    11 => 'startDate.setMonth(startDate.getMonth() - 1);',
 
     // Tabla 14 (preguntas 12-22)
-    12 => '28', 13 => '42', 14 => '56', 15 => '70', 16 => '84',
-    17 => '98', 18 => '112', 19 => '126', 20 => '140', 21 => '154', 22 => '168',
+    12 => 'return await SaleModel.find({', 
+    13 => 'employeeId', 
+    14 => 'saleDate: { $gte: startDate, $lte: endDate }', 
+    15 => 'await', 
+    16 => 'vehicleService',
+    17 => 'async getSoldVehicles():Promise<VehicleDocument[]>{', 
+    18 => 'return await VehicleModel.find({ isSold: true });', 19 => 'body', 20 => '140', 21 => '154', 22 => '168',
 
     // Tabla 15 (preguntas 23-33)
     23 => '30', 24 => '45', 25 => '60', 26 => '75', 27 => '90',
@@ -113,7 +125,7 @@ if ($_POST) {
     width: calc(50% - 7.5px);
     padding: 20px;
     box-sizing: border-box;
-    max-height: 220vh;
+    height: 350vh;
     }
 
 </style>
@@ -403,9 +415,8 @@ function ocultarMensaje4() {
 <strong>Hay que saber:</strong>
 <p>1. Los Controladores son async pero NO retornan datos</p>
 
-<p>Los servicios retornan <code>Promise&lt;Datos&gt;</code> → porque devuelven información</p>
+<p>2. Los servicios retornan <code>Promise&lt;Datos&gt;</code> → porque devuelven información</p>
 
-<p>Los controladores retornan <code>Promise&lt;void&gt;</code> → porque envían respuestas HTTP, no datos</p>
  
 <p>Enviar respuesta significa: res.json(entidad gestionada por el controller)</p>
 
@@ -441,36 +452,117 @@ function ocultarMensaje4() {
     <pre>
 
 // 1. Sin parámetros - trae TODOS los documentos
-async getSales(): Promise<SaleDocument[]> {
-    return await SaleModel.find();
+async getSales(): Promise &lt SaleDocument[] &gt {
+    return await SaleModel.<input type="text" name="respuesta_5" value="<?php echo $respuesta_5; ?>" size="36"> 
 }
 
 // 2. Con filtro - trae documentos que coinciden
-async getSalesByEmployee(employeeId: string): Promise<SaleDocument[]> {
-    return await SaleModel.find({ employeeId });
+async getSalesByEmployee(employeeId: string): Promise&ltSaleDocument[]&gt {
+    return await SaleModel.<input type="text" name="respuesta_6" value="<?php echo $respuesta_6; ?>" size="36"> 
 }
 
 // 3. Con múltiples filtros - trae documentos que coinciden con todos
-async getSalesByEmployeeAndDate(employeeId: string, date: string): Promise<SaleDocument[]> {
-    return await SaleModel.find({ employeeId, date });
+async getSalesByEmployeeAndDate(employeeId: string, date: string): Promise&ltSaleDocument[]&gt {
+    return await SaleModel.<input type="text" name="respuesta_7" value="<?php echo $respuesta_7; ?>" size="36">  
 }
 
 // 4. Con opciones avanzadas
-async getSalesLimited(): Promise<SaleDocument[]> {
-    return await SaleModel.find().limit(10).sort({ date: -1 });
+async getSalesLimited(): Promise&ltSaleDocument[]&gt {
+    return await SaleModel.<input type="text" name="respuesta_8" value="<?php echo $respuesta_8; ?>" size="36">   
 }
     </pre>
 
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_5 ?>
+    <?php echo $verificar_6 ?>
+    <?php echo $verificar_7 ?>  
+    <?php echo $verificar_8 ?>
+    <hr>
+    <img src="../../img/guia_480.png" alt="" width="900">
+    <br><br>
+        <img src="../../img/guia_481.png" alt="" width="900">
+    <br><br>
+    <pre>
+    async getSalesByEmployeeLastMonth(employeeId: string): Promise &lt SaleDocument[] &gt {
+        <input type="text" name="respuesta_9" value="<?php echo $respuesta_9; ?>" size="36">
+        <input type="text" name="respuesta_10" value="<?php echo $respuesta_10; ?>" size="36">
+        <input type="text" name="respuesta_11" value="<?php echo $respuesta_11; ?>" size="43">
+         
+        <input type="text" name="respuesta_12" value="<?php echo $respuesta_12; ?>" size="36">
+         
+            <input type="text" name="respuesta_13" value="<?php echo $respuesta_13; ?>" size="36">
+             ,
+            <input type="text" name="respuesta_14" value="<?php echo $respuesta_14; ?>" size="43">
+        });
+    }
 
+    </pre>
+    <button type="submit">Enviar</button>
+     <?php echo $verificar_9 ?>
+    <?php echo $verificar_10 ?>
+    <?php echo $verificar_11 ?> 
+    <?php echo $verificar_12 ?>
+    <?php echo $verificar_13 ?>
+    <?php echo $verificar_14 ?>
+    <hr>
 </div>
 
 
 
 
 <div class="seccion derecha">
-    
- 
-             <hr>
+    <img src="../../img/guia_482.png" alt="" width="900">
+    <br><br>
+    <p>vamos al test para ver:</p>
+    <pre>
+jest.spyOn(vehicleService, "markVehicleAsSold").mockResolvedValue(...)
+                                                 ↑
+                                        Esto te dice que es un método async
+    </pre>
+    <p>Es decir que tambien debemos definir un metodo markVehicleAsSold en vehicleService</p>
+    <img src="../../img/guia_483.png" alt="" width="900">
+    <br>
+    <p>No se puede acceder a las propiedades porque falta:
+    <input type="text" name="respuesta_15" value="<?php echo $respuesta_15; ?>" size="7">
+    </p>
+    <p>En esta clase SaleService necesitamos importar a 
+    <input type="text" name="respuesta_16" value="<?php echo $respuesta_16; ?>" size="11">    
+      </p>
+
+    <button type="submit">Enviar</button>
+    <?php echo $verificar_15 ?>
+    <?php echo $verificar_16 ?>
+
+    <hr>
+        <img src="../../img/guia_485.png" alt="" width="900">
+
+    <p>Cuando el método no recibe parámetros pero necesitas filtrar, el filtro va directo como argumento fijo dentro de find(), no como parámetro del método:</p>
+    <p><strong>Implementar getSoldVehicles</strong></p>
+
+<pre>
+    <input type="text" name="respuesta_17" value="<?php echo $respuesta_17; ?>" size="61"> 
+        <input type="text" name="respuesta_18" value="<?php echo $respuesta_18; ?>" size="61">
+    }
+</pre>
+
+<button type="submit">Enviar</button>
+<?php echo $verificar_17 ?>
+    <?php echo $verificar_18 ?>
+    <hr>
+
+    <pre>
+GET    /vehicles          → sin params ni body (lista todo)
+GET    /vehicles/:id      → params (cuál)
+POST   /vehicles          → <input type="text" name="respuesta_19" value="<?php echo $respuesta_19; ?>" size="7">  (data nueva)
+PUT    /vehicles/:id      → params (cuál) + body (qué cambiar)
+DELETE /vehicles/:id      → params (cuál)
+
+    </pre>
+
+    <button type="submit">Enviar</button>
+<?php echo $verificar_19 ?>
+     
+    <hr>
     <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
     <br>
     <input type="text" id="mostrar_solucion" name="mostrar_solucion"  value="<?php echo htmlspecialchars($mostrar_solucion, ENT_QUOTES); ?>">

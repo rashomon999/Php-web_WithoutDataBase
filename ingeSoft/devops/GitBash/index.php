@@ -109,6 +109,14 @@ $SOLUCIONES = [
     76 => ['crontab -l'],
     77 => ['crontab -e'],
     78 => ['crontab -r'],
+    79 => ['ls -l'],
+    80 => ['Otros usuarios'],
+    81 => ['Grupo'],
+    82 => ['Propietario'],
+    83 => ['Tipo'],
+    84 => ['archivo'],
+    85 => ['directorio'],
+
 ];
 
 /* solo las conceptuales van como texto; los comandos y flags respetan mayusculas */
@@ -289,7 +297,22 @@ cabecera('Bash · 1 — el lenguaje', 'Ejercicios_Bash.pdf y Dev-Ops – bash.pd
   <div class="nota"><b>Nombres de variables:</b> empiezan por letra o guion bajo, admiten letras,
     numeros y guiones bajos, <b>distinguen mayusculas</b>, no llevan espacios ni caracteres
     especiales, deben ser descriptivos y no pueden ser palabras reservadas.</div>
-
+  <h3>Ver archivos y carpetas y permisos:</h3>
+  <p><?php hueco(79, 8); ?> </p>
+  <pre>
+-   rw-   r--   r--
+│    │     │     │
+│    │     │     └── <?php hueco(80, 14); ?> 
+│    │     └──────── <?php hueco(81, 8); ?> 
+│    └────────────── <?php hueco(82, 11); ?> 
+└──────────────────  <?php hueco(83, 8); ?> 
+  </pre>
+  <h3>¿Y el primer -?</h3>
+  <p>Indica el tipo de elemento:</p>
+  <pre>
+-   <?php hueco(84, 8); ?>  
+d   <?php hueco(85, 10); ?>  
+  </pre>
   <?php enviar(); ?>
 </div>
 
@@ -359,43 +382,11 @@ then
   <?php enviar(); ?>
 </div>
 
-
-<div class="card">
-  <h2>5. Ciclos <code>for</code>: cinco variantes</h2>
-
-  <table class="datos">
-    <tr><th>Variante</th><th>Sintaxis</th><th>Uso principal</th></tr>
-    <tr><td>Lista explicita</td><td><?php hueco(38, 24); ?></td><td>iterar sobre una lista definida</td></tr>
-    <tr><td>Resultado de comando</td><td><code>for file in $(ls *.log); do</code></td><td>procesar la salida de un comando</td></tr>
-    <tr><td>Rango numerico</td><td><?php hueco(39, 24); ?></td><td>ejecutar una accion N veces (reintentos)</td></tr>
-    <tr><td>Estilo C</td><td><?php hueco(40, 26); ?></td><td>logica aritmetica y contadores precisos</td></tr>
-    <tr><td>Globbing</td><td><?php hueco(41, 28); ?></td><td>la forma <b>mas segura</b> de iterar sobre archivos</td></tr>
-  </table>
-
-  <p>Y todos cierran con <?php hueco(42, 8); ?> .</p>
-
-  <?php mc('m3'); ?>
-  <?php enviar(); ?>
-</div>
+ 
 
 
 <div class="card">
-  <h2>6. Ciclos <code>while</code></h2>
-
-  <table class="datos">
-    <tr><th>Variante</th><th>Sintaxis</th><th>Uso principal</th></tr>
-    <tr><td>Condicion logica</td><td><code>while [[ $STATUS != "running" ]]; do</code></td><td>esperar a que un servicio cambie de estado</td></tr>
-    <tr><td>Lectura de archivos</td><td><?php hueco(43, 26); ?></td><td>procesar un log o CSV linea a linea</td></tr>
-    <tr><td>Ciclo infinito</td><td><?php hueco(44, 22); ?></td><td>daemons de monitoreo, menus</td></tr>
-    <tr><td>Contadores</td><td><?php hueco(45, 28); ?></td><td>alternativa aritmetica al <code>for</code></td></tr>
-  </table>
-
-  <?php enviar(); ?>
-</div>
-
-
-<div class="card">
-  <h2>7. <code>case</code></h2>
+  <h2>5. <code>case</code></h2>
 
   <table class="datos">
     <tr><th>Componente</th><th>Funcion</th><th>Nota</th></tr>
@@ -413,7 +404,7 @@ then
 
 
 <div class="card">
-  <h2>8. Los tres <code>set</code> del principio</h2>
+  <h2>6. Los tres <code>set</code> del principio</h2>
   <p>Van arriba del todo en cualquier script que vaya a correr desatendido.</p>
 
   <table class="datos">
@@ -422,6 +413,50 @@ then
     <tr><td><?php hueco(53, 12); ?></td><td><em>Unbound variables</em>: si una variable no esta definida, lo trata como error</td></tr>
     <tr><td><?php hueco(54, 18); ?></td><td>si un comando dentro de un <b>pipeline</b> falla, todo el pipe se considera fallido</td></tr>
   </table>
+ 
+    <p>
+        Un <strong>pipeline</strong> en Bash es cuando conectas
+        la salida de un comando con la entrada de otro usando
+        <code>|</code>.
+    </p>
+
+    <h2>Ejemplo</h2>
+
+    <pre><code>echo "Hola Luis" | grep "Luis"</code></pre>
+    <p>significa que busque Luis en la salida</p>
+    <p>Aquí tenemos dos comandos:</p>
+
+    <pre>
+echo "Hola Luis"
+       │
+       │ salida
+       ↓
+grep "Luis"
+       │
+       ↓
+    salida
+    </pre>
+
+    <p>
+        El símbolo <code>|</code> es el <strong>pipeline</strong>.
+    </p>
+
+    <h2>Otro ejemplo</h2>
+
+    <pre><code>cat archivo.txt | grep "error"</code></pre>
+
+    <ol>
+        <li>
+            <code>cat archivo.txt</code> → muestra el contenido del archivo.
+        </li>
+        <li>
+            <code>|</code> → manda ese contenido al siguiente comando.
+        </li>
+        <li>
+            <code>grep "error"</code> → busca las líneas que contienen
+            <code>"error"</code>.
+        </li>
+    </ol>
 
   <?php mc('m5'); ?>
   <?php mc('m6'); ?>
@@ -432,7 +467,9 @@ then
 
 
 <div class="card">
-  <h2>9. Leer entradas</h2>
+
+
+  <h2>7. Leer entradas</h2>
 
   <p>Los parametros que le pasas al script se leen con <?php hueco(56, 6); ?> ,
      <code>$2</code>, ... <code>$n</code>.</p>
@@ -446,7 +483,7 @@ then
 
 
 <div class="card">
-  <h2>10. Diagnostico de red y procesos</h2>
+  <h2>8. Diagnostico de red y procesos</h2>
 
   <p>Para validar conexiones se usa <?php hueco(58, 6); ?> (<em>Socket Statistics</em>),
      el sucesor de <code>netstat</code>. Sus banderas:</p>
@@ -476,8 +513,11 @@ then
 
 
 <div class="card">
-  <h2>11. Crontab</h2>
-
+  <h2>9. Crontab</h2>
+  <p>
+  crontab es una herramienta de Linux/Unix que sirve para programar scripts o comandos para que se ejecuten 
+  automáticamente en determinados momentos.
+  </p>
   <p>Los cinco campos, en orden:</p>
   <pre><code><?php hueco(68, 10); ?>  <?php hueco(69, 8); ?>  <?php hueco(70, 14); ?>  <?php hueco(71, 8); ?>  <?php hueco(72, 18); ?>
 

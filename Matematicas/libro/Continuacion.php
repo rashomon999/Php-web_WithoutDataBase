@@ -61,8 +61,6 @@ if ($_POST) {
         }
     </script>
 <style>
-
-
 /* === responsive movil (anadido automaticamente) === */
 @media (max-width: 768px) {
     html, body {
@@ -80,9 +78,9 @@ if ($_POST) {
         padding: 12px 10px 10px !important;
     }
 
-    /* Las secciones dejan de ir a media pantalla y se apilan:
-       primero la izquierda, debajo la derecha. La altura la manda
-       el contenido, no un valor fijo en vh. */
+    /* Las secciones dejan de ir a media pantalla y se apilan: primero la
+       izquierda, debajo la derecha. La altura la manda el contenido, no un
+       valor fijo en vh. */
     .seccion {
         width: 100% !important;
         max-width: 100% !important;
@@ -96,10 +94,23 @@ if ($_POST) {
     .seccion.izquierda { order: 1 !important; }
     .seccion.derecha   { order: 2 !important; }
 
+    /* Los huecos de tipo texto van DENTRO de la frase ("DevOps es un ___ a
+       ___ entre ___"), asi que NO se les pone ancho completo: cada uno
+       ocuparia una linea entera y se ve desproporcionado. Se respeta su
+       atributo size y solo se limita para que nunca se salga de pantalla. */
     .seccion input[type="text"],
-    .seccion textarea,
-    .seccion select,
-    input[type="text"], textarea, select {
+    input[type="text"] {
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        min-width: 3.5em !important;
+        box-sizing: border-box !important;
+        vertical-align: baseline !important;
+    }
+
+    /* Estos si ocupan su propia linea */
+    .seccion textarea, .seccion select,
+    textarea, select {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
@@ -116,9 +127,11 @@ if ($_POST) {
     .imagen, img { max-width: 100% !important; height: auto !important; }
 
     /* Las formulas de MathJax se desbordan en pantallas estrechas */
-    mjx-container[display="true"] { overflow-x: auto !important; max-width: 100% !important; }
+    mjx-container[display="true"] {
+        overflow-x: auto !important;
+        max-width: 100% !important;
+    }
 }
-
 </style>
 </head>
 <body>

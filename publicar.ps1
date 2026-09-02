@@ -26,6 +26,11 @@ $SEP    = [System.IO.Path]::DirectorySeparatorChar
 $ESTADO = Join-Path $raiz "_publicar_estado.txt"
 $LOG    = Join-Path $raiz "_publicar.log"
 
+# El log de WinSCP se acumula entre ejecuciones; si se pasa de 5 MB, a la basura.
+if ((Test-Path $LOG) -and ((Get-Item $LOG).Length -gt 5MB)) {
+    Remove-Item $LOG -Force -ErrorAction SilentlyContinue
+}
+
 function Escribir($texto, $color = "Gray") { Write-Host $texto -ForegroundColor $color }
 
 Escribir ""
@@ -93,6 +98,7 @@ $archivosFuera = @(
     "publicar.ps1", "publicar.bat", "publicar.config", "_publicar_estado.txt",
     "_publicar.log", "_full_listing.txt", "instalar.php", "instalar_estado.json",
     "libros.sql", "package.json", "package-lock.json", "Dockerfile",
+    "_responsive.py",
     ".dockerignore", "render.yaml", "DESPLIEGUE.md", "README.md", ".gitignore",
     "Thumbs.db", ".DS_Store"
 )
@@ -232,8 +238,12 @@ if ($Modo -ne "/auto") {
 $usr = [uri]::EscapeDataString($FTP_USER)
 $passEnc = [uri]::EscapeDataString($FTP_PASS)
 
+# Solo se crean las carpetas de archivos NUEVOS. La de un archivo modificado
+# ya existe en el servidor, y pedir su mkdir solo produce un "File exists"
+# que hay que ignorar: decenas de lineas rojas que no son ningun problema.
 $dirs = New-Object System.Collections.Generic.HashSet[string]
 foreach ($k in $subir) {
+    if ($previo.ContainsKey($k)) { continue }
     $d = Split-Path $k -Parent
     while ($d -and $d -ne "") {
         [void]$dirs.Add($d)

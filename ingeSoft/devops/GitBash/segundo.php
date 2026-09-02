@@ -70,6 +70,7 @@ $SOLUCIONES = [
     40 => ['free -h'],
     41 => ['docker image prune -a -f'],
     42 => ['>>'],
+    43 => ['#!/bin/bash'],
 ];
 
 $TEXTO = [];
@@ -204,7 +205,7 @@ cabecera('Bash · 2 — los 15 retos', 'Ejercicios_Bash.pdf — escribe la linea
   <h2>Reto 1 — &iquest;Existe el archivo de configuracion de nginx?</h2>
   <p>Si no existe, hay que retornar un status code de 1.</p>
 
-  <pre><code>#!/bin/bash
+  <pre><code><?php hueco(43, 11); ?>
 
 FILE="/etc/nginx/nginx.conf"
 

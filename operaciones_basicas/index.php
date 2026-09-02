@@ -396,7 +396,7 @@ function ocultarMensaje4() {
     
 <div class="seccion izquierda"> 
 
- <input type="text" name="respuesta_1" value="<?php echo htmlspecialchars($respuesta_1, ENT_QUOTES); ?>" size="8">
+    <input type="text" name="respuesta_1" value="<?php echo $respuesta_1; ?>" size="15">
     <button type="submit">Enviar</button> 
     <?php echo $verificar_1 ?>
     <?php echo $verificar_2 ?>

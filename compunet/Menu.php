@@ -135,6 +135,7 @@
         <h2>Exposición</h2>
 
         <a class="btn" href="./dapps/Menu.php">dApps — Cuestionarios</a>
+        <a class="btn" href="./preguntas_exposiciones/Menu.php">Preguntas de exposiciones</a>
  
     </div>
 

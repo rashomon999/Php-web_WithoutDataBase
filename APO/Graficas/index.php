@@ -4,6 +4,7 @@
    Fuente: Lecture_1.ipynb, Exercises_1.ipynb, Practica Netflix_Movies.ipynb
    ========================================================================== */
 
+$MENU = '../Pandas.php';
 require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [

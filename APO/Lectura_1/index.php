@@ -4,6 +4,7 @@
    Fuente: Lecture_1.ipynb y Exercises_1.ipynb  (dataset: data/sales_data.csv)
    ========================================================================== */
 
+$MENU = '../Pandas.php';
 require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [

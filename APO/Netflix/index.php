@@ -4,6 +4,7 @@
    Fuente: Practica Netflix_Movies.ipynb (solucion concreta)
    ========================================================================== */
 
+$MENU = '../Pandas.php';
 require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [

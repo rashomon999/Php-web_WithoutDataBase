@@ -95,21 +95,14 @@ function _codbajo($t) { return _bajar(_cod($t)); }
 
 
 /* ---------- comparacion de TEXTO normal (no codigo) ----------
-   Para respuestas en castellano o ingles. Se ignoran:
-     mayusculas, tildes y la enie          -> "Diseniar" == "diseñar"
-     los signos de apertura y las comillas -> "¿Por que?" == "por que"
-     guiones, barras y guiones bajos       -> "Time-Bound" == "time bound"
-     la puntuacion final                   -> "Mediana." == "mediana"
-     el articulo de delante                -> "El No Repudio" == "no repudio"     */
+   Para respuestas en castellano o ingles: da igual mayusculas, tildes,
+   el punto final y el articulo de delante. "El No Repudio" == "no repudio".  */
 function _texto($t) {
     $t = _bajar(_limpia($t));
     $de = ['á','é','í','ó','ú','ü','ñ','à','è','ì','ò','ù','â','ê','î','ô','û'];
     $a  = ['a','e','i','o','u','u','n','a','e','i','o','u','a','e','i','o','u'];
     $t  = str_replace($de, $a, $t);
-    $t  = str_replace(['-', '–', '—', '_', '/', '\\'], ' ', $t);
-    $t  = preg_replace('/[¿¡"\'«»()\[\]{}]/u', '', $t);
     $t  = preg_replace('/[.,;:!?]+$/u', '', $t);
-    $t  = preg_replace('/\s+/u', ' ', $t);
     $t  = preg_replace('/^(el|la|los|las|un|una|the|a|an) /u', '', $t);
     return trim($t);
 }

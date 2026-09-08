@@ -1,46 +1,64 @@
 <?php
-/* APO — menu de cuestionarios de pandas */
+/* ==========================================================================
+   APO / Menu.php  —  Menu principal
+   Cada seccion es una lectura o un bloque del curso.
+   La seccion de pandas abre su propio submenu (Pandas.php) con 5 cuestionarios.
+   ========================================================================== */
 
-$CUESTIONARIOS = [
+$SECCIONES = [
     [
-        'n'     => '1',
-        'ruta'  => 'Lectura_1/index.php',
-        'tit'   => 'Fundamentos: cargar y explorar',
-        'desc'  => 'import, read_csv, shape, head, info, describe, mean/median, value_counts, unique, isna, corr.',
-        'huecos'=> '33 huecos + 5 preguntas',
-        'src'   => 'Lecture_1.ipynb · Exercises_1.ipynb'
+        'n'    => '1',
+        'ruta' => 'Pandas.php',
+        'tag'  => 'codigo',
+        'tit'  => 'pandas — Analisis exploratorio en Python',
+        'desc' => 'Los cinco cuestionarios encadenados de siempre: cargar y explorar, referenciar, filtrar y limpiar, graficas y la practica Netflix completa.',
+        'meta' => '5 cuestionarios · 154 huecos + 28 preguntas',
+        'src'  => 'Lecture_1.ipynb · Exercises_1.ipynb · Practica Netflix_Movies.ipynb'
     ],
     [
-        'n'     => '2',
-        'ruta'  => 'Referencia/index.php',
-        'tit'   => 'Referenciar: tabla, columnas, filas y celdas',
-        'desc'  => 'Corchetes, doble corchete, slicing, .iloc[fila, columna], .loc[etiqueta, nombre], rangos, .at, ordenar e indice.',
-        'huecos'=> '31 huecos + 6 preguntas',
-        'src'   => 'Lecture_1.ipynb · Netflix'
+        'n'    => '2',
+        'ruta' => 'CRISP/index.php',
+        'tag'  => 'teoria',
+        'tit'  => 'CRISP-DM y ASUM-DM — Ciclo de vida de la mineria de datos',
+        'desc' => 'Las 6 fases de CRISP-DM y las 10 etapas de ASUM-DM paso a paso: entendimiento del negocio, entendimiento y preparacion de datos, modelado, evaluacion, despliegue y retroalimentacion.',
+        'meta' => '50 huecos + 10 preguntas',
+        'src'  => 'CRISP-ASUM.pdf'
     ],
     [
-        'n'     => '3',
-        'ruta'  => 'Filtros/index.php',
-        'tit'   => 'Filtrar, limpiar y crear columnas',
-        'desc'  => 'Mascaras booleanas, & | ~, loc con condicion + columna, columnas calculadas, copy, dropna, replace, reset_index, groupby.',
-        'huecos'=> '30 huecos + 6 preguntas',
-        'src'   => 'Lecture_1.ipynb · Netflix'
+        'n'    => '3',
+        'ruta' => 'Estadistica/index.php',
+        'tag'  => 'teoria',
+        'tit'  => 'Estadistica Descriptiva — Fundamentos para IA y Ciencia de Datos',
+        'desc' => 'Tipos de variable, tablas de frecuencia, tendencia central, dispersion y coeficiente de variacion, medidas de posicion, asimetria y curtosis, y relacion entre dos variables.',
+        'meta' => '42 huecos + 10 preguntas',
+        'src'  => 'Estadistica_Descriptiva_apo3.pdf'
     ],
     [
-        'n'     => '4',
-        'ruta'  => 'Graficas/index.php',
-        'tit'   => 'Graficas',
-        'desc'  => 'plot(kind=hist/density/box/bar/pie), value_counts + pie, scatter con x e y, boxplot(by=...), matplotlib a pelo.',
-        'huecos'=> '31 huecos + 5 preguntas',
-        'src'   => 'Lecture_1.ipynb · Exercises_1.ipynb'
+        'n'    => '4',
+        'ruta' => 'SMART/index.php',
+        'tag'  => 'corto',
+        'tit'  => 'Objetivos S.M.A.R.T. — Como escribirlos',
+        'desc' => 'Cuestionario corto: que significa cada letra, que pregunta responde, la estructura de un objetivo bien escrito y como convertir un objetivo vago en uno SMART.',
+        'meta' => '20 huecos + 8 preguntas',
+        'src'  => 'SMART.pdf · Writing S.M.A.R.T. Objectives.pdf'
     ],
     [
-        'n'     => '5',
-        'ruta'  => 'Netflix/index.php',
-        'tit'   => 'Practica Netflix completa',
-        'desc'  => 'La solucion entera y en orden: cargar, explorar, limpiar, filtrar Movie, columnas, menos de 60 min, bucle de colores y scatter.',
-        'huecos'=> '29 huecos + 6 preguntas',
-        'src'   => 'Practica Netflix_Movies.ipynb'
+        'n'    => '5',
+        'ruta' => 'ML/index.php',
+        'tag'  => 'teoria',
+        'tit'  => 'Introduccion al Machine Learning',
+        'desc' => 'La definicion de Mitchell (E, T, P), ML frente a IA, la historia de 1950 a 2017, regresion vs clasificacion, supervisado / no supervisado / por refuerzo, las tres fases del modelo y underfitting vs overfitting.',
+        'meta' => '35 huecos + 10 preguntas',
+        'src'  => 'Machine_Learning_Def.pdf · Introduccion al Machine Learning.pdf · Machine_Learning.pdf'
+    ],
+    [
+        'n'    => '6',
+        'ruta' => 'Regresion/index.php',
+        'tag'  => 'mixto',
+        'tit'  => 'Regresion lineal, multiple, polinomial y metricas',
+        'desc' => 'Intercepto, pendiente y residuo; funcion de costo OLS y descenso de gradiente; particion 80/20; seleccion de variables (completo, tamano fijo, stepwise, PCA); MSE, RMSE y R&sup2;; y la codificacion de variables categoricas en pandas.',
+        'meta' => '40 huecos + 10 preguntas',
+        'src'  => 'Regresion_ma.pdf'
     ],
 ];
 ?><!DOCTYPE html>
@@ -48,7 +66,7 @@ $CUESTIONARIOS = [
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APO — Cuestionarios de pandas</title>
+<title>APO — Cuestionarios</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 :root{--azul:#2c5aa0;--gris:#f4f5f7;--borde:#d8dbe0}
@@ -81,14 +99,20 @@ a.item:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-1px);
 .item p{margin:8px 0 0;font-size:14.5px;color:#3c4654}
 .item .meta{margin-top:8px;font-size:12.5px;color:#7a8494}
 .item .meta b{color:#3c4654}
+.tag{float:right;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;
+     padding:2px 9px;border-radius:20px;font-weight:700}
+.tag.codigo{background:#e8eefa;color:#2c5aa0}
+.tag.teoria{background:#e6f4ea;color:#1a7f37}
+.tag.corto{background:#fff4e0;color:#b5730a}
+.tag.mixto{background:#f0e8fa;color:#6b3fa0}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div>
-    <h1>APO · Cuestionarios de pandas</h1>
-    <p class="sub">Analisis exploratorio de datos — memorizar las lineas, no entenderlas a medias</p>
+    <h1>APO · Cuestionarios</h1>
+    <p class="sub">Analisis y procesamiento de datos — memorizar lo que cae, no entenderlo a medias</p>
   </div>
   <div class="spacer"></div>
   <a href="../index.php">&#8962; php_web</a>
@@ -97,20 +121,25 @@ a.item:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-1px);
 <div class="wrap">
 
   <div class="intro">
-    <p>Cinco cuestionarios encadenados, de lo simple a lo complejo. Cada hueco se corrige
-       solo al pulsar <b>Enter</b> o <b>Verificar</b>, y el marcador de arriba lleva la cuenta.</p>
+    <p>Seis bloques: uno de <b>codigo</b> (pandas, con su propio submenu de cinco cuestionarios),
+       cuatro de <b>lecturas</b> del curso y uno <b>mixto</b> (regresion, que mezcla concepto y
+       nombres de pandas). Cada hueco se corrige solo al pulsar
+       <b>Enter</b> o <b>Verificar</b>, y el marcador de arriba lleva la cuenta.</p>
     <p><span class="mkok">&#10004;</span> exacto &nbsp;·&nbsp;
-       <span class="mkcasi">&#9888;</span> bien salvo mayusculas (en Python eso revienta, asi que te ensena la forma correcta) &nbsp;·&nbsp;
-       <span class="mkbad">&#10008;</span> mal, y debajo aparece la linea buena.</p>
-    <p>Las comillas simples y dobles valen igual, y el espaciado da lo mismo:
-       <code>sales.loc[ sales['State']=='Kentucky' ]</code> se acepta.</p>
+       <span class="mkcasi">&#9888;</span> bien salvo mayusculas (solo se avisa en los de codigo,
+       porque en Python eso revienta) &nbsp;·&nbsp;
+       <span class="mkbad">&#10008;</span> mal, y debajo aparece la respuesta buena.</p>
+    <p>En los cuestionarios de lectura las respuestas son en castellano y da igual
+       la tilde, la mayuscula y el articulo de delante:
+       <code>La Preparacion de Datos</code> se acepta igual que <code>preparación de datos</code>.</p>
   </div>
 
-  <?php foreach ($CUESTIONARIOS as $c): ?>
-    <a class="item" href="<?= $c['ruta'] ?>">
-      <span class="num"><?= $c['n'] ?></span><h3><?= $c['tit'] ?></h3>
-      <p><?= $c['desc'] ?></p>
-      <div class="meta"><b><?= $c['huecos'] ?></b> &nbsp;·&nbsp; fuente: <?= $c['src'] ?></div>
+  <?php foreach ($SECCIONES as $s): ?>
+    <a class="item" href="<?= $s['ruta'] ?>">
+      <span class="tag <?= $s['tag'] ?>"><?= $s['tag'] ?></span>
+      <span class="num"><?= $s['n'] ?></span><h3><?= $s['tit'] ?></h3>
+      <p><?= $s['desc'] ?></p>
+      <div class="meta"><b><?= $s['meta'] ?></b> &nbsp;·&nbsp; fuente: <?= $s['src'] ?></div>
     </a>
   <?php endforeach; ?>
 

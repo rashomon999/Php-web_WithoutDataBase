@@ -4,6 +4,7 @@
    Fuente: Lecture_1.ipynb y Practica Netflix_Movies.ipynb
    ========================================================================== */
 
+$MENU = '../Pandas.php';
 require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [
@@ -211,7 +212,7 @@ sales.loc[2, 'Country']   -> por ETIQUETA  fila, columna (loc = label)</code></p
   <?php linea(21, 'de la fila 0 a la 5, y de la columna <code>Country</code> a la columna <code>Revenue</code>'); ?>
   <?php ayuda('Con <code>loc</code> tambien se puede cortar un <b>rango de columnas</b> por nombre: <code>\'Country\':\'Revenue\'</code>. Con iloc eso no existe.'); ?>
   <?php linea(22, 'de la fila 0 a la 5, pero solo <code>Country</code> y <code>Revenue</code> (lista, no rango)'); ?>
-  <?php linea(23, 'el mismo valor de la pregunta 18 pero con el acceso <b>rapido</b> a una sola celda'); ?>
+  <?php linea(23, 'el valor de <code>Country</code> en la fila con etiqueta <code>2</code>, usando el acceso <b>rapido</b> a una sola celda'); ?>
 
   <?php mc('m1'); ?>
   <?php mc('m3'); ?>

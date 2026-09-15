@@ -97,6 +97,12 @@ $libros = [
         'link' => 'APO/Menu.php'
     ],
     [
+        'nombre' => 'Gestión de Proyectos',
+        'imagen' => 'fondo.jpg',
+        'categoria' => 'principal',
+        'link' => 'GestionProyectos/Menu.php'
+    ],
+    [
         'nombre' => 'Física',
         'imagen' => 'fondo.jpg',
         'categoria' => 'especial',

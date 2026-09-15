@@ -1,6 +1,6 @@
 <?php
 /* ==========================================================================
-   APO / Pandas.php  —  Submenu de los cinco cuestionarios de pandas
+   APO / Pandas.php  —  Submenu de los cuatro cuestionarios de pandas
    (antes esto era el contenido de Menu.php; Menu.php es ahora el indice general)
    ========================================================================== */
 
@@ -36,14 +36,6 @@ $CUESTIONARIOS = [
         'desc'  => 'plot(kind=hist/density/box/bar/pie), value_counts + pie, scatter con x e y, boxplot(by=...), matplotlib a pelo.',
         'huecos'=> '31 huecos + 5 preguntas',
         'src'   => 'Lecture_1.ipynb · Exercises_1.ipynb'
-    ],
-    [
-        'n'     => '5',
-        'ruta'  => 'Netflix/index.php',
-        'tit'   => 'Practica Netflix completa',
-        'desc'  => 'La solucion entera y en orden: cargar, explorar, limpiar, filtrar Movie, columnas, menos de 60 min, bucle de colores y scatter.',
-        'huecos'=> '29 huecos + 6 preguntas',
-        'src'   => 'Practica Netflix_Movies.ipynb'
     ],
 ];
 ?><!DOCTYPE html>
@@ -100,7 +92,7 @@ a.item:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-1px);
 <div class="wrap">
 
   <div class="intro">
-    <p>Cinco cuestionarios encadenados, de lo simple a lo complejo. Cada hueco se corrige
+    <p>Cuatro cuestionarios encadenados, de lo simple a lo complejo. Cada hueco se corrige
        solo al pulsar <b>Enter</b> o <b>Verificar</b>, y el marcador de arriba lleva la cuenta.</p>
     <p><span class="mkok">&#10004;</span> exacto &nbsp;·&nbsp;
        <span class="mkcasi">&#9888;</span> bien salvo mayusculas (en Python eso revienta, asi que te ensena la forma correcta) &nbsp;·&nbsp;

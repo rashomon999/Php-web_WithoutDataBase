@@ -202,14 +202,28 @@ function iniciar($soluciones, $mc = [], $texto = []) {
     }
 
     foreach ($MC as $id => $p) {
+        /* 'correctas' (en plural) = pregunta de seleccion multiple: hay que
+           marcar TODAS las correctas y ninguna de mas. Se pinta con mcm(). */
+        $varias = isset($p['correctas']);
+
         if ($VER_SOL) {
-            $MCRESP[$id]  = $p['correcta'];
+            $MCRESP[$id]  = $varias ? $p['correctas'] : $p['correcta'];
             $MCVERIF[$id] = 'correcto';
             continue;
         }
 
-        $r           = isset($_POST["mc_$id"]) ? $_POST["mc_$id"] : '';
+        $r           = isset($_POST["mc_$id"]) ? $_POST["mc_$id"] : ($varias ? [] : '');
         $MCRESP[$id] = $r;
+
+        if ($varias) {
+            $marcadas = is_array($r) ? $r : ($r === '' ? [] : [$r]);
+            if (!$marcadas) { $MCVERIF[$id] = ''; continue; }
+            $a = array_map('strval', $marcadas);
+            $b = array_map('strval', $p['correctas']);
+            sort($a); sort($b);
+            $MCVERIF[$id] = ($a === $b) ? 'correcto' : 'incorrecto';
+            continue;
+        }
 
         if ($r === '')                 $MCVERIF[$id] = '';
         elseif ($r === $p['correcta']) $MCVERIF[$id] = 'correcto';
@@ -387,6 +401,40 @@ function mc($id) {
         $marca   = ($c !== '' && $clave === $p['correcta']) ? ' es-correcta' : '';
         echo '<label class="opcion' . $marca . '">';
         echo '<input type="radio" name="mc_' . $id . '" value="' . $clave . '"' . $checked . '> ';
+        echo '<b>' . chr(65 + $i) . ')</b> ' . $texto;
+        echo '</label>';
+        $i++;
+    }
+
+    if ($c !== '' && isset($p['porque'])) {
+        echo '<p class="porque">&#128161; ' . $p['porque'] . '</p>';
+    }
+    echo '</div>';
+}
+
+
+/* ---------- pregunta de SELECCION MULTIPLE (varias correctas) ----------
+   Igual que mc(), pero con casillas. En $MULTIPLE se declara con
+   'correctas' => ['c', 'e'] en vez de 'correcta' => 'c'.
+   Solo cuenta como acertada si se marcan todas y ninguna de mas.
+   Las opciones NO se rotan: al haber varias correctas, rotar no aporta.   */
+function mcm($id) {
+    global $MC, $MCRESP, $MCVERIF;
+    if (!isset($MC[$id])) return;
+
+    $p = $MC[$id];
+    $r = (isset($MCRESP[$id]) && is_array($MCRESP[$id])) ? array_map('strval', $MCRESP[$id]) : [];
+    $c = isset($MCVERIF[$id]) ? $MCVERIF[$id] : '';
+
+    echo '<div class="pregunta ' . _clase($c) . '">';
+    echo '<p class="enunciado">' . $p['texto'] . ' ' . _marca($c) . '</p>';
+
+    $i = 0;
+    foreach ($p['opciones'] as $clave => $texto) {
+        $checked = in_array((string) $clave, $r, true) ? ' checked' : '';
+        $marca   = ($c !== '' && in_array($clave, $p['correctas'], true)) ? ' es-correcta' : '';
+        echo '<label class="opcion' . $marca . '">';
+        echo '<input type="checkbox" name="mc_' . $id . '[]" value="' . $clave . '"' . $checked . '> ';
         echo '<b>' . chr(65 + $i) . ')</b> ' . $texto;
         echo '</label>';
         $i++;

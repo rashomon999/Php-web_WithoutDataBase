@@ -354,20 +354,7 @@ cabecera('Sesión 3 · 1 — Definiciones y necesidad', 'sesion_03_fundamentos_d
 <div class="card">
   <h2>7. Estadisticas y brecha de ejecucion</h2>
 
-  <table class="datos">
-    <tr><th>Fuente</th><th>Dato</th><th>%</th></tr>
-    <tr><td rowspan="3">XebiaLabs<br><em>retos de despliegue</em></td>
-        <td>reporta <b>inconsistencia</b>: diferencias entre entornos y aplicaciones (el mayor reto)</td>
-        <td><?php hueco(39, 6); ?> %</td></tr>
-    <tr><td>reporta demasiados <b>errores</b> de despliegue</td><td><?php hueco(40, 6); ?> %</td></tr>
-    <tr><td>usa scripts propios o procesos <b>manuales</b></td><td><?php hueco(41, 6); ?> %</td></tr>
-    <tr><td rowspan="3">CA e IBM<br><em>ejecucion e impacto</em></td>
-        <td>cree que sus equipos de desarrollo son <b>eficientes</b> (la brecha de ejecucion)</td>
-        <td><?php hueco(42, 6); ?> %</td></tr>
-    <tr><td>mejora en la <b>frecuencia</b> de despliegues al adoptar DevOps</td><td><?php hueco(43, 6); ?> %</td></tr>
-    <tr><td>mejora en la <b>calidad</b></td><td><?php hueco(44, 6); ?> %</td></tr>
-  </table>
-
+ 
   <?php mc('m8'); ?>
   <?php mc('m9'); ?>
   <?php enviar(); ?>

@@ -10,7 +10,7 @@ require_once __DIR__ . '/../motor.php';
 
 $SOLUCIONES = [
     /* --- despliegue tradicional --- */
-    1  => ['sistema operativo', 'so', 'os'],
+    1  => ['Una aplicacion tradicional se construye y despliega para un sistema operativo', 'so', 'os'],
     2  => ['hardware'],
     3  => ['red'],
     4  => ['tiempo'],
@@ -22,7 +22,7 @@ $SOLUCIONES = [
     8  => ['fast deployment', 'despliegue rapido', 'velocidad de despliegue'],
 
     /* --- contenerizacion --- */
-    9  => ['estandar', 'estandares'],
+    9  => ['Empaqueta el software en unidades estandar', 'estandares'],
     10 => ['dependencias'],
     11 => ['igual', 'de la misma forma', 'de la misma manera'],
     12 => ['entorno', 'ambiente'],
@@ -34,7 +34,7 @@ $SOLUCIONES = [
     /* --- docker --- */
     17 => ['engine', 'docker engine'],
     18 => ['kernel'],
-    19 => ['ligero', 'lightweight'],
+    19 => ['lightweight', 'ligero'],
     20 => ['aislamiento', 'isolation'],
     21 => ['podman'],
     22 => ['containerd'],
@@ -65,7 +65,13 @@ $SOLUCIONES = [
     41 => ['iaas'],
     42 => ['paas'],
     43 => ['saas'],
-];
+    44 => ['Standard'],
+    45 => ['Secure'],
+    46 => ['estandar'],
+
+     
+    ]
+;
 
 $TEXTO = range(1, 43);
 
@@ -209,8 +215,8 @@ cabecera('Docker · 1 — contenedores', 'DevOps-Containers.pdf y Dev-Ops – cl
 <div class="card">
   <h2>1. El despliegue tradicional</h2>
 
-  <p>Una aplicacion tradicional se construye y despliega para un
-     <?php hueco(1, 18); ?>, un <?php hueco(2, 12); ?> y una
+  <p> 
+     <?php hueco(1, 77); ?>, un <?php hueco(2, 12); ?> y una
      configuracion de <?php hueco(3, 8); ?> concretos.</p>
 
   <p>Las diapositivas reconocen que eso es <b>familiar, personalizable y controlable</b> —
@@ -233,16 +239,26 @@ cabecera('Docker · 1 — contenedores', 'DevOps-Containers.pdf y Dev-Ops – cl
 <div class="card">
   <h2>2. Contenerizacion</h2>
 
-  <p>Empaqueta el software en unidades <?php hueco(9, 12); ?> para desarrollo,
-     construccion y despliegue. Empaqueta el codigo <b>junto con todas sus</b>
-     <?php hueco(10, 14); ?>, de modo que el software siempre corra
-     <?php hueco(11, 12); ?>, sin importar el <?php hueco(12, 12); ?>.</p>
+  <p>  <?php hueco(9, 42); ?> para desarrollo,
+     construccion y despliegue .</p>
+
+    
+    <p>Empaqueta el codigo <b>junto con todas sus</b> <?php hueco(10, 14); ?></p>
+    
+     <p>El software siempre corre <?php hueco(11, 12); ?>, sin importar el <?php hueco(12, 12); ?></p>
+     
+     <p>Docker supports the construction, execution,
+inspection of code, and manage container images.</p>
+    <p>Same behavior no matter the environment.</p>
 
   <p>Una <b><?php hueco(13, 12); ?> de contenedor</b> incluye el codigo, los valores
      por defecto, los runtimes, las aplicaciones y las librerias del sistema.</p>
 
+     
   <p>El contenedor es <?php hueco(14, 12); ?>: cambiar algo exige la
      <?php hueco(15, 14); ?> del contenedor, no modificarlo por dentro.</p>
+
+      
 
   <p>Y el software que ejecuta los contenedores se llama
      <b>container <?php hueco(16, 12); ?></b>.</p>
@@ -261,9 +277,9 @@ cabecera('Docker · 1 — contenedores', 'DevOps-Containers.pdf y Dev-Ops – cl
 
   <table class="datos">
     <tr><th>Caracteristica</th><th>Que significa</th></tr>
-    <tr><td>Standard</td><td>es el estandar de la industria para contenedores</td></tr>
+    <tr><td><?php hueco(44, 14); ?> </td><td>es el <?php hueco(46, 14); ?>   de la industria para contenedores</td></tr>
     <tr><td><?php hueco(19, 14); ?></td><td>comparten el <?php hueco(18, 10); ?> del sistema operativo: no necesitan un SO completo, lo que reduce servidores y licencias</td></tr>
-    <tr><td>Secure</td><td>aplicaciones mas seguras, mejor <?php hueco(20, 14); ?></td></tr>
+    <tr><td><?php hueco(45, 14); ?> </td><td>aplicaciones mas seguras, mejor <?php hueco(20, 14); ?></td></tr>
   </table>
 
   <p>Docker soporta la construccion, ejecucion e inspeccion de codigo, y gestiona las

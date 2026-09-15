@@ -67,15 +67,6 @@ $SOLUCIONES = [
     40 => ["Boxplot", "Diagrama de caja", "Diagrama de cajas"],
     41 => ["Coeficiente de correlacion de Pearson", "Correlacion de Pearson", "Pearson"],
     42 => ["Diagrama de dispersion", "Grafico de dispersion", "Dispersion", "Scatter"],
-
-    /* --- definicion de las medidas de dispersion --- */
-    43 => ["agrupados", "agrupadas"],
-    44 => ["centro"],
-    45 => ["posicion"],
-    46 => ["valor"],
-    47 => ["resto"], 
-    48 => ["centro"], 
-
 ];
 
 $MULTIPLE = [
@@ -201,7 +192,7 @@ $MULTIPLE = [
     ],
 ];
 
-iniciar($SOLUCIONES, $MULTIPLE, range(1, 44));
+iniciar($SOLUCIONES, $MULTIPLE, range(1, 42));
 cabecera('Estadistica Descriptiva · Fundamentos para IA y Ciencia de Datos', 'Estadistica_Descriptiva_apo3.pdf');
 ?>
 
@@ -324,9 +315,7 @@ cabecera('Estadistica Descriptiva · Fundamentos para IA y Ciencia de Datos', 'E
 
 <div class="card">
   <h2>4. Medidas de tendencia central</h2>
-  <p>Buscan el «
-  <?php hueco(48, 12); ?>  
-    de los datos: alrededor de que punto se agrupan.</p>
+  <p>Buscan el «centro» de los datos: alrededor de que punto se agrupan.</p>
 
   <?php linea(17, 'El valor <b>promedio</b> de los datos'); ?>
   <?php linea(18, 'El valor que esta por encima del <b>50 %</b> de los datos, al ordenarlos de menor a mayor'); ?>
@@ -340,8 +329,7 @@ cabecera('Estadistica Descriptiva · Fundamentos para IA y Ciencia de Datos', 'E
 
 <div class="card">
   <h2>5. Medidas de dispersion</h2>
-  <p>Indican que tan <?php hueco(43, 14); ?> estan los datos alrededor del
-     <?php hueco(44, 12); ?>.</p>
+  <p>Indican que tan agrupados estan los datos alrededor del centro.</p>
 
   <?php linea(20, 'El promedio de la desviacion de cada dato respecto a la media'); ?>
   <?php linea(21, 'Esa misma medida <b>al cuadrado</b>'); ?>
@@ -366,11 +354,7 @@ cabecera('Estadistica Descriptiva · Fundamentos para IA y Ciencia de Datos', 'E
 
 <div class="card">
   <h2>6. Medidas de posicion</h2>
-  <p>Describen la <?php hueco(45, 12); ?>  de un 
-  <?php hueco(46, 12); ?>
-    respecto al 
-  <?php hueco(47, 12); ?>
-   , dividiendo los datos en partes
+  <p>Describen la posicion de un valor respecto al resto, dividiendo los datos en partes
      iguales <b>tras ordenarlos</b>.</p>
 
   <p>Los valores extremos del conjunto son el <?php hueco(29, 12); ?> y el
@@ -448,7 +432,7 @@ cabecera('Estadistica Descriptiva · Fundamentos para IA y Ciencia de Datos', 'E
     </tr>
     <tr>
       <td><b>Dos cuantitativas</b></td>
-      <td><?php hueco(41, 36); ?> y <?php hueco(42, 26); ?></td>
+      <td><?php hueco(41, 34); ?> y <?php hueco(42, 26); ?></td>
       <td>relacion lineal, de -1 a 1</td>
     </tr>
   </table>

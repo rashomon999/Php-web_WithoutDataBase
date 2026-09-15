@@ -69,6 +69,10 @@ $SOLUCIONES = [
     45 => ['comunicacion'],
     46 => ['rework'],
     47 => ['over-production', 'overproduction', 'sobreproduccion'],
+
+    48 => ['Requisitos de Ops'],
+    49 => ['Soporte compartido'],
+    50 => ['Proceso unico'],
 ];
 
 $TEXTO = range(1, 47);
@@ -227,17 +231,16 @@ cabecera('Sesión 3 · 3 — Prácticas y adopción', 'sesion_03_fundamentos_dev
   <h2>1. Las 5 practicas de DevOps</h2>
 
   <ol>
-    <li><b>Requisitos de Ops:</b> integrar <?php hueco(1, 10); ?> y
+    <li><b><?php hueco(48, 10); ?> :</b> integrar <?php hueco(1, 10); ?> y
         <?php hueco(2, 12); ?> comprensibles como requisitos
         <?php hueco(3, 14); ?> de diseño.</li>
-    <li><b>Soporte compartido:</b> hacer a Dev responsable del manejo inicial de
+    <li><b><?php hueco(49, 18); ?> :</b> hacer a Dev responsable del manejo inicial de
         <?php hueco(4, 12); ?> en produccion.</li>
-    <li><b>Proceso unico:</b> imponer el mismo <?php hueco(5, 12); ?>
+    <li><b><?php hueco(50, 14); ?> :</b> imponer el mismo <?php hueco(5, 12); ?>
         estandarizado a todo el personal, Dev y Ops.</li>
     <li><b><?php hueco(6, 26); ?>:</b> tratar los scripts de despliegue con
         versionamiento y calidad.</li>
-    <li><b>La practica core — <?php hueco(7, 24); ?>:</b> reducir el tiempo entre
-        commit y produccion con pruebas y entregas totalmente automatizadas.</li>
+ 
   </ol>
 
   <?php mc('m1'); ?>

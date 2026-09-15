@@ -282,57 +282,6 @@ cabecera('Docker · 2 — Dockerfile y comandos', 'TallerDocker.pdf + tus Docker
 </div>
 
 
-<div class="card">
-  <h2>5. El taller: Dockerfile del microservicio</h2>
-  <p>Puerto TCP a usar: <?php hueco(44, 8); ?>.</p>
-
-  <?php linea(27, 'imagen base de Python 3', 'FROM ...'); ?>
-  <p><code>ENV PYTHONUNBUFFERED 1</code> y <code>RUN mkdir /code</code> ya estan.</p>
-  <?php linea(28, 'directorio de trabajo <code>/code</code>', 'WORKDIR ...'); ?>
-  <?php linea(29, 'copia el archivo de dependencias a <code>/code/</code>', 'COPY ...'); ?>
-  <?php linea(30, 'instala las dependencias de Python desde ese archivo', 'RUN ...'); ?>
-  <?php linea(31, 'variable de <b>build</b> con la URL por defecto <code>0.0.0.0:4000</code>', 'ARG ...'); ?>
-
-  <div class="nota">El <code>CMD</code> encadena tres cosas con <code>&amp;&amp;</code>:
-    <code>makemigrations</code>, <code>migrate</code> y <code>runserver $URL</code>.
-    Va envuelto en <code>sh -c</code> justamente para que el shell expanda <code>$URL</code>.</div>
-
-  <?php enviar(); ?>
-</div>
-
-
-<div class="card">
-  <h2>6. Los comandos del taller</h2>
-
-  <?php linea(32, 'construye la imagen de la base de datos con el nombre <code>supermarket_db</code>, desde la carpeta actual', 'docker build ...'); ?>
-  <?php linea(33, 'levanta la base de datos en segundo plano, publicando 3306 y con nombre <code>supermarket_db</code>', 'docker run ...'); ?>
-  <?php linea(34, 'comprueba que los contenedores estan corriendo', 'docker ...'); ?>
-  <?php linea(35, 'inspecciona un contenedor (de ahi sacas su IP en <code>Networks &gt; bridge &gt; IPAddress</code>)', 'docker ...'); ?>
-  <?php linea(36, 'elimina las imagenes que no estan en uso (el del reto 15 de Bash)', 'docker image ...'); ?>
-
-  <h3>Las banderas de <code>docker run</code></h3>
-  <table class="datos">
-    <tr><th>Bandera</th><th>Que hace</th></tr>
-    <tr><td><?php hueco(37, 6); ?></td><td><em>detached</em>: en segundo plano, te devuelve la terminal</td></tr>
-    <tr><td><?php hueco(38, 6); ?> host:contenedor</td><td>publica un puerto del contenedor en tu maquina</td></tr>
-    <tr><td><?php hueco(39, 10); ?></td><td>le pone nombre al contenedor</td></tr>
-    <tr><td><?php hueco(40, 6); ?> y <code>-i</code></td><td>asigna una TTY y deja la entrada interactiva abierta</td></tr>
-    <tr><td><?php hueco(41, 6); ?> VAR=valor</td><td>pasa una variable de entorno al contenedor</td></tr>
-    <tr><td><?php hueco(42, 10); ?> db</td><td>enlaza con otro contenedor (asi arranca phpMyAdmin en el taller)</td></tr>
-  </table>
-
-  <p>El cliente phpMyAdmin se publica en el puerto <?php hueco(45, 8); ?> del host,
-     y se accede por <code>http://localhost:8081</code>.</p>
-
-  <p>Para que el microservicio encuentre la base de datos, <code>DB_HOST</code> puede ser
-     <?php hueco(46, 22); ?> o directamente la IP del contenedor.</p>
-
-  <?php mc('m5'); ?>
-  <?php mc('m6'); ?>
-  <?php mc('m9'); ?>
-  <?php mc('m10'); ?>
-  <?php mc('m11'); ?>
-  <?php enviar('Verificar todo el cuestionario'); ?>
 </div>
 
 <?php

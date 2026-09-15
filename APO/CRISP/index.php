@@ -261,7 +261,7 @@ cabecera('CRISP-DM y ASUM-DM · Ciclo de vida de la mineria de datos', 'CRISP-AS
   <h2>2. ASUM-DM</h2>
 
   <p>ASUM son las siglas, en ingles, de:</p>
-  <?php linea(8, 'las cuatro palabras en ingles (o su traduccion: «Metodo Unificado para Soluciones de Analitica»)'); ?>
+  <?php linea(8, ' :'); ?>
 
   <p>Ademas de las actividades de operacion, ASUM-DM anade cuatro actividades de
      <b>gestion de proyectos</b>. Escribelas en orden:</p>

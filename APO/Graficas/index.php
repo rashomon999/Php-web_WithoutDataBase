@@ -137,14 +137,17 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
 
 <div class="card">
   <h2>1. Una columna numerica</h2>
-
+    <img src="../../img/guia_486.png" alt="">
   <?php linea(1, '<b>box plot horizontal</b> de <code>Unit_Cost</code>, tamanio 14x6'); ?>
+      <img src="../../img/guia_487.png" alt="">
   <?php linea(2, '<b>density (KDE)</b> de <code>Unit_Cost</code>, 14x6'); ?>
+        <img src="../../img/guia_488.png" alt="">
   <?php linea(5, '<b>histograma</b> de <code>Unit_Cost</code>, 14x6'); ?>
   <?php linea(6, 'histograma de <code>Revenue</code> con <b>100 bins</b>, 14x6'); ?>
-
+   
   <p>Ahora los dos que pide el ejercicio para <code>Customer_Age</code>:</p>
   <?php linea(3, 'density de <code>Customer_Age</code>'); ?>
+  <img src="../../img/guia_489.png" alt="">
   <?php linea(4, 'box plot horizontal de <code>Customer_Age</code>'); ?>
 
   <?php mc('m1'); ?>
@@ -155,6 +158,7 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
 
 <div class="card">
   <h2>2. Guardar el eje para poder retocarla</h2>
+  <img src="../../img/guia_490.png" alt="">
   <p>Cuando quieres ponerle titulo a los ejes o marcar la media, hay que quedarse con el <code>ax</code>.</p>
 
   <?php linea(7, 'histograma de <code>Order_Quantity</code> con <b>32 bins</b>, 14x6, <b>guardando</b> el eje en <code>ax</code>'); ?>
@@ -176,6 +180,7 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
 
   <?php linea(12, 'primero: cuantas ventas hay por anio'); ?>
   <?php linea(13, 'ahora esa misma cuenta como <b>grafico de tarta</b> de 6x6'); ?>
+  <img src="../../img/guia_491.png" alt="" width="500">
   <?php linea(14, '<b>barras</b> con las ventas por <code>Age_Group</code>, 14x6, guardando el eje'); ?>
   <?php linea(15, 'barras con las ventas por <code>Month</code>, 14x6'); ?>
   <?php linea(16, 'barras con los <b>10 productos mas vendidos</b>, 14x6'); ?>
@@ -189,9 +194,11 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
 <div class="card">
   <h2>4. Dos columnas: scatter</h2>
   <p>Se llama sobre <b>el dataframe</b>, y se le dicen las dos columnas por nombre.</p>
-
+    <img src="../../img/guia_492.png" alt="" width="600">
   <?php linea(17, 'relacion entre <code>Customer_Age</code> (x) y <code>Revenue</code> (y), 6x6'); ?>
+  <img src="../../img/guia_493.png" alt="" width="600">
   <?php linea(18, 'relacion entre <code>Unit_Cost</code> y <code>Unit_Price</code>, 6x6'); ?>
+  <img src="../../img/guia_494.png" alt="" width="600">
   <?php linea(19, 'relacion entre <code>Order_Quantity</code> y <code>Profit</code>, 6x6'); ?>
 
   <?php enviar(); ?>
@@ -201,8 +208,10 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
 <div class="card">
   <h2>5. Comparar una variable numerica <em>entre grupos</em></h2>
   <p>Aqui entra <code>boxplot(by=...)</code>: una caja por cada categoria.</p>
+      <img src="../../img/guia_495.png" alt="" width="600">
 
   <?php linea(20, '<code>Profit</code> agrupado por <code>Age_Group</code>, 10x6, guardando el eje'); ?>
+  <img src="../../img/guia_496.png" alt="" width="600">
   <?php linea(21, '<code>Profit</code> agrupado por <code>Country</code>, 10x6'); ?>
   <?php linea(22, '<code>Customer_Age</code> agrupado por <code>Country</code>, 10x6'); ?>
 
@@ -215,13 +224,14 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
   <h2>6. matplotlib a pelo</h2>
   <p>Cuando <code>.plot()</code> se queda corto se baja a matplotlib. Este bloque es el del
      histograma de <code>duration</code> de la practica de Netflix.</p>
-
+<img src="../../img/guia_497.png" alt="" width="500">
   <?php linea(23, 'histograma del dataframe indicando <code>column=atr</code>, <code>bins=num_bins</code> y tamanio 5x5'); ?>
 
   <p>Y ahora el mismo histograma, pero con matplotlib:</p>
   <?php linea(24, 'sacar el <b>ndarray</b> de la columna <code>atr</code> en la variable <code>valores</code>'); ?>
   <?php ayuda('El atributo (sin parentesis) que convierte una Series en array de numpy es <code>.values</code>.'); ?>
   <?php linea(25, 'dibujar el histograma con <code>plt</code>, en verde, sin densidad, recogiendo <code>n, bins, patches</code>'); ?>
+  <img src="../../img/guia_498.png" alt="" width="500">
   <?php linea(26, 'texto del eje X (la variable <code>atr</code>)'); ?>
   <?php linea(27, 'texto del eje Y: <code>Cuentas</code>'); ?>
   <?php linea(28, 'titulo: <code>Histograma de duration</code>'); ?>
@@ -235,4 +245,4 @@ cabecera('4 · Graficas', 'plot(kind=...) · value_counts + pie/bar · scatter �
 </div>
 
 <?php
-pie('../Filtros/index.php', '../Netflix/index.php');
+pie('../Filtros/index.php', '');

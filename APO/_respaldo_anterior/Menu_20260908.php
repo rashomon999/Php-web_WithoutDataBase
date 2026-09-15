@@ -62,15 +62,6 @@ $SECCIONES = [
     ],
     [
         'n'    => '7',
-        'ruta' => 'Unidad2/index.php',
-        'tag'  => 'mixto',
-        'tit'  => 'Unidad 2 — Correlacion, statsmodels vs sklearn y supuestos',
-        'desc' => 'Covarianza vs correlacion y el efecto de las unidades, limites de Pearson y el cuarteto de Anscombe, dependencia no lineal (Spearman, informacion mutua), ajustar la recta con las dos librerias, MSE/RMSE/MAE, y los cuatro supuestos con sus pruebas (Durbin-Watson, Breusch-Pagan, Shapiro-Wilk, Q-Q).',
-        'meta' => '56 huecos + 13 preguntas',
-        'src'  => 'Notebooks-20260908/ — UNIDAD2-1, UNIDAD2-2 y UNIDAD2-3'
-    ],
-    [
-        'n'    => '8',
         'ruta' => 'Parcial1/index.php',
         'tag'  => 'parcial',
         'tit'  => 'Repaso del parcial 1 — preguntas de examenes anteriores',

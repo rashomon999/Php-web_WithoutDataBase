@@ -62,6 +62,7 @@
             <h1>Sistemas Operativos</h1>
             <p>Bienvenido a la nueva materia de Sistemas Operativos. Aquí puedes agregar tus temas y ejercicios sobre procesos, memoria y sistemas de archivos.</p>
             <a class="btn" href="Lectura_1/index.php">Lectura_1 y 2</a>
+            <a class="btn" href="Parcial_1/index.php">Parcial 1 (práctica)</a>
  
         </div>
     </div>

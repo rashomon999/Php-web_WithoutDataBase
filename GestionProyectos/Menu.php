@@ -18,6 +18,14 @@ $CUESTIONARIOS = [
         'meta' => '13 preguntas · 26,00 puntos',
         'src'  => 'Revision del intento del 11 de marzo de 2026'
     ],
+    [
+        'n'    => '3',
+        'ruta' => 'Conceptos/index.php',
+        'tit'  => 'Conceptos — proyecto, portafolio y OKR',
+        'desc' => 'Solo huecos, sin opcion multiple: las definiciones literales del material. Los pilares de la planeacion estrategica con su definicion corta (mision, vision, valores, DOFA con sus cuatro componentes, objetivos estrategicos y resultados clave, cada uno con la pregunta que responde). Que es un proyecto (temporal, contexto unico, creacion de valor mediante cambio), proyecto frente a operacion, la definicion de gerencia de proyectos y sus 5 areas de foco, programa frente a portafolio, que son los OKR, los objetivos como el "que" y los resultados clave como el "como", la formula del KR, las iniciativas como proyectos, el ejemplo de ventas y por que fallan los objetivos.',
+        'meta' => '100 huecos · 13 bloques',
+        'src'  => 'Planeacion estrategica - HA (2).docx + Def Proyecto - OKRs.pdf'
+    ],
 ];
 ?><!DOCTYPE html>
 <html lang="es">

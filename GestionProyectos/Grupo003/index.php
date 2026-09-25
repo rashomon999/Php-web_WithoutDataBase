@@ -207,7 +207,7 @@ $SOLUCIONES = [
     21 => ['trimestre'],
 
     /* P13 · relacion entre las caracteristicas */
-    22 => ['proposito'],
+    22 => ['La mision y la vision declaran el proposito'],
     23 => ['camino'],
     24 => ['logro'],
     25 => ['cuantifican'],
@@ -289,10 +289,27 @@ cabecera('Examen 1 Grupo003', 'Unidad 1 - Formulacion de Proyectos · 26,00 punt
 
   <p class="sub">Meses 5 a 9</p>
   <p>El cliente <?php hueco(7, 14); ?> el incremento recibido, se definen requerimientos nuevos
-     y pide entregas <?php hueco(8, 12); ?> al final de cada mes. El enfoque de este periodo es
+     y pide entregas <?php hueco(8, 12); ?> al final de cada uno de <b>esos cinco meses</b>
+     &mdash;la primera en el mes 5, porque la del mes 4 fue el cierre de la etapa anterior&mdash;.
+     El enfoque de este periodo es
      <?php hueco(9, 12); ?>: se vuelve sobre lo entregado para ajustarlo, que es
      <?php hueco(10, 11); ?>, y se van agregando partes funcionales nuevas, que es
      <?php hueco(11, 12); ?>.</p>
+
+  <p class="avisoflujo"><b>Las entregas del proyecto, en orden:</b> mes 4 &rarr; el &uacute;nico incremento de la
+     etapa predictiva; meses 5, 6, 7, 8 y 9 &rarr; una entrega funcional cada mes.
+     Seis incrementos en total. Lo de &laquo;al final de cada mes&raquo; solo aplica a la segunda etapa.</p>
+
+  <details class="desp modelo">
+    <summary>Ver el diagrama que hay que cargar (vale aparte en la r&uacute;brica)</summary>
+    <div class="cont">
+      <img src="../img/diagrama-dashboards.png" alt="Diagrama del enfoque hibrido a lo largo de 9 meses"
+           style="width:100%;height:auto;border:1px solid #d8dbe0;border-radius:8px">
+      <p style="margin-top:10px;font-size:13.5px">Lo que el evaluador busca en el dibujo: <b>eje de tiempo en meses</b>,
+         un corte visible en el <b>mes 4</b>, <b>un solo incremento</b> en la primera etapa y
+         <b>una entrega por mes</b> en la segunda, con las flechas de <b>retroalimentaci&oacute;n</b> del cliente.</p>
+    </div>
+  </details>
   <?php
   respuestaFin();
 
@@ -443,7 +460,7 @@ cabecera('Examen 1 Grupo003', 'Unidad 1 - Formulacion de Proyectos · 26,00 punt
 
   respuestaIni('Las cuatro relaciones que valen 1 punto cada una');
   ?>
-  <p>La misi&oacute;n y la visi&oacute;n declaran el <?php hueco(22, 12); ?> de la organizaci&oacute;n.</p>
+  <p>  <?php hueco(22, 44); ?> de la organizaci&oacute;n.</p>
   <p>Los objetivos estrat&eacute;gicos son el <?php hueco(23, 10); ?> declarado para alcanzar
      ese prop&oacute;sito.</p>
   <p>Los resultados clave son la medida de <?php hueco(24, 9); ?> de los objetivos

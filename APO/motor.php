@@ -393,6 +393,10 @@ function mc($id) {
     echo '<div class="pregunta ' . _clase($c) . '">';
     echo '<p class="enunciado">' . $p['texto'] . ' ' . _marca($c) . '</p>';
 
+    if (isset($p['antes_opciones'])) {
+        echo $p['antes_opciones'];
+    }
+
     $orden = _orden_opciones($p);
     $i     = 0;
     foreach ($orden as $clave) {

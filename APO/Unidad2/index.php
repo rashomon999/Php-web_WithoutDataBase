@@ -85,10 +85,12 @@ $SOLUCIONES = [
     54 => ['q-q', 'qq', 'grafico q-q'],
     55 => ['recta', 'linea recta'],
     56 => ['cono', 'forma de cono'],
+    57 => ['explicar y analizar relaciones'],
+    58 => ['predecir y evaluar modelos'],
 ];
 
 $TEXTO = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,18,19,20,21,22,23,24,
-          28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56];
+          28,29,30,31,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58];
 
 $MULTIPLE = [
     'm1' => [
@@ -242,6 +244,9 @@ cabecera('Unidad 2 · Correlación, statsmodels vs sklearn y supuestos',
 ?>
 
 <div class="card">
+  <p><strong>Statsmodels</strong> → <?php hueco(57, 30); ?>;</p>
+  <p><strong>Scikit-learn</strong> → <?php hueco(58, 28); ?>.</p>
+
   <h2>De que va esto</h2>
   <p>Los tres notebooks de la <b>Unidad 2</b> que dejo el profe en
      <code>Notebooks-20260908/</code>, mas los datasets de

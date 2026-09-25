@@ -33,7 +33,7 @@ if ($_POST) {
         $respuesta_15 = 'personas';
         $respuesta_16 = 'equipos y organizaciones a generar valor';
         $respuesta_17 = 'a traves de soluciones adaptativas';
-        $respuesta_18 = 'para problemas problemas';
+        $respuesta_18 = 'para problemas complejos';
         $respuesta_19 = 'Scrum Master';
         $respuesta_20 = 'fomentar';
         $respuesta_21 = 'entorno';
@@ -136,7 +136,7 @@ if ($_POST) {
         $respuesta_118 = 'se desvia fuera';
         $respuesta_119 = 'de los limites aceptables o si el producto resultante';
         $respuesta_120 = 'inaceptable';
-        $respuesta_121 = 'aplica';
+        $respuesta_121 = 'el proceso que se aplica';
         $respuesta_122 = 'producen';
         $respuesta_123 = 'ajustarse';
         $respuesta_124 = 'lo antes posible';
@@ -247,12 +247,12 @@ if ($_POST) {
         $respuesta_229 = 'intentando convencer';
         $respuesta_230 = 'desde entonces';
         $respuesta_231 = 'pequeñas actualizaciones';
-        $respuesta_232 = 'elemento';
+        $respuesta_232 = 'Cada elemento del';
         $respuesta_233 = 'marco de trabajo';
         $respuesta_234 = 'esencial';  
         $respuesta_235 = 'valor general'; 
         $respuesta_236 = 'resultados obtenidos';
-        $respuesta_237 = 'medida';
+        $respuesta_237 = 'A medida que se utiliza Scrum';
         $respuesta_238 = 'se utiliza';
         $respuesta_239 = 'patrones';  
         $respuesta_240 = 'enfoques';  

@@ -124,16 +124,6 @@ $SOLUCIONES = [
     94 => ['X_test_poly = poly.transform(X_test)'],
     95 => ['85', '85%', '84.7', '84,7', '84.71', '84,71'],
     96 => ['from scipy import stats', 'import scipy.stats as stats'],
-    97 => ['from sklearn.linear_model import LinearRegression'],
-    98 => ['from sklearn.metrics import mean_squared_error'],
-    99 => ['modelo_lin = LinearRegression()'],
-    100 => ['modelo_lin.fit(X_train, y_train)'],
-    101 => ['y_pred_lin = modelo_lin.predict(X_test)'],
-    102 => ['mse_lin = mean_squared_error(y_test, y_pred_lin)'],
-    103 => ['modelo_poly = LinearRegression()'],
-    104 => ['modelo_poly.fit(X_poly, y_train)'],
-    105 => ['y_pred_poly = modelo_poly.predict(X_test_poly)'],
-    106 => ['mse_poly = mean_squared_error(y_test, y_pred_poly)'],
 ];
 $TEXTO = [1, 2, 3, 4, 5, 6, 95];   // se comparan como texto: sin tildes ni mayusculas
 
@@ -1114,7 +1104,7 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <?php mc('m45'); ?>
   <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
   <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; la correlacion de Pearson</p>
-  <?php linea(96, 'importe el modulo de estadistica necesario'); ?>
+  <?php linea(96, 'importe el modulo de estadistica de <b>scipy</b>'); ?>
   <?php linea(85, 'guarde en <code>r_pearson</code> y <code>p_pearson</code> el coeficiente de Pearson y su p-valor entre <code>Horas_Ejercicio</code> y <code>Riesgo_Cardiovascular</code>', 'r_pearson, p_pearson = ...'); ?>
   <?php ayuda('Se repite igual con las otras variables (sueno, cafe, redes) contra el riesgo.'); ?>
   </div>
@@ -1136,20 +1126,7 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <?php linea(92, 'guarde en <code>poly</code> el generador de caracteristicas de <b>grado 2</b>' ); ?>
   <?php linea(93, 'guarde en <code>X_poly</code> el <code>X_train</code> transformado, ajustando a la vez el generador' ); ?>
   <?php linea(94, 'y transforme tambien <code>X_test</code> (sin volver a ajustar) en <code>X_test_poly</code> <span style="color:#8a6d00">(no sale en el PDF, pero sin esto no corre)</span>' ); ?>
-  <p style="margin:12px 0 4px">Ahora los dos modelos y su <b>MSE</b> en prueba <span style="color:#8a6d00">(no sale en el PDF: el enunciado solo dice "compare mediante el MSE")</span>:</p>
-  <?php linea(97, 'importe lo necesario para usar la <b>regresion lineal</b> de sklearn'); ?>
-  <?php linea(98, 'importe lo necesario para calcular el <b>error cuadratico medio</b>'); ?>
-  <p style="margin:10px 0 4px"><b>Modelo 1</b> &mdash; lineal simple:</p>
-  <?php linea(99, 'guarde en <code>modelo_lin</code> un modelo de regresion lineal'); ?>
-  <?php linea(100, 'entrenelo con <code>X_train</code> y <code>y_train</code>'); ?>
-  <?php linea(101, 'guarde en <code>y_pred_lin</code> sus predicciones para <code>X_test</code>'); ?>
-  <?php linea(102, 'guarde en <code>mse_lin</code> el MSE comparando <code>y_test</code> con esas predicciones'); ?>
-  <p style="margin:10px 0 4px"><b>Modelo 2</b> &mdash; polinomial de grado 2 (el mismo modelo, pero con las columnas de <code>X_poly</code>):</p>
-  <?php linea(103, 'guarde en <code>modelo_poly</code> otro modelo de regresion lineal'); ?>
-  <?php linea(104, 'entrenelo con <code>X_poly</code> y <code>y_train</code>'); ?>
-  <?php linea(105, 'guarde en <code>y_pred_poly</code> sus predicciones para <code>X_test_poly</code>'); ?>
-  <?php linea(106, 'guarde en <code>mse_poly</code> el MSE de esas predicciones'); ?>
-  <?php ayuda('El orden de los argumentos del MSE es (reales, predichas). Y al modelo polinomial se le predice con <code>X_test_poly</code>, no con <code>X_test</code>: tiene que ver las mismas columnas con las que se entreno.'); ?>
+  <?php ayuda('Despues se entrena un <code>LinearRegression()</code> con <code>X_train</code> y otro con <code>X_poly</code>, y se compara <code>mean_squared_error</code> de cada uno sobre el conjunto de prueba.'); ?>
   </div>
 
   <?php mc('m48'); ?>

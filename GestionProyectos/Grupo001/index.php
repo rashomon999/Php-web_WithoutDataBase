@@ -174,13 +174,13 @@ $SOLUCIONES = [
     /* P2 · resultados clave */
      1 => ['infinitivo'],
      2 => ['indicador', 'metrica'],
-     3 => ['meta'],
+     3 => ['ahora / meta', 'ahora/meta' , 'ahora/ meta'],
      4 => ['plazo', 'periodo', 'tiempo'],
      5 => ['medir'],
      6 => ['alcanzar', 'lograr'],
      7 => ['iniciativa', 'tarea', 'proyecto'],
-     8 => ['satisfaccion', 'csat'],
-     9 => ['cobertura'],
+     8 => ['aumentar la satisfaccion de los 10 clientes activos del', 'csat'],
+     9 => ['aumentar la cobertura del soporte postventa del'],
     10 => ['proactivo'],
 
     /* P5 · enfoque del proyecto de dashboards */
@@ -196,16 +196,16 @@ $SOLUCIONES = [
     20 => ['iterativo'],
 
     /* P7 · relacion entre las caracteristicas */
-    21 => ['proposito'],
-    22 => ['camino'],
-    23 => ['logro'],
+    21 => ['La mision y la vision declaran el proposito  de la organizacion'],
+    22 => ['Los objetivos estratégicos son el camino declarado para alcanzar ese propósito'],
+    23 => ['Los resultados clave son la medida de logro'],
     24 => ['cuantifican'],
     25 => ['temporalizan'],
     26 => ['iniciativa'],
     27 => ['habilitadores'],
     28 => ['restricciones'],
-    29 => ['conformacion'],
-    30 => ['equipos'],
+    29 => [' son la característica con la que se evalúa la conformacion'],
+    30 => ['equipos de proyecto'],
 ];
 
 iniciar($MULTIPLE, $EMPAREJAR, $SOLUCIONES);
@@ -236,16 +236,16 @@ cabecera('Examen 1 Grupo001', 'Unidad 1 - Formulacion de Proyectos · 26,00 punt
   respuestaIni('Completa la respuesta &mdash; cada hueco suma en el marcador');
   ?>
   <p class="sub">La f&oacute;rmula de un resultado clave</p>
-  <p>Verbo en <?php hueco(1, 12); ?> + <?php hueco(2, 12); ?> + ahora /
-     <?php hueco(3, 9); ?>, con un <?php hueco(4, 9); ?> para lograrlo.</p>
+  <p>Verbo en <?php hueco(1, 12); ?> + <?php hueco(2, 12); ?> +  
+     <?php hueco(3, 15); ?>, con un <?php hueco(4, 9); ?> para lograrlo.</p>
   <p>Por eso el KR no puede ser <?php hueco(5, 9); ?>, debe ser <?php hueco(6, 11); ?> algo.
      La encuesta no es el resultado: es la <?php hueco(7, 12); ?> que lleva al resultado.</p>
 
   <p class="sub">Los dos resultados clave, cada uno con su proyecto</p>
-  <p><b>KR 1:</b> aumentar la <?php hueco(8, 14); ?> de los 10 clientes activos del 70% al 90%
+  <p><b>KR 1:</b>   <?php hueco(8, 47); ?>   70% al 90%
      en los pr&oacute;ximos 12 meses.<br>
      <i>Proyecto:</i> sistema de encuestas y seguimiento de satisfacci&oacute;n postventa.</p>
-  <p><b>KR 2:</b> aumentar la <?php hueco(9, 12); ?> del soporte postventa del 60% al 90% de
+  <p><b>KR 2:</b>   <?php hueco(9, 44); ?>   60% al 90% de
      los clientes con acompa&ntilde;amiento <?php hueco(10, 11); ?> en 8 meses.<br>
      <i>Proyecto:</i> programa de consultas proactivas de acompa&ntilde;amiento postventa.</p>
   <?php
@@ -325,10 +325,28 @@ cabecera('Examen 1 Grupo001', 'Unidad 1 - Formulacion de Proyectos · 26,00 punt
   <p>Los requerimientos de la segunda etapa quedan <?php hueco(16, 14); ?> a partir de la
      retroalimentaci&oacute;n del mes 4, o sea que el alcance vuelve a estar definido de antemano
      y el enfoque sigue siendo <?php hueco(17, 12); ?>. Lo que se agrega es una entrega
-     <?php hueco(18, 11); ?> al final de cada mes, es decir, <?php hueco(19, 12); ?>.</p>
+     <?php hueco(18, 11); ?> al final de cada uno de <b>esos cinco meses</b> &mdash;la primera en el mes 5,
+     porque la del mes 4 fue el cierre de la etapa anterior&mdash;, es decir, <?php hueco(19, 12); ?>.</p>
+
+  <p class="avisoflujo"><b>Las entregas del proyecto, en orden:</b> mes 4 &rarr; el &uacute;nico incremento de la
+     etapa predictiva; meses 5, 6, 7, 8 y 9 &rarr; una entrega funcional cada mes.
+     Seis incrementos en total. Lo de &laquo;cada final de mes&raquo; solo aplica a la segunda etapa.</p>
 
   <p>La diferencia que hay que tener clara: <?php hueco(20, 11); ?> es volver sobre lo mismo
      para mejorarlo; incremental es ir a&ntilde;adiendo partes funcionales nuevas.</p>
+
+  <details class="desp modelo">
+    <summary>Ver el diagrama que hay que cargar (vale aparte en la r&uacute;brica)</summary>
+    <div class="cont">
+      <img src="../img/diagrama-dashboards.png" alt="Diagrama del enfoque hibrido a lo largo de 9 meses"
+           style="width:100%;height:auto;border:1px solid #d8dbe0;border-radius:8px">
+      <p style="margin-top:10px;font-size:13.5px">Lo que el evaluador busca en el dibujo: <b>eje de tiempo en meses</b>,
+         un corte visible en el <b>mes 4</b>, <b>un solo incremento</b> en la primera etapa y
+         <b>una entrega por mes</b> en la segunda, con las flechas de <b>retroalimentaci&oacute;n</b> del cliente.
+         Si usas la redacci&oacute;n del profesor de este grupo, rotula la primera mitad
+         <i>predictivo-iterativo</i> y la segunda <i>predictivo-incremental</i>.</p>
+    </div>
+  </details>
   <?php
   respuestaFin();
 
@@ -388,16 +406,15 @@ cabecera('Examen 1 Grupo001', 'Unidad 1 - Formulacion de Proyectos · 26,00 punt
 
   respuestaIni('Las cuatro relaciones que valen 1 punto cada una');
   ?>
-  <p>La misi&oacute;n y la visi&oacute;n declaran el <?php hueco(21, 12); ?> de la organizaci&oacute;n.</p>
-  <p>Los objetivos estrat&eacute;gicos son el <?php hueco(22, 10); ?> declarado para alcanzar
-     ese prop&oacute;sito.</p>
-  <p>Los resultados clave son la medida de <?php hueco(23, 9); ?> de los objetivos
+  <p>  <?php hueco(21, 56); ?>  .</p>
+  <p>  <?php hueco(22, 73); ?>  .</p>
+  <p>  <?php hueco(23, 38); ?> de los objetivos
      estrat&eacute;gicos: los <?php hueco(24, 13); ?> y los <?php hueco(25, 14); ?>.</p>
   <p>Cada proyecto es la <?php hueco(26, 12); ?> con la que se alcanza un resultado clave.</p>
   <p>El an&aacute;lisis DOFA presenta los <?php hueco(27, 14); ?> y las
      <?php hueco(28, 14); ?> para lograr exitosamente lo planeado.</p>
-  <p>Los valores (&eacute;tica y moral) son la caracter&iacute;stica con la que se eval&uacute;a
-     la <?php hueco(29, 14); ?> de los <?php hueco(30, 10); ?> de proyecto.</p>
+  <p>Los valores (&eacute;tica y moral)  
+       <?php hueco(29, 51); ?> de los <?php hueco(30, 18); ?> .</p>
   <?php
   respuestaFin();
 

@@ -70,46 +70,9 @@ $SOLUCIONES = [
     38 => ["LabelEncoder"],
     39 => ["BinaryEncoder"],
     40 => ["category_encoders"],
-
-    /* --- 1b. tipos de modelos de regresion (Regresion_ma.pdf, pags. 6 y 7) --- */
-    41 => ["1", "una", "un", "uno"],
-    42 => ["2 o mas", "dos o mas", "mas de una", "varias", "2 o mas variables"],
-    43 => ["Simple"],
-    44 => ["Multiple"],
-    45 => ["Lineal"],
-    46 => ["No lineal"],
-    47 => ["Lineal"],
-    48 => ["No lineal"],
-    49 => ["B", "grafico B"],
-    50 => ["No lineal"],
-    51 => ["Puntos", "datos", "puntos de datos"],
-    52 => ["Coeficientes"],
-    53 => ["Prediccion", "predicciones"],
 ];
 
 $MULTIPLE = [
-    'r11' => [
-        'texto'    => 'En el esquema, &iquest;que decide si un modelo es <b>simple o multiple</b>, y que decide si es <b>lineal o no lineal</b>?',
-        'opciones' => [
-            'a' => 'Las dos cosas las decide el numero de datos',
-            'b' => 'Simple/multiple lo decide el <b>numero de variables independientes</b>; lineal/no lineal lo decide la <b>forma de la relacion</b> entre las variables (recta o curva)',
-            'c' => 'Simple/multiple depende de si la relacion es curva; lineal/no lineal depende del numero de variables',
-            'd' => 'Las dos cosas dependen del R&sup2;'
-        ],
-        'correcta' => 'b',
-        'porque'   => 'Son dos preguntas independientes, por eso el esquema tiene dos niveles: primero &laquo;&iquest;cuantas x hay?&raquo; y despues, en cada rama, &laquo;&iquest;la nube se ve como una recta o como una curva?&raquo;. Por eso existen las cuatro combinaciones.',
-    ],
-    'r12' => [
-        'texto'    => 'Tienes <b>una sola</b> variable independiente (temperatura) y la nube de puntos con las ventas forma una <b>curva</b>. Segun el esquema, &iquest;que tipo de modelo es?',
-        'opciones' => [
-            'a' => 'Multiple lineal',
-            'b' => 'Simple lineal',
-            'c' => '<b>Simple no lineal</b>: una sola x, y la relacion no es una recta (por ejemplo, una regresion polinomial)',
-            'd' => 'Multiple no lineal'
-        ],
-        'correcta' => 'c',
-        'porque'   => 'Una x &rarr; rama <b>simple</b>; nube curva &rarr; hoja <b>no lineal</b>. Es el caso de la heladeria. Si le pusieras una recta pasaria lo del grafico B: no atraviesa los puntos y los coeficientes dejan de significar algo.',
-    ],
 
     'r1' => [
         'texto'    => '&iquest;Cual es el objetivo de un modelo de regresion?',
@@ -232,8 +195,8 @@ $MULTIPLE = [
     ],
 ];
 
-/* 1-35 y 41-53 son texto libre; 36-40 son nombres de codigo y ahi si cuentan las mayusculas */
-iniciar($SOLUCIONES, $MULTIPLE, array_merge(range(1, 35), range(41, 53)));
+/* solo 1-35 son texto libre; 36-40 son nombres de codigo y ahi si cuentan las mayusculas */
+iniciar($SOLUCIONES, $MULTIPLE, range(1, 35));
 cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regresion_ma.pdf — Unidad 1');
 ?>
 
@@ -276,39 +239,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>2. Tipos de modelos de regresion</h2>
-  <p>El esquema de la unidad, sin los nombres. Hay dos decisiones: <b>cuantas</b> variables
-     independientes hay, y <b>que forma</b> tiene la relacion.</p>
-
-  <div style="border:1px solid #e1e5eb;border-radius:10px;padding:14px;margin:10px 0 14px;background:#fafbfc">
-    <div style="text-align:center"><span style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;background:#1f3f73;color:#fff;font-weight:700">Modelo de regresion</span></div>
-    <div style="text-align:center;color:#6b7684;font-size:18px;line-height:1">&darr;</div>
-    <div style="display:flex;gap:18px;flex-wrap:wrap">
-      <div style="flex:1;min-width:230px;text-align:center"><div style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #1f3f73;"><?php hueco(41, 4); ?> variable independiente</div><div style="text-align:center;color:#6b7684;font-size:18px;line-height:1">&darr;</div><div style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #a51c1c;background:#a51c1c;color:#fff;font-weight:600"><?php hueco(43, 10); ?></div><div style="text-align:center;color:#6b7684;font-size:18px;line-height:1">&darr;</div><div style="display:flex;justify-content:space-around;gap:10px;flex-wrap:wrap;margin:6px 0;"><span style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #a51c1c;"><?php hueco(45, 9); ?></span><span style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #a51c1c;"><?php hueco(46, 9); ?></span></div></div>
-      <div style="flex:1;min-width:230px;text-align:center"><div style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #1f3f73;"><?php hueco(42, 9); ?> variables independientes</div><div style="text-align:center;color:#6b7684;font-size:18px;line-height:1">&darr;</div><div style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #a51c1c;background:#a51c1c;color:#fff;font-weight:600"><?php hueco(44, 10); ?></div><div style="text-align:center;color:#6b7684;font-size:18px;line-height:1">&darr;</div><div style="display:flex;justify-content:space-around;gap:10px;flex-wrap:wrap;margin:6px 0;"><span style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #a51c1c;"><?php hueco(47, 9); ?></span><span style="display:inline-block;padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #a51c1c;"><?php hueco(48, 9); ?></span></div></div>
-    </div>
-  </div>
-  <?php ayuda('En cada rama, primero va la hoja de la <b>recta</b> y despues la de la <b>curva</b>.'); ?>
-
-  <h3>Lineal vs. no lineal</h3>
-  <div style="text-align:center;margin:10px 0"><img src="../../img/regresion_lineal_vs_no_lineal.png"
-       alt="Dos nubes de puntos con una recta ajustada: en A los puntos siguen la recta, en B forman una curva" style="max-width:100%;width:640px"></div>
-
-  <p>En el grafico <?php hueco(49, 3); ?> se presenta una relacion <?php hueco(50, 10); ?>
-     entre la variable dependiente y la independiente. Por lo tanto, la linea de regresion
-     <b>no pasa a traves</b> de los <?php hueco(51, 8); ?> de manera significativa.</p>
-  <p>Dado que esto no es posible, el modelo de regresion no puede interpretar
-     significativamente los <?php hueco(52, 12); ?> o podria haber errores en la
-     <?php hueco(53, 11); ?>.</p>
-
-  <?php mc('r11'); ?>
-  <?php mc('r12'); ?>
-  <?php enviar(); ?>
-</div>
-
-
-<div class="card">
-  <h2>3. La recta y el residuo</h2>
+  <h2>2. La recta y el residuo</h2>
 
   <p>En la regresion lineal simple <code>y = &beta;&#8320; + &beta;&#8321;x + &epsilon;</code>,
      cada pieza tiene su nombre:</p>
@@ -341,7 +272,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>4. La funcion de costo y OLS</h2>
+  <h2>3. La funcion de costo y OLS</h2>
 
   <p>La <?php hueco(15, 20); ?> es lo que el modelo intenta minimizar.</p>
 
@@ -357,7 +288,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>5. Estimacion de parametros</h2>
+  <h2>4. Estimacion de parametros</h2>
 
   <p>Hay dos caminos para llegar a los parametros: resolver <b>OLS</b> directamente, o
      actualizarlos poco a poco con el <?php hueco(16, 24); ?> , que
@@ -378,7 +309,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>6. Regresion multiple: elegir que variables entran</h2>
+  <h2>5. Regresion multiple: elegir que variables entran</h2>
   <p>Con varias variables independientes hay que decidir cuales usar, dada una medida de
      calidad del ajuste. Las cuatro estrategias:</p>
 
@@ -408,7 +339,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>7. Metricas de evaluacion</h2>
+  <h2>6. Metricas de evaluacion</h2>
   <p>Las tres mas utilizadas para un modelo de regresion:</p>
 
   <table class="datos">
@@ -425,7 +356,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>8. Consideraciones finales: underfitting y overfitting</h2>
+  <h2>7. Consideraciones finales: underfitting y overfitting</h2>
 
   <table class="datos">
     <tr><th>Nombre</th><th>Que ocurre</th><th>Error train</th><th>Error test</th></tr>
@@ -446,7 +377,7 @@ cabecera('Regresion lineal simple, multivariada, polinomial y metricas', 'Regres
 
 
 <div class="card">
-  <h2>9. Variables categoricas &rarr; numericas</h2>
+  <h2>8. Variables categoricas &rarr; numericas</h2>
   <p>Muchas librerias exigen que los predictores sean numericos. Las cuatro opciones del PDF,
      con la herramienta de cada una:</p>
 

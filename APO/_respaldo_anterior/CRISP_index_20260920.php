@@ -324,21 +324,6 @@ cabecera('CRISP-DM y ASUM-DM · Ciclo de vida de la mineria de datos', 'CRISP-AS
 
 
 <div class="card">
-  <h2>Etapas 2, 3 y 4 · de paso</h2>
-  <p>Sin preguntas: en el PDF estas tres etapas no traen pasos propios, pero van aqui,
-     entre el negocio y los datos.</p>
-  <ul>
-    <li><b>Etapa 2 · Enfoque analitico</b> — traducir los objetivos de negocio en metas de
-        analitica (predecir, segmentar, clasificar, encontrar relaciones), limitadas por el
-        tiempo, los recursos y la disponibilidad y calidad de los datos.</li>
-    <li><b>Etapa 3 · Requisitos de datos</b> — definir que datos se necesitan e identificar
-        sus fuentes y variables.</li>
-    <li><b>Etapa 4 · Recopilacion de datos</b> — adquirir los datos de fuentes propias y externas.</li>
-  </ul>
-</div>
-
-
-<div class="card">
   <h2>5. Etapa 5 · Entendimiento de datos</h2>
   <p>Cinco pasos. «Un buen desarrollo de esta etapa ahorra problemas en el futuro».</p>
 

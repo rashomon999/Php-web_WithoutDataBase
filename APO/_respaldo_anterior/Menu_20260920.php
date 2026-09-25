@@ -71,24 +71,6 @@ $SECCIONES = [
     ],
     [
         'n'    => '8',
-        'ruta' => 'Multiple/index.php',
-        'tag'  => 'mixto',
-        'tit'  => 'Regresion multiple y polinomica',
-        'desc' => 'Ceteris paribus y la forma matricial, multicolinealidad (VIF, caso perfecto), train/test, heterocedasticidad en Advertising y como cambia la interpretacion al usar log, significancia de Radio y Newspaper, y regresion polinomica sin salir de OLS.',
-        'meta' => '71 huecos + 13 preguntas',
-        'src'  => 'Sesion3-2-multiple-polinomial.ipynb + diapositivas 00reg_multiple.pptx y reg_poli_.pptx'
-    ],
-    [
-        'n'    => '9',
-        'ruta' => 'Logistica/index.php',
-        'tag'  => 'mixto',
-        'tit'  => 'Regresion logistica',
-        'desc' => 'La sigmoide y la frontera de decision, el umbral, odds y log-odds, como se leen los coeficientes con el Odds Ratio y su conversion a porcentaje, por que el MSE no sirve aqui, maxima verosimilitud (MLE), log loss / entropia cruzada binaria y el gradiente descendente.',
-        'meta' => '45 huecos + 12 preguntas',
-        'src'  => 'Diapositivas Regresion Multiple - Regresion Logisitica-20260920/ — 01reg_logistic.pptx y 02reg_logistic_mle.pptx'
-    ],
-    [
-        'n'    => '10',
         'ruta' => 'Parcial1/index.php',
         'tag'  => 'parcial',
         'tit'  => 'Repaso del parcial 1 — preguntas de examenes anteriores',

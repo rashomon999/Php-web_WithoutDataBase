@@ -479,6 +479,8 @@ table.empa tr.bad td{background:rgba(192,57,43,.07)}
                        line-height:1.5;text-transform:uppercase;letter-spacing:.03em}
 .modelo-huecos p{margin:6px 0 14px}
 .modelo-huecos p:last-child{margin-bottom:0}
+.modelo-huecos .avisoflujo{background:#eef4ff;border-left:4px solid var(--azul);padding:9px 13px;
+              border-radius:0 8px 8px 0;font-size:14px;line-height:1.6;margin:14px 0 0}
 .modelo-huecos .sub{font-weight:600;color:#2f3a48;line-height:1.5;margin:16px 0 2px;font-size:14.5px}
 .hbox{display:inline-block;white-space:nowrap}
 .hueco{font-size:14.5px;border:2px solid #9aa3ad;border-radius:5px;padding:2px 8px;

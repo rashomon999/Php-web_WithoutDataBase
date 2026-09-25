@@ -85,57 +85,8 @@ $SOLUCIONES = [
     57 => ['from sklearn.neighbors import KNeighborsClassifier'],
     58 => ['from sklearn.linear_model import LogisticRegression'],
     59 => ['import matplotlib.pyplot as plt'],
-    60 => ['from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay'],
-    61 => ['knn.fit(X_train, y_train)'],
-    62 => ['y_pred = knn.predict(X_test)'],
-    63 => ['disp = ConfusionMatrixDisplay(confusion_matrix=cm)'],
-    64 => ['disp.plot(cmap=plt.cm.Blues)'],
-    65 => ['plt.title("Matriz de Confusión")', 'plt.title("Matriz de Confusion")'],
-    66 => ['plt.show()'],
-    67 => ['plt.title("Matriz de Confusión")', 'plt.title("Matriz de Confusion")'],
-    68 => ['plt.show()'],
-    69 => ['plt.figure()'],
-    70 => ['plt.xlim([0.0, 1.0])'],
-    71 => ['plt.ylim([0.0, 1.05])'],
-    72 => ['plt.xlabel(\'Tasa de Falsos Positivos\')'],
-    73 => ['plt.ylabel(\'Tasa de Verdaderos Positivos\')'],
-    74 => ['plt.title(\'Curva ROC\')'],
-    75 => ['plt.legend(loc=\'lower right\')'],
-    76 => ['plt.show()'],
-    77 => ['y_score = model.predict_proba(xtest)[:, 1]', 'y_score = model.predict_proba(X_test)[:, 1]'],
-    78 => ['fpr, tpr, _ = roc_curve(y_test, y_score)', 'fpr, tpr, thresholds = roc_curve(y_test, y_score)'],
-    79 => ['auc_lr = auc(fpr, tpr)'],
-    80 => ['plt.plot(fpr, tpr)'],
-    81 => ['plt.show()'],
-
-    /* --- Parcial_1_revision.pdf (2026): caso_4 riesgo cardiovascular --- */
-    82 => ['import numpy as np'],
-    83 => ['import pandas as pd'],
-    84 => ['data=pd.read_csv(\'riesgo_cardiovascular.data\')'],
-    85 => ['r_pearson, p_pearson = stats.pearsonr(data[\'Horas_Ejercicio\'], data[\'Riesgo_Cardiovascular\'])'],
-    86 => ['import seaborn as sns'],
-    87 => ['sns.pairplot(data)'],
-    88 => ['X = data[[\'Horas_Ejercicio\']]'],
-    89 => ['y = data[\'Riesgo_Cardiovascular\']'],
-    90 => ['X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)'],
-    91 => ['from sklearn.preprocessing import PolynomialFeatures'],
-    92 => ['poly = PolynomialFeatures(degree=2)'],
-    93 => ['X_poly = poly.fit_transform(X_train)'],
-    94 => ['X_test_poly = poly.transform(X_test)'],
-    95 => ['85', '85%', '84.7', '84,7', '84.71', '84,71'],
-    96 => ['from scipy import stats', 'import scipy.stats as stats'],
-    97 => ['from sklearn.linear_model import LinearRegression'],
-    98 => ['from sklearn.metrics import mean_squared_error'],
-    99 => ['modelo_lin = LinearRegression()'],
-    100 => ['modelo_lin.fit(X_train, y_train)'],
-    101 => ['y_pred_lin = modelo_lin.predict(X_test)'],
-    102 => ['mse_lin = mean_squared_error(y_test, y_pred_lin)'],
-    103 => ['modelo_poly = LinearRegression()'],
-    104 => ['modelo_poly.fit(X_poly, y_train)'],
-    105 => ['y_pred_poly = modelo_poly.predict(X_test_poly)'],
-    106 => ['mse_poly = mean_squared_error(y_test, y_pred_poly)'],
 ];
-$TEXTO = [1, 2, 3, 4, 5, 6, 95];   // se comparan como texto: sin tildes ni mayusculas
+$TEXTO = [1, 2, 3, 4, 5, 6];   // se comparan como texto: sin tildes ni mayusculas
 
 $MULTIPLE = [
 
@@ -624,100 +575,6 @@ $MULTIPLE = [
     'porque'   => 'Los parametros se leen en los <b>atributos del modelo ya entrenado</b>. Fijate en los <b>signos</b>: la opcion con los mismos numeros en positivo es el distractor.'
 ],
 
-/* ============ Parcial_1_revision.pdf (2026): fraude con 0.01% ============ */
-
-'m42' => [
-    'texto'    => '&iquest;Por qu&eacute; la precisi&oacute;n es m&aacute;s relevante que el recall en este contexto bancario?',
-    'opciones' => [
-        'a' => 'Porque el accuracy ya incluye informaci&oacute;n sobre precisi&oacute;n y recall.',
-        'b' => 'Porque el banco desea detectar todos los fraudes posibles, priorizando el recall.',
-        'c' => 'Porque la precisi&oacute;n mide la proporci&oacute;n de alertas que son realmente fraudes, y un valor alto reduce las molestias a clientes leg&iacute;timos.',
-        'd' => 'Ninguna de las opciones es correcta'
-    ],
-    'correcta' => 'c',
-    'porque'   => 'La precisi&oacute;n indica cu&aacute;ntas de las transacciones marcadas como fraude son realmente fraudulentas. Una alta precisi&oacute;n significa menos falsos positivos: menos bloqueos incorrectos y menos clientes molestos. (En el examen esta opci&oacute;n aparec&iacute;a <b>dos veces</b>, y las dos contaban como correctas.) Ojo: es el caso <b>contrario</b> al del otro banco, donde lo que importaba era no dejar pasar fraudes (recall).'
-],
-
-'m43' => [
-    'texto'    => 'El banco cuenta con un equipo reducido para investigar cada alerta de fraude. Si cada alerta requiere tiempo y recursos, &iquest;qu&eacute; m&eacute;trica indica la eficiencia del modelo en generar alertas verdaderas?',
-    'opciones' => [
-        'a' => 'Accuracy',
-        'b' => 'Recall',
-        'c' => 'Especificidad',
-        'd' => 'F1-score',
-        'e' => 'Precisi&oacute;n'
-    ],
-    'correcta' => 'e',
-    'porque'   => 'La precisi&oacute;n es el porcentaje de <b>alertas</b> que son fraudes reales: TP / (TP + FP). Si es alta, el equipo gasta su tiempo en casos verdaderamente sospechosos. El F1 (la trampa en la que cay&oacute; el intento del PDF) mezcla precisi&oacute;n y recall, y aqu&iacute; solo importa la calidad de las alertas.'
-],
-
-'m44' => [
-    'texto'    => 'Dados los objetivos del banco (minimizar falsos positivos), &iquest;qu&eacute; modelo deber&iacute;a elegirse?',
-    'opciones' => [
-        'a' => 'Modelo Y, porque tiene mayor recall (99% vs 60%).',
-        'b' => 'Ninguna de las opciones es correcta, se requiere trazar la curva ROC y calcular el AUC, y no tenemos esa informaci&oacute;n.',
-        'c' => 'Modelo X, porque su accuracy es ligeramente superior.',
-        'd' => 'Modelo Y, porque detecta casi todos los fraudes.',
-        'e' => 'Modelo X, porque tiene mayor precisi&oacute;n (90% vs 50%).'
-    ],
-    'correcta' => 'e',
-    'porque'   => 'Con 90% de precisi&oacute;n el Modelo X genera menos falsos positivos y menos quejas. Su recall es menor (60%), pero el banco acepta el riesgo de no detectar algunos fraudes a cambio de una mejor experiencia del cliente. La opci&oacute;n (c) elige bien el modelo pero por la raz&oacute;n equivocada: con un 0.01% de fraudes, el accuracy no dice nada.'
-],
-
-
-/* ============ Parcial_1_revision.pdf (2026): caso_4 riesgo cardiovascular ============ */
-
-'m45' => [
-    'texto'    => 'Debes calcular la matriz de correlaci&oacute;n empleando el coeficiente de correlaci&oacute;n de <b>Pearson</b> para analizar la existencia de relaciones lineales entre variables. Seg&uacute;n la matriz de correlaci&oacute;n &iquest;Cu&aacute;l es la conclusi&oacute;n correcta?',
-    'opciones' => [
-        'a' => 'El caf&eacute; diario (r = 0.094) es un factor protector contra el riesgo cardiovascular.',
-        'b' => 'La correlaci&oacute;n lineal no detecta relaciones no lineales; se debe usar un an&aacute;lisis de regresi&oacute;n cuadr&aacute;tica o modelos no lineales',
-        'c' => 'Ninguna de las opciones es correcta',
-        'd' => 'No hay relaci&oacute;n alguna entre ejercicio y riesgo cardiovascular, pues la correlaci&oacute;n es -0.012 (pr&oacute;xima a cero).',
-        'e' => 'Las horas sue&ntilde;o (r = 0.0089) tienen mayor impacto en el riesgo que el ejercicio (r = -0.012).'
-    ],
-    'correcta' => 'b',
-    'porque'   => 'Pearson solo mide relaciones <i>lineales</i>. Una correlaci&oacute;n cercana a cero <b>no descarta relaciones no lineales</b>. Para confirmarlo hay que (1) graficar los datos y (2) calcular medidas no lineales, como Spearman (monoton&iacute;a) o la informaci&oacute;n mutua. La (d) es justo el error que la pregunta quiere que evites.'
-],
-
-'m46' => [
-    'texto'    => 'Al calcular la matriz de correlaci&oacute;n lineal (Pearson), ninguna variable muestra una correlaci&oacute;n significativa (|r| &lt; 0.1) con el riesgo cardiovascular. Sin embargo, se sospecha que podr&iacute;a haber relaciones no lineales ocultas. Para identificar visualmente patrones no lineales y relaciones entre variables, &iquest;cu&aacute;l es el paso m&aacute;s adecuado?',
-    'opciones' => [
-        'a' => 'Aplicar una transformaci&oacute;n logar&iacute;tmica a todas las variables y recalcular la correlaci&oacute;n de Pearson.',
-        'b' => 'Descartar todas las variables, ya que la correlaci&oacute;n lineal no fue significativa.',
-        'c' => 'Generar un pairplot (matriz de gr&aacute;ficos de dispersi&oacute;n y histogramas) para visualizar distribuciones y relaciones bivariadas.',
-        'd' => 'Ninguna de las opciones es correcta',
-        'e' => 'Entrenar un modelo de regresi&oacute;n lineal directamente, pues el modelo puede capturar patrones complejos en los datos sin necesidad de EDA.'
-    ],
-    'correcta' => 'c',
-    'porque'   => 'Un pairplot muestra la relaci&oacute;n entre todas las variables en una sola matriz de gr&aacute;ficos, deja ver patrones no lineales (como la <b>par&aacute;bola</b> entre Horas_Ejercicio y Riesgo_Cardiovascular) y detecta distribuciones an&oacute;malas u outliers.'
-],
-
-'m47' => [
-    'texto'    => 'Realizar el siguiente experimento: seleccione &uacute;nicamente la variable <b>Horas_Ejercicio</b> como variable predictora (X) y use <b>Riesgo_Cardiovascular</b> como variable objetivo (y); separe los datos en entrenamiento y prueba usando <code>test_size=0.3, random_state=42</code>; ajuste con <code>sklearn</code> un <b>Modelo 1</b> de regresi&oacute;n lineal simple (grado 1) y un <b>Modelo 2</b> de regresi&oacute;n polinomial (grado 2), y comp&aacute;relos con el <b>MSE</b> en datos de prueba. A partir de los resultados obtenidos podemos concluir que:',
-    'opciones' => [
-        'a' => 'El modelo polinomial (grado 2) obtiene un MSE menor que el lineal, ya que captura la relaci&oacute;n parab&oacute;lica observada en los datos. La regresi&oacute;n lineal simple es insuficiente para modelar patrones no lineales.',
-        'b' => 'El modelo polinomial es mejor porque su MSE es menor en los datos de prueba, lo que garantiza que funcionar&aacute; igual de bien en cualquier otro conjunto de datos m&eacute;dico.',
-        'c' => 'La regresi&oacute;n lineal simple tiene un MSE m&aacute;s alto porque los datos no tienen ninguna relaci&oacute;n con la variable independiente, lo que confirma que el ejercicio no influye en el riesgo cardiovascular.',
-        'd' => 'El modelo polinomial (grado 2) tiene un MSE menor porque es m&aacute;s complejo, lo que demuestra que siempre debemos usar polinomios de alto grado para minimizar el error, sin importar la relaci&oacute;n real en los datos.'
-    ],
-    'correcta' => 'a',
-    'porque'   => 'Los datos tienen una relaci&oacute;n cuadr&aacute;tica (par&aacute;bola); el grado 2 tiene justo la flexibilidad para representarla, y la recta es r&iacute;gida. Las trampas: (b) un buen MSE en prueba no <i>garantiza</i> nada en otros datos, (c) confunde &laquo;no lineal&raquo; con &laquo;sin relaci&oacute;n&raquo; y (d) invita al sobreajuste.'
-],
-
-'m48' => [
-    'texto'    => 'Al comparar un <b>modelo de regresi&oacute;n lineal simple</b> (grado 1) y un <b>modelo de regresi&oacute;n polinomial</b> (grado 2) para predecir el riesgo cardiovascular en funci&oacute;n de las horas de ejercicio, se obtuvieron los siguientes MSE en datos de prueba: <b>MSE Lineal:</b> 42.64 &middot; <b>MSE Polinomial:</b> 6.52. &iquest;Cu&aacute;l de las siguientes conclusiones es la m&aacute;s adecuada basada en estos resultados?',
-    'opciones' => [
-        'a' => 'El modelo polinomial (grado 2) es claramente mejor, ya que su MSE es 6.5 veces menor que el del modelo lineal, lo que indica que captura la relaci&oacute;n no lineal en los datos.',
-        'b' => 'Ninguna de las opciones es correcta, el MSE no es una m&eacute;trica adecuada en este tipo de problemas',
-        'c' => 'El MSE polinomial es sospechosamente bajo, lo que sugiere sobreajuste (overfitting); por tanto, el modelo lineal es m&aacute;s confiable.',
-        'd' => 'El modelo lineal es superior porque, aunque tiene un MSE m&aacute;s alto, es m&aacute;s interpretable y generalizable.',
-        'e' => 'Ambos modelos son igualmente v&aacute;lidos, pues el MSE depende de la escala de los datos y no refleja diferencias reales en su capacidad predictiva.'
-    ],
-    'correcta' => 'a',
-    'porque'   => 'Pasar de 42.64 a 6.52 reduce el error en un 85%, y eso solo ocurre si el grado 2 coincide con la relaci&oacute;n parab&oacute;lica real. La (c) suena prudente, pero el MSE es <b>de prueba</b>: si hubiera sobreajuste, el error en prueba subir&iacute;a, no bajar&iacute;a. La (e) es falsa porque los dos MSE est&aacute;n en la misma escala.'
-],
-
 ];
 
 iniciar($SOLUCIONES, $MULTIPLE, $TEXTO);
@@ -741,10 +598,6 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <p>El <b>codigo</b> que se pide debajo de cada pregunta es el que trae la revision de 2025-2,
      linea por linea. Las pocas lineas que no salen en el PDF pero hacen falta para que corra
      (algunos imports) estan marcadas.</p>
-  <p>Despues se sumo <code>Parcial_1_revision.pdf</code> (marzo de 2026). Sus 35 preguntas
-     repiten casi todas las anteriores; las <b>nuevas</b> son el caso del banco con 0.01% de
-     fraudes (precision antes que recall) y el caso del <b>riesgo cardiovascular</b>
-     (Pearson, pairplot y lineal vs. polinomial). Estan al final.</p>
   <div class="nota"><b>Ojo:</b> los bloques de la heladeria, los automoviles y los DATOS S4
     y s5 se respondian ejecutando codigo sobre unos datasets que el profesor daba por
     enlace, y que no estan aqui. Las preguntas se conservan igual.</div>
@@ -952,16 +805,8 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <?php linea(30, 'importe lo necesario para calcular la <b>curva ROC</b> y el <b>area bajo ella</b>'); ?>
   <?php linea(31, 'calcule los tres vectores de la curva a partir de las etiquetas reales y los <b>scores</b> del archivo' ); ?>
   <?php linea(32, 'guarde en <code>roc_auc</code> el area bajo la curva', 'roc_auc = ...'); ?>
-  <?php linea(69, 'abra una figura nueva'); ?>
   <?php linea(33, 'grafique la curva (<code>fpr</code> en x, <code>tpr</code> en y) en naranja oscuro, grosor 2 y con el area en la etiqueta'); ?>
   <?php linea(34, 'dibuje la diagonal de referencia de 0 a 1, en azul marino, grosor 2 y discontinua'); ?>
-  <?php linea(70, 'limite el eje x de 0.0 a 1.0'); ?>
-  <?php linea(71, 'y el eje y de 0.0 a 1.05'); ?>
-  <?php linea(72, 'ponga en el eje x el texto <code>Tasa de Falsos Positivos</code>'); ?>
-  <?php linea(73, 'y en el eje y <code>Tasa de Verdaderos Positivos</code>'); ?>
-  <?php linea(74, 'titule la grafica <code>Curva ROC</code>'); ?>
-  <?php linea(75, 'muestre la leyenda abajo a la derecha'); ?>
-  <?php linea(76, 'y muestre la grafica'); ?>
   <?php ayuda('En el PDF la columna aparece como <code>df["y_scores"]</code>, aunque el enunciado dice que el encabezado es <code>y_score</code>. Se aceptan las dos. Para la grafica tambien vale la version corta, sin colores ni etiqueta.'); ?>
   </div>
 
@@ -991,8 +836,6 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <?php linea(39, 'guarde en <code>cm</code> la matriz de confusion con las columnas del archivo', 'cm = ...'); ?>
   <?php linea(40, 'prepare en <code>disp</code> el objeto que dibuja esa matriz', 'disp = ...'); ?>
   <?php linea(41, 'dibujela con la paleta de azules de matplotlib', 'disp...'); ?>
-  <?php linea(67, 'titule la grafica <code>Matriz de Confusión</code>'); ?>
-  <?php linea(68, 'y muestre la grafica'); ?>
   </div>
 
   <?php mc('m35'); ?>
@@ -1031,16 +874,8 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <?php mc('m38'); ?>
   <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
   <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; los falsos positivos con K=7</p>
-  <?php linea(60, 'importe lo necesario para <b>calcular</b> la matriz de confusion y para <b>dibujarla</b>'); ?>
   <?php linea(50, 'guarde en <code>knn</code> el clasificador KNN configurado con <b>k=7</b>', 'knn = ...'); ?>
-  <?php linea(61, 'entrenelo con el conjunto de entrenamiento', 'knn...'); ?>
-  <?php linea(62, 'guarde en <code>y_pred</code> sus predicciones para <code>X_test</code>', 'y_pred = ...'); ?>
-  <?php linea(51, 'guarde en <code>cm</code> la matriz de confusion', 'cm = ...'); ?>
-  <p style="margin:12px 0 4px;color:#5b6574">Y para <b>ver</b> la matriz (la imagen de arriba) <span style="color:#8a6d00">&mdash; en el PDF solo sale la grafica, no estas lineas; son las mismas de la pregunta de falsos negativos</span>:</p>
-  <?php linea(63, 'prepare en <code>disp</code> el objeto que dibuja esa matriz', 'disp = ...'); ?>
-  <?php linea(64, 'dibujela con la paleta de azules de matplotlib', 'disp...'); ?>
-  <?php linea(65, 'titule la grafica <code>Matriz de Confusión</code>'); ?>
-  <?php linea(66, 'y muestre la grafica'); ?>
+  <?php linea(51, 'despues de entrenarlo y predecir (igual que arriba), guarde en <code>cm</code> la matriz de confusion', 'cm = ...'); ?>
   </div>
 
   <?php mc('m39'); ?>
@@ -1053,109 +888,6 @@ cabecera('7 · Repaso parcial 1', 'las 39 preguntas unicas de los parciales ante
   <?php linea(55, 'imprima <code>"El intercepto es: "</code> seguido del intercepto', 'print(...)'); ?>
   <?php ayuda('Los atributos que sklearn crea <b>despues</b> de entrenar terminan en guion bajo.'); ?>
   </div>
-
-  <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
-  <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; la curva ROC de la regresion logistica</p>
-  <?php linea(77, 'guarde en <code>y_score</code> la <b>probabilidad</b> de la clase positiva que da <code>model</code> para <code>xtest</code>', 'y_score = ...'); ?>
-  <?php linea(78, 'calcule la curva ROC con las etiquetas reales y esos scores, descartando los umbrales con <code>_</code>', 'fpr, tpr, _ = ...'); ?>
-  <?php linea(79, 'guarde en <code>auc_lr</code> el area bajo la curva', 'auc_lr = ...'); ?>
-  <?php linea(80, 'grafique la curva: <code>fpr</code> en x y <code>tpr</code> en y'); ?>
-  <?php linea(81, 'y muestre la grafica'); ?>
-  <?php ayuda('La columna <code>[:, 1]</code> es la de la clase 1. Y el guion bajo es la convencion de Python para &laquo;este valor no me interesa&raquo;.'); ?>
-  </div>
-
-  <?php enviar(); ?>
-</div>
-
-
-<div class="card">
-  <h2>Caso: Detecci&oacute;n de fraudes bancarios (Sector Financiero)</h2>
-  <p style="color:#5b6574;margin-top:-6px">Solo en <code>Parcial_1_revision.pdf</code> (2026).</p>
-  <p>Un banco implementa un sistema de detecci&oacute;n de fraudes en tiempo real. Solo el
-     <b>0.01%</b> de las transacciones son fraudulentas. El banco valora la experiencia del
-     cliente y quiere <b>evitar bloquear transacciones leg&iacute;timas</b>, ya que cada falso
-     positivo genera insatisfacci&oacute;n y costos de atenci&oacute;n al cliente. Se tienen dos
-     modelos:</p>
-  <ul>
-    <li><b>Modelo X:</b> Accuracy = 99.99%, Precisi&oacute;n = 90%, Recall = 60%</li>
-    <li><b>Modelo Y:</b> Accuracy = 99.90%, Precisi&oacute;n = 50%, Recall = 99%</li>
-  </ul>
-
-  <?php mc('m42'); ?>
-  <?php mc('m43'); ?>
-  <?php mc('m44'); ?>
-  <?php enviar(); ?>
-</div>
-
-
-<div class="card">
-  <h2>DATOS caso_4 &mdash; riesgo cardiovascular</h2>
-  <p style="color:#5b6574;margin-top:-6px">Solo en <code>Parcial_1_revision.pdf</code> (2026).</p>
-  <p>En un estudio sobre riesgo cardiovascular se recolectaron datos de 500 personas con cinco
-     variables:</p>
-  <ol>
-    <li>Riesgo cardiovascular (0-100)</li>
-    <li>Horas de ejercicio semanal</li>
-    <li>Horas de sue&ntilde;o diarias</li>
-    <li>Tazas de caf&eacute; consumidas</li>
-    <li>Minutos en redes sociales</li>
-  </ol>
-  <p>La variable objetivo es <b>Riesgo cardiovascular</b>; se espera que las dem&aacute;s
-     variables tengan alg&uacute;n tipo de influencia en la variable objetivo. Debemos descubrir
-     si en efecto existe tal relaci&oacute;n.</p>
-
-  <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
-  <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; cargar los datos (el enunciado ya lo trae)</p>
-  <?php linea(82, 'importe la libreria de calculo numerico, con su alias de siempre'); ?>
-  <?php linea(83, 'importe la libreria para trabajar con <b>dataframes</b>, con su alias de siempre'); ?>
-  <?php linea(84, 'cargue <code>riesgo_cardiovascular.data</code> en un dataframe llamado <code>data</code>', 'data=...'); ?>
-  </div>
-
-  <?php mc('m45'); ?>
-  <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
-  <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; la correlacion de Pearson</p>
-  <?php linea(96, 'importe el modulo de estadistica necesario'); ?>
-  <?php linea(85, 'guarde en <code>r_pearson</code> y <code>p_pearson</code> el coeficiente de Pearson y su p-valor entre <code>Horas_Ejercicio</code> y <code>Riesgo_Cardiovascular</code>', 'r_pearson, p_pearson = ...'); ?>
-  <?php ayuda('Se repite igual con las otras variables (sueno, cafe, redes) contra el riesgo.'); ?>
-  </div>
-
-  <?php mc('m46'); ?>
-  <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
-  <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; el pairplot</p>
-  <?php linea(86, 'importe la libreria de graficos estadisticos, con su alias de siempre <span style="color:#8a6d00">(no sale en el PDF, pero sin esto no corre)</span>'); ?>
-  <?php linea(87, 'genere la matriz de graficos de dispersion de <b>todas</b> las variables de <code>data</code>'); ?>
-  </div>
-
-  <?php mc('m47'); ?>
-  <div style="margin:4px 0 26px 18px;padding-left:12px;border-left:3px solid #d9dee6">
-  <p style="margin:0 0 6px"><b>C&oacute;digo</b> &mdash; el experimento</p>
-  <?php linea(88, 'guarde en <code>X</code> solo la columna <code>Horas_Ejercicio</code>, como <b>dataframe</b> (sklearn lo pide en 2D) <span style="color:#8a6d00">(no sale en el PDF, pero sin esto no corre)</span>' ); ?>
-  <?php linea(89, 'y en <code>y</code> la columna <code>Riesgo_Cardiovascular</code> <span style="color:#8a6d00">(no sale en el PDF, pero sin esto no corre)</span>' ); ?>
-  <?php linea(90, 'separe en entrenamiento y prueba con los parametros del enunciado <span style="color:#8a6d00">(no sale en el PDF, pero sin esto no corre)</span>'); ?>
-  <?php linea(91, 'importe lo necesario para crear las caracteristicas polinomiales'); ?>
-  <?php linea(92, 'guarde en <code>poly</code> el generador de caracteristicas de <b>grado 2</b>' ); ?>
-  <?php linea(93, 'guarde en <code>X_poly</code> el <code>X_train</code> transformado, ajustando a la vez el generador' ); ?>
-  <?php linea(94, 'y transforme tambien <code>X_test</code> (sin volver a ajustar) en <code>X_test_poly</code> <span style="color:#8a6d00">(no sale en el PDF, pero sin esto no corre)</span>' ); ?>
-  <p style="margin:12px 0 4px">Ahora los dos modelos y su <b>MSE</b> en prueba <span style="color:#8a6d00">(no sale en el PDF: el enunciado solo dice "compare mediante el MSE")</span>:</p>
-  <?php linea(97, 'importe lo necesario para usar la <b>regresion lineal</b> de sklearn'); ?>
-  <?php linea(98, 'importe lo necesario para calcular el <b>error cuadratico medio</b>'); ?>
-  <p style="margin:10px 0 4px"><b>Modelo 1</b> &mdash; lineal simple:</p>
-  <?php linea(99, 'guarde en <code>modelo_lin</code> un modelo de regresion lineal'); ?>
-  <?php linea(100, 'entrenelo con <code>X_train</code> y <code>y_train</code>'); ?>
-  <?php linea(101, 'guarde en <code>y_pred_lin</code> sus predicciones para <code>X_test</code>'); ?>
-  <?php linea(102, 'guarde en <code>mse_lin</code> el MSE comparando <code>y_test</code> con esas predicciones'); ?>
-  <p style="margin:10px 0 4px"><b>Modelo 2</b> &mdash; polinomial de grado 2 (el mismo modelo, pero con las columnas de <code>X_poly</code>):</p>
-  <?php linea(103, 'guarde en <code>modelo_poly</code> otro modelo de regresion lineal'); ?>
-  <?php linea(104, 'entrenelo con <code>X_poly</code> y <code>y_train</code>'); ?>
-  <?php linea(105, 'guarde en <code>y_pred_poly</code> sus predicciones para <code>X_test_poly</code>'); ?>
-  <?php linea(106, 'guarde en <code>mse_poly</code> el MSE de esas predicciones'); ?>
-  <?php ayuda('El orden de los argumentos del MSE es (reales, predichas). Y al modelo polinomial se le predice con <code>X_test_poly</code>, no con <code>X_test</code>: tiene que ver las mismas columnas con las que se entreno.'); ?>
-  </div>
-
-  <?php mc('m48'); ?>
-  <p style="margin:4px 0 26px 18px">De 42.64 a 6.52, el modelo polinomial reduce el error en
-     un <?php hueco(95, 5); ?> %.
-     <?php ayuda('(42.64 &minus; 6.52) / 42.64'); ?></p>
 
   <?php enviar('Verificar todo el cuestionario'); ?>
 </div>

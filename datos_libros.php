@@ -138,4 +138,10 @@ $libros = [
         'categoria' => 'especial',
         'link' => 'Estadistica/Menu.php'
     ],
+    [
+        'nombre' => 'Biblia',
+        'imagen' => 'fondo.jpg',
+        'categoria' => 'especial',
+        'link' => 'Biblia/Menu.php'
+    ],
 ];

@@ -34,6 +34,9 @@
           <a class="btn" href=".\Theprestige\index.php">The prestige</a>
 
           <a class="btn" href=".\passive\index.php">Passive</a>
+          <a class="btn" href=".\questions\index.php">Direct and indirect questions</a>
+          <a class="btn" href=".\presentperfect\index.php">Present perfect</a>
+          <a class="btn" href=".\vocabulary\index.php">Vocabulary</a>
     </div>
 </body>
 </html>

@@ -488,4 +488,4 @@ cabecera('Unidad 2 · Correlación, statsmodels vs sklearn y supuestos',
 </div>
 
 <?php
-pie('../Menu.php', '');
+pie('../Parcial1.php', '');

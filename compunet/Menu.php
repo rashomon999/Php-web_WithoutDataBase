@@ -131,6 +131,9 @@
         <a class="btn" href=".\Express_2\Menu.php">Express — Cuestionarios</a>
         <a class="btn" href=".\Parcial_Express\Menu.php">Parcial Express — Recetas</a>
         <a class="btn" href=".\Taller_Node\index.php">Taller Node — Cuestionarios</a>
+        <a class="btn" href="./NestJS/Menu.php">NestJS — Cuestionarios</a>
+        <a class="btn" href="./Taller_Hotel_Nest/index.php">Taller Hotel NestJS — Cuestionario</a>
+        <a class="btn" href="./GameHub/Menu.php">GameHub (mi proyecto) — Cuestionarios</a>
 
         <h2>Exposición</h2>
 

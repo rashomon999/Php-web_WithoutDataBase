@@ -1,0 +1,415 @@
+<?php
+
+// =========================================================
+// TALLER HOTEL NESTJS — PARTE 1: npm test (los 5 bugs y los métodos que faltan)
+// ÚNICA FUENTE DE VERDAD: cada respuesta correcta se define UNA sola vez aquí.
+// =========================================================
+$correctas = [
+    // Bug 1 — ConflictException
+    1  => 'ConflictException',
+    2  => '409',
+    3  => "throw new ConflictException('Email already in use');",
+
+    // Bug 2 — roomId vs room
+    4  => 'room: { id: createBookingDto.roomId },',
+    5  => 'totalPrice',
+
+    // Bug 3 — onDelete CASCADE
+    6  => "@ManyToOne(() => Room, (room) => room.bookings, { onDelete: 'CASCADE' })",
+    7  => 'ManyToOne',
+
+    // Bug 4 — BookingModule
+    8  => "import { BookingModule } from './booking/booking.module';",
+    9  => 'BookingModule,',
+    10 => '404',
+
+    // Bug 5 — ValidationPipe
+    11 => "import { APP_PIPE } from '@nestjs/core';",
+    12 => 'provide: APP_PIPE,',
+    13 => 'useValue: new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),',
+
+    // BookingService.cancel
+    14 => "const result = await this.bookingsRepository.update(id, { status: 'cancelled' });",
+    15 => 'return this.findOne(id);',
+
+    // BookingService.hasDateConflict
+    16 => "status: Not('cancelled'),",
+    17 => 'checkInDate: LessThan(new Date(checkOutDate)),',
+    18 => 'checkOutDate: MoreThan(new Date(checkInDate)),',
+    19 => 'return (conflicts ?? []).length > 0;',
+
+    // HotelService.searchByLocation / update / delete
+    20 => 'is not a function',
+    21 => 'where: { location: Like(`%${location ?? \'\'}%`) },',
+    22 => 'await this.hotelsRepository.update(id, updateData);',
+    23 => 'return this.findOne(id);',
+    24 => 'const result = await this.hotelsRepository.delete(id);',
+    25 => 'return (result.affected ?? 0) > 0;',
+
+    // RoomService
+    26 => 'where: { hotel: { id: hotelId }, available: true },',
+    27 => 'return !overlaps;',
+];
+
+// Normaliza: los espacios NO importan en absoluto
+function normalizar($str) {
+    return preg_replace('/\s+/', '', $str);
+}
+
+for ($i = 1; $i <= 60; $i++) {
+    ${"respuesta_" . $i} = '';
+    ${"verificar_" . $i} = '';
+}
+
+$mostrar_solucion = '';
+if ($_POST) {
+    $mostrar_solucion = isset($_POST['mostrar_solucion']) ? $_POST['mostrar_solucion'] : '';
+
+    if ($mostrar_solucion === 'mostrar_solucion') {
+        foreach ($correctas as $i => $valor) {
+            ${"respuesta_" . $i} = $valor;
+            ${"verificar_" . $i} = "correcto";
+        }
+    } else {
+        foreach ($correctas as $i => $valor) {
+            $enviado = isset($_POST["respuesta_$i"]) ? $_POST["respuesta_$i"] : '';
+            ${"respuesta_" . $i} = $enviado;
+            $e = normalizar($enviado);
+            if ($e === normalizar($valor))      ${"verificar_" . $i} = "correcto";
+            elseif ($e === '')                   ${"verificar_" . $i} = '';
+            else                                 ${"verificar_" . $i} = "incorrecto";
+        }
+    }
+}
+
+// Pinta un input con el valor enviado y el borde según el resultado
+function campo($i, $size) {
+    $val = $GLOBALS["respuesta_$i"];
+    $ver = $GLOBALS["verificar_$i"];
+    $cls = $ver === 'correcto' ? 'ok' : ($ver === 'incorrecto' ? 'mal' : '');
+    return '<input type="text" class="' . $cls . '" name="respuesta_' . $i . '" value="'
+         . htmlspecialchars($val, ENT_QUOTES) . '" size="' . $size . '" spellcheck="false">';
+}
+
+// Resultado de un bloque de preguntas
+function verificar(...$ids) {
+    $out = '';
+    foreach ($ids as $i) {
+        $v = $GLOBALS["verificar_$i"];
+        if ($v === '') continue;
+        $out .= '<span class="v ' . ($v === 'correcto' ? 'ok' : 'mal') . '">' . $i . ': ' . $v . '</span> ';
+    }
+    return $out;
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Hotel NestJS — Parte 1: npm test</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../style_2_0.css">
+
+<style>
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+    .form-container {
+        height: auto;
+    }
+    .seccion {
+        width: calc(50% - 7.5px);
+        padding: 20px;
+        box-sizing: border-box;
+        height: auto;
+    }
+    .centered-container {
+        position: static;
+        width: 100%;
+    }
+    .seccion img { max-width: 100%; height: auto; border-radius: 6px; }
+    .seccion pre { background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 10px 12px; font-size: 13.5px; }
+    .seccion input[type=text] { font-family: Consolas, Menlo, monospace; font-size: 13.5px; max-width: 100%; }
+    input.ok  { border: 2px solid #1a7f37; background: #eaf6ee; }
+    input.mal { border: 2px solid #cf222e; background: #fdecec; }
+    .v { font-size: 13px; font-weight: bold; margin-right: 6px; }
+    .v.ok { color: #1a7f37; } .v.mal { color: #cf222e; }
+    .titulo { background: #1f2733; color: #fff; padding: 14px 20px; border-radius: 8px; margin: 10px 0 0; }
+    .titulo h1 { font-size: 22px; margin: 0; } .titulo p { margin: 4px 0 0; color: #cfe3ff; font-size: 14px; }
+    .bug { display: inline-block; background: #cf222e; color: #fff; font-size: 12px; font-weight: bold; padding: 2px 8px; border-radius: 10px; margin-right: 6px; }
+    .met { display: inline-block; background: #2f5d8a; color: #fff; font-size: 12px; font-weight: bold; padding: 2px 8px; border-radius: 10px; margin-right: 6px; }
+    .solucion { background: #fff8e1; border-left: 4px solid #f0b429; padding: 10px 16px; border-radius: 0 8px 8px 0; margin: 12px 0 0; }
+    .solucion input { margin: 0 8px; }
+    @media (max-width: 900px) { .seccion { width: 100%; } }
+</style>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault();
+    const y = window.scrollY;
+    const formData = new FormData(event.target);
+    fetch(event.target.action, { method: 'POST', body: formData })
+        .then(r => r.text())
+        .then(html => {
+            document.body.innerHTML = new DOMParser().parseFromString(html, 'text/html').body.innerHTML;
+            window.scrollTo(0, y);
+        })
+        .catch(err => console.error('Error al enviar el formulario:', err));
+}
+</script>
+</head>
+<body>
+
+<div class="titulo">
+    <h1>&#127976; Taller Hotel NestJS — Parte 1: <code style="color:#f5f543">npm test</code></h1>
+    <p>Proyecto <code style="color:#fff">taller_hotel_2h_nest_2025B</code>: los 5 bugs y los métodos que faltan para que pasen los 36 tests unitarios.</p>
+</div>
+
+<form action="./index.php" method="POST" onsubmit="handleSubmit(event)" autocomplete="off">
+<div class="solucion">
+    <strong>si desea ver las soluciones escribir: mostrar_solucion</strong>
+    <input type="text" id="mostrar_solucion" name="mostrar_solucion" value="<?php echo htmlspecialchars($mostrar_solucion, ENT_QUOTES); ?>">
+    <button type="submit">Mostrar Solución</button>
+</div>
+<div class="form-container">
+
+
+<!-- ======================= IZQUIERDA: LOS 5 BUGS ======================= -->
+<div class="seccion izquierda">
+
+<strong>Hay que saber:</strong>
+<p>1. <code>npm test</code> solo corre los tests <b>unitarios</b>: los <code>*.spec.ts</code> dentro de <code>src/</code> (en <code>package.json</code>: <code>"rootDir": "src"</code>). Los <code>*.e2e-spec.ts</code> se corren con <code>npm run test:e2e</code> (Parte 2).</p>
+<p>2. Cada fallo dice: <code>● Clase › método › nombre del test</code>, luego el mensaje, y la línea exacta marcada con <code>&gt;</code>.</p>
+<p>3. <code>Not implemented</code> = el método existe pero lanza error. <code>is not a function</code> = el método <b>ni siquiera existe</b>, hay que crearlo.</p>
+
+<hr>
+<p><span class="bug">BUG 1</span><strong>user.service.ts — la excepción equivocada</strong></p>
+<img src="../../img/guia_501.png" alt="" width="900">
+<br><br>
+<p>Lo primero que se ve: <code>npm test</code> ni siquiera muestra el resumen. El test no usa <code>await</code> en el <code>expect(...).rejects</code>, así que el error queda "suelto" y <b>Jest se cae entero</b>.</p>
+<p>El test espera la excepción: <?php echo campo(1, 22); ?></p>
+<p>y nosotros lanzamos <code>NotFoundException</code> (404). Un email repetido es un <b>conflicto</b>, código HTTP: <?php echo campo(2, 4); ?></p>
+<img src="../../img/guia_512.png" alt="" width="760">
+<p>Corrige la línea 21:</p>
+<?php echo campo(3, 60); ?>
+<br><br>
+<button type="submit">Enviar</button>
+<?php echo verificar(1, 2, 3); ?>
+
+<hr>
+<p><span class="bug">BUG 2</span><strong>booking.service.ts — la propiedad que no existe</strong></p>
+<img src="../../img/guia_513.png" alt="" width="900">
+<br><br>
+<p>La entidad <code>Booking</code> no tiene una columna <code>roomId</code>: tiene la relación <code>room: Room</code>. TypeORM ignora lo que no conoce, así que la reserva se guardaba <b>sin habitación</b>. Para enlazar una relación basta con pasar un objeto con el <code>id</code>:</p>
+<pre>
+const booking = this.bookingsRepository.create({
+  checkInDate,
+  checkOutDate,
+  totalPrice,
+  <?php echo campo(4, 45); ?>
+
+  user: { id: userId },
+  status: 'pending',
+});
+</pre>
+<p>Y ojo: <code>...createBookingDto</code> tampoco llenaba la columna NOT NULL <?php echo campo(5, 12); ?> (noches × precio por noche).</p>
+<button type="submit">Enviar</button>
+<?php echo verificar(4, 5); ?>
+
+<hr>
+<p><span class="bug">BUG 3</span><strong>booking.entity.ts — falta el borrado en cascada</strong></p>
+<img src="../../img/guia_514.png" alt="" width="900">
+<br><br>
+<p>Mira la línea 29: <code>user</code> sí tiene <code>onDelete: 'CASCADE'</code>, <code>room</code> no. Si borras una habitación con reservas, la llave foránea lo impide (o quedan reservas huérfanas).</p>
+<?php echo campo(6, 75); ?>
+<p>La FK vive en la tabla de <code>booking</code>, por eso <code>onDelete</code> se declara en el lado: <?php echo campo(7, 12); ?></p>
+<p><small>Los comentarios "BUG" de <code>user.entity.ts</code> y <code>room.entity.ts</code> son distractores: esas relaciones ya estaban bien.</small></p>
+<button type="submit">Enviar</button>
+<?php echo verificar(6, 7); ?>
+
+<hr>
+<p><span class="bug">BUG 4</span><strong>app.module.ts — el módulo que nadie importó</strong></p>
+<img src="../../img/guia_515.png" alt="" width="760">
+<br><br>
+<p>Existe <code>booking.module.ts</code>, pero <code>AppModule</code> no lo importa. Nest nunca registra <code>BookingController</code>. TypeScript no se queja y la app arranca normal.</p>
+<pre>
+<?php echo campo(8, 60); ?>
+
+@Module({
+  imports: [
+    ...
+    UserModule,
+    HotelModule,
+    RoomModule,
+    <?php echo campo(9, 16); ?>
+
+    AuthModule,
+</pre>
+<p>Sin este import, <code>POST /bookings</code> responde el código: <?php echo campo(10, 4); ?></p>
+<button type="submit">Enviar</button>
+<?php echo verificar(8, 9, 10); ?>
+
+<hr>
+<p><span class="bug">BUG 5</span><strong>main.ts — el ValidationPipe fantasma</strong></p>
+<img src="../../img/guia_516.png" alt="" width="760">
+<br><br>
+<p>Se importa <code>ValidationPipe</code> (línea 3) pero nunca se usa. Resultado: <b>todos</b> los decoradores de <b>todos</b> los DTOs son adorno.</p>
+<p>Si lo pones con <code>app.useGlobalPipes(...)</code> en <code>main.ts</code>, los tests e2e no lo ven (crean su propia app sin pasar por <code>main.ts</code>). Por eso lo registramos como provider global en <code>app.module.ts</code>:</p>
+<pre>
+import { Module, ValidationPipe } from '@nestjs/common';
+<?php echo campo(11, 45); ?>
+
+...
+  providers: [
+    AppService,
+    {
+      <?php echo campo(12, 22); ?>
+
+      <?php echo campo(13, 78); ?>
+
+    },
+  ],
+</pre>
+<button type="submit">Enviar</button>
+<?php echo verificar(11, 12, 13); ?>
+<hr>
+</div>
+
+
+
+<!-- ======================= DERECHA: LOS MÉTODOS ======================= -->
+<div class="seccion derecha">
+
+<p><span class="met">MÉTODO</span><strong>BookingService.cancel</strong></p>
+<img src="../../img/guia_502.png" alt="" width="900">
+<br><br>
+<p>Vamos al test para ver qué espera:</p>
+<pre>
+mockRepository.update.mockResolvedValue({ affected: 1 });
+mockRepository.findOne.mockResolvedValue(cancelledBooking);
+                ↑
+   usa update() y luego vuelve a buscar con findOne()
+</pre>
+<p>Cancelar <b>no borra</b> la reserva: solo cambia el <code>status</code>.</p>
+<pre>
+async cancel(id: number): Promise&lt;Booking&gt; {
+  <?php echo campo(14, 70); ?>
+
+  if (result &amp;&amp; result.affected === 0) {
+    throw new NotFoundException(`Booking with id ${id} not found`);
+  }
+  <?php echo campo(15, 28); ?>
+
+}
+</pre>
+<button type="submit">Enviar</button>
+<?php echo verificar(14, 15); ?>
+
+<hr>
+<p><span class="met">MÉTODO</span><strong>BookingService.hasDateConflict</strong></p>
+<img src="../../img/guia_503.png" alt="" width="900">
+<br><br>
+<p><b>La regla del solape:</b> dos estadías se cruzan si la existente <b>empieza antes</b> de que termine la nueva <b>y termina después</b> de que empiece la nueva. Las canceladas no cuentan.</p>
+<pre>
+  existente:        |-------|
+  nueva:        |-------|          → se cruzan
+  nueva:                    |----| → no (empieza justo cuando la otra sale)
+</pre>
+<pre>
+const conflicts = await this.bookingsRepository.find({
+  where: {
+    room: { id: roomId },
+    <?php echo campo(16, 30); ?>
+
+    <?php echo campo(17, 48); ?>
+
+    <?php echo campo(18, 48); ?>
+
+  },
+});
+<?php echo campo(19, 40); ?>
+</pre>
+<p><small><code>Not</code>, <code>LessThan</code> y <code>MoreThan</code> se importan de <code>'typeorm'</code>.</small></p>
+<button type="submit">Enviar</button>
+<?php echo verificar(16, 17, 18, 19); ?>
+
+<hr>
+<p><span class="met">MÉTODO</span><strong>HotelService.searchByLocation</strong></p>
+<img src="../../img/guia_504.png" alt="" width="900">
+<br><br>
+<p>Aquí el mensaje no es <code>Not implemented</code> sino: <?php echo campo(20, 18); ?> → el método no existe en el servicio, hay que crearlo completo.</p>
+<p>Buscar "que contenga" en SQL es <code>LIKE '%texto%'</code>; en TypeORM es <code>Like(...)</code>:</p>
+<pre>
+async searchByLocation(location: string): Promise&lt;Hotel[]&gt; {
+  return this.hotelsRepository.find({
+    <?php echo campo(21, 50); ?>
+
+    relations: ['rooms'],
+  });
+}
+</pre>
+<button type="submit">Enviar</button>
+<?php echo verificar(20, 21); ?>
+
+<hr>
+<p><span class="met">MÉTODO</span><strong>update y delete (Hotel, Room, User)</strong></p>
+<img src="../../img/guia_505.png" alt="" width="900">
+<br><br>
+<p><code>repository.update()</code> <b>no devuelve la entidad</b>, devuelve <code>{ affected: n }</code>. Por eso después se vuelve a buscar (y si no existe, <code>findOne</code> ya lanza 404).</p>
+<pre>
+async update(id: number, updateData: Partial&lt;CreateHotelDto&gt;): Promise&lt;Hotel&gt; {
+  <?php echo campo(22, 52); ?>
+
+  <?php echo campo(23, 28); ?>
+
+}
+
+async delete(id: number): Promise&lt;boolean&gt; {
+  <?php echo campo(24, 52); ?>
+
+  <?php echo campo(25, 36); ?>
+
+}
+</pre>
+<p>El test hace <code>expect(mockRepository.delete).toHaveBeenCalledWith(1)</code> y espera <code>true</code>. <code>affected</code> puede venir <code>undefined</code> en algunos drivers, por eso el <code>?? 0</code>. El mismo patrón sirve para Room y User.</p>
+<button type="submit">Enviar</button>
+<?php echo verificar(22, 23, 24, 25); ?>
+
+<hr>
+<p><span class="met">MÉTODO</span><strong>RoomService.getAvailability e isAvailableForDateRange</strong></p>
+<img src="../../img/guia_506.png" alt="" width="900">
+<br><br>
+<pre>
+async getAvailability(hotelId: number): Promise&lt;Room[]&gt; {
+  return this.roomsRepository.find({
+    <?php echo campo(26, 52); ?>
+
+  });
+}
+</pre>
+<img src="../../img/guia_507.png" alt="" width="900">
+<br><br>
+<p>Se trae la habitación con sus <code>bookings</code> (<code>findOne</code> ya pide la relación) y se aplica la misma regla del solape:</p>
+<pre>
+const overlaps = (room.bookings ?? []).some((b) =&gt;
+  b.status !== 'cancelled' &amp;&amp;
+  new Date(b.checkInDate).getTime() &lt; end &amp;&amp;
+  new Date(b.checkOutDate).getTime() &gt; start);
+
+<?php echo campo(27, 20); ?>    // disponible = NO hay solape
+</pre>
+<button type="submit">Enviar</button>
+<?php echo verificar(26, 27); ?>
+
+</div>
+
+</div>
+</form>
+
+<div class="centered-container">
+    <a name="siguiente" id="siguiente" class="btn btn-primary" href="segundo.php" role="button">Siguiente</a>
+</div>
+</body>
+</html>

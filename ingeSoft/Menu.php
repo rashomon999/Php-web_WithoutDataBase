@@ -41,6 +41,7 @@
         <a class="btn" href=".\ArthurLanger\index.php">Arthur M. Langer - Guide to Software Development </a>
         <br><br><br>
         <a class="btn" href=".\devops\Menu.php">devops</a>
+        <a class="btn" href=".\devops2\Menu.php">devops2</a>
          
     </div>
 </body>

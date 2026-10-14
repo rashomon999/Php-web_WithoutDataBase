@@ -86,7 +86,7 @@ a.item:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-1px);
     <p class="sub">Analisis exploratorio de datos — memorizar las lineas, no entenderlas a medias</p>
   </div>
   <div class="spacer"></div>
-  <a href="Menu.php">&#8962; Menu</a>
+  <a href="Parcial1.php">&#8592; Parcial 1</a>
 </div>
 
 <div class="wrap">

@@ -410,4 +410,4 @@ J(θ) = − ─── Σ [ yⁱ·log(h(xⁱ)) + (1 − yⁱ)·log(1 − h(xⁱ))
 </div>
 
 <?php
-pie('../Menu.php', '');
+pie('../Parcial1.php', '');

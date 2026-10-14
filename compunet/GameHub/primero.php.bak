@@ -1,0 +1,567 @@
+<?php
+require_once __DIR__ . '/../NestJS/motor.php';
+
+/* ---------------------------------------------------------------
+   GAMEHUB — CUESTIONARIO 1
+   Quién llama a quién: el recorrido de una petición
+   (código real de GameHub, parte de la Persona 1)
+   --------------------------------------------------------------- */
+
+$SOLUCIONES = [
+
+    /* --- A. El diagrama --- */
+    1  => 'JwtAuthGuard',
+    2  => ['canActivate', 'canActivate()'],
+    3  => ['@Public()', '@Public', 'Public', 'Public()'],
+    4  => ['Passport', 'AuthGuard', "AuthGuard('jwt')"],
+    5  => 'JwtStrategy',
+    6  => ['validate', 'validate()'],
+    7  => ['req.user', 'request.user'],
+    8  => 'RolesGuard',
+    9  => 'ValidationPipe',
+    10 => ['Controller', 'UsersController', 'AuthController'],
+    11 => ['Service', 'UsersService', 'AuthService'],
+    12 => ['Repository', 'Repositorio', 'repo'],
+    13 => ['toPublic', 'toPublic()'],
+    14 => '401',
+    15 => '401',
+    16 => '403',
+    17 => '400',
+
+    /* --- B. Quién llama a quién --- */
+    20 => 'canActivate',
+    21 => 'super',
+    22 => 'jwt',
+    23 => 'authenticate',
+    24 => 'fromAuthHeaderAsBearerToken',
+    25 => 'JWT_SECRET',
+    26 => 'validate',
+    27 => 'user',
+    28 => 'getRequest',
+
+    /* --- C. El arranque --- */
+    30 => 'create',
+    31 => 'AppModule',
+    32 => 'imports',
+    33 => 'JwtStrategy',
+    34 => 'singleton',
+    35 => ['Injectable', 'Injectable()', '@Injectable()', '@Injectable'],
+    36 => 'super',
+    37 => 'listen',
+
+    /* --- D. Dónde está cada cosa --- */
+    40 => 'APP_GUARD',
+    41 => 'RolesGuard',
+    42 => 'useGlobalPipes',
+    43 => 'whitelist',
+    44 => 'forbidNonWhitelisted',
+    45 => 'SetMetadata',
+
+    /* --- E. jwt-auth.guard.ts --- */
+    46 => 'AuthGuard',
+    47 => 'Reflector',
+    48 => 'getAllAndOverride',
+    49 => 'getHandler',
+    50 => 'true',
+
+    /* --- F. jwt.strategy.ts --- */
+    51 => 'Strategy',
+    52 => 'ignoreExpiration',
+    53 => 'secretOrKey',
+    54 => 'findById',
+    55 => 'sub',
+    56 => 'UnauthorizedException',
+    57 => 'tv',
+
+    /* --- G. current-user.decorator.ts --- */
+    58 => 'createParamDecorator',
+    59 => 'getRequest',
+
+    /* --- H. Líneas completas --- */
+    60 => 'return super.canActivate(context);',
+    61 => ['{ provide: APP_GUARD, useClass: JwtAuthGuard },', '{ provide: APP_GUARD, useClass: JwtAuthGuard }'],
+    62 => 'export class JwtStrategy extends PassportStrategy(Strategy) {',
+    63 => 'return { id: user.id, email: user.email, name: user.name, role: user.role };',
+    64 => 'const user = ctx.switchToHttp().getRequest().user;',
+    65 => 'return data ? user?.[data] : user;',
+    66 => 'export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);',
+];
+
+$RETOS = [
+
+'jwtauthguard' => [
+    'titulo' => '<code>jwt-auth.guard.ts</code> (la clase completa, sin imports)',
+    'huecos' => [46, 47, 48, 49, 50],
+    'codigo' => <<<'EOT'
+@Injectable()
+export class JwtAuthGuard extends AuthGuard('jwt') {
+  constructor(private readonly reflector: Reflector) {
+    super();
+  }
+
+  canActivate(context: ExecutionContext) {
+    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+    if (isPublic) return true;
+    return super.canActivate(context);
+  }
+}
+EOT
+],
+
+'jwtstrategy' => [
+    'titulo' => '<code>jwt.strategy.ts</code> (la clase completa, sin imports ni la interfaz)',
+    'huecos' => [51, 52, 53, 54, 55, 56, 57],
+    'codigo' => <<<'EOT'
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(config: ConfigService, private readonly users: UsersService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
+      secretOrKey: config.getOrThrow<string>('JWT_SECRET'),
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    const user = await this.users.findById(payload.sub);
+    if (!user) throw new UnauthorizedException('Usuario no encontrado');
+    if (user.tokenVersion !== payload.tv) throw new UnauthorizedException('Sesión cerrada');
+    return { id: user.id, email: user.email, name: user.name, role: user.role };
+  }
+}
+EOT
+],
+
+];
+
+$MULTIPLE = [
+    'm1' => [
+        'texto'    => '¿Por qué se ejecuta el <b>constructor</b> de <code>JwtStrategy</code> si ninguna clase lo pide en su constructor?',
+        'opciones' => [
+            'a' => 'Porque tiene <code>@Injectable()</code>, y todo lo que tiene ese decorador se instancia solo.',
+            'b' => 'Porque <code>JwtAuthGuard</code> hace <code>new JwtStrategy()</code> en cada petición.',
+            'c' => 'Porque está en los <code>providers</code> de <code>AuthModule</code>, y <code>AuthModule</code> es alcanzable desde <code>AppModule</code> por los <code>imports</code>. Nest hace <code>new</code> de cada provider de cada módulo alcanzable, lo use alguien o no.',
+            'd' => 'Porque <code>main.ts</code> lo importa.',
+        ],
+        'correcta' => 'c',
+        'porque'   => '<code>@Injectable()</code> no causa el <code>new</code>: solo permite que Nest lea los tipos del constructor para saber qué inyectarle. El <code>new</code> ocurre por estar en <code>providers</code>.',
+    ],
+    'm2' => [
+        'texto'    => '¿Qué hace exactamente <code>@Injectable()</code>?',
+        'opciones' => [
+            'a' => 'Ejecuta el constructor al arrancar.',
+            'b' => 'Permite que Nest lea los <b>tipos de los parámetros del constructor</b> (<code>ConfigService</code>, <code>UsersService</code>) para saber qué instancias pasarle al hacer el <code>new</code>.',
+            'c' => 'Protege la clase con JWT.',
+            'd' => 'Hace que la clase sea pública.',
+        ],
+        'correcta' => 'b',
+        'porque'   => 'Es la mitad de la <b>inyección de dependencias</b>: tú declaras lo que necesitas en el constructor y Nest te lo entrega. Nunca escribes <code>new JwtStrategy(...)</code>.',
+    ],
+    'm3' => [
+        'texto'    => '¿Cuándo se ejecuta <code>validate(payload)</code>?',
+        'opciones' => [
+            'a' => 'Una vez, al arrancar, dentro del constructor.',
+            'b' => 'En el login, para firmar el token.',
+            'c' => 'En todas las peticiones, incluidas <code>/auth/login</code> y <code>/health</code>.',
+            'd' => 'En cada petición a una ruta <b>protegida</b>, y solo después de que passport-jwt verificó la firma y la expiración del token.',
+        ],
+        'correcta' => 'd',
+        'porque'   => 'El constructor solo <b>guarda</b> <code>validate</code> dentro de <code>_verify</code>, no lo ejecuta. En rutas <code>@Public()</code> el guard devuelve <code>true</code> antes de llamar a Passport, así que <code>validate</code> nunca corre.',
+    ],
+    'm4' => [
+        'texto'    => '¿Qué línea de <b>tu</b> código arranca todo el trabajo de Passport en una petición?',
+        'opciones' => [
+            'a' => '<code>return super.canActivate(context);</code> en <code>JwtAuthGuard.canActivate</code>.',
+            'b' => '<code>super({...})</code> en el constructor de <code>JwtStrategy</code>.',
+            'c' => '<code>@ApiBearerAuth()</code> en el controller.',
+            'd' => '<code>PassportModule</code> en los imports de <code>AuthModule</code>.',
+        ],
+        'correcta' => 'a',
+        'porque'   => '<code>super.canActivate</code> llama al <code>canActivate</code> de <code>AuthGuard(\'jwt\')</code>, que ejecuta <code>passport.authenticate(\'jwt\')</code>. Eso termina llamando a <code>validate</code>. <code>@ApiBearerAuth()</code> es solo para Swagger.',
+    ],
+    'm5' => [
+        'texto'    => '¿Quién escribe literalmente <code>request.user = ...</code>?',
+        'opciones' => [
+            'a' => 'Tu <code>validate</code>, con <code>req.user = {...}</code>.',
+            'b' => 'Express, al recibir el header Authorization.',
+            'c' => 'El <code>AuthGuard</code> de <code>@nestjs/passport</code>: toma lo que retornó <code>validate</code> y lo asigna a <code>request.user</code>.',
+            'd' => 'El decorador <code>@CurrentUser</code>.',
+        ],
+        'correcta' => 'c',
+        'porque'   => 'Está en <code>node_modules/@nestjs/passport/dist/auth.guard.js</code>: <code>request[options.property || \'user\'] = user</code>. Tu <code>validate</code> solo hace <code>return</code>. <code>@CurrentUser</code> lee <code>req.user</code>, no lo escribe.',
+    ],
+    'm6' => [
+        'texto'    => 'Mandas <code>PATCH /api/users/me</code> <b>sin token</b> y con <code>{"email": "string"}</code>. ¿Qué responde?',
+        'opciones' => [
+            'a' => '400 "email must be an email".',
+            'b' => '401: <code>JwtAuthGuard</code> corre antes que <code>ValidationPipe</code>, así que el body ni se revisa.',
+            'c' => '403.',
+            'd' => '200, porque todos los campos son opcionales.',
+        ],
+        'correcta' => 'b',
+        'porque'   => 'El orden de las capas es guards → pipes → controller. La primera capa que falla corta la petición.',
+    ],
+    'm7' => [
+        'texto'    => 'Ana (PLAYER, con token válido) llama a <code>GET /api/users/abc</code>. ¿Qué responde?',
+        'opciones' => [
+            'a' => '400 "Validation failed (uuid is expected)".',
+            'b' => '404 "Usuario no encontrado".',
+            'c' => '401.',
+            'd' => '403: <code>RolesGuard</code> ve <code>@Roles(ADMIN)</code> y la corta antes de que <code>ParseUUIDPipe</code> revise el id.',
+        ],
+        'correcta' => 'd',
+        'porque'   => 'Los guards van antes que los pipes. Con el token del admin, la misma petición sí daría 400 por el UUID inválido.',
+    ],
+    'm8' => [
+        'texto'    => 'Si quitas <code>JwtStrategy</code> de los <code>providers</code> de <code>auth.module.ts</code>, ¿qué pasa?',
+        'opciones' => [
+            'a' => 'No compila.',
+            'b' => 'La app no arranca.',
+            'c' => 'La app <b>arranca normal</b>, porque nadie la inyecta. Pero en la primera ruta protegida el guard pide la estrategia <code>\'jwt\'</code>, Passport no la tiene registrada y responde 500 (<code>Unknown authentication strategy "jwt"</code>).',
+            'd' => 'Todas las rutas quedan públicas.',
+        ],
+        'correcta' => 'c',
+        'porque'   => 'La estrategia se registra en Passport <b>al crearse</b> (en el <code>super()</code> del constructor), no al usarse. Si no se crea, no existe. <code>/health</code>, <code>login</code> y <code>register</code> seguirían funcionando porque son <code>@Public()</code>.',
+    ],
+    'm9' => [
+        'texto'    => '¿De dónde sale el valor de <code>@CurrentUser(\'id\') id</code> en <code>updateMe</code>?',
+        'opciones' => [
+            'a' => 'De <code>req.user.id</code>, que vino del token (claim <code>sub</code>) a través de <code>JwtStrategy.validate</code>.',
+            'b' => 'De la URL: <code>/users/me?id=...</code>.',
+            'c' => 'Del body: <code>{"id": "..."}</code>.',
+            'd' => 'De <code>req.params.id</code>.',
+        ],
+        'correcta' => 'a',
+        'porque'   => 'Por eso nadie puede editar el perfil de otro usuario: el id sale de un token firmado, no de algo que el cliente escribe. Si mandas <code>id</code> en el body, <code>forbidNonWhitelisted</code> responde 400.',
+    ],
+    'm10' => [
+        'texto'    => '¿Cuál es la diferencia entre <code>extends</code> y <code>super(...)</code> en <code>JwtStrategy</code>?',
+        'opciones' => [
+            'a' => 'Son lo mismo.',
+            'b' => '<code>super</code> hace la herencia y <code>extends</code> llama al padre.',
+            'c' => '<code>super</code> sirve para llamar a <code>validate</code>.',
+            'd' => '<code>extends</code> es la herencia ("soy hija de <code>PassportStrategy(Strategy)</code>"). <code>super({...})</code> llama al constructor del padre y le pasa la configuración (de dónde sacar el token, el secreto y la expiración).',
+        ],
+        'correcta' => 'd',
+        'porque'   => 'Si una clase hija tiene constructor, TypeScript obliga a llamar a <code>super()</code> antes de usar <code>this</code>.',
+    ],
+    'm11' => [
+        'texto'    => '¿Cuánto tiempo vive <code>req.user</code>?',
+        'opciones' => [
+            'a' => 'Lo que dure el token (1 hora).',
+            'b' => 'Solo durante <b>esa</b> petición. En la siguiente se vuelve a validar el token y se vuelve a llenar. Por eso el token va en cada petición: la autenticación es <i>stateless</i>.',
+            'c' => 'Hasta que se haga logout.',
+            'd' => 'Se guarda en la base de datos.',
+        ],
+        'correcta' => 'b',
+        'porque'   => '<code>req</code> es un objeto en memoria que Express crea al llegar la petición y descarta al responder. El servidor no recuerda que hiciste login.',
+    ],
+    'm12' => [
+        'texto'    => 'Haces logout y luego usas el <b>mismo token</b> (aún no vencido) en <code>GET /api/auth/me</code>. ¿Qué pasa?',
+        'opciones' => [
+            'a' => '200: el token no ha vencido.',
+            'b' => 'Passport rechaza la firma.',
+            'c' => 'La firma y la expiración pasan, pero en <code>validate</code> el <code>tv</code> del token (0) no coincide con <code>tokenVersion</code> de la BD (1), y responde 401 "Sesión cerrada".',
+            'd' => '404.',
+        ],
+        'correcta' => 'c',
+        'porque'   => 'El logout hace <code>repo.increment(tokenVersion)</code>. Como el JWT es stateless, no se puede "borrar": se invalida comparando versiones en <code>validate</code>.',
+    ],
+    'm13' => [
+        'texto'    => 'Llamas a <code>GET /api/health</code> con un token <b>vencido</b> en el header. ¿Qué responde?',
+        'opciones' => [
+            'a' => '200: la ruta es <code>@Public()</code>, el guard devuelve <code>true</code> sin llamar a Passport y nadie mira el token.',
+            'b' => '401, porque el token está vencido.',
+            'c' => '403.',
+            'd' => '500.',
+        ],
+        'correcta' => 'a',
+        'porque'   => 'En una ruta pública, Passport no se ejecuta, así que un token malo no molesta. Tampoco se llena <code>req.user</code>.',
+    ],
+    'm14' => [
+        'texto'    => '¿Cuál es la diferencia entre 401 y 403 en GameHub?',
+        'opciones' => [
+            'a' => 'Son el mismo error con distinto número.',
+            'b' => '401 es para el login y 403 para el registro.',
+            'c' => '401 lo da <code>ValidationPipe</code> y 403 el service.',
+            'd' => '401 (de <code>JwtAuthGuard</code>/<code>JwtStrategy</code>): no sé quién eres. 403 (de <code>RolesGuard</code>): sé quién eres, pero tu rol no alcanza.',
+        ],
+        'correcta' => 'd',
+        'porque'   => 'Ejemplo: Ana sin token en <code>GET /users</code> recibe 401. Ana con su token recibe 403. El admin recibe 200.',
+    ],
+];
+
+iniciar($SOLUCIONES, $MULTIPLE, $RETOS);
+cabecera('GameHub 1 — Quién llama a quién', 'El recorrido de una petición: guards, Passport, JwtStrategy, pipes, controller, service');
+?>
+
+<style>
+.diag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:0 18px;
+      align-items:center;margin:18px 0 6px}
+.diag .c{grid-column:2;display:flex;justify-content:center}
+.diag .l{grid-column:1;display:flex;justify-content:flex-end}
+.diag .r{grid-column:3;display:flex;justify-content:flex-start}
+.nodo{border:2px solid #9aa3ad;border-radius:10px;padding:10px 14px;text-align:center;
+      background:#fff;width:100%;max-width:330px;line-height:1.5}
+.nodo .s{display:block;font-size:13px;color:#5a636e}
+.nodo.seg{border-color:#7b61c4;background:#f3f0fc}
+.nodo.app{border-color:#1d9e75;background:#e8f7f1}
+.nodo.err{border-color:#c0392b;background:#fdecea;max-width:230px}
+.nodo.ini{border-radius:999px;background:#eef0f3}
+.nodo.dec{border-style:dashed;border-color:#555;background:#fafafa}
+.nodo.lado{max-width:230px;background:#eef0f3}
+.nodo .donde{margin-top:4px;font-size:12px;color:#2c5aa0}
+.flecha{grid-column:2;text-align:center;font-size:20px;color:#5a636e;line-height:1.4}
+.flecha small{font-size:12px;margin-left:6px}
+.hacia{font-size:13px;color:#5a636e;white-space:nowrap}
+@media(max-width:760px){.diag{grid-template-columns:minmax(0,1fr)}
+  .diag .c,.diag .l,.diag .r,.flecha{grid-column:1;justify-content:center}}
+</style>
+
+<div class="card">
+  <h2>A. El diagrama: ¿qué clase va en cada caja?</h2>
+  <p>Así recorre GameHub una petición. Morado = seguridad, verde = tu aplicación, rojo = el error que sale
+     si esa capa falla. Escribe el nombre de la clase, método o código en cada hueco.</p>
+
+  <div class="diag">
+
+    <div class="c"><div class="nodo ini"><b>Llega la petición</b></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo seg"><b><?php hueco(1, 13); ?></b>
+      <span class="s">método <?php hueco(2, 12); ?></span><span class="s donde">registrado global en <code>app.module.ts</code> con <code>APP_GUARD</code></span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="l"><div class="nodo lado"><b>Pasa directo</b><span class="s">no pide token y salta hasta RolesGuard</span></div></div>
+    <div class="c"><div class="nodo dec"><span class="hacia">Sí ← </span><b>¿Tiene <?php hueco(3, 10); ?>?</b></div></div>
+    <div class="flecha">↓<small>No</small></div>
+
+    <div class="c"><div class="nodo seg"><b><?php hueco(4, 10); ?></b>
+      <span class="s">ejecuta la receta de <code>passport-jwt</code>: saca el token del header y verifica firma y expiración</span><span class="s donde">es el <b>motor</b>; el <b>cómo</b> lo definió la Strategy en el <code>super({...})</code></span></div></div>
+    <div class="r"><span class="hacia">→&nbsp;</span><div class="nodo err"><b><?php hueco(14, 4); ?></b><span class="s">token falta, malo o vencido</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo seg"><b><?php hueco(5, 12); ?></b>.<?php hueco(6, 9); ?>(payload)
+      <span class="s">lo que retorna queda en <?php hueco(7, 12); ?></span><span class="s donde">en los <code>providers</code> de <code>auth.module.ts</code></span></div></div>
+    <div class="r"><span class="hacia">→&nbsp;</span><div class="nodo err"><b><?php hueco(15, 4); ?></b><span class="s">sesión cerrada (tokenVersion)</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo seg"><b><?php hueco(8, 11); ?></b>
+      <span class="s">¿la ruta tiene @Roles? compara con req.user.role</span><span class="s donde">registrado global en <code>app.module.ts</code> con <code>APP_GUARD</code></span></div></div>
+    <div class="r"><span class="hacia">→&nbsp;</span><div class="nodo err"><b><?php hueco(16, 4); ?></b><span class="s">el rol no alcanza</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo app"><b><?php hueco(9, 14); ?></b>
+      <span class="s">revisa el body contra el DTO</span><span class="s donde">registrado global en <code>main.ts</code> con <code>app.useGlobalPipes(...)</code></span></div></div>
+    <div class="r"><span class="hacia">→&nbsp;</span><div class="nodo err"><b><?php hueco(17, 4); ?></b><span class="s">datos inválidos</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo app"><b><?php hueco(10, 13); ?></b>
+      <span class="s">recibe @CurrentUser, @Body, @Param y llama al service</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo app"><b><?php hueco(11, 12); ?></b>
+      <span class="s">lógica: bcrypt, JWT, TOTP, reglas; lanza 404 / 409</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo app"><b><?php hueco(12, 11); ?></b>
+      <span class="s">TypeORM → Postgres (findOne, save, remove...)</span></div></div>
+    <div class="flecha">↓</div>
+
+    <div class="c"><div class="nodo ini"><b>Respuesta</b>, pasada por <?php hueco(13, 9); ?>
+      <span class="s">sin password, twoFactorSecret ni tokenVersion</span></div></div>
+  </div>
+
+  <div class="nota"><b>Passport, Strategy y <code>@nestjs/passport</code> no son lo mismo.</b> <b>Passport</b> (el paquete <code>passport</code>) es el <i>motor</i>: el proceso genérico de &laquo;extraer credenciales, verificarlas y, si pasan, llenar <code>req.user</code>&raquo;. No sabe nada de JWT. La <b>Strategy</b> (<code>passport-jwt</code>) es la <i>receta</i>: define de dónde sale el token (<code>ExtractJwt.fromAuthHeaderAsBearerToken()</code>) y cómo se verifica (<code>secretOrKey</code>, <code>ignoreExpiration</code>). Si fuera usuario/contraseña sería <code>passport-local</code>, con el mismo motor. <b><code>@nestjs/passport</code></b> es el <i>adaptador</i>: <code>PassportStrategy(Strategy)</code> vuelve la receta un provider de Nest y <code>AuthGuard('jwt')</code> la vuelve un guard que Nest sabe ejecutar. Por eso la caja de arriba dice &laquo;Passport&raquo;, pero el <i>cómo</i> lo escribiste tú en el <code>super({...})</code> de <code>jwt.strategy.ts</code>. Regla corta: <b>Passport ejecuta el proceso; la Strategy es la receta que ejecuta.</b></div>
+
+  <div class="avisoflujo">Las rutas <code>login</code>, <code>register</code> y <code>health</code> toman el camino <b>Sí</b>.
+     Las de admin (<code>GET /users</code>, <code>DELETE /users/:id</code>...) son las únicas donde <code>RolesGuard</code>
+     puede responder 403. Una petición sin body (<code>GET</code>, <code>logout</code>) pasa el <code>ValidationPipe</code> sin nada que revisar.</div>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>B. Quién llama a quién dentro de la seguridad</h2>
+  <p>El mismo camino de las cajas moradas, pero con los nombres de los métodos.</p>
+
+<pre class="flujo"><code>NestJS  (porque JwtAuthGuard está registrado con APP_GUARD)
+  ↓ llama a
+JwtAuthGuard.<?php hueco(20, 12); ?>(context)
+  ↓ si la ruta no es pública:   return <?php hueco(21, 6); ?>.canActivate(context)
+AuthGuard('<?php hueco(22, 4); ?>')          ← el padre, de @nestjs/passport
+  ↓
+passport.<?php hueco(23, 13); ?>('jwt')
+  ↓
+passport-jwt:  saca el token con ExtractJwt.<?php hueco(24, 27); ?>()
+               verifica la firma con <?php hueco(25, 11); ?> y que no esté vencido
+  ↓ solo si todo pasó
+JwtStrategy.<?php hueco(26, 9); ?>(payload)
+  ↓ lo que retorna
+request.<?php hueco(27, 5); ?> = { id, email, name, role }
+  ↓ y después lo leen
+RolesGuard          →  context.switchToHttp().<?php hueco(28, 11); ?>().user
+@CurrentUser('id')  →  ctx.switchToHttp().getRequest().user['id']</code></pre>
+
+  <div class="nota"><b>Tu código no llama a <code>validate</code> en ningún lado.</b> Lo dispara
+     <code>JwtAuthGuard.canActivate</code> con <code>super.canActivate()</code>, pero quien lo ejecuta es Passport,
+     y solo si el token pasó la verificación de firma y expiración.</div>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>C. El arranque: qué pasa una sola vez, antes de la primera petición</h2>
+
+<pre class="flujo"><code>npm run start:dev
+  ↓
+main.ts:  NestFactory.<?php hueco(30, 7); ?>(<?php hueco(31, 10); ?>)
+  ↓ Nest recorre los <?php hueco(32, 8); ?> desde AppModule, hacia abajo
+AuthModule  →  providers: [AuthService, <?php hueco(33, 12); ?>]
+  ↓ Nest hace new de cada provider, una sola vez (patrón <?php hueco(34, 10); ?>)
+new JwtStrategy(config, users)      ← qué inyectarle lo sabe gracias a @<?php hueco(35, 11); ?>()
+  ↓
+constructor  →  <?php hueco(36, 6); ?>({...})  →  configura passport-jwt y registra la estrategia 'jwt'
+                                  (validate queda GUARDADO, no se ejecuta)
+  ↓
+app.<?php hueco(37, 7); ?>(3000)  →  recién aquí acepta peticiones</code></pre>
+
+  <div class="avisoflujo">Regla para recordar: <b>Nest hace <code>new</code> (una sola vez) de cada provider de cada módulo
+     alcanzable desde <code>AppModule</code></b>. "Alcanzable" incluye los módulos que importan los módulos importados:
+     <code>PassportModule</code> no está en <code>app.module.ts</code>, pero sí en <code>auth.module.ts</code>.</div>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>D. Dónde se registra cada pieza global</h2>
+
+  <h3><code>app.module.ts</code> — los guards globales</h3>
+<pre><code>providers: [
+  // Orden importa: primero autentica (JWT), luego autoriza (roles).
+  { provide: <?php hueco(40, 10); ?>, useClass: JwtAuthGuard },
+  { provide: APP_GUARD, useClass: <?php hueco(41, 11); ?> },
+],</code></pre>
+
+  <h3><code>main.ts</code> — el pipe global</h3>
+<pre><code>app.<?php hueco(42, 15); ?>(
+  new ValidationPipe({ <?php hueco(43, 10); ?>: true, <?php hueco(44, 21); ?>: true, transform: true }),
+);</code></pre>
+
+  <h3><code>public.decorator.ts</code></h3>
+<pre><code>export const IS_PUBLIC_KEY = 'isPublic';
+export const Public = () =&gt; <?php hueco(45, 12); ?>(IS_PUBLIC_KEY, true);</code></pre>
+
+  <div class="nota"><code>whitelist</code> borra los campos que no están en el DTO; <code>forbidNonWhitelisted</code> en vez de
+     borrarlos responde 400. Por eso <code>{"role": "PLAYER"}</code> en <code>PATCH /users/me</code> da
+     "property role should not exist".</div>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>E. <code>jwt-auth.guard.ts</code> — el guard que abre la puerta a Passport</h2>
+
+<pre><code>@Injectable()
+export class JwtAuthGuard extends <?php hueco(46, 10); ?>('jwt') {
+  constructor(private readonly reflector: <?php hueco(47, 10); ?>) {
+    super();
+  }
+
+  canActivate(context: ExecutionContext) {
+    const isPublic = this.reflector.<?php hueco(48, 18); ?>&lt;boolean&gt;(IS_PUBLIC_KEY, [
+      context.<?php hueco(49, 11); ?>(),
+      context.getClass(),
+    ]);
+    if (isPublic) return <?php hueco(50, 5); ?>;
+    return super.canActivate(context);
+  }
+}</code></pre>
+
+  <div class="avisoflujo"><code>getHandler()</code> es el <b>método</b> del controller y <code>getClass()</code> el
+     <b>controller</b> entero: así <code>@Public()</code> funciona puesto en un método o en toda la clase.</div>
+
+  <?php reto('jwtauthguard'); ?>
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>F. <code>jwt.strategy.ts</code> — la estrategia</h2>
+
+<pre><code>@Injectable()
+export class JwtStrategy extends PassportStrategy(<?php hueco(51, 9); ?>) {
+  constructor(config: ConfigService, private readonly users: UsersService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      <?php hueco(52, 16); ?>: false,
+      <?php hueco(53, 11); ?>: config.getOrThrow&lt;string&gt;('JWT_SECRET'),
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    const user = await this.users.<?php hueco(54, 9); ?>(payload.<?php hueco(55, 4); ?>);
+    if (!user) throw new <?php hueco(56, 21); ?>('Usuario no encontrado');
+    if (user.tokenVersion !== payload.<?php hueco(57, 3); ?>) throw new UnauthorizedException('Sesión cerrada');
+    return { id: user.id, email: user.email, name: user.name, role: user.role };
+  }
+}</code></pre>
+
+  <div class="avisoflujo"><code>Strategy</code> viene de <code>passport-jwt</code> y ya sabe verificar tokens.
+     <code>PassportStrategy(Strategy)</code> la adapta a Nest: es la "plantilla". <code>super({...})</code> la configura y
+     <code>validate</code> pone la regla final de GameHub. Se va a la BD (<code>findById</code>) porque el token es una foto del
+     login: si después le cambian el rol al usuario, la BD tiene el rol actual.</div>
+
+  <?php reto('jwtstrategy'); ?>
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>G. <code>current-user.decorator.ts</code> — leer <code>req.user</code> en el controller</h2>
+
+<pre><code>export const CurrentUser = <?php hueco(58, 20); ?>(
+  (data: string | undefined, ctx: ExecutionContext) =&gt; {
+    const user = ctx.switchToHttp().<?php hueco(59, 11); ?>().user;
+    return data ? user?.[data] : user;
+  },
+);</code></pre>
+
+  <div class="nota"><code>data ? user?.[data] : user</code> junta tres cosas: el <b>ternario</b> (if/else en una línea),
+     el acceso con <b>corchetes</b> (el nombre de la propiedad está en una variable) y el <b><code>?.</code></b>
+     (si <code>user</code> no existe, devuelve <code>undefined</code> en vez de reventar).</div>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>H. De memoria: la línea completa</h2>
+
+  <?php linea(60, 'En <code>JwtAuthGuard.canActivate</code>: si la ruta no es pública, delegar en Passport:'); ?>
+  <?php linea(61, 'En <code>app.module.ts</code>: registrar <code>JwtAuthGuard</code> como guard global (con la coma final):'); ?>
+  <?php linea(62, 'La declaración de la clase de la estrategia:'); ?>
+  <?php linea(63, 'El <code>return</code> de <code>validate</code> (lo que termina en <code>req.user</code>):'); ?>
+  <?php linea(64, 'En <code>CurrentUser</code>: sacar el usuario de la petición:'); ?>
+  <?php linea(65, 'En <code>CurrentUser</code>: devolver un campo o el usuario completo:'); ?>
+  <?php linea(66, 'El decorador <code>@Public()</code> completo:'); ?>
+
+  <?php enviar(); ?>
+</div>
+
+
+<div class="card">
+  <h2>I. Preguntas de comprensión: "¿qué pasa si...?"</h2>
+  <?php mc('m1'); mc('m2'); mc('m3'); mc('m4'); mc('m5'); mc('m6'); mc('m7'); mc('m8'); mc('m9'); mc('m10'); mc('m11'); mc('m12'); mc('m13'); mc('m14'); ?>
+  <?php enviar('Verificar'); ?>
+</div>
+
+<?php
+pie('Menu.php', '');

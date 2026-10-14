@@ -51,7 +51,7 @@ $MCVERIF  = [];   // 'correcto' | 'incorrecto' | ''
 $VER_SOL  = false;
 /* $MENU y $CSS se pueden fijar ANTES del require desde cada cuestionario,
    para carpetas que cuelgan a otra profundidad. Solo se ponen por defecto. */
-if (!isset($MENU)) $MENU = '../Menu.php';
+if (!isset($MENU)) $MENU = '../Parcial1.php';
 if (!isset($CSS))  $CSS  = '../../css/bootstrap.min.css';
 $TXT      = [];   // numeros de hueco que son texto normal, no codigo
 

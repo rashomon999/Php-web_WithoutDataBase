@@ -25,6 +25,19 @@ $ex4 = [
     'b9' => 'was tested',
     'b10' => 'be introduced',
 ];
+$ex10 = [
+    'd2' => 'completed',
+    'd3' => 'scored',
+    'd4' => 'is thought',
+    'e1' => 'are filmed',
+    'e2' => 'are asked',
+    'e3' => 'have caused',
+    'e4' => 'be predicted',
+    'f1' => 'will face',
+    'f2' => 'was designed',
+    'f3' => 'were found',
+    'f4' => 'has been given',
+];
 
 function norm($s) { return strtolower(preg_replace('/\s+/', ' ', trim((string)$s))); }
 function esCorrecta($key, $lista) {
@@ -33,9 +46,16 @@ function esCorrecta($key, $lista) {
     return false;
 }
 
+$esAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 $enviado  = ($_SERVER['REQUEST_METHOD'] === 'POST');
 $mostrar  = $enviado && isset($_POST['accion']) && $_POST['accion'] === 'mostrar';
 $evaluar  = $enviado && !$mostrar;
+
+if ($enviado && !$esAjax) {
+    // Redirección a GET para evitar el aviso de "Confirm form resubmission" y dejar la página limpia al recargar.
+    header('Location: ./index.php');
+    exit;
+}
 
 // Input de ejercicio
 function campo($key, $lista, $ancho = 150) {
@@ -51,10 +71,15 @@ function campo($key, $lista, $ancho = 150) {
 }
 
 // Puntajes
-$p3a = $p3b = $p4 = 0;
+function ejemplo($texto, $ancho) {
+    return '<input type="text" value="' . htmlspecialchars($texto, ENT_QUOTES) . '" style="width:' . $ancho . 'px" readonly>';
+}
+
+$p3a = $p3b = $p4 = $p10 = 0;
 if ($evaluar) {
     foreach ($ex3a as $k => $_) if (esCorrecta($k, $ex3a)) $p3a++;
     foreach ($ex4  as $k => $_) if (esCorrecta($k, $ex4))  $p4++;
+    foreach ($ex10 as $k => $_) if (esCorrecta($k, $ex10)) $p10++;
     $sel = $_POST['s'] ?? [];
     foreach ($ex3b_correctas as $c) if (in_array($c, $sel)) $p3b++;
     if (count($sel) > 2) $p3b = max(0, $p3b - (count($sel) - 2));
@@ -77,6 +102,8 @@ $frases3b = [
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Passive</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../style.css">
 <style>
     body { font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; padding: 0 15px; color: #333; line-height: 2; }
     h2 { color: #d32f2f; border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 40px; }
@@ -97,11 +124,51 @@ $frases3b = [
                    font-size: 14px; cursor: pointer; text-decoration: none; line-height: normal; }
     .btn:hover, button:hover { background: #263238; }
     .parrafo { margin-bottom: 25px; }
+    .banco { background: #eef3f7; border: 1px solid #c9d6df; text-align: center; padding: 6px; margin: 30px 0 10px; word-spacing: 12px; }
+    .titulo { font-weight: bold; margin-bottom: 0; }
 </style>
+<script>
+// Igual que en los otros cuestionarios: se envía con fetch y se reemplaza el contenido,
+// pero aquí además se conserva la posición del scroll (la página no sube).
+function enviar(formData) {
+    const y = window.scrollY;
+    fetch('./index.php', {
+        method: 'POST',
+        body: formData,
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+        .then(r => r.text())
+        .then(html => {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            document.getElementById('contenido').innerHTML = doc.getElementById('contenido').innerHTML;
+            window.scrollTo(0, y);
+        })
+        .catch(e => console.error('Error al enviar el formulario:', e));
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const accion = event.submitter && event.submitter.value ? event.submitter.value : 'enviar';
+    formData.set('accion', accion);
+    enviar(formData);
+}
+
+function reintentar() {
+    const y = window.scrollY;
+    fetch('./index.php')
+        .then(r => r.text())
+        .then(html => {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            document.getElementById('contenido').innerHTML = doc.getElementById('contenido').innerHTML;
+            window.scrollTo(0, y);
+        });
+}
+</script>
 </head>
 <body>
-
-<form method="POST" action="./index.php" autocomplete="off">
+<div id="contenido">
+<form method="POST" action="./index.php" onsubmit="handleSubmit(event)" autocomplete="off">
 
 <!-- ================= EXERCISE 3A ================= -->
 <h2>Exercise 3A <?php if ($evaluar): ?><span class="nota"><?= $p3a ?>/<?= count($ex3a) ?></span><?php endif; ?></h2>
@@ -157,7 +224,36 @@ $frases3b = [
     the first time at a trial last month and could <?= campo('b10', $ex4) ?> (introduce) as soon as next year.
 </div>
 
-<?php if ($evaluar): $tot = $p3a + $p3b + $p4; $max = count($ex3a) + 2 + count($ex4); ?>
+<!-- ================= EXERCISE 10 ================= -->
+<h2>Exercise 10 <?php if ($evaluar): ?><span class="nota"><?= $p10 ?>/<?= count($ex10) ?></span><?php endif; ?></h2>
+<p class="inst">Complete the articles with the active or passive form of the verbs.</p>
+
+<div class="banco">think &nbsp; score &nbsp; complete &nbsp; ask</div>
+<p class="titulo">1 &nbsp; Improve your IQ</p>
+<div class="parrafo">
+    In a recent experiment, two groups of people <?= ejemplo('were asked', 100) ?> to spend time writing down some sentences, one group about a typical
+    university professor and the other about a football hooligan. They then <?= campo('d2', $ex10, 120) ?> a trivia test. The result: the 'professor' group
+    <?= campo('d3', $ex10, 100) ?> much higher than the other group. It <?= campo('d4', $ex10, 120) ?> that this is due to 'priming' the brain in a positive
+    way to get it to think more intelligently.
+</div>
+
+<div class="banco">cause &nbsp; film &nbsp; predict &nbsp; ask</div>
+<p class="titulo">2 &nbsp; Together forever?</p>
+<div class="parrafo">
+    In an experiment which is being carried out in the USA, married couples <?= campo('e1', $ex10, 110) ?> having a conversation. They
+    <?= campo('e2', $ex10, 110) ?> to discuss topics that <?= campo('e3', $ex10, 110) ?> some friction in their relationship in the past. Based on just
+    several minutes of the material, it can <?= campo('e4', $ex10, 120) ?> with high accuracy who will still be together in fifteen years, and who will divorce.
+</div>
+
+<div class="banco">find &nbsp; give &nbsp; face &nbsp; design</div>
+<p class="titulo">3 &nbsp; Care bears for the elderly?</p>
+<div class="parrafo">
+    In coming years, many countries <?= campo('f1', $ex10, 110) ?> the challenge of an aging population and a shortage of nurses. The Japanese-produced
+    Robobear <?= campo('f2', $ex10, 120) ?> to help with tasks such as lifting and moving patients. The first human-shaped robots
+    <?= campo('f3', $ex10, 110) ?> to be too frightening for patients and so now the Robobear <?= campo('f4', $ex10, 130) ?> the head of a friendly cartoon bear.
+</div>
+
+<?php if ($evaluar): $tot = $p3a + $p3b + $p4 + $p10; $max = count($ex3a) + 2 + count($ex4) + count($ex10); ?>
     <p style="text-align:center;font-size:18px"><strong>Total: <?= $tot ?>/<?= $max ?> (<?= round($tot / $max * 100) ?>%)</strong></p>
 <?php endif; ?>
 
@@ -165,9 +261,10 @@ $frases3b = [
     <a class="btn" href="../Menu.php">Salir</a>
     <button type="submit" name="accion" value="enviar">Enviar</button>
     <button type="submit" name="accion" value="mostrar">Mostrar respuestas</button>
-    <a class="btn" href="./index.php">Vuelva a intentarlo</a>
+    <button type="button" onclick="reintentar()">Vuelva a intentarlo</button>
 </div>
 
 </form>
+</div>
 </body>
 </html>

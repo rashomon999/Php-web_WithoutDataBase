@@ -6,6 +6,15 @@
 
 $SECCIONES = [
     [
+        'n'    => '0',
+        'ruta' => 'Mapa/index.php',
+        'tag'  => 'mapa',
+        'tit'  => 'Mapa de métodos — el esquema de todo',
+        'desc' => 'Arbol desplegable con todos los metodos (supervisado: regresion, clasificacion, ensambles; no supervisado: clustering, reduccion, asociacion, anomalias; y las herramientas: seleccion, validacion, escalado), cada uno con su ficha. Mas tablas de repaso: "si la pregunta dice... piensa en...", que pasa si subo cada hiperparametro, kernels, bagging vs boosting y que metrica usar.',
+        'meta' => 'pagina de consulta (no es cuestionario) · con buscador',
+        'src'  => 'resumen de los cuestionarios de Parcial 1 y Parcial 2'
+    ],
+    [
         'n'    => '1',
         'ruta' => 'SVM/index.php',
         'tag'  => 'mixto',
@@ -13,6 +22,60 @@ $SECCIONES = [
         'desc' => 'Tres cuestionarios de lo general a lo especifico: lo basico (hiperplano, margen, vectores de soporte), margen blando + kernels (C, lineal / polinomico / RBF / sigmoide, gamma) y formulas + SVR + sklearn.',
         'meta' => '3 cuestionarios · 81 huecos + 17 preguntas',
         'src'  => 'SVM.pdf · 0_SVM_theory_examples_v2.ipynb · 1_SVM-sklearn.ipynb · 2_SVM_Exercises.ipynb · Medium (Tibrewal)'
+    ],
+    [
+        'n'    => '2',
+        'ruta' => 'Arboles/index.php',
+        'tag'  => 'mixto',
+        'tit'  => 'Árboles de decisión y validación cruzada',
+        'desc' => 'Cuatro cuestionarios de lo general a lo especifico: que es un arbol, criterios de division (Gini, entropia), poda y sklearn, y validacion cruzada (K-Fold, estratificado, LOO, Shuffle & Split).',
+        'meta' => '4 cuestionarios · 104 huecos + 19 preguntas',
+        'src'  => 'Arboles Diapositivas · Python notebooks y data (arboles) · cross-validation (2026-10-19)'
+    ],
+    [
+        'n'    => '3',
+        'ruta' => 'Ensambles/index.php',
+        'tag'  => 'mixto',
+        'tit'  => 'Métodos de ensamble: bagging, boosting y stacking',
+        'desc' => 'Seis cuestionarios: conceptos (debiles vs fuertes, sesgo-varianza, categorias), bagging y Random Forest, boosting, stacking + voting con la tabla comparativa, Gradient Boosting a fondo y XGBoost.',
+        'meta' => '6 cuestionarios · 166 huecos + 23 preguntas',
+        'src'  => 'Ensemble Learning (Bagging, Boostrap, Stacking).pdf · Actividad_Gradient_Boosting.ipynb · IBM · NVIDIA · scikit-learn 1.11'
+    ],
+    [
+        'n'    => '4',
+        'ruta' => 'Seleccion/index.php',
+        'tag'  => 'mixto',
+        'tit'  => 'Selección de características',
+        'desc' => 'Tres cuestionarios: conceptos y filtros (informacion mutua, chi2, Fisher, correlacion), wrappers y embebidos (forward, RFE, LASSO, importancia de RF, PCA como contraste) y fuga de datos + caso diabetes.',
+        'meta' => '3 cuestionarios · 82 huecos + 12 preguntas',
+        'src'  => 'Actividad_Feature_Selection.ipynb'
+    ],
+    [
+        'n'    => '5',
+        'ruta' => 'NoSupervisado/index.php',
+        'tag'  => 'mixto',
+        'tit'  => 'Aprendizaje no supervisado: clustering y PCA',
+        'desc' => 'Siete cuestionarios: conceptos (tareas, tipos de clustering, asociacion, anomalias), K-means, jerarquico + DBSCAN + metricas, PCA teoria (vectores propios, covarianza, reconstruccion) PCA practica (estandarizar, imagenes, pipeline con K-means) y dos de contraste con las diapositivas de K-means y de PCA / Kernel PCA.',
+        'meta' => '7 cuestionarios · 202 huecos + 32 preguntas',
+        'src'  => 'Python K-means y PCA-20261020 (3 notebooks) · IBM: unsupervised learning, PCA, k-means · K-means_algorithm.pdf · PCA_y_Kernel_PCA.pdf'
+    ],
+    [
+        'n'    => '6',
+        'ruta' => 'Metricas/index.php',
+        'tag'  => 'mixto',
+        'tit'  => 'Métricas, sesgo-varianza y regularización',
+        'desc' => 'Cuatro cuestionarios: el compromiso sesgo-varianza (subajuste, sobreajuste y como se detectan), regularizacion Ridge / Lasso / Elastic Net (lambda, geometria, validacion cruzada), metricas de clasificacion (especificidad, exactitud balanceada, F1, ROC y AUC) y metricas de regresion (MSE vs MAE, Anscombe, R² negativo, RMSE relativo, costos asimetricos).',
+        'meta' => '4 cuestionarios · 120 huecos + 20 preguntas',
+        'src'  => 'diap_regu.pdf · Sesion5-1 / 5-2 / 5-3 (notebooks) · Actividad_metricas.pdf · Analytics Vidhya (bias-variance)'
+    ],
+    [
+        'n'    => '7',
+        'ruta' => 'Examenes2/index.php',
+        'tag'  => 'test',
+        'tit'  => 'Test — Preguntas de parciales 2 anteriores',
+        'desc' => 'Las preguntas tal cual de los examenes, sin repetir: arboles y poda, ensambles (bagging, boosting, stacking, RF vs XGBoost), KNN, K-Means, DBSCAN, PCA, SVM, seleccion de caracteristicas y metricas. Se responde todo, se envia y solo se marca bien o mal; no muestra la respuesta correcta.',
+        'meta' => '50 preguntas (38 del parcial 2026 + 12 del 2025-1 que no se repiten)',
+        'src'  => 'parcial2APO.pdf · parcial_2_revision.pdf · Parcial2_IA.pdf'
     ],
 ];
 ?><!DOCTYPE html>
@@ -49,6 +112,8 @@ a.item:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-1px);
 .tag{float:right;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase;
      padding:2px 9px;border-radius:20px;font-weight:700}
 .tag.mixto{background:#f0e8fa;color:#6b3fa0}
+.tag.test{background:#fdecea;color:#c0392b}
+.tag.mapa{background:#e3f4e8;color:#1a7f37}
 </style>
 </head>
 <body>

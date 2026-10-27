@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APO — Parciales 2 (respuestas)</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:0 auto;padding:20px 16px;color:#222;line-height:1.5;background:#fff}
+h1{font-size:24px;margin:0 0 4px}
+.sub{color:#666;font-size:14px;margin:0 0 24px}
+.info{background:#eef4fc;border:1px solid #c9daf3;padding:10px 14px;margin:28px 0 12px;font-size:14px}
+.q{border-top:1px solid #ccc;padding:16px 0}
+.cab{font-size:13px;color:#666;margin-bottom:6px}
+.cab b{font-size:16px;color:#222}
+.txt{margin:0 0 10px}
+pre{background:#f6f8fa;border:1px solid #ddd;padding:8px 10px;font-size:13px;overflow-x:auto}
+code{background:#eef0f3;padding:1px 4px;font-size:.9em}
+ul{list-style:none;margin:0;padding:0}
+li{padding:5px 10px;margin:3px 0;border:1px solid transparent}
+li .l{font-weight:bold;display:inline-block;min-width:22px}
+li.ok{background:#e3f6e8;border-color:#1a7f37;font-weight:bold}
+li.ok::after{content:" \2714 correcta";color:#1a7f37;font-weight:bold}
+@media print{li.ok{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<h1>Preguntas de los parciales 2 — con respuestas</h1>
+<p class="sub">50 preguntas sin repetir · 62 puntos · la respuesta correcta está marcada en verde</p>
+
+<div class="q" id="p1">
+  <div class="cab"><b>Pregunta 1</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P1</div>
+  <div class="txt">Un árbol profundo alcanza 100% de accuracy en entrenamiento, pero tiene una pobre capacidad de generalización.<br><b>¿Qué técnica directamente mitiga este problema?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Usar un algoritmo de boosting.</li>
+    <li><span class="l">b.</span>Eliminar variables irrelevantes antes de entrenar.</li>
+    <li class="ok"><span class="l">c.</span>Pruning (poda) posterior al entrenamiento.</li>
+    <li><span class="l">d.</span>Aumentar la profundidad máxima ( <code>max_depth</code> ).</li>
+  </ul>
+</div>
+<div class="q" id="p2">
+  <div class="cab"><b>Pregunta 2</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P2</div>
+  <div class="txt">Tienes un modelo de regresión lineal simple para predecir precios de casas. Observas que el RMSE en los datos de entrenamiento es bajo, pero en los de prueba es mucho mayor.<br><b>¿Qué estrategia es más adecuada para mejorar el desempeño en los datos de prueba?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Aumentar la complejidad del modelo agregando más términos polinomiales.</li>
+    <li class="ok"><span class="l">b.</span>Aplicar regularización (Ridge o Lasso).</li>
+    <li><span class="l">c.</span>Eliminar outliers únicamente del conjunto de prueba.</li>
+    <li><span class="l">d.</span>Disminuir la cantidad de datos de entrenamiento.</li>
+  </ul>
+</div>
+<div class="q" id="p3">
+  <div class="cab"><b>Pregunta 3</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P3</div>
+  <div class="txt">¿Cuál de los siguientes métodos de ensamble combina múltiples modelos mediante el entrenamiento de un "meta-modelo" que toma las predicciones individuales como características de entrada?</div>
+  <ul>
+    <li><span class="l">a.</span>Ninguno de las opciones es correcta</li>
+    <li><span class="l">b.</span>Bagging</li>
+    <li><span class="l">c.</span>Boosting</li>
+    <li class="ok"><span class="l">d.</span>Stacking</li>
+  </ul>
+</div>
+<div class="q" id="p4">
+  <div class="cab"><b>Pregunta 4</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P4</div>
+  <div class="txt">Se realiza clustering con K-Means en datos de clientes. Se sospecha que el algoritmo converge en un óptimo local.<br><b>¿Qué estrategia ayuda a mitigar este problema?</b></div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Usar múltiples inicializaciones y escoger la mejor.</li>
+    <li><span class="l">b.</span>Cambiar el método de distancia a Manhattan.</li>
+    <li><span class="l">c.</span>Normalizar los datos antes de aplicar K-Means.</li>
+    <li><span class="l">d.</span>Aumentar el número de clústers (K).</li>
+  </ul>
+</div>
+<div class="q" id="p5">
+  <div class="cab"><b>Pregunta 5</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P5</div>
+  <div class="txt">En un análisis de reducción de dimensionalidad usando PCA, un investigador retiene 95% de la varianza explicada.<br><b>¿Cuál es una posible desventaja de esta decisión?</b></div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Se pierde interpretabilidad respecto a las variables originales.</li>
+    <li><span class="l">b.</span>Se incrementa el riesgo de overfitting.</li>
+    <li><span class="l">c.</span>Se aumenta la redundancia entre componentes principales.</li>
+    <li><span class="l">d.</span>Se maximiza la multicolinealidad en los datos reducidos.</li>
+  </ul>
+</div>
+<div class="q" id="p6">
+  <div class="cab"><b>Pregunta 6</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P6</div>
+  <div class="txt">Tras aplicar PCA a un dataset de 50 features, los primeros 5 componentes explican el 90% de varianza.<br><b>¿Qué implica esto?</b></div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>El dataset puede reducirse a cinco dimensiones (5D) sin pérdida crítica de información.</li>
+    <li><span class="l">b.</span>Debe usarse K-Means en lugar de PCA.</li>
+    <li><span class="l">c.</span>Las 45 features restantes son irrelevantes.</li>
+    <li><span class="l">d.</span>PCA no es adecuado para este dataset.</li>
+  </ul>
+</div>
+<div class="q" id="p7">
+  <div class="cab"><b>Pregunta 7</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P7</div>
+  <div class="txt">Entrenas una SVM con kernel RBF y notas que al incrementar <code>C</code> obtienes 100% de precisión en entrenamiento pero bajo desempeño en validación.<br><b>¿Qué sugiere este comportamiento?</b></div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Sobreajuste (overfitting).</li>
+    <li><span class="l">b.</span><code>gamma</code> debe aumentarse.</li>
+    <li><span class="l">c.</span>Subajuste (underfitting).</li>
+    <li><span class="l">d.</span>La necesidad de usar un kernel lineal.</li>
+  </ul>
+</div>
+<div class="q" id="p8">
+  <div class="cab"><b>Pregunta 8</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P8</div>
+  <div class="txt">Trabajas con un conjunto de datos no linealmente separable. Se discuten dos opciones: usar SVM con kernel polinomial grado 2 o kernel RBF.<br><b>¿Cuál diferencia principal debería guiar tu elección?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Kernel RBF sólo sirve para datos linealmente separables.</li>
+    <li><span class="l">b.</span>Kernel polinomial siempre tiene menor complejidad computacional.</li>
+    <li><span class="l">c.</span>Kernel polinomial no requiere ajuste de hiperparámetros.</li>
+    <li class="ok"><span class="l">d.</span>RBF generaliza mejor en alta dimensionalidad.</li>
+  </ul>
+</div>
+<div class="q" id="p9">
+  <div class="cab"><b>Pregunta 9</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P9</div>
+  <div class="txt">Al aplicar KNN a un dataset con características de un grupo de participantes, se tienen escalas diferentes (ej.: edad [0–100] vs. ingreso mensual [0 – 5 Millones]).<br><b>¿Qué paso es crítico antes de entrenar?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Seleccionar k óptimo con GridSearchCV.</li>
+    <li><span class="l">b.</span>Convertir todas las variables a categóricas.</li>
+    <li class="ok"><span class="l">c.</span>Normalizar las características (ej.: StandardScaler).</li>
+    <li><span class="l">d.</span>Aplicar one-hot encoding.</li>
+  </ul>
+</div>
+<div class="info"><b>Información</b><br>Responde las siguientes preguntas usando los datos que encontrarás en <b>data_examen/k_means/data1.data</b></div>
+<div class="q" id="p10">
+  <div class="cab"><b>Pregunta 10</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P10</div>
+  <div class="txt">Utiliza el método del "codo" para determinar el número óptimo de clusters a usar en el algoritmo de K-means. Cuantos centroides deberías usar?</div>
+  <ul>
+    <li><span class="l">a.</span>6</li>
+    <li><span class="l">b.</span>2</li>
+    <li class="ok"><span class="l">c.</span>5</li>
+    <li><span class="l">d.</span>4</li>
+  </ul>
+</div>
+<div class="q" id="p11">
+  <div class="cab"><b>Pregunta 11</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P11</div>
+  <div class="txt">Después de aplicar PCA, observa que las dos primeras componentes principales explican más del 60% de la varianza total de los datos. Esto significa que:</div>
+  <ul>
+    <li><span class="l">a.</span>La técnica no es adecuada para este conjunto de datos</li>
+    <li><span class="l">b.</span>Las dos primeras componentes principales son irrelevantes para el análisis</li>
+    <li><span class="l">c.</span>La afirmación no es correcta, siempre se requieren más de 4 componentes para lograr por lo menos 60% de la varianza acumulada</li>
+    <li><span class="l">d.</span>Necesitas más componentes principales para reducir adecuadamente los datos</li>
+    <li class="ok"><span class="l">e.</span>Las dos primeras componentes principales capturan la mayor parte de la información contenida en las 4 variables originales</li>
+  </ul>
+</div>
+<div class="q" id="p12">
+  <div class="cab"><b>Pregunta 12</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P12</div>
+  <div class="txt">Después de aplicar PCA, y usando solamente las dos primeras componentes para visualizar los datos en 2-D. Puede afirmar que:</div>
+  <ul>
+    <li><span class="l">a.</span>El algoritmo de K-Means no realiza un agrupamiento adecuado</li>
+    <li><span class="l">b.</span>Se requiere una tercer componente para visualizar los centroides</li>
+    <li class="ok"><span class="l">c.</span>Ninguna de las opciones es correcta</li>
+    <li><span class="l">d.</span>Los clusters no se visualizan de forma adecuada</li>
+  </ul>
+</div>
+<div class="info"><b>Información</b><br>Responder las siguientes preguntas en relación al proceso de selección de características. Para la parte práctica usar los datos disponibles en: <b>data_examen/feat_sel/datos_FEAT_SEL.data</b></div>
+<div class="q" id="p13">
+  <div class="cab"><b>Pregunta 13</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P13</div>
+  <div class="txt">FALSO o VERDADERO: La base de datos está balanceada</div>
+  <ul>
+    <li>Verdadero</li>
+    <li class="ok">Falso</li>
+  </ul>
+</div>
+<div class="q" id="p14">
+  <div class="cab"><b>Pregunta 14</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P14</div>
+  <div class="txt">El número de variables, sin incluir la variable objetivo, es:</div>
+  <ul>
+    <li><span class="l">a.</span>Ninguna de las opciones es correcta</li>
+    <li class="ok"><span class="l">b.</span>1295</li>
+    <li><span class="l">c.</span>1296</li>
+    <li><span class="l">d.</span>1290</li>
+  </ul>
+</div>
+<div class="q" id="p15">
+  <div class="cab"><b>Pregunta 15</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P15</div>
+  <div class="txt">Separar la columna "TARGET" y eliminar dicha columna del dataframe original. Aplicar one-hot-ecoding a la base de datos. El nuevo número de variables es:</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>1414</li>
+    <li><span class="l">b.</span>1461</li>
+    <li><span class="l">c.</span>1462</li>
+    <li><span class="l">d.</span>1415</li>
+  </ul>
+</div>
+<div class="q" id="p16">
+  <div class="cab"><b>Pregunta 16</b> &nbsp;·&nbsp; 3 pts &nbsp;·&nbsp; 2026 · P16</div>
+  <div class="txt">Calcular la matriz de correlación. Esta matriz mide la correlación entre todos los pares de variables. Debes eliminar una de las variables (de cada par evaluado) cuando el valor absoluto de la correlación supere 0.9. El número de variables resultantes es:</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>878</li>
+    <li><span class="l">b.</span>521</li>
+    <li><span class="l">c.</span>890</li>
+    <li><span class="l">d.</span>850</li>
+  </ul>
+</div>
+<div class="q" id="p17">
+  <div class="cab"><b>Pregunta 17</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P17</div>
+  <div class="txt">Suponga que los datos se alojan en <b>X</b> y la variable objetivo en <b>y</b>. Debe calcular: <b>matriz de confusión</b>, <b>precision</b>, <b>recall</b>, y <b>AUC (Área bajo la curva ROC).</b> Use la siguiente configuración:<pre>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+
+rf_classifier = RandomForestClassifier(random_state=42)
+
+xgb_classifier = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=42)</pre>Para los dos clasificadores, el <b>Área bajo la curva ROC</b> es:</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Random forest: 0.72, XGBoost: 0.74</li>
+    <li><span class="l">b.</span>Random forest: 0.74, XGBoost: 0.76</li>
+    <li><span class="l">c.</span>Random forest: 0.70, XGBoost: 0.80</li>
+    <li><span class="l">d.</span>Random forest: 0.74, XGBoost: 0.72</li>
+  </ul>
+</div>
+<div class="q" id="p18">
+  <div class="cab"><b>Pregunta 18</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P18</div>
+  <div class="txt">Es correcto afirmar que: El clasificador Random Forest no está prediciendo correctamente ninguna instancia positiva</div>
+  <ul>
+    <li class="ok">Verdadero</li>
+    <li>Falso</li>
+  </ul>
+</div>
+<div class="q" id="p19">
+  <div class="cab"><b>Pregunta 19</b> &nbsp;·&nbsp; 2 pts &nbsp;·&nbsp; 2026 · P19</div>
+  <div class="txt">Es correcto afirmar que: El clasificador XGBoost predice correctamente 225 instancias positivas</div>
+  <ul>
+    <li>Verdadero</li>
+    <li class="ok">Falso</li>
+  </ul>
+</div>
+<div class="q" id="p20">
+  <div class="cab"><b>Pregunta 20</b> &nbsp;·&nbsp; 3 pts &nbsp;·&nbsp; 2026 · P20</div>
+  <div class="txt">Realiza un ultimo experimento. Entrena de nuevo los clasificadores, pero en esta ocasión no eliminar ninguna característica después de hacer one-hot enconding.<br>FALSO o VERDADERO: Si no realiza selección de características el rendimiento de los modelos es mucho mejor comparando todas las métricas, pues al eliminar variables se pierde información valiosa</div>
+  <ul>
+    <li>Verdadero</li>
+    <li class="ok">Falso</li>
+  </ul>
+</div>
+<div class="q" id="p21">
+  <div class="cab"><b>Pregunta 21</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P21</div>
+  <div class="txt">Un modelo KNN (k-Vecinos más Cercanos) se entrena con los siguientes 5 puntos de datos en un espacio 2D, donde 'X1' y 'X2' son las características y 'Clase' es la etiqueta:<pre>Punto 1: (X1=2, X2=3), Clase A
+Punto 2: (X1=4, X2=5), Clase B
+Punto 3: (X1=1, X2=6), Clase A
+Punto 4: (X1=8, X2=1), Clase B
+Punto 5: (X1=3, X2=4), Clase A</pre>Si se introduce un nuevo punto de datos en (X1=3, X2=5) y se utiliza k=3,<br>¿a qué clase se asignaría el nuevo punto utilizando la distancia Euclidiana?</div>
+  <ul>
+    <li><span class="l">a.</span>Se asignaría a ambas clases.</li>
+    <li class="ok"><span class="l">b.</span>Clase A</li>
+    <li><span class="l">c.</span>No se puede determinar. Falta información</li>
+    <li><span class="l">d.</span>Clase B</li>
+  </ul>
+</div>
+<div class="q" id="p22">
+  <div class="cab"><b>Pregunta 22</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P22</div>
+  <div class="txt">Un modelo de regresión predice los precios de las casas. Si para una casa con un precio real de $300,000, el modelo predice $330,000, ¿cuál es el Error Absoluto Porcentual Medio (MAPE) solo para esta predicción?<br>MAPE se define como:<pre>         100%    n  | yᵢ − ŷᵢ |
+MAPE = ─────── · Σ  | ─────── |
+           n    i=1 |   yᵢ    |</pre></div>
+  <ul>
+    <li><span class="l">a.</span>-10%</li>
+    <li class="ok"><span class="l">b.</span>10%</li>
+    <li><span class="l">c.</span>9.09%</li>
+    <li><span class="l">d.</span>30,000</li>
+  </ul>
+</div>
+<div class="q" id="p23">
+  <div class="cab"><b>Pregunta 23</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P23</div>
+  <div class="txt">En un Árbol de Decisión para clasificación, si un nodo tiene una distribución de clases de [10, 10]<br>(10 muestras de la Clase A y 10 de la Clase B),<br>¿cuál sería su impureza Gini?</div>
+  <ul>
+    <li><span class="l">a.</span>0</li>
+    <li><span class="l">b.</span>1.0</li>
+    <li><span class="l">c.</span>0.25</li>
+    <li class="ok"><span class="l">d.</span>0.5</li>
+  </ul>
+</div>
+<div class="q" id="p24">
+  <div class="cab"><b>Pregunta 24</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P24</div>
+  <div class="txt">¿Cuál de las siguientes afirmaciones describe mejor la principal ventaja de un modelo de Bosque Aleatorio (Random Forest) sobre un único Árbol de Decisión?</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Reducen el sobreajuste (overfitting) mediante el promedio de múltiples árboles.</li>
+    <li><span class="l">b.</span>Siempre tienen un mejor rendimiento con datos linealmente separables</li>
+    <li><span class="l">c.</span>Son más fáciles de interpretar.</li>
+    <li><span class="l">d.</span>Requieren menos hiperparámetros para ajustar.</li>
+  </ul>
+</div>
+<div class="q" id="p25">
+  <div class="cab"><b>Pregunta 25</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P25</div>
+  <div class="txt">En el contexto de los modelos de ensamble, ¿cuál es la diferencia fundamental entre Bagging (como en Random Forest) y Boosting (como en AdaBoost)?</div>
+  <ul>
+    <li><span class="l">a.</span>Bagging solo se puede usar con árboles de decisión, mientras que Boosting se puede usar con cualquier modelo.</li>
+    <li class="ok"><span class="l">b.</span>Boosting se enfoca en los errores del modelo anterior para entrenar el siguiente, mientras que Bagging no.</li>
+    <li><span class="l">c.</span>Bagging entrena modelos secuencialmente, mientras que Boosting los entrena en paralelo.</li>
+    <li><span class="l">d.</span>Boosting es menos propenso al sobreajuste que Bagging.</li>
+  </ul>
+</div>
+<div class="q" id="p26">
+  <div class="cab"><b>Pregunta 26</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P26</div>
+  <div class="txt">Una Máquina de Soporte Vectorial (SVM) busca encontrar el hiperplano que mejor separa las clases. ¿Qué define este 'mejor' hiperplano?</div>
+  <ul>
+    <li><span class="l">a.</span>El hiperplano que pasa por la mayor cantidad de puntos de datos.</li>
+    <li><span class="l">b.</span>El hiperplano que minimiza el número de vectores de soporte.</li>
+    <li><span class="l">c.</span>El hiperplano que es equidistante de los centroides de cada clase.</li>
+    <li class="ok"><span class="l">d.</span>El hiperplano que tiene el margen máximo entre las clases.</li>
+  </ul>
+</div>
+<div class="q" id="p27">
+  <div class="cab"><b>Pregunta 27</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P27</div>
+  <div class="txt">Se ejecuta el algoritmo K-Means en un conjunto de datos con k=2. Después de la primera iteración, los centroides están en C1=(2,2) y C2=(8,5). Se presenta un nuevo punto P=(3,3). ¿A qué clúster se asignaría P y cuál sería la nueva ubicación del centroide de ese clúster si P fuera el único punto asignado en una nueva iteración?</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Se asigna a C1; el nuevo centroide sería (2.5, 2.5).</li>
+    <li><span class="l">b.</span>Se asigna a C1; el nuevo centroide permanecería en (2, 2).</li>
+    <li><span class="l">c.</span>Se asigna a C2; el nuevo centroide sería (3, 3).</li>
+    <li><span class="l">d.</span>Se asigna a C2; el nuevo centroide sería (5.5, 4.0).</li>
+  </ul>
+</div>
+<div class="q" id="p28">
+  <div class="cab"><b>Pregunta 28</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P28</div>
+  <div class="txt">En un Análisis de Componentes Principales (PCA), si los dos primeros componentes principales explican el 95% de la varianza total de los datos originales (que tenían 10 características), ¿qué significa esto?</div>
+  <ul>
+    <li><span class="l">a.</span>Se han eliminado 8 características de forma permanente.</li>
+    <li><span class="l">b.</span>Los datos originales son linealmente separables en 2D.</li>
+    <li class="ok"><span class="l">c.</span>El conjunto de datos puede ser representado con alta fidelidad en un espacio 2D, perdiendo solo un 5% de la información de varianza.</li>
+    <li><span class="l">d.</span>El 5% restante de la varianza contiene ruido y debe ser ignorado.</li>
+  </ul>
+</div>
+<div class="q" id="p29">
+  <div class="cab"><b>Pregunta 29</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P29</div>
+  <div class="txt">¿Cuál es el propósito principal de utilizar la Validación Cruzada (Cross-Validation) en el entrenamiento de modelos de Machine Learning?</div>
+  <ul>
+    <li><span class="l">a.</span>Para seleccionar las mejores características para el modelo.</li>
+    <li><span class="l">b.</span>Para entrenar el modelo más rápidamente utilizando menos datos.</li>
+    <li><span class="l">c.</span>Para aumentar la cantidad de datos de entrenamiento disponibles.</li>
+    <li class="ok"><span class="l">d.</span>Para obtener una estimación más robusta y fiable del rendimiento del modelo en datos no vistos.</li>
+  </ul>
+</div>
+<div class="q" id="p30">
+  <div class="cab"><b>Pregunta 30</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P30</div>
+  <div class="txt">Se aplica el algoritmo DBSCAN a un conjunto de datos espacial bidimensional que contiene dos áreas de muy alta densidad separadas por una zona extensa con puntos muy dispersos (ruido). Si incrementamos gradualmente el valor del parámetro 'eps' manteniendo 'min_samples' constante en un valor de 5, ¿qué secuencia de eventos espaciales es la que describe correctamente el comportamiento del algoritmo?</div>
+  <ul>
+    <li><span class="l">a.</span>La cantidad de puntos clasificados como ruido aumentará, ya que los clústeres de alta densidad se fragmentarán en múltiples micro-clústeres debido a la superposición espacial.</li>
+    <li><span class="l">b.</span>El modelo ignorará las zonas de alta densidad, ya que DBSCAN asume que la densidad debe ser paramétrica y estrictamente variable en el espacio.</li>
+    <li><span class="l">c.</span>El número de clústeres se multiplicará exponencialmente, debido a que DBSCAN forzará a que cada punto de la zona dispersa actúe como un centroide K-means independiente.</li>
+    <li class="ok"><span class="l">d.</span>La cantidad de puntos clasificados como ruido disminuirá; los clústeres originales crecerán incorporando puntos limítrofes y, eventualmente, si 'eps' es lo suficientemente grande, se fusionarán en un único gran clúster.</li>
+  </ul>
+</div>
+<div class="q" id="p31">
+  <div class="cab"><b>Pregunta 31</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P31</div>
+  <div class="txt">Supón que estás entrenando un ensamblado de árboles para clasificar biopsias tumorales. El dataset tiene 30 características, pero una de ellas ('tama[…] tiene un poder predictivo abrumadoramente superior al resto. Si entrenas un modelo Bagging y un Random Forest estándar con los mismos datos, ¿cuá[…] principal diferencia estructural entre ambos modelos?</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>En el modelo Bagging, casi todos los árboles utilizarán 'tamaño_tumor' en su primer corte, resultando en árboles altamente correlacionados. Random Forest forzará variedad limitando el subconjunto de características disponible en cada nodo.</li>
+    <li><span class="l">b.</span>Random Forest ignorará automáticamente la característica 'tamaño_tumor' por considerarla un sesgo (bias), obteniendo un peor desempeño inicial pero mejor precisión a largo plazo.</li>
+    <li><span class="l">c.</span>Bagging logrará un menor sesgo que Random Forest, ya que Bagging aplica una técnica de penalización similar a la regularización Lasso sobre los árboles base.</li>
+    <li><span class="l">d.</span>Ambos modelos producirán la misma estructura exacta de árboles, puesto que ambos utilizan la técnica Bootstrap para el muestreo de datos.</li>
+  </ul>
+</div>
+<div class="q" id="p32">
+  <div class="cab"><b>Pregunta 32</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P32</div>
+  <div class="txt">Entrenas un modelo SVM con kernel RBF (Gaussiano) y notas que logra una precisión del 100% en el conjunto de entrenamiento, pero su desempeño ca[…] a 55% en validación (sobreajuste severo). Al visualizar la frontera de decisión en 2D, notas que esta envuelve estrechamente a cada punto de entrenam[…] individual como pequeñas 'islas'. Según la formulación del kernel RBF, ¿qué ajuste de hiperparámetros es la estrategia directa más lógica para solucion[…] problema geométrico?</div>
+  <ul>
+    <li><span class="l">a.</span>Cambiar la métrica del kernel RBF a distancia de Manhattan, lo que forzará a las islas a transformarse en un único hiperplano lineal.</li>
+    <li class="ok"><span class="l">b.</span>Disminuir el valor de γ (gamma), lo que ampliará el campo de influencia (similaridad) de cada vector de soporte, generando una frontera de decisión mucho más suave y global.</li>
+    <li><span class="l">c.</span>Aumentar el valor de γ (gamma), para que la influencia del vector de soporte sea matemáticamente infinita y abarque todo el plano.</li>
+    <li><span class="l">d.</span>Aumentar exponencialmente el parámetro de penalización C, para forzar al modelo a clasificar correctamente todos los puntos del conjunto de prueba.</li>
+  </ul>
+</div>
+<div class="q" id="p33">
+  <div class="cab"><b>Pregunta 33</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P33</div>
+  <div class="txt">Al aplicar Análisis de Componentes Principales (PCA) a un conjunto de datos estandarizado en 2 dimensiones (X1, X2), se descubre que ambas variable[…] correlación de Pearson extremadamente alta y positiva (+0.95). El algoritmo extrae el primer vector propio v1. Matemáticamente y geométricamente, ¿c[…] sobre el segundo vector propio v2 es forzosamente correcta?</div>
+  <ul>
+    <li><span class="l">a.</span>v2 será paralelo a v1 pero con un sentido opuesto, y su autovalor λ2 será idéntico a λ1, distribuyendo la varianza equitativamente entre ambos.</li>
+    <li><span class="l">b.</span>Es imposible calcular v2 en este escenario, ya que una correlación de +0.95 vuelve a la matriz de covarianza algebraicamente no invertible</li>
+    <li class="ok"><span class="l">c.</span>v2 será estrictamente ortogonal (perpendicular) a v1 en el espacio original, y su autovalor asociado λ2 será significativamente cercano a 0, ya que captura casi exclusivamente el ruido residual.</li>
+    <li><span class="l">d.</span>v2 representará el eje original X2 sin ninguna rotación, ya que PCA siempre preserva el eje que contenga el mayor valor atípico (outlier).</li>
+  </ul>
+</div>
+<div class="q" id="p34">
+  <div class="cab"><b>Pregunta 34</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P34</div>
+  <div class="txt">En el contexto de Selección de Características, consideremos dos enfoques aplicados a un dataset de 500 variables predictoras: Regularización Lasso ([…] Eliminación Recursiva de Características (RFE) respaldada por un SVM lineal. Conceptualmente, ¿cuál es la distinción algorítmica fundamental entre có[…] estos dos métodos?</div>
+  <ul>
+    <li><span class="l">a.</span>Lasso opera utilizando cálculos univariados de la teoría de la información (como la entropía), mientras que RFE explora el espacio de datos evaluando la impureza Gini multivariada.</li>
+    <li><span class="l">b.</span>Lasso y RFE operan de manera idéntica en el espacio del algoritmo, siendo la única diferencia que RFE solo puede procesar características continuas, mientras que Lasso procesa categóricas.</li>
+    <li><span class="l">c.</span>Lasso es un método Filter que no requiere un modelo de Machine Learning, ya que se basa únicamente en la matriz de correlación de Pearson, a diferencia de RFE.</li>
+    <li class="ok"><span class="l">d.</span>Lasso es un método Embedded que ajusta los coeficientes y simultáneamente penaliza algunos llevándolos a cero en un único entrenamiento. RFE es un método Wrapper que requiere entrenar el modelo repetidas veces, podando en cada ciclo las características con coeficientes menores.</li>
+  </ul>
+</div>
+<div class="q" id="p35">
+  <div class="cab"><b>Pregunta 35</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P35</div>
+  <div class="txt">En el contexto matemático de las Máquinas de Soporte Vectorial (SVM), la frontera de decisión para un problema altamente no lineal requeriría un map[…] proyección (ϕ(x)) hacia un espacio dimensional masivo o incluso infinito, volviendo el procesamiento incalculable debido a la 'maldición de la dimensi[…] propiedad analítica del 'Truco del Kernel' (Kernel Trick) resuelve computacionalmente este obstáculo analítico?</div>
+  <ul>
+    <li><span class="l">a.</span>Elimina los vectores de soporte redundantes y reduce el espacio utilizando una función Autoencoder, calculando los pesos antes de requerir la función de pérdida del hiperplano.</li>
+    <li><span class="l">b.</span>Cambia la formulación de una penalización tipo norma L2 a norma L1, generando un modelo disperso donde el hiperplano transformado se simplifica a la ecuación de una línea recta interceptante nula.</li>
+    <li><span class="l">c.</span>Aplica una operación algorítmica de Descomposición en Valores Singulares (SVD) sobre las variables atípicas antes del mapeo, cortando el árbol de expansión de Taylor en el grado 2 y descartando las infinitas dimensiones superiores.</li>
+    <li class="ok"><span class="l">d.</span>Demuestra que la formulación dual de la SVM depende estrictamente del producto interno entre pares de puntos en el espacio transformado (ϕ(xi)·ϕ(xj)). Esto permite sustituirlo por una función Kernel equivalente que se calcula directamente en el espacio original de baja dimensión.</li>
+  </ul>
+</div>
+<div class="q" id="p36">
+  <div class="cab"><b>Pregunta 36</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P36</div>
+  <div class="txt">Un científico de datos aplica DBSCAN a un conjunto de datos que contiene dos clusters: uno muy denso y otro disperso, separados por una región de baja densidad. Ajusta <code>eps=0.3</code> y <code>min_samples=5</code> . Observa que el cluster denso se detecta correctamente, pero el cluster disperso se fragmenta en varios grupos pequeños y muchos puntos se marcan como ruido. ¿Qué modificación debería probar <b>principalmente</b> para mejorar la detección del cluster disperso sin perder el cluster denso?</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Aumentar <code>eps</code> a 0.6 y posiblemente reducir <code>min_samples</code> .</li>
+    <li><span class="l">b.</span>Aumentar <code>min_samples</code> a 10.</li>
+    <li><span class="l">c.</span>Cambiar a clustering jerárquico con enlace <code>complete</code> .</li>
+    <li><span class="l">d.</span>Disminuir <code>eps</code> a 0.1.</li>
+  </ul>
+</div>
+<div class="q" id="p37">
+  <div class="cab"><b>Pregunta 37</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P37</div>
+  <div class="txt">Un equipo entrenó un <code>BaggingClassifier</code> con 100 árboles de decisión sin restricciones y obtuvo un accuracy en prueba del 85%. Luego, entrenó un <code>RandomForestClassifier</code> con los mismos 100 árboles y los mismos datos, obteniendo un 92% de accuracy. ¿Cuál es la <b>principal razón</b> del mejor rendimiento del bosque aleatorio?</div>
+  <ul>
+    <li><span class="l">a.</span>Bagging no utiliza muestreo bootstrap, mientras que Random Forest sí.</li>
+    <li class="ok"><span class="l">b.</span>El bosque aleatorio introduce aleatoriedad en la selección de características en cada división, lo que reduce la correlación entre los árboles y disminuye la varianza.</li>
+    <li><span class="l">c.</span>Random Forest utiliza poda posterior automática, eliminando el sobreajuste.</li>
+    <li><span class="l">d.</span>El bosque aleatorio utiliza árboles más profundos que Bagging.</li>
+  </ul>
+</div>
+<div class="q" id="p38">
+  <div class="cab"><b>Pregunta 38</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2026 · P38</div>
+  <div class="txt">Se aplica PCA a un conjunto de datos con 50 características. La varianza explicada acumulada por los primeros 5 componentes es del 60%, por los primeros 10 es del 85% y por los primeros 15 es del 95%. Si el objetivo es reducir la dimensionalidad conservando al menos el 90% de la varianza, ¿cuántos componentes se deben elegir?</div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>15</li>
+    <li><span class="l">b.</span>No se puede determinar sin conocer la matriz de covarianza.</li>
+    <li><span class="l">c.</span>10</li>
+    <li><span class="l">d.</span>5</li>
+  </ul>
+</div>
+<div class="q" id="p39">
+  <div class="cab"><b>Pregunta 39</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P2</div>
+  <div class="txt">Deseas medir la importancia relativa de las variables en un árbol de decisión.<br><b>¿Cuál criterio se utiliza más comúnmente para calcular la importancia?</b></div>
+  <ul>
+    <li><span class="l">a.</span>El orden de aparición en el árbol (niveles más altos).</li>
+    <li class="ok"><span class="l">b.</span>La reducción promedio de la impureza (Gini o Entropía).</li>
+    <li><span class="l">c.</span>El coeficiente de correlación con la variable objetivo.</li>
+    <li><span class="l">d.</span>La frecuencia de aparición en splits.</li>
+  </ul>
+</div>
+<div class="q" id="p40">
+  <div class="cab"><b>Pregunta 40</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P3</div>
+  <div class="txt">Un árbol de decisión para diagnóstico médico tiene profundidad 20 y está sobreajustado (train accuracy=1.0, test accuracy=0.70).<br><b>¿Qué acción controla mejor el sobreajuste?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Aumentar la profundidad máxima a 30.</li>
+    <li><span class="l">b.</span>Cambiar la métrica de split a Gini en lugar de Entropía.</li>
+    <li><span class="l">c.</span>Eliminar el 50% de las hojas aleatoriamente.</li>
+    <li class="ok"><span class="l">d.</span>Usar poda (pruning) con min_samples_leaf=5.</li>
+  </ul>
+</div>
+<div class="q" id="p41">
+  <div class="cab"><b>Pregunta 41</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P4</div>
+  <div class="txt">Comparando Random Forest (RF) y XGBoost en un dataset desbalanceado (clase minoritaria 5%).<br><b>¿Qué modelo requiere ajuste explícito para manejar el desbalanceo?</b></div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>XGBoost (tiene hiperparámetro <code>scale_pos_weight</code>).</li>
+    <li><span class="l">b.</span>Ninguno, deben usarse con SMOTE.</li>
+    <li><span class="l">c.</span>RF (usa bagging, no weighting).</li>
+    <li><span class="l">d.</span>Ambos lo manejan automáticamente.</li>
+  </ul>
+</div>
+<div class="q" id="p42">
+  <div class="cab"><b>Pregunta 42</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P5</div>
+  <div class="txt">¿Cuál de las siguientes opciones representa una desventaja común de los árboles de decisión en machine learning?</div>
+  <ul>
+    <li><span class="l">a.</span>Limitada capacidad para manejar problemas de clasificación multiclase.</li>
+    <li><span class="l">b.</span>Requieren un tiempo de entrenamiento prolongado en comparación con otros algoritmos.</li>
+    <li><span class="l">c.</span>Dificultad para manejar características numéricas en los datos.</li>
+    <li class="ok"><span class="l">d.</span>Tendencia al sobreajuste en conjuntos de datos complejos.</li>
+  </ul>
+</div>
+<div class="q" id="p43">
+  <div class="cab"><b>Pregunta 43</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P7</div>
+  <div class="txt">Un equipo construye un modelo de clasificación para detectar correos spam usando un dataset fuertemente desbalanceado (5% spam, 95% no spam).<br><b>¿Cuál de las siguientes métricas es la mejor para evaluar el desempeño del modelo?</b></div>
+  <ul>
+    <li><span class="l">a.</span>R² Score.</li>
+    <li class="ok"><span class="l">b.</span>Recall para la clase spam.</li>
+    <li><span class="l">c.</span>Mean Absolute Error.</li>
+    <li><span class="l">d.</span>Accuracy.</li>
+  </ul>
+</div>
+<div class="q" id="p44">
+  <div class="cab"><b>Pregunta 44</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P8</div>
+  <div class="txt">En un modelo de regresión lineal para predecir el precio de viviendas, el error (RMSE) es alto y los residuos muestran un patrón no lineal (en forma de U).<br><b>¿Qué acción es más adecuada para mejorar el modelo?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Aplicar log-transform a la variable objetivo.</li>
+    <li class="ok"><span class="l">b.</span>Cambiar a un modelo de regresión polinómica.</li>
+    <li><span class="l">c.</span>Aumentar la regularización L2 (Ridge).</li>
+    <li><span class="l">d.</span>Eliminar outliers del dataset.</li>
+  </ul>
+</div>
+<div class="q" id="p45">
+  <div class="cab"><b>Pregunta 45</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P10</div>
+  <div class="txt">Estás eligiendo entre Bagging y Boosting para un problema de clasificación en un dataset pequeño y ruidoso.<br><b>¿Cuál técnica sería preferible y por qué?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Boosting, porque combina modelos independientes en paralelo.</li>
+    <li><span class="l">b.</span>Boosting, porque minimiza el bias aunque haya ruido.</li>
+    <li><span class="l">c.</span>Bagging, porque reduce el bias mejor que Boosting.</li>
+    <li class="ok"><span class="l">d.</span>Bagging, porque reduce la varianza mejor que Boosting.</li>
+  </ul>
+</div>
+<div class="q" id="p46">
+  <div class="cab"><b>Pregunta 46</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P11</div>
+  <div class="txt">Un analista argumenta que "Random Forest y XGBoost son equivalentes porque ambos usan árboles y agregan predicciones".<br><b>¿Cuál es una diferencia crítica?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Random Forest ajusta árboles de forma secuencial, XGBoost en paralelo.</li>
+    <li class="ok"><span class="l">b.</span>XGBoost construye árboles para corregir errores anteriores (gradiente), Random Forest no.</li>
+    <li><span class="l">c.</span>Random Forest ajusta árboles basados en gradiente descendente, XGBoost no.</li>
+    <li><span class="l">d.</span>XGBoost usa solo árboles de decisión lineales.</li>
+  </ul>
+</div>
+<div class="q" id="p47">
+  <div class="cab"><b>Pregunta 47</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P12</div>
+  <div class="txt">Al aplicar KNN en un dataset numérico observas muy mal desempeño.<br><b>¿Qué preprocesamiento podría mejorar los resultados?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Eliminar instancias atípicas manualmente.</li>
+    <li class="ok"><span class="l">b.</span>Normalización o estandarización de características.</li>
+    <li><span class="l">c.</span>Aplicar PCA antes del KNN.</li>
+    <li><span class="l">d.</span>One-hot encoding.</li>
+  </ul>
+</div>
+<div class="q" id="p48">
+  <div class="cab"><b>Pregunta 48</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P13</div>
+  <div class="txt">Entrenas KNN en un dataset de 3000 dimensiones. El accuracy en prueba es bajo pese a un buen desempeño en entrenamiento.<br><b>¿Qué fenómeno es el principal responsable?</b></div>
+  <ul>
+    <li><span class="l">a.</span>Mal ajuste de la métrica de distancia.</li>
+    <li><span class="l">b.</span>Sobreajuste por alta varianza.</li>
+    <li class="ok"><span class="l">c.</span>Efecto de la "maldición de la dimensionalidad".</li>
+    <li><span class="l">d.</span>Uso de un <code>k</code> demasiado grande.</li>
+  </ul>
+</div>
+<div class="q" id="p49">
+  <div class="cab"><b>Pregunta 49</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P17</div>
+  <div class="txt">Al entrenar un clasificador binario, la curva ROC muestra AUC = 0.65.<br><b>¿Qué interpretación es correcta?</b></div>
+  <ul>
+    <li><span class="l">a.</span>La métrica AUC no aplica para clasificación binaria.</li>
+    <li><span class="l">b.</span>El modelo no es mejor que adivinar al azar (AUC = 0.5).</li>
+    <li class="ok"><span class="l">c.</span>El modelo es mejor que aleatorio pero con margen de mejora.</li>
+    <li><span class="l">d.</span>El modelo tiene alta precisión pero bajo recall.</li>
+  </ul>
+</div>
+<div class="q" id="p50">
+  <div class="cab"><b>Pregunta 50</b> &nbsp;·&nbsp; 1 pt &nbsp;·&nbsp; 2025-1 · P20</div>
+  <div class="txt">Un SVM con kernel RBF en un dataset de imágenes (n=10,000, p=100) tarda horas en entrenar.<br><b>¿Qué estrategia reduce el tiempo de entrenamiento sin sacrificar precisión?</b></div>
+  <ul>
+    <li class="ok"><span class="l">a.</span>Cambiar a kernel lineal y aplicar PCA.</li>
+    <li><span class="l">b.</span>Reducir el valor del hiperparámetro C.</li>
+    <li><span class="l">c.</span>Aumentar el parámetro gamma del kernel RBF.</li>
+    <li><span class="l">d.</span>Usar un subconjunto aleatorio de datos (subsampling).</li>
+  </ul>
+</div>
+
+</body>
+</html>

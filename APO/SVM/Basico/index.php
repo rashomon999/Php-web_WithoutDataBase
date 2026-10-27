@@ -49,10 +49,11 @@ $SOLUCIONES = [
     24 => ['escala', 'escalas'],
     25 => ['grandes', 'grande', 'muy grandes'],
     26 => ['negra'],
+    27 => ['maquinas de vectores de soporte'],
 ];
 
 /* todo es texto (no hay lineas de codigo en este cuestionario) */
-$TEXTO = range(1, 26);
+$TEXTO = range(1, 27);
 
 $MULTIPLE = [
     'm1' => [
@@ -141,7 +142,7 @@ cabecera('SVM 1 — Lo básico',
 <div class="card">
   <h2>1. Que es una SVM</h2>
 
-  <p>Las Maquinas de Vectores de Soporte (SVM) son un algoritmo de aprendizaje
+  <p>Las <?php hueco(27, 34); ?> (SVM) son un algoritmo de aprendizaje
      <?php hueco(1, 12); ?> (necesitan datos con etiqueta).</p>
 
   <p>Se usan principalmente para <?php hueco(2, 14); ?>, aunque tambien se pueden

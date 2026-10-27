@@ -19,8 +19,8 @@ $PARCIALES = [
         'ruta' => 'Parcial2.php',
         'tag'  => 'parcial',
         'tit'  => 'Parcial 2',
-        'desc' => 'Maquinas de Vectores de Soporte (SVM): hiperplano, margen, C, kernels, SVR y sklearn.',
-        'meta' => '1 bloque (SVM, 3 cuestionarios)'
+        'desc' => 'Maquinas de Vectores de Soporte (SVM): hiperplano, margen, C, kernels, SVR y sklearn; arboles de decision y validacion cruzada; metodos de ensamble; seleccion de caracteristicas; clustering y PCA; metricas, sesgo-varianza y regularizacion; y un test con las preguntas de parciales 2 anteriores.',
+        'meta' => 'mapa de metodos + 7 bloques (SVM · arboles y validacion cruzada · ensambles · seleccion de caracteristicas · no supervisado · metricas y regularizacion · test de 50 preguntas)'
     ],
 ];
 ?><!DOCTYPE html>

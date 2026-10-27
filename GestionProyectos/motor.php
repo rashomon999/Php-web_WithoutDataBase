@@ -78,9 +78,48 @@ function _texto($t) {
     return trim($t);
 }
 
+/* ---------- lectura de un numero escrito a mano ----------
+   Acepta "620.000", "620,000", "620000", "$ 1.666,67", "-60.000", "0,83",
+   "40%". Devuelve null si no es un numero.                                 */
+function _numero($t) {
+    $t = str_replace(["\xC2\xA0", "\xE2\x88\x92"], ['', '-'], (string) $t);
+    $t = preg_replace('/[\s$%]/u', '', $t);
+    $t = preg_replace('/^(us|u)/i', '', $t);
+    if (!preg_match('/^[+-]?[0-9.,]*[0-9][0-9.,]*$/', $t)) return null;
+    $neg = ($t[0] === '-');
+    $t   = ltrim($t, '+-');
+    $p = strrpos($t, '.');
+    $c = strrpos($t, ',');
+    if ($p !== false && $c !== false) {            // los dos: el ultimo es el decimal
+        $dec = $p > $c ? '.' : ',';
+        $mil = $dec === '.' ? ',' : '.';
+        $t = str_replace([$mil, $dec], ['', '.'], $t);
+    } elseif ($p !== false || $c !== false) {      // uno solo: miles o decimal
+        $sep = $p !== false ? '.' : ',';
+        if (preg_match('/^[1-9][0-9]{0,2}(\\' . $sep . '[0-9]{3})+$/', $t)) {
+            $t = str_replace($sep, '', $t);
+        } else {
+            if (substr_count($t, $sep) > 1) return null;
+            $t = str_replace($sep, '.', $t);
+        }
+    }
+    if (!is_numeric($t)) return null;
+    return $neg ? -(float) $t : (float) $t;
+}
+
 function _compararTexto($r, $acepta) {
+    $tr = _texto($r);
+    $nr = _numero($r);
     foreach ($acepta as $a) {
-        if (_texto($r) === _texto($a)) return 'correcto';
+        $ta = _texto($a);
+        if ($tr === $ta) return 'correcto';
+        /* "3FC-1 dia" == "3FC - 1 dia" */
+        if (str_replace(' ', '', $tr) === str_replace(' ', '', $ta)) return 'correcto';
+        /* numeros: se acepta el redondeo (2 decimales o 0,2%) */
+        if ($nr !== null) {
+            $na = _numero($a);
+            if ($na !== null && abs($nr - $na) <= max(0.006, abs($na) * 0.002)) return 'correcto';
+        }
     }
     return 'incorrecto';
 }

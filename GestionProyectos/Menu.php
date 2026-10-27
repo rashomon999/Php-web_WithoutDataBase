@@ -26,6 +26,14 @@ $CUESTIONARIOS = [
         'meta' => '100 huecos · 13 bloques',
         'src'  => 'Planeacion estrategica - HA (2).docx + Def Proyecto - OKRs.pdf'
     ],
+    [
+        'n'    => '4',
+        'ruta' => 'Parcial2/index.php',
+        'tit'  => 'Parcial 2 — Ruta critica, valor ganado y MS Project',
+        'desc' => 'Abre el submenu del segundo parcial con cuatro cuestionarios: ruta critica (conceptos, ejemplo de clase y taller), valor ganado (formulas, pronosticos, nombres en Project y los ejercicios del taller), MS Project planeacion (Backstage, calendarios, tareas, relaciones, recursos, linea base y el Cronocurso) y MS Project control y seguimiento (grupos de datos, campos, fecha de estado, valor acumulado e indicadores).',
+        'meta' => '4 cuestionarios sin conceptos repetidos',
+        'src'  => 'carpeta Parcial_2 (PDFs, taller y transcripciones de los videos)'
+    ],
 ];
 ?><!DOCTYPE html>
 <html lang="es">

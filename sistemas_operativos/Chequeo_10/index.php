@@ -9,10 +9,6 @@ for ($i = 1; $i <= 120; $i++) {
     ${"respuesta_" . $i} = '';
     ${"verificar_" . $i} = '';
 }
-for ($i = 1; $i <= 14; $i++) {
-    ${"libre_" . $i} = '';
-}
-
 /* ---------- Respuestas aceptadas ---------- */
 $claves = [
     // 1
@@ -82,16 +78,11 @@ function v($n) {
 }
 
 function chk($n, $valor) { return $GLOBALS["respuesta_" . $n] === $valor ? 'checked' : ''; }
-function libre($n) { return htmlspecialchars($GLOBALS["libre_" . $n], ENT_QUOTES, 'UTF-8'); }
 
 /* ---------- Procesamiento ---------- */
 $mostrar_solucion = '';
 if ($_POST) {
     $mostrar_solucion = isset($_POST['mostrar_solucion']) ? trim($_POST['mostrar_solucion']) : '';
-
-    for ($i = 1; $i <= 14; $i++) {
-        ${"libre_" . $i} = isset($_POST["libre_$i"]) ? $_POST["libre_$i"] : '';
-    }
 
     if ($mostrar_solucion === 'mostrar_solucion') {
         foreach ($claves as $n => $a) { ${"respuesta_$n"} = $a[0]; ${"verificar_$n"} = "correcto"; }
@@ -148,7 +139,6 @@ $ver_sol = ($mostrar_solucion === 'mostrar_solucion');
         background: #fff5f5; border-left: 5px solid #c53030;
         padding: 10px 14px; margin: 10px 0; font-size: 0.95rem; line-height: 1.6;
     }
-    textarea.libre { width: 100%; font-family: Arial, sans-serif; margin-top: 4px; }
     .etq { font-size: 0.86rem; color: #4a5568; }
     button { margin-top: 8px; }
     hr { margin: 18px 0; border: 0; border-top: 1px solid #e2e8f0; }
@@ -237,8 +227,6 @@ en la memoria física.</p>
 <p class="etq">El sistema operativo debe entonces localizarla, cargarla en un
 <input type="text" name="respuesta_7" value="<?php echo r(7); ?>" size="16"> <?php echo v(7) ?> disponible
 y actualizar la <input type="text" name="respuesta_8" value="<?php echo r(8); ?>" size="18"> <?php echo v(8) ?>.</p>
-<p class="etq">Respóndalo completo con sus palabras:</p>
-<textarea class="libre" name="libre_3" rows="3"><?php echo libre(3); ?></textarea>
 <button type="submit">Enviar</button>
 <?php if ($ver_sol): ?>
 <div class="solucion">
@@ -332,8 +320,6 @@ Reemplaza usando <b>únicamente sus propios marcos</b> asignados: reemplazo
 Puede reemplazar una página <b>perteneciente a otro proceso</b>: reemplazo
 <input type="text" name="respuesta_15" value="<?php echo r(15); ?>" size="12"> <?php echo v(15) ?>
 </p>
-<p class="etq">Explique la diferencia con sus palabras:</p>
-<textarea class="libre" name="libre_9" rows="3"><?php echo libre(9); ?></textarea>
 <button type="submit">Enviar</button>
 <?php if ($ver_sol): ?>
 <div class="solucion">
@@ -365,8 +351,6 @@ de ejecutar instrucciones útiles.
 <p class="enunciado">¿Cuál término se emplea para describir el conjunto de páginas que está referenciando un proceso
 actualmente?</p>
 <p><input type="text" name="respuesta_17" value="<?php echo r(17); ?>" size="26"> <?php echo v(17) ?></p>
-<p class="etq">Explique para qué sirve:</p>
-<textarea class="libre" name="libre_11" rows="3"><?php echo libre(11); ?></textarea>
 <button type="submit">Enviar</button>
 <?php if ($ver_sol): ?>
 <div class="solucion">

@@ -9,10 +9,6 @@ for ($i = 1; $i <= 120; $i++) {
     ${"respuesta_" . $i} = '';
     ${"verificar_" . $i} = '';
 }
-for ($i = 1; $i <= 14; $i++) {
-    ${"libre_" . $i} = '';
-}
-
 /* ---------- Respuestas aceptadas ---------- */
 $claves = [
     // 1. Protección simple
@@ -99,16 +95,11 @@ function v($n) {
 }
 
 function chk($n, $valor) { return $GLOBALS["respuesta_" . $n] === $valor ? 'checked' : ''; }
-function libre($n) { return htmlspecialchars($GLOBALS["libre_" . $n], ENT_QUOTES, 'UTF-8'); }
 
 /* ---------- Procesamiento ---------- */
 $mostrar_solucion = '';
 if ($_POST) {
     $mostrar_solucion = isset($_POST['mostrar_solucion']) ? trim($_POST['mostrar_solucion']) : '';
-
-    for ($i = 1; $i <= 14; $i++) {
-        ${"libre_" . $i} = isset($_POST["libre_$i"]) ? $_POST["libre_$i"] : '';
-    }
 
     if ($mostrar_solucion === 'mostrar_solucion') {
         foreach ($claves as $n => $a) { ${"respuesta_$n"} = $a[0]; ${"verificar_$n"} = "correcto"; }
@@ -139,11 +130,12 @@ $ver_sol = ($mostrar_solucion === 'mostrar_solucion');
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../style_2_0.css">
 <style>
-    body { font-family: Arial, sans-serif; background: #f5f7fb; margin: 0; padding: 20px; color: #1a202c; }
-    .form-container { display: flex; gap: 15px; align-items: flex-start; }
+    body { font-family: Arial, sans-serif; background: #f5f7fb; margin: 0; padding: 20px 20px 100px; color: #1a202c; height: auto; min-height: 100vh; }
+    .form-container { display: flex; gap: 15px; align-items: flex-start; height: auto; }
     .seccion {
         width: calc(50% - 7.5px); padding: 20px; box-sizing: border-box; background: white;
         border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        min-height: 0;
     }
     @media (max-width: 1100px) { .form-container { flex-direction: column; } .seccion { width: 100%; } }
     .cabecera {
@@ -151,13 +143,14 @@ $ver_sol = ($mostrar_solucion === 'mostrar_solucion');
         box-shadow: 0 6px 16px rgba(0,0,0,0.08); margin-bottom: 15px;
         border-left: 6px solid #2f855a;
     }
+    .centered-container { position: static; width: auto; padding: 12px; }
     h1 { font-size: 1.45rem; margin: 0 0 6px; }
     h3 { font-size: 1.1rem; margin-top: 16px; color: #22543d; }
     .enunciado { line-height: 1.6; font-weight: bold; margin: 4px 0 10px; }
     .opciones label { display: block; margin: 6px 0; cursor: pointer; }
     .correcto { color: #2f855a; font-weight: bold; }
     .incorrecto { color: #c53030; font-weight: bold; }
-    input[type="text"], textarea { border: 1px solid #a0aec0; border-radius: 4px; padding: 3px 5px; font-size: 0.95rem; }
+    input[type="text"] { border: 1px solid #a0aec0; border-radius: 4px; padding: 3px 5px; font-size: 0.95rem; }
     code { font-family: Consolas, "Courier New", monospace; font-size: 0.93rem; background:#edf2f7; padding:1px 4px; border-radius:3px; }
     .solucion {
         background: #f0fff4; border-left: 4px solid #38a169;
@@ -168,7 +161,6 @@ $ver_sol = ($mostrar_solucion === 'mostrar_solucion');
     .solucion li { margin: 4px 0; }
     .solucion .formula { font-family: Consolas, monospace; background:#e6fffa; padding:4px 8px; border-radius:4px; display:inline-block; margin:4px 0; }
     .nota { background: #fffaf0; border-left: 4px solid #dd6b20; padding: 8px 12px; margin: 10px 0; font-size: 0.88rem; line-height: 1.55; }
-    textarea.libre { width: 100%; font-family: Arial, sans-serif; margin-top: 4px; }
     .etq { font-size: 0.86rem; color: #4a5568; }
     button { margin-top: 8px; }
     hr { margin: 18px 0; border: 0; border-top: 1px solid #e2e8f0; }
@@ -296,15 +288,13 @@ Un dispositivo de hardware integrado en el procesador que traduce las direccione
 <hr>
 
 <h3>Pregunta 6</h3>
-<p class="enunciado">¿Cuáles son las dos formas de fragmentación? Explique brevemente.</p>
+<p class="enunciado">¿Cuáles son las dos formas de fragmentación?</p>
 <p>
 La memoria libre queda dividida en pequeños huecos dispersos: fragmentación
 <input type="text" name="respuesta_12" value="<?php echo r(12); ?>" size="12"> <?php echo v(12) ?><br>
 El proceso recibe un bloque mayor que lo que necesita: fragmentación
 <input type="text" name="respuesta_13" value="<?php echo r(13); ?>" size="12"> <?php echo v(13) ?>
 </p>
-<p class="etq">Explíquelas con sus palabras:</p>
-<textarea class="libre" name="libre_6" rows="3"><?php echo libre(6); ?></textarea>
 <button type="submit">Enviar</button>
 <?php if ($ver_sol): ?>
 <div class="solucion">
@@ -347,8 +337,6 @@ realmente necesita, por lo que una parte de la memoria asignada queda sin utiliz
 <p class="enunciado">¿Qué contiene cada entrada de la tabla de páginas?</p>
 <p>El número de <input type="text" name="respuesta_16" value="<?php echo r(16); ?>" size="22"> <?php echo v(16) ?>
 que le corresponde a esa página en la memoria física.</p>
-<p class="etq">Explíquelo con sus palabras:</p>
-<textarea class="libre" name="libre_8" rows="2"><?php echo libre(8); ?></textarea>
 <button type="submit">Enviar</button>
 <?php if ($ver_sol): ?>
 <div class="solucion">
@@ -417,8 +405,6 @@ El tamaño de la página se calcula elevando 2 al número de bits del desplazami
 <p class="etq">Mover información de la RAM al disco es la operación
 <input type="text" name="respuesta_23" value="<?php echo r(23); ?>" size="12"> <?php echo v(23) ?>;
 recuperarla es <input type="text" name="respuesta_24" value="<?php echo r(24); ?>" size="12"> <?php echo v(24) ?>.</p>
-<p class="etq">Explíquelo con sus palabras:</p>
-<textarea class="libre" name="libre_12" rows="3"><?php echo libre(12); ?></textarea>
 <button type="submit">Enviar</button>
 <?php if ($ver_sol): ?>
 <div class="solucion">
